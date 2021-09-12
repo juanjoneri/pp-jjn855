@@ -1,9 +1,9 @@
 grammar SimpleLang;
 
-r  : 'hello' ID EOF ;         // match keyword hello followed by an identifier
+r  : 'program' ID EOF ;      // Match the start of the program
 
-ID : [a-z]+ ;             // match lower-case identifiers
+ID : [a-zA-Z][a-zA-Z0-9_]+ ;             // Match and identifier
 
-WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines
+WS : [ \t\r\n]+ -> skip ;          // skip spaces, tabs, newlines
 
 OTHER: . ;
