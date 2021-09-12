@@ -7,13 +7,13 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface SimpleLangListener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by {@link SimpleLangParser#r}.
+	 * Enter a parse tree produced by {@link SimpleLangParser#root}.
 	 * @param ctx the parse tree
 	 */
-	void enterR(SimpleLangParser.RContext ctx);
+	void enterRoot(SimpleLangParser.RootContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SimpleLangParser#r}.
+	 * Exit a parse tree produced by {@link SimpleLangParser#root}.
 	 * @param ctx the parse tree
 	 */
-	void exitR(SimpleLangParser.RContext ctx);
+	void exitRoot(SimpleLangParser.RootContext ctx);
 }

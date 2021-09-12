@@ -15,13 +15,13 @@ public class SimpleLangBaseListener implements SimpleLangListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterR(SimpleLangParser.RContext ctx) { }
+	@Override public void enterRoot(SimpleLangParser.RootContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitR(SimpleLangParser.RContext ctx) { }
+	@Override public void exitRoot(SimpleLangParser.RootContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

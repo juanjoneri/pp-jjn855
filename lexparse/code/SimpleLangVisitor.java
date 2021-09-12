@@ -10,9 +10,9 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
  */
 public interface SimpleLangVisitor<T> extends ParseTreeVisitor<T> {
 	/**
-	 * Visit a parse tree produced by {@link SimpleLangParser#r}.
+	 * Visit a parse tree produced by {@link SimpleLangParser#root}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitR(SimpleLangParser.RContext ctx);
+	T visitRoot(SimpleLangParser.RootContext ctx);
 }

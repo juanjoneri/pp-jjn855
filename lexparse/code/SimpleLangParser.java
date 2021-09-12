@@ -18,10 +18,10 @@ public class SimpleLangParser extends Parser {
 	public static final int
 		T__0=1, ID=2, WS=3, OTHER=4;
 	public static final int
-		RULE_r = 0;
+		RULE_root = 0;
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"r"
+			"root"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -88,31 +88,31 @@ public class SimpleLangParser extends Parser {
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
-	public static class RContext extends ParserRuleContext {
+	public static class RootContext extends ParserRuleContext {
 		public TerminalNode ID() { return getToken(SimpleLangParser.ID, 0); }
 		public TerminalNode EOF() { return getToken(SimpleLangParser.EOF, 0); }
-		public RContext(ParserRuleContext parent, int invokingState) {
+		public RootContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_r; }
+		@Override public int getRuleIndex() { return RULE_root; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SimpleLangListener ) ((SimpleLangListener)listener).enterR(this);
+			if ( listener instanceof SimpleLangListener ) ((SimpleLangListener)listener).enterRoot(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SimpleLangListener ) ((SimpleLangListener)listener).exitR(this);
+			if ( listener instanceof SimpleLangListener ) ((SimpleLangListener)listener).exitRoot(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SimpleLangVisitor ) return ((SimpleLangVisitor<? extends T>)visitor).visitR(this);
+			if ( visitor instanceof SimpleLangVisitor ) return ((SimpleLangVisitor<? extends T>)visitor).visitRoot(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
-	public final RContext r() throws RecognitionException {
-		RContext _localctx = new RContext(_ctx, getState());
-		enterRule(_localctx, 0, RULE_r);
+	public final RootContext root() throws RecognitionException {
+		RootContext _localctx = new RootContext(_ctx, getState());
+		enterRule(_localctx, 0, RULE_root);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
