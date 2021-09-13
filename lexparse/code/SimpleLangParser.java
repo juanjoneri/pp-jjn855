@@ -283,12 +283,31 @@ public class SimpleLangParser extends Parser {
 		public TypeContext type() {
 			return getRuleContext(TypeContext.class,0);
 		}
-		public TerminalNode ID() { return getToken(SimpleLangParser.ID, 0); }
-		public TerminalNode EQ() { return getToken(SimpleLangParser.EQ, 0); }
+		public List<TerminalNode> ID() { return getTokens(SimpleLangParser.ID); }
+		public TerminalNode ID(int i) {
+			return getToken(SimpleLangParser.ID, i);
+		}
+		public List<TerminalNode> EQ() { return getTokens(SimpleLangParser.EQ); }
+		public TerminalNode EQ(int i) {
+			return getToken(SimpleLangParser.EQ, i);
+		}
 		public TerminalNode SM() { return getToken(SimpleLangParser.SM, 0); }
-		public TerminalNode NUM() { return getToken(SimpleLangParser.NUM, 0); }
-		public TerminalNode CHAR() { return getToken(SimpleLangParser.CHAR, 0); }
-		public TerminalNode BOOL() { return getToken(SimpleLangParser.BOOL, 0); }
+		public List<TerminalNode> NUM() { return getTokens(SimpleLangParser.NUM); }
+		public TerminalNode NUM(int i) {
+			return getToken(SimpleLangParser.NUM, i);
+		}
+		public List<TerminalNode> CHAR() { return getTokens(SimpleLangParser.CHAR); }
+		public TerminalNode CHAR(int i) {
+			return getToken(SimpleLangParser.CHAR, i);
+		}
+		public List<TerminalNode> BOOL() { return getTokens(SimpleLangParser.BOOL); }
+		public TerminalNode BOOL(int i) {
+			return getToken(SimpleLangParser.BOOL, i);
+		}
+		public List<TerminalNode> COMMA() { return getTokens(SimpleLangParser.COMMA); }
+		public TerminalNode COMMA(int i) {
+			return getToken(SimpleLangParser.COMMA, i);
+		}
 		public ConstDeclContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -333,7 +352,35 @@ public class SimpleLangParser extends Parser {
 				_errHandler.reportMatch(this);
 				consume();
 			}
-			setState(37);
+			setState(43);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			while (_la==COMMA) {
+				{
+				{
+				setState(37);
+				match(COMMA);
+				setState(38);
+				match(ID);
+				setState(39);
+				match(EQ);
+				setState(40);
+				_la = _input.LA(1);
+				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << NUM) | (1L << CHAR) | (1L << BOOL))) != 0)) ) {
+				_errHandler.recoverInline(this);
+				}
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
+					consume();
+				}
+				}
+				}
+				setState(45);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+			}
+			setState(46);
 			match(SM);
 			}
 		}
@@ -388,31 +435,31 @@ public class SimpleLangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(39);
+			setState(48);
 			match(T__2);
-			setState(40);
+			setState(49);
 			match(ID);
-			setState(41);
+			setState(50);
 			match(OCB);
-			setState(42);
+			setState(51);
 			enumValueDecl();
-			setState(47);
+			setState(56);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==COMMA) {
 				{
 				{
-				setState(43);
+				setState(52);
 				match(COMMA);
-				setState(44);
+				setState(53);
 				enumValueDecl();
 				}
 				}
-				setState(49);
+				setState(58);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(50);
+			setState(59);
 			match(CCB);
 			}
 		}
@@ -457,16 +504,16 @@ public class SimpleLangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(52);
+			setState(61);
 			match(ID);
-			setState(55);
+			setState(64);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==EQ) {
 				{
-				setState(53);
+				setState(62);
 				match(EQ);
-				setState(54);
+				setState(63);
 				match(NUM);
 				}
 			}
@@ -531,51 +578,51 @@ public class SimpleLangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(57);
+			setState(66);
 			type();
-			setState(58);
+			setState(67);
 			match(ID);
-			setState(61);
+			setState(70);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==OB) {
 				{
-				setState(59);
+				setState(68);
 				match(OB);
-				setState(60);
+				setState(69);
 				match(CB);
 				}
 			}
 
-			setState(71);
+			setState(80);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==COMMA) {
 				{
 				{
-				setState(63);
+				setState(72);
 				match(COMMA);
-				setState(64);
+				setState(73);
 				match(ID);
-				setState(67);
+				setState(76);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==OB) {
 					{
-					setState(65);
+					setState(74);
 					match(OB);
-					setState(66);
+					setState(75);
 					match(CB);
 					}
 				}
 
 				}
 				}
-				setState(73);
+				setState(82);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(74);
+			setState(83);
 			match(SM);
 			}
 		}
@@ -617,7 +664,7 @@ public class SimpleLangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(76);
+			setState(85);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__3) | (1L << T__4) | (1L << T__5))) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -641,26 +688,28 @@ public class SimpleLangParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\25Q\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\25Z\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\3\2\3\2\3\2\3\3\3\3"+
 		"\3\3\7\3\31\n\3\f\3\16\3\34\13\3\3\4\3\4\3\4\5\4!\n\4\3\5\3\5\3\5\3\5"+
-		"\3\5\3\5\3\5\3\6\3\6\3\6\3\6\3\6\3\6\7\6\60\n\6\f\6\16\6\63\13\6\3\6\3"+
-		"\6\3\7\3\7\3\7\5\7:\n\7\3\b\3\b\3\b\3\b\5\b@\n\b\3\b\3\b\3\b\3\b\5\bF"+
-		"\n\b\7\bH\n\b\f\b\16\bK\13\b\3\b\3\b\3\t\3\t\3\t\2\2\n\2\4\6\b\n\f\16"+
-		"\20\2\4\3\2\t\13\3\2\6\b\2P\2\22\3\2\2\2\4\25\3\2\2\2\6 \3\2\2\2\b\"\3"+
-		"\2\2\2\n)\3\2\2\2\f\66\3\2\2\2\16;\3\2\2\2\20N\3\2\2\2\22\23\5\4\3\2\23"+
-		"\24\7\2\2\3\24\3\3\2\2\2\25\26\7\3\2\2\26\32\7\f\2\2\27\31\5\6\4\2\30"+
-		"\27\3\2\2\2\31\34\3\2\2\2\32\30\3\2\2\2\32\33\3\2\2\2\33\5\3\2\2\2\34"+
-		"\32\3\2\2\2\35!\5\b\5\2\36!\5\n\6\2\37!\5\16\b\2 \35\3\2\2\2 \36\3\2\2"+
-		"\2 \37\3\2\2\2!\7\3\2\2\2\"#\7\4\2\2#$\5\20\t\2$%\7\f\2\2%&\7\r\2\2&\'"+
-		"\t\2\2\2\'(\7\16\2\2(\t\3\2\2\2)*\7\5\2\2*+\7\f\2\2+,\7\21\2\2,\61\5\f"+
-		"\7\2-.\7\23\2\2.\60\5\f\7\2/-\3\2\2\2\60\63\3\2\2\2\61/\3\2\2\2\61\62"+
-		"\3\2\2\2\62\64\3\2\2\2\63\61\3\2\2\2\64\65\7\22\2\2\65\13\3\2\2\2\669"+
-		"\7\f\2\2\678\7\r\2\28:\7\t\2\29\67\3\2\2\29:\3\2\2\2:\r\3\2\2\2;<\5\20"+
-		"\t\2<?\7\f\2\2=>\7\17\2\2>@\7\20\2\2?=\3\2\2\2?@\3\2\2\2@I\3\2\2\2AB\7"+
-		"\23\2\2BE\7\f\2\2CD\7\17\2\2DF\7\20\2\2EC\3\2\2\2EF\3\2\2\2FH\3\2\2\2"+
-		"GA\3\2\2\2HK\3\2\2\2IG\3\2\2\2IJ\3\2\2\2JL\3\2\2\2KI\3\2\2\2LM\7\16\2"+
-		"\2M\17\3\2\2\2NO\t\3\2\2O\21\3\2\2\2\t\32 \619?EI";
+		"\3\5\3\5\3\5\3\5\3\5\7\5,\n\5\f\5\16\5/\13\5\3\5\3\5\3\6\3\6\3\6\3\6\3"+
+		"\6\3\6\7\69\n\6\f\6\16\6<\13\6\3\6\3\6\3\7\3\7\3\7\5\7C\n\7\3\b\3\b\3"+
+		"\b\3\b\5\bI\n\b\3\b\3\b\3\b\3\b\5\bO\n\b\7\bQ\n\b\f\b\16\bT\13\b\3\b\3"+
+		"\b\3\t\3\t\3\t\2\2\n\2\4\6\b\n\f\16\20\2\4\3\2\t\13\3\2\6\b\2Z\2\22\3"+
+		"\2\2\2\4\25\3\2\2\2\6 \3\2\2\2\b\"\3\2\2\2\n\62\3\2\2\2\f?\3\2\2\2\16"+
+		"D\3\2\2\2\20W\3\2\2\2\22\23\5\4\3\2\23\24\7\2\2\3\24\3\3\2\2\2\25\26\7"+
+		"\3\2\2\26\32\7\f\2\2\27\31\5\6\4\2\30\27\3\2\2\2\31\34\3\2\2\2\32\30\3"+
+		"\2\2\2\32\33\3\2\2\2\33\5\3\2\2\2\34\32\3\2\2\2\35!\5\b\5\2\36!\5\n\6"+
+		"\2\37!\5\16\b\2 \35\3\2\2\2 \36\3\2\2\2 \37\3\2\2\2!\7\3\2\2\2\"#\7\4"+
+		"\2\2#$\5\20\t\2$%\7\f\2\2%&\7\r\2\2&-\t\2\2\2\'(\7\23\2\2()\7\f\2\2)*"+
+		"\7\r\2\2*,\t\2\2\2+\'\3\2\2\2,/\3\2\2\2-+\3\2\2\2-.\3\2\2\2.\60\3\2\2"+
+		"\2/-\3\2\2\2\60\61\7\16\2\2\61\t\3\2\2\2\62\63\7\5\2\2\63\64\7\f\2\2\64"+
+		"\65\7\21\2\2\65:\5\f\7\2\66\67\7\23\2\2\679\5\f\7\28\66\3\2\2\29<\3\2"+
+		"\2\2:8\3\2\2\2:;\3\2\2\2;=\3\2\2\2<:\3\2\2\2=>\7\22\2\2>\13\3\2\2\2?B"+
+		"\7\f\2\2@A\7\r\2\2AC\7\t\2\2B@\3\2\2\2BC\3\2\2\2C\r\3\2\2\2DE\5\20\t\2"+
+		"EH\7\f\2\2FG\7\17\2\2GI\7\20\2\2HF\3\2\2\2HI\3\2\2\2IR\3\2\2\2JK\7\23"+
+		"\2\2KN\7\f\2\2LM\7\17\2\2MO\7\20\2\2NL\3\2\2\2NO\3\2\2\2OQ\3\2\2\2PJ\3"+
+		"\2\2\2QT\3\2\2\2RP\3\2\2\2RS\3\2\2\2SU\3\2\2\2TR\3\2\2\2UV\7\16\2\2V\17"+
+		"\3\2\2\2WX\t\3\2\2X\21\3\2\2\2\n\32 -:BHNR";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

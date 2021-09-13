@@ -1,2 +1,2 @@
 program myFancyProgram007
-  int eggs[], cows[];
+  const int hola = 1, chau = 2;

@@ -13,7 +13,7 @@ declaration
     ;
 
 constDecl 
-    : 'const' type ID EQ (NUM | CHAR | BOOL) SM // TODO missing multiple assignment
+    : 'const' type ID EQ (NUM | CHAR | BOOL) (COMMA ID EQ (NUM | CHAR | BOOL))* SM // TODO missing multiple assignment
     ;
 
 enumDecl
