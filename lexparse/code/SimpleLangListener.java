@@ -47,23 +47,13 @@ public interface SimpleLangListener extends ParseTreeListener {
 	 */
 	void exitConstDecl(SimpleLangParser.ConstDeclContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SimpleLangParser#numConst}.
+	 * Enter a parse tree produced by {@link SimpleLangParser#type}.
 	 * @param ctx the parse tree
 	 */
-	void enterNumConst(SimpleLangParser.NumConstContext ctx);
+	void enterType(SimpleLangParser.TypeContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SimpleLangParser#numConst}.
+	 * Exit a parse tree produced by {@link SimpleLangParser#type}.
 	 * @param ctx the parse tree
 	 */
-	void exitNumConst(SimpleLangParser.NumConstContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link SimpleLangParser#charConst}.
-	 * @param ctx the parse tree
-	 */
-	void enterCharConst(SimpleLangParser.CharConstContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link SimpleLangParser#charConst}.
-	 * @param ctx the parse tree
-	 */
-	void exitCharConst(SimpleLangParser.CharConstContext ctx);
+	void exitType(SimpleLangParser.TypeContext ctx);
 }

@@ -1,5 +1,7 @@
 grammar SimpleLang;
 
+// Parser rules
+
 r   : program EOF ;
 
 program 
@@ -9,14 +11,20 @@ declaration
     ;
 
 constDecl 
-    : 'const' ID '=' ( numConst | charConst ) ';' ;
+    : 'const' type ID '=' ( NUM | CHAR | BOOL ) ';' ;
 
-numConst : DIGIT DIGIT* ;
-charConst : '\'' ~NON_PRINTABLE '\'' ;
 
-DIGIT : [0-9] ;
+type : ( 'int' | 'char' | 'bool' ) ;
+
+// Lex rules (least to most general)
+
+NUM : [0-9][0-9]* ; 
+CHAR : '\'' ~['\\\r\n] '\'' ;             // TODO: Match a single char
+BOOL 
+    : 'true' 
+    | 'false'
+    ;
 ID : [a-zA-Z][a-zA-Z0-9_]* ;
-NON_PRINTABLE : [\r\n] ;
 
 WS : [ \t\r\n]+ -> skip ;          // skip spaces, tabs, newlines
 OTHER: . ;
