@@ -1,2 +1,3 @@
 program myFancyProgram007
-  const vAr1abLe = 900;
+  const v1 = 900;
+  const v2 = 'Csd';

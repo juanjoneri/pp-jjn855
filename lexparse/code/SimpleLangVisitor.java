@@ -33,4 +33,16 @@ public interface SimpleLangVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitConstDecl(SimpleLangParser.ConstDeclContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SimpleLangParser#numConst}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNumConst(SimpleLangParser.NumConstContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SimpleLangParser#charConst}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCharConst(SimpleLangParser.CharConstContext ctx);
 }

@@ -9,10 +9,14 @@ declaration
     ;
 
 constDecl 
-    : 'const' ID '=' NUM_CONST ';' ;
+    : 'const' ID '=' ( numConst | charConst ) ';' ;
 
-NUM_CONST : [1-9][0-9]* ;           // Match valid numbers
-ID : [a-zA-Z][a-zA-Z0-9_]* ;        // Match and identifier
+numConst : DIGIT DIGIT* ;
+charConst : '\'' ~NON_PRINTABLE '\'' ;
+
+DIGIT : [0-9] ;
+ID : [a-zA-Z][a-zA-Z0-9_]* ;
+NON_PRINTABLE : [\r\n] ;
 
 WS : [ \t\r\n]+ -> skip ;          // skip spaces, tabs, newlines
 OTHER: . ;
