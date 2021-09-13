@@ -1,7 +1,5 @@
 program myFancyProgram007
-  const int a = 1, b = 2;
-  int pos[], neg[];
-
-  class Table implements I {
-        int pos[], neg[];
+  interface I {
+        int getp(int i[], bool a);
+        int getn(int i);
     }

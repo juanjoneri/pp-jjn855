@@ -27,16 +27,6 @@ public interface SimpleLangListener extends ParseTreeListener {
 	 */
 	void exitProgram(SimpleLangParser.ProgramContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SimpleLangParser#declaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterDeclaration(SimpleLangParser.DeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link SimpleLangParser#declaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitDeclaration(SimpleLangParser.DeclarationContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link SimpleLangParser#constDecl}.
 	 * @param ctx the parse tree
 	 */
@@ -56,16 +46,6 @@ public interface SimpleLangListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitEnumDecl(SimpleLangParser.EnumDeclContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link SimpleLangParser#enumValueDecl}.
-	 * @param ctx the parse tree
-	 */
-	void enterEnumValueDecl(SimpleLangParser.EnumValueDeclContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link SimpleLangParser#enumValueDecl}.
-	 * @param ctx the parse tree
-	 */
-	void exitEnumValueDecl(SimpleLangParser.EnumValueDeclContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link SimpleLangParser#varDecl}.
 	 * @param ctx the parse tree
@@ -87,6 +67,26 @@ public interface SimpleLangListener extends ParseTreeListener {
 	 */
 	void exitClassDecl(SimpleLangParser.ClassDeclContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link SimpleLangParser#interfaceDecl}.
+	 * @param ctx the parse tree
+	 */
+	void enterInterfaceDecl(SimpleLangParser.InterfaceDeclContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleLangParser#interfaceDecl}.
+	 * @param ctx the parse tree
+	 */
+	void exitInterfaceDecl(SimpleLangParser.InterfaceDeclContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleLangParser#interfaceMethodDecl}.
+	 * @param ctx the parse tree
+	 */
+	void enterInterfaceMethodDecl(SimpleLangParser.InterfaceMethodDeclContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleLangParser#interfaceMethodDecl}.
+	 * @param ctx the parse tree
+	 */
+	void exitInterfaceMethodDecl(SimpleLangParser.InterfaceMethodDeclContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link SimpleLangParser#methodDecl}.
 	 * @param ctx the parse tree
 	 */
@@ -97,6 +97,16 @@ public interface SimpleLangListener extends ParseTreeListener {
 	 */
 	void exitMethodDecl(SimpleLangParser.MethodDeclContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link SimpleLangParser#formParams}.
+	 * @param ctx the parse tree
+	 */
+	void enterFormParams(SimpleLangParser.FormParamsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleLangParser#formParams}.
+	 * @param ctx the parse tree
+	 */
+	void exitFormParams(SimpleLangParser.FormParamsContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link SimpleLangParser#type}.
 	 * @param ctx the parse tree
 	 */
@@ -106,4 +116,14 @@ public interface SimpleLangListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitType(SimpleLangParser.TypeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleLangParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterStatement(SimpleLangParser.StatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleLangParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitStatement(SimpleLangParser.StatementContext ctx);
 }

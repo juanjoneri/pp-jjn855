@@ -22,12 +22,6 @@ public interface SimpleLangVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitProgram(SimpleLangParser.ProgramContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SimpleLangParser#declaration}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitDeclaration(SimpleLangParser.DeclarationContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link SimpleLangParser#constDecl}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -39,12 +33,6 @@ public interface SimpleLangVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitEnumDecl(SimpleLangParser.EnumDeclContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link SimpleLangParser#enumValueDecl}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitEnumValueDecl(SimpleLangParser.EnumValueDeclContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link SimpleLangParser#varDecl}.
 	 * @param ctx the parse tree
@@ -58,15 +46,39 @@ public interface SimpleLangVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitClassDecl(SimpleLangParser.ClassDeclContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link SimpleLangParser#interfaceDecl}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitInterfaceDecl(SimpleLangParser.InterfaceDeclContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SimpleLangParser#interfaceMethodDecl}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitInterfaceMethodDecl(SimpleLangParser.InterfaceMethodDeclContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link SimpleLangParser#methodDecl}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitMethodDecl(SimpleLangParser.MethodDeclContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link SimpleLangParser#formParams}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFormParams(SimpleLangParser.FormParamsContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link SimpleLangParser#type}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitType(SimpleLangParser.TypeContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SimpleLangParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStatement(SimpleLangParser.StatementContext ctx);
 }

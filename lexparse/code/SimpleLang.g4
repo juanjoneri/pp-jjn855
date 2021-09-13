@@ -5,12 +5,7 @@ grammar SimpleLang;
 r   : program EOF ;
 
 program 
-    : 'program' ID declaration* ;      // Match the start of the program
-declaration
-    : constDecl
-    | enumDecl
-    | classDecl
-    | varDecl
+    : 'program' ID (constDecl | varDecl | classDecl | enumDecl | interfaceDecl)* 
     ;
 
 constDecl 
@@ -18,9 +13,8 @@ constDecl
     ;
 
 enumDecl
-    : 'enum' ID OCB enumValueDecl (COMMA enumValueDecl)* CCB
+    : 'enum' ID OCB ID (EQ NUM)? (COMMA ID (EQ NUM)?)* CCB
     ;
-enumValueDecl : ID (EQ NUM)? ;
 
 varDecl
     : type ID (OB CB)? (COMMA ID (OB CB)?)* SM
@@ -30,11 +24,27 @@ classDecl
     : 'class' ID ('extends' type)? ('implements' type (COMMA type)*)? OCB varDecl* (OCB methodDecl* CCB)? CCB
     ;
 
+interfaceDecl
+    : 'interface' ID OCB interfaceMethodDecl* CCB
+    ;
+
+interfaceMethodDecl
+    : (type | 'void') ID OP formParams? CP SM
+    ;
+
 methodDecl
-    : 'someMethods'
+    : (type | 'void') ID OB formParams? CB varDecl* OCB statement* CCB
+    ;
+
+formParams
+    : type ID (OB CB)? (COMMA type ID (OB CB)?)*
     ;
 
 type : ID ;
+
+statement
+    : 'TODO'
+    ;
 
 // Lex rules (least to most general)
 
@@ -54,6 +64,8 @@ OB : '[' ;
 CB : ']' ;
 OCB : '{' ;
 CCB : '}' ;
+OP : '(' ;
+CP : ')' ;
 COMMA : ',' ;
 
 WS : [ \t\r\n]+ -> skip ;          // skip spaces, tabs, newlines
