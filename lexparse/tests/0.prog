@@ -1,2 +1,7 @@
 program myFancyProgram007
-  const int hola = 1, chau = 2;
+  const int a = 1, b = 2;
+  int pos[], neg[];
+
+  class Table implements I {
+        int pos[], neg[];
+    }

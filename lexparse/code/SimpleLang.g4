@@ -9,6 +9,7 @@ program
 declaration
     : constDecl
     | enumDecl
+    | classDecl
     | varDecl
     ;
 
@@ -25,8 +26,15 @@ varDecl
     : type ID (OB CB)? (COMMA ID (OB CB)?)* SM
     ;
 
+classDecl
+    : 'class' ID ('extends' type)? ('implements' type (COMMA type)*)? OCB varDecl* (OCB methodDecl* CCB)? CCB
+    ;
 
-type : ('int' | 'char' | 'bool') ;
+methodDecl
+    : 'someMethods'
+    ;
+
+type : ID ;
 
 // Lex rules (least to most general)
 
