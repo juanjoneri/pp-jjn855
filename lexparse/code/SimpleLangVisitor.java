@@ -46,6 +46,12 @@ public interface SimpleLangVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitEnumValueDecl(SimpleLangParser.EnumValueDeclContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link SimpleLangParser#varDecl}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVarDecl(SimpleLangParser.VarDeclContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link SimpleLangParser#type}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

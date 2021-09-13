@@ -1,5 +1,2 @@
 program myFancyProgram007
-  const int v1 = 900;
-  const char v2 = 'a';
-  const bool v3 = true;
-  enum Num { ZERO, ONE, TEN = 10 }
+  int eggs[], cows[];

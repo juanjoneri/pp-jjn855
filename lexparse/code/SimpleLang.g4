@@ -9,17 +9,22 @@ program
 declaration
     : constDecl
     | enumDecl
+    | varDecl
     ;
 
 constDecl 
-    : 'const' type ID EQ (NUM | CHAR | BOOL) SM
+    : 'const' type ID EQ (NUM | CHAR | BOOL) SM // TODO missing multiple assignment
     ;
 
 enumDecl
-    : 'enum' ID OB enumValueDecl (COMMA enumValueDecl)* CB
+    : 'enum' ID OCB enumValueDecl (COMMA enumValueDecl)* CCB
+    ;
+enumValueDecl : ID (EQ NUM)? ;
+
+varDecl
+    : type ID (OB CB)? (COMMA ID (OB CB)?)* SM
     ;
 
-enumValueDecl : ID (EQ NUM)? ;
 
 type : ('int' | 'char' | 'bool') ;
 
@@ -37,8 +42,10 @@ ID : [a-zA-Z][a-zA-Z0-9_]* ;
 
 EQ : '=' ;
 SM : ';' ;
-OB : '{' ;
-CB : '}' ;
+OB : '[' ;
+CB : ']' ;
+OCB : '{' ;
+CCB : '}' ;
 COMMA : ',' ;
 
 WS : [ \t\r\n]+ -> skip ;          // skip spaces, tabs, newlines
