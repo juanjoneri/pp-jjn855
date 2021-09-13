@@ -47,6 +47,26 @@ public interface SimpleLangListener extends ParseTreeListener {
 	 */
 	void exitConstDecl(SimpleLangParser.ConstDeclContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link SimpleLangParser#enumDecl}.
+	 * @param ctx the parse tree
+	 */
+	void enterEnumDecl(SimpleLangParser.EnumDeclContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleLangParser#enumDecl}.
+	 * @param ctx the parse tree
+	 */
+	void exitEnumDecl(SimpleLangParser.EnumDeclContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleLangParser#enumValueDecl}.
+	 * @param ctx the parse tree
+	 */
+	void enterEnumValueDecl(SimpleLangParser.EnumValueDeclContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleLangParser#enumValueDecl}.
+	 * @param ctx the parse tree
+	 */
+	void exitEnumValueDecl(SimpleLangParser.EnumValueDeclContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link SimpleLangParser#type}.
 	 * @param ctx the parse tree
 	 */

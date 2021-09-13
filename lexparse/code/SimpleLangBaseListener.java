@@ -63,6 +63,30 @@ public class SimpleLangBaseListener implements SimpleLangListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterEnumDecl(SimpleLangParser.EnumDeclContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitEnumDecl(SimpleLangParser.EnumDeclContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterEnumValueDecl(SimpleLangParser.EnumValueDeclContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitEnumValueDecl(SimpleLangParser.EnumValueDeclContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterType(SimpleLangParser.TypeContext ctx) { }
 	/**
 	 * {@inheritDoc}
