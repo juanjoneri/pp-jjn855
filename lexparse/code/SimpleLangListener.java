@@ -7,13 +7,43 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface SimpleLangListener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by {@link SimpleLangParser#root}.
+	 * Enter a parse tree produced by {@link SimpleLangParser#r}.
 	 * @param ctx the parse tree
 	 */
-	void enterRoot(SimpleLangParser.RootContext ctx);
+	void enterR(SimpleLangParser.RContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SimpleLangParser#root}.
+	 * Exit a parse tree produced by {@link SimpleLangParser#r}.
 	 * @param ctx the parse tree
 	 */
-	void exitRoot(SimpleLangParser.RootContext ctx);
+	void exitR(SimpleLangParser.RContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleLangParser#program}.
+	 * @param ctx the parse tree
+	 */
+	void enterProgram(SimpleLangParser.ProgramContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleLangParser#program}.
+	 * @param ctx the parse tree
+	 */
+	void exitProgram(SimpleLangParser.ProgramContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleLangParser#declaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterDeclaration(SimpleLangParser.DeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleLangParser#declaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitDeclaration(SimpleLangParser.DeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleLangParser#constDecl}.
+	 * @param ctx the parse tree
+	 */
+	void enterConstDecl(SimpleLangParser.ConstDeclContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleLangParser#constDecl}.
+	 * @param ctx the parse tree
+	 */
+	void exitConstDecl(SimpleLangParser.ConstDeclContext ctx);
 }
