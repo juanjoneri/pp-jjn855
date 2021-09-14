@@ -126,4 +126,134 @@ public interface SimpleLangListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitStatement(SimpleLangParser.StatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleLangParser#designatorStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterDesignatorStatement(SimpleLangParser.DesignatorStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleLangParser#designatorStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitDesignatorStatement(SimpleLangParser.DesignatorStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleLangParser#actPars}.
+	 * @param ctx the parse tree
+	 */
+	void enterActPars(SimpleLangParser.ActParsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleLangParser#actPars}.
+	 * @param ctx the parse tree
+	 */
+	void exitActPars(SimpleLangParser.ActParsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleLangParser#condition}.
+	 * @param ctx the parse tree
+	 */
+	void enterCondition(SimpleLangParser.ConditionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleLangParser#condition}.
+	 * @param ctx the parse tree
+	 */
+	void exitCondition(SimpleLangParser.ConditionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleLangParser#condTerm}.
+	 * @param ctx the parse tree
+	 */
+	void enterCondTerm(SimpleLangParser.CondTermContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleLangParser#condTerm}.
+	 * @param ctx the parse tree
+	 */
+	void exitCondTerm(SimpleLangParser.CondTermContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleLangParser#condFact}.
+	 * @param ctx the parse tree
+	 */
+	void enterCondFact(SimpleLangParser.CondFactContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleLangParser#condFact}.
+	 * @param ctx the parse tree
+	 */
+	void exitCondFact(SimpleLangParser.CondFactContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleLangParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr(SimpleLangParser.ExprContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleLangParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr(SimpleLangParser.ExprContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleLangParser#term}.
+	 * @param ctx the parse tree
+	 */
+	void enterTerm(SimpleLangParser.TermContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleLangParser#term}.
+	 * @param ctx the parse tree
+	 */
+	void exitTerm(SimpleLangParser.TermContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleLangParser#factor}.
+	 * @param ctx the parse tree
+	 */
+	void enterFactor(SimpleLangParser.FactorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleLangParser#factor}.
+	 * @param ctx the parse tree
+	 */
+	void exitFactor(SimpleLangParser.FactorContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleLangParser#designator}.
+	 * @param ctx the parse tree
+	 */
+	void enterDesignator(SimpleLangParser.DesignatorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleLangParser#designator}.
+	 * @param ctx the parse tree
+	 */
+	void exitDesignator(SimpleLangParser.DesignatorContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleLangParser#assignop}.
+	 * @param ctx the parse tree
+	 */
+	void enterAssignop(SimpleLangParser.AssignopContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleLangParser#assignop}.
+	 * @param ctx the parse tree
+	 */
+	void exitAssignop(SimpleLangParser.AssignopContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleLangParser#relop}.
+	 * @param ctx the parse tree
+	 */
+	void enterRelop(SimpleLangParser.RelopContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleLangParser#relop}.
+	 * @param ctx the parse tree
+	 */
+	void exitRelop(SimpleLangParser.RelopContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleLangParser#addop}.
+	 * @param ctx the parse tree
+	 */
+	void enterAddop(SimpleLangParser.AddopContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleLangParser#addop}.
+	 * @param ctx the parse tree
+	 */
+	void exitAddop(SimpleLangParser.AddopContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleLangParser#mulop}.
+	 * @param ctx the parse tree
+	 */
+	void enterMulop(SimpleLangParser.MulopContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleLangParser#mulop}.
+	 * @param ctx the parse tree
+	 */
+	void exitMulop(SimpleLangParser.MulopContext ctx);
 }

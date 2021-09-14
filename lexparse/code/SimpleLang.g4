@@ -1,19 +1,19 @@
 grammar SimpleLang;
 
-// Parser rules (appear in the AST)
+// Syntax
 
 r   : program EOF ;
 
 program 
-    : 'program' ID (constDecl | varDecl | classDecl | enumDecl | interfaceDecl)* 
+    : PROGRAM ID (constDecl | varDecl | classDecl | enumDecl | interfaceDecl)* OCB methodDecl* CCB
     ;
 
 constDecl 
-    : 'const' type ID EQ (NUM | CHAR | BOOL) (COMMA ID EQ (NUM | CHAR | BOOL))* SM
+    : CONST type ID ASSIGN (NUM | CHAR | BOOL) (COMMA ID ASSIGN (NUM | CHAR | BOOL))* SM
     ;
 
 enumDecl
-    : 'enum' ID OCB ID (EQ NUM)? (COMMA ID (EQ NUM)?)* CCB
+    : ENUM ID OCB ID (ASSIGN NUM)? (COMMA ID (ASSIGN NUM)?)* CCB
     ;
 
 varDecl
@@ -21,19 +21,19 @@ varDecl
     ;
 
 classDecl
-    : 'class' ID ('extends' type)? ('implements' type (COMMA type)*)? OCB varDecl* (OCB methodDecl* CCB)? CCB
+    : CLASS ID (EXTENDS type)? (IMPLEMENTS type (COMMA type)*)? OCB varDecl* (OCB methodDecl* CCB)? CCB
     ;
 
 interfaceDecl
-    : 'interface' ID OCB interfaceMethodDecl* CCB
+    : INTERFACE ID OCB interfaceMethodDecl* CCB
     ;
 
 interfaceMethodDecl
-    : (type | 'void') ID OP formParams? CP SM
+    : (type | VOID) ID OP formParams? CP SM
     ;
 
 methodDecl
-    : (type | 'void') ID OB formParams? CB varDecl* OCB statement* CCB
+    : (type | VOID) ID OP formParams? CP varDecl* OCB statement* CCB
     ;
 
 formParams
@@ -43,30 +43,139 @@ formParams
 type : ID ;
 
 statement
-    : 'TODO'
+    :  designatorStatement SM
+    | IF OP condition CP statement (ELSE statement)?
+    | FOR OP designatorStatement? SM condition? SM designatorStatement? CP statement
+    | BREAK SM
+    | CONTINUE SM
+    | RETURN (expr)? SM
+    | READ OP designator CP SM
+    | PRINT OP expr (COMMA NUM)? CP SM
+    | OCB statement* CCB.
     ;
 
-// Lex rules (least to most general)
-
-NUM : [0-9][0-9]* ; 
-CHAR : '\'' ~['\\\r\n] '\'' ; 
-BOOL 
-    : 'true' 
-    | 'false'
+designatorStatement
+    : designator (assignop expr | OP actPars? CP | PP | MM)
     ;
-ID : [a-zA-Z][a-zA-Z0-9_]* ;
 
-// Common
+actPars 
+    : expr (COMMA expr)*
+    ;
 
-EQ : '=' ;
+condition
+    : condTerm (OR condTerm)*
+    ;
+
+condTerm
+    : condFact (AND condFact)*
+    ;
+
+condFact
+    : expr (relop expr)?
+    ;
+
+expr
+    : MINUS? term (addop term)*
+    ;
+
+term
+    : factor (mulop factor)*
+    ;
+
+factor 
+    : designator (OP actPars? CP)?
+    | NUM
+    | CHAR
+    | BOOL
+    | NEW type (OB expr CB)?
+    | OP expr CP
+    ;
+
+designator
+    : ID (DOT ID | OB expr CB)*
+    ;
+
+assignop
+    : ASSIGN
+    ;
+
+relop
+    : EQUALS | NOT_EQUALS | GT | GTOE | LT | LTOE
+    ;
+
+addop
+    : PLUS | MINUS
+    ;
+
+mulop
+    : TIMES | DIVIDE | REMINDER
+    ;
+
+// # Lexical structures
+
+// ## Keywords
+
+PROGRAM : 'program' ;
+BREAK : 'break' ;
+CLASS : 'class' ;
+INTERFACE : 'interface' ;
+ENUM : 'enum' ;
+ELSE : 'else' ;
+CONST : 'const' ;
+IF : 'if' ;
+NEW : 'new' ;
+PRINT : 'print' ;
+READ : 'read' ;
+RETURN : 'return' ;
+VOID : 'void' ;
+FOR : 'for' ;
+IMPLEMENTS : 'implements' ;
+EXTENDS : 'extends' ;
+CONTINUE : 'continue' ;
+
+// ## Operators
+
+PLUS : '+' ;
+MINUS : '-' ;
+TIMES : '*' ;
+DIVIDE : '/' ;
+REMINDER : '%' ;
+EQUALS : '==' ;
+NOT_EQUALS : '!=' ;
+GT : '>' ;
+GTOE : '>=' ;
+LT : '<' ;
+LTOE : '<=' ;
+AND : '&&' ;
+OR : '||' ;
+ASSIGN : '=' ;
+PP : '++' ;
+MM : '--' ;
 SM : ';' ;
+COMMA : ',' ;
+DOT : '.' ;
+OP : '(' ;
+CP : ')' ;
 OB : '[' ;
 CB : ']' ;
 OCB : '{' ;
 CCB : '}' ;
-OP : '(' ;
-CP : ')' ;
-COMMA : ',' ;
+
+// ## Token types
+
+BOOL 
+    : 'true' 
+    | 'false'
+    ;
+NUM : [0-9][0-9]* ; 
+CHAR : '\'' ~['\\\r\n] '\'' ; 
+ID : [a-zA-Z][a-zA-Z0-9_]* ;
+
+// ## Comments
+
+COMMENT
+    : '//' ~[\r\n]* -> skip
+    ;
 
 WS : [ \t\r\n]+ -> skip ;          // skip spaces, tabs, newlines
 OTHER: . ;
