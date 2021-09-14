@@ -51,7 +51,7 @@ statement
     | RETURN (expr)? SM
     | READ OP designator CP SM
     | PRINT OP expr (COMMA NUM)? CP SM
-    | OCB statement* CCB.
+    | OCB statement* CCB
     ;
 
 designatorStatement
