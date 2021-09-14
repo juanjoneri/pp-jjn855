@@ -1,6 +1,7 @@
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.*;
 
+@SuppressWarnings("deprecation")
 public class Main {
     public static void main(String[] args) throws Exception {
         SimpleLangLexer lexer = new SimpleLangLexer(new ANTLRFileStream(args[0]));
