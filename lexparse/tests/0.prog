@@ -3,3 +3,6 @@ program myFancyProgram007
         int getp(int i[], bool a);
         int getn(int i);
     }
+{
+  void main() {}
+}

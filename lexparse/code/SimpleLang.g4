@@ -2,7 +2,9 @@ grammar SimpleLang;
 
 // Syntax
 
-r   : program EOF ;
+r   
+    : program EOF 
+    ;
 
 program 
     : PROGRAM ID (constDecl | varDecl | classDecl | enumDecl | interfaceDecl)* OCB methodDecl* CCB
@@ -40,7 +42,9 @@ formParams
     : type ID (OB CB)? (COMMA type ID (OB CB)?)*
     ;
 
-type : ID ;
+type 
+    : ID 
+    ;
 
 statement
     :  designatorStatement SM
@@ -163,19 +167,14 @@ CCB : '}' ;
 
 // ## Token types
 
-BOOL 
-    : 'true' 
-    | 'false'
-    ;
-NUM : [0-9][0-9]* ; 
+BOOL : ('true' | 'false') ;
+NUM : [0-9][0-9]* ;
 CHAR : '\'' ~['\\\r\n] '\'' ; 
 ID : [a-zA-Z][a-zA-Z0-9_]* ;
 
 // ## Comments
 
-COMMENT
-    : '//' ~[\r\n]* -> skip
-    ;
+COMMENT : '//' ~[\r\n]* -> skip ;
 
-WS : [ \t\r\n]+ -> skip ;          // skip spaces, tabs, newlines
+WS : [ \t\r\n]+ -> skip ;
 OTHER: . ;
