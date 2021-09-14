@@ -1,8 +1,1 @@
-program myFancyProgram007
-  interface I {
-        int getp(int i[], bool a);
-        int getn(int i);
-    }
-{
-  void notMain() {}
-}
+_
