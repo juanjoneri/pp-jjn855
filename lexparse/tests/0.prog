@@ -1,1 +1,5 @@
-_
+program myFancyProgram007
+  const baby a = 0;
+{
+  void main() {}
+}

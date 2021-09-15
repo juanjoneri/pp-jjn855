@@ -4,11 +4,11 @@
  * 
  * 
  */
-public class HasMainVisitor extends SimpleLangBaseVisitor<Void> {
+public class CustomVisitor extends SimpleLangBaseVisitor<Void> {
 
     private boolean hasMain;
 
-    public HasMainVisitor() {
+    public CustomVisitor() {
         this.hasMain = false;
     }
 
@@ -18,6 +18,7 @@ public class HasMainVisitor extends SimpleLangBaseVisitor<Void> {
 
     @Override
     public Void visitMethodDecl(SimpleLangParser.MethodDeclContext ctx) {
+        // TODO: check return type of this method = void and has no args
         if (ctx.ID().getText().equals("main")) {
             hasMain = true;
         }

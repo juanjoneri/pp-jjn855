@@ -16,8 +16,11 @@ public class Main {
         parser.addErrorListener(new CustomListener("PARSER ERROR"));
 
         ParseTree tree = parser.r();
-        HasMainVisitor visitor = new HasMainVisitor();
+        CustomVisitor visitor = new CustomVisitor();
         visitor.visit(tree);
-        System.out.println(visitor.hasMain());
+
+        if (!visitor.hasMain()) {
+            System.out.println("MAIN ERROR");
+        }
     }
 }
