@@ -2,7 +2,7 @@ program myFancyProgram007
   const baby a = 0;
 {
   int main() {}
-  void main() {}
+  // void main() {}
   void main(int i) {}
   void notMain() {}
 }
