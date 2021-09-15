@@ -2,21 +2,19 @@ import org.antlr.v4.runtime.tree.*;
 import java.util.HashSet;
 
 /**
- * This visitor makes sure that there is a main method in the program
+ * This visitor checks a few semantic rules
  */
 @SuppressWarnings({"unchecked"})
 public class CustomVisitor extends SimpleLangBaseVisitor<Void> {
 
     private boolean hasMain;
-    private int numberOfNamesNotDeclaredBeforeUse;
 
-    public HashSet<String> declaredNames;
+    public NamesStack stack;
 
     public CustomVisitor() {
         this.hasMain = false;
-        this.numberOfNamesNotDeclaredBeforeUse = 0;
 
-        this.declaredNames = new HashSet();
+        this.stack = new NamesStack();
     }
 
     /**
@@ -26,79 +24,93 @@ public class CustomVisitor extends SimpleLangBaseVisitor<Void> {
         return hasMain;
     }
 
-    /**
-     * Keeps track of all the names that were not created before being used.
-     */
-    public int numberOfNamesNotDeclaredBeforeUse() {
-        return numberOfNamesNotDeclaredBeforeUse;
+    @Override
+    public Void visitProgram(SimpleLangParser.ProgramContext ctx) {
+        stack.addNewScope();
+
+        visitChildren(ctx);
+        return null;
+
     }
+
 
     @Override
     public Void visitConstDecl(SimpleLangParser.ConstDeclContext ctx) {
         for (TerminalNode id : ctx.ID()) {
-            declaredNames.add(id.getText());
+            stack.addNameToCurrentScope(id.getText());
         }
 
-        return super.visitConstDecl(ctx);
+        visitChildren(ctx);
+        return null;
     }
 
     @Override
     public Void visitEnumDecl(SimpleLangParser.EnumDeclContext ctx) {
         for (TerminalNode id : ctx.ID()) {
-            declaredNames.add(id.getText());
+            stack.addNameToCurrentScope(id.getText());
         }
 
-        return super.visitEnumDecl(ctx);
+        visitChildren(ctx);
+        return null;
     }
 
     @Override
     public Void visitVarDecl(SimpleLangParser.VarDeclContext ctx) {
         for (TerminalNode id : ctx.ID()) {
-            declaredNames.add(id.getText());
+            stack.addNameToCurrentScope(id.getText());
         }
 
-        return super.visitVarDecl(ctx);
+        visitChildren(ctx);
+        return null;
     }
 
     @Override
     public Void visitClassDecl(SimpleLangParser.ClassDeclContext ctx) {
-        declaredNames.add(ctx.ID().getText());
+        stack.addNameToCurrentScope(ctx.ID().getText());
 
-        return super.visitClassDecl(ctx);
+        visitChildren(ctx);
+        return null;
     }
 
     @Override
     public Void visitInterfaceDecl(SimpleLangParser.InterfaceDeclContext ctx) {
-        declaredNames.add(ctx.ID().getText());
+        stack.addNameToCurrentScope(ctx.ID().getText());
 
-        return super.visitInterfaceDecl(ctx);
+        visitChildren(ctx);
+        return null;
     }
 
     @Override
     public Void visitInterfaceMethodDecl(SimpleLangParser.InterfaceMethodDeclContext ctx) {
-        declaredNames.add(ctx.ID().getText());
+        stack.addNameToCurrentScope(ctx.ID().getText());
 
-        return super.visitInterfaceMethodDecl(ctx);
+        visitChildren(ctx);
+        return null;
     }
 
     @Override
     public Void visitMethodDecl(SimpleLangParser.MethodDeclContext ctx) {
-        declaredNames.add(ctx.ID().getText());
-
         if (isMain(ctx)) {
             hasMain = true;
         }
-
-        return super.visitMethodDecl(ctx);
+        
+        // A method's name is part of the enclosing scope
+        stack.addNameToCurrentScope(ctx.ID().getText());
+        // A method's body has its own scope
+        stack.addNewScope();
+        visitChildren(ctx);
+        stack.removeLastScope();
+        return null;
     }
 
     @Override
     public Void visitFormParams(SimpleLangParser.FormParamsContext ctx) {
         for (TerminalNode id : ctx.ID()) {
-            declaredNames.add(id.getText());
+            stack.addNameToCurrentScope(id.getText());
         }
 
-        return super.visitFormParams(ctx);
+        visitChildren(ctx);
+        return null;
     }
 
     private static boolean isMain(SimpleLangParser.MethodDeclContext ctx) {
