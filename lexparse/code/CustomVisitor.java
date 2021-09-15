@@ -18,8 +18,12 @@ public class CustomVisitor extends SimpleLangBaseVisitor<Void> {
 
     @Override
     public Void visitMethodDecl(SimpleLangParser.MethodDeclContext ctx) {
-        // TODO: check return type of this method = void and has no args
-        if (ctx.ID().getText().equals("main")) {
+        
+        boolean isMain = ctx.ID().getText().equals("main");
+        boolean returnsVoid = ctx.VOID() != null;
+        boolean hasNoArguments = ctx.formParams() == null;
+
+        if (isMain && returnsVoid && hasNoArguments) {
             hasMain = true;
         }
         return super.visitMethodDecl(ctx);
