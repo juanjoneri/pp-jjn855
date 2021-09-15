@@ -22,5 +22,10 @@ public class Main {
         if (!visitor.hasMain()) {
             System.out.println("MAIN ERROR");
         }
+
+        for (int i = 0; i < visitor.numberOfNamesNotDeclaredBeforeUse(); i++) {
+            System.out.println("NAME USE ERROR");
+        }
+        System.out.println(visitor.declaredNames);
     }
 }
