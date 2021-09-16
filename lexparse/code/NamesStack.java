@@ -48,7 +48,6 @@ public class NamesStack {
 
     public void addNameToCurrentScope(String name) {
         stack.peek().addName(name);
-        System.out.println(this.toString());
     }
 
     public NamesStack() {
