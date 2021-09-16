@@ -8,12 +8,12 @@ public class Main {
         SimpleLangParser parser = new SimpleLangParser(new CommonTokenStream(lexer));
 
         // Customize lexer errors
-        lexer.removeErrorListeners();
-        lexer.addErrorListener(new CustomListener("LEX ERROR"));
+        // lexer.removeErrorListeners();
+        // lexer.addErrorListener(new CustomListener("LEX ERROR"));
 
         // Customize parser errors
-        parser.removeErrorListeners();
-        parser.addErrorListener(new CustomListener("PARSER ERROR"));
+        // parser.removeErrorListeners();
+        // parser.addErrorListener(new CustomListener("PARSER ERROR"));
 
         ParseTree tree = parser.r();
         CustomVisitor visitor = new CustomVisitor();

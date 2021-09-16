@@ -28,13 +28,14 @@ public class NamesStack {
      * 
      * <p> Used to check that a variable name usage is valid.
      */
-    public boolean checkInStack(String name) {
+    public void checkInStack(String name) {
         for (Scope s : stack) {
             if (s.contains(name)) {
-                return true;
+                return;
             }
         }
-        return false;
+        System.out.println("NAME USE ERROR: " + name);
+        return;
     }
 
     public void removeLastScope() {

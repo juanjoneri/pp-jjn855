@@ -1242,16 +1242,35 @@ public class SimpleLangParser extends Parser {
 	}
 
 	public static class StatementContext extends ParserRuleContext {
-		public List<DesignatorStatementContext> designatorStatement() {
-			return getRuleContexts(DesignatorStatementContext.class);
+		public StatementContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
 		}
-		public DesignatorStatementContext designatorStatement(int i) {
-			return getRuleContext(DesignatorStatementContext.class,i);
+		@Override public int getRuleIndex() { return RULE_statement; }
+	 
+		public StatementContext() { }
+		public void copyFrom(StatementContext ctx) {
+			super.copyFrom(ctx);
 		}
-		public List<TerminalNode> SM() { return getTokens(SimpleLangParser.SM); }
-		public TerminalNode SM(int i) {
-			return getToken(SimpleLangParser.SM, i);
+	}
+	public static class BreakStatementContext extends StatementContext {
+		public TerminalNode BREAK() { return getToken(SimpleLangParser.BREAK, 0); }
+		public TerminalNode SM() { return getToken(SimpleLangParser.SM, 0); }
+		public BreakStatementContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SimpleLangListener ) ((SimpleLangListener)listener).enterBreakStatement(this);
 		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SimpleLangListener ) ((SimpleLangListener)listener).exitBreakStatement(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SimpleLangVisitor ) return ((SimpleLangVisitor<? extends T>)visitor).visitBreakStatement(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class IfStatementContext extends StatementContext {
 		public TerminalNode IF() { return getToken(SimpleLangParser.IF, 0); }
 		public TerminalNode OP() { return getToken(SimpleLangParser.OP, 0); }
 		public ConditionContext condition() {
@@ -1265,37 +1284,184 @@ public class SimpleLangParser extends Parser {
 			return getRuleContext(StatementContext.class,i);
 		}
 		public TerminalNode ELSE() { return getToken(SimpleLangParser.ELSE, 0); }
-		public TerminalNode FOR() { return getToken(SimpleLangParser.FOR, 0); }
-		public TerminalNode BREAK() { return getToken(SimpleLangParser.BREAK, 0); }
-		public TerminalNode CONTINUE() { return getToken(SimpleLangParser.CONTINUE, 0); }
-		public TerminalNode RETURN() { return getToken(SimpleLangParser.RETURN, 0); }
-		public ExprContext expr() {
-			return getRuleContext(ExprContext.class,0);
-		}
-		public TerminalNode READ() { return getToken(SimpleLangParser.READ, 0); }
-		public DesignatorContext designator() {
-			return getRuleContext(DesignatorContext.class,0);
-		}
-		public TerminalNode PRINT() { return getToken(SimpleLangParser.PRINT, 0); }
-		public TerminalNode COMMA() { return getToken(SimpleLangParser.COMMA, 0); }
-		public TerminalNode NUM() { return getToken(SimpleLangParser.NUM, 0); }
-		public TerminalNode OCB() { return getToken(SimpleLangParser.OCB, 0); }
-		public TerminalNode CCB() { return getToken(SimpleLangParser.CCB, 0); }
-		public StatementContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_statement; }
+		public IfStatementContext(StatementContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SimpleLangListener ) ((SimpleLangListener)listener).enterStatement(this);
+			if ( listener instanceof SimpleLangListener ) ((SimpleLangListener)listener).enterIfStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SimpleLangListener ) ((SimpleLangListener)listener).exitStatement(this);
+			if ( listener instanceof SimpleLangListener ) ((SimpleLangListener)listener).exitIfStatement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SimpleLangVisitor ) return ((SimpleLangVisitor<? extends T>)visitor).visitStatement(this);
+			if ( visitor instanceof SimpleLangVisitor ) return ((SimpleLangVisitor<? extends T>)visitor).visitIfStatement(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class DesigStatementContext extends StatementContext {
+		public DesignatorStatementContext designatorStatement() {
+			return getRuleContext(DesignatorStatementContext.class,0);
+		}
+		public TerminalNode SM() { return getToken(SimpleLangParser.SM, 0); }
+		public DesigStatementContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SimpleLangListener ) ((SimpleLangListener)listener).enterDesigStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SimpleLangListener ) ((SimpleLangListener)listener).exitDesigStatement(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SimpleLangVisitor ) return ((SimpleLangVisitor<? extends T>)visitor).visitDesigStatement(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class ReadStatementContext extends StatementContext {
+		public TerminalNode READ() { return getToken(SimpleLangParser.READ, 0); }
+		public TerminalNode OP() { return getToken(SimpleLangParser.OP, 0); }
+		public DesignatorContext designator() {
+			return getRuleContext(DesignatorContext.class,0);
+		}
+		public TerminalNode CP() { return getToken(SimpleLangParser.CP, 0); }
+		public TerminalNode SM() { return getToken(SimpleLangParser.SM, 0); }
+		public ReadStatementContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SimpleLangListener ) ((SimpleLangListener)listener).enterReadStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SimpleLangListener ) ((SimpleLangListener)listener).exitReadStatement(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SimpleLangVisitor ) return ((SimpleLangVisitor<? extends T>)visitor).visitReadStatement(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class PrintStatementContext extends StatementContext {
+		public TerminalNode PRINT() { return getToken(SimpleLangParser.PRINT, 0); }
+		public TerminalNode OP() { return getToken(SimpleLangParser.OP, 0); }
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public TerminalNode CP() { return getToken(SimpleLangParser.CP, 0); }
+		public TerminalNode SM() { return getToken(SimpleLangParser.SM, 0); }
+		public TerminalNode COMMA() { return getToken(SimpleLangParser.COMMA, 0); }
+		public TerminalNode NUM() { return getToken(SimpleLangParser.NUM, 0); }
+		public PrintStatementContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SimpleLangListener ) ((SimpleLangListener)listener).enterPrintStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SimpleLangListener ) ((SimpleLangListener)listener).exitPrintStatement(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SimpleLangVisitor ) return ((SimpleLangVisitor<? extends T>)visitor).visitPrintStatement(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class BlockStatementContext extends StatementContext {
+		public TerminalNode OCB() { return getToken(SimpleLangParser.OCB, 0); }
+		public TerminalNode CCB() { return getToken(SimpleLangParser.CCB, 0); }
+		public List<StatementContext> statement() {
+			return getRuleContexts(StatementContext.class);
+		}
+		public StatementContext statement(int i) {
+			return getRuleContext(StatementContext.class,i);
+		}
+		public BlockStatementContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SimpleLangListener ) ((SimpleLangListener)listener).enterBlockStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SimpleLangListener ) ((SimpleLangListener)listener).exitBlockStatement(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SimpleLangVisitor ) return ((SimpleLangVisitor<? extends T>)visitor).visitBlockStatement(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class ForStatementContext extends StatementContext {
+		public TerminalNode FOR() { return getToken(SimpleLangParser.FOR, 0); }
+		public TerminalNode OP() { return getToken(SimpleLangParser.OP, 0); }
+		public List<TerminalNode> SM() { return getTokens(SimpleLangParser.SM); }
+		public TerminalNode SM(int i) {
+			return getToken(SimpleLangParser.SM, i);
+		}
+		public TerminalNode CP() { return getToken(SimpleLangParser.CP, 0); }
+		public StatementContext statement() {
+			return getRuleContext(StatementContext.class,0);
+		}
+		public List<DesignatorStatementContext> designatorStatement() {
+			return getRuleContexts(DesignatorStatementContext.class);
+		}
+		public DesignatorStatementContext designatorStatement(int i) {
+			return getRuleContext(DesignatorStatementContext.class,i);
+		}
+		public ConditionContext condition() {
+			return getRuleContext(ConditionContext.class,0);
+		}
+		public ForStatementContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SimpleLangListener ) ((SimpleLangListener)listener).enterForStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SimpleLangListener ) ((SimpleLangListener)listener).exitForStatement(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SimpleLangVisitor ) return ((SimpleLangVisitor<? extends T>)visitor).visitForStatement(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class ContinueStatementContext extends StatementContext {
+		public TerminalNode CONTINUE() { return getToken(SimpleLangParser.CONTINUE, 0); }
+		public TerminalNode SM() { return getToken(SimpleLangParser.SM, 0); }
+		public ContinueStatementContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SimpleLangListener ) ((SimpleLangListener)listener).enterContinueStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SimpleLangListener ) ((SimpleLangListener)listener).exitContinueStatement(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SimpleLangVisitor ) return ((SimpleLangVisitor<? extends T>)visitor).visitContinueStatement(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class RerturnStatementContext extends StatementContext {
+		public TerminalNode RETURN() { return getToken(SimpleLangParser.RETURN, 0); }
+		public TerminalNode SM() { return getToken(SimpleLangParser.SM, 0); }
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public RerturnStatementContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SimpleLangListener ) ((SimpleLangListener)listener).enterRerturnStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SimpleLangListener ) ((SimpleLangListener)listener).exitRerturnStatement(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SimpleLangVisitor ) return ((SimpleLangVisitor<? extends T>)visitor).visitRerturnStatement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1309,6 +1475,7 @@ public class SimpleLangParser extends Parser {
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case ID:
+				_localctx = new DesigStatementContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(234);
@@ -1318,6 +1485,7 @@ public class SimpleLangParser extends Parser {
 				}
 				break;
 			case IF:
+				_localctx = new IfStatementContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(237);
@@ -1345,6 +1513,7 @@ public class SimpleLangParser extends Parser {
 				}
 				break;
 			case FOR:
+				_localctx = new ForStatementContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
 				setState(246);
@@ -1392,6 +1561,7 @@ public class SimpleLangParser extends Parser {
 				}
 				break;
 			case BREAK:
+				_localctx = new BreakStatementContext(_localctx);
 				enterOuterAlt(_localctx, 4);
 				{
 				setState(261);
@@ -1401,6 +1571,7 @@ public class SimpleLangParser extends Parser {
 				}
 				break;
 			case CONTINUE:
+				_localctx = new ContinueStatementContext(_localctx);
 				enterOuterAlt(_localctx, 5);
 				{
 				setState(263);
@@ -1410,6 +1581,7 @@ public class SimpleLangParser extends Parser {
 				}
 				break;
 			case RETURN:
+				_localctx = new RerturnStatementContext(_localctx);
 				enterOuterAlt(_localctx, 6);
 				{
 				setState(265);
@@ -1429,6 +1601,7 @@ public class SimpleLangParser extends Parser {
 				}
 				break;
 			case READ:
+				_localctx = new ReadStatementContext(_localctx);
 				enterOuterAlt(_localctx, 7);
 				{
 				setState(270);
@@ -1444,6 +1617,7 @@ public class SimpleLangParser extends Parser {
 				}
 				break;
 			case PRINT:
+				_localctx = new PrintStatementContext(_localctx);
 				enterOuterAlt(_localctx, 8);
 				{
 				setState(276);
@@ -1471,6 +1645,7 @@ public class SimpleLangParser extends Parser {
 				}
 				break;
 			case OCB:
+				_localctx = new BlockStatementContext(_localctx);
 				enterOuterAlt(_localctx, 9);
 				{
 				setState(286);

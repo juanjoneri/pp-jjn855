@@ -76,11 +76,68 @@ public interface SimpleLangVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitType(SimpleLangParser.TypeContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SimpleLangParser#statement}.
+	 * Visit a parse tree produced by the {@code DesigStatement}
+	 * labeled alternative in {@link SimpleLangParser#statement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitStatement(SimpleLangParser.StatementContext ctx);
+	T visitDesigStatement(SimpleLangParser.DesigStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code IfStatement}
+	 * labeled alternative in {@link SimpleLangParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIfStatement(SimpleLangParser.IfStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ForStatement}
+	 * labeled alternative in {@link SimpleLangParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitForStatement(SimpleLangParser.ForStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code BreakStatement}
+	 * labeled alternative in {@link SimpleLangParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBreakStatement(SimpleLangParser.BreakStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ContinueStatement}
+	 * labeled alternative in {@link SimpleLangParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitContinueStatement(SimpleLangParser.ContinueStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code RerturnStatement}
+	 * labeled alternative in {@link SimpleLangParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRerturnStatement(SimpleLangParser.RerturnStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ReadStatement}
+	 * labeled alternative in {@link SimpleLangParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitReadStatement(SimpleLangParser.ReadStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code PrintStatement}
+	 * labeled alternative in {@link SimpleLangParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPrintStatement(SimpleLangParser.PrintStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code BlockStatement}
+	 * labeled alternative in {@link SimpleLangParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBlockStatement(SimpleLangParser.BlockStatementContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link SimpleLangParser#designatorStatement}.
 	 * @param ctx the parse tree

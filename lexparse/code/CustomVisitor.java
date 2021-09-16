@@ -8,12 +8,10 @@ import java.util.HashSet;
 public class CustomVisitor extends SimpleLangBaseVisitor<Void> {
 
     private boolean hasMain;
-
     public NamesStack stack;
 
     public CustomVisitor() {
         this.hasMain = false;
-
         this.stack = new NamesStack();
     }
 
@@ -68,7 +66,10 @@ public class CustomVisitor extends SimpleLangBaseVisitor<Void> {
     public Void visitClassDecl(SimpleLangParser.ClassDeclContext ctx) {
         stack.addNameToCurrentScope(ctx.ID().getText());
 
+        stack.addNewScope();
+        stack.addNameToCurrentScope("this");
         visitChildren(ctx);
+        stack.removeLastScope();
         return null;
     }
 
@@ -76,7 +77,9 @@ public class CustomVisitor extends SimpleLangBaseVisitor<Void> {
     public Void visitInterfaceDecl(SimpleLangParser.InterfaceDeclContext ctx) {
         stack.addNameToCurrentScope(ctx.ID().getText());
 
+        stack.addNewScope();
         visitChildren(ctx);
+        stack.removeLastScope();
         return null;
     }
 
@@ -84,7 +87,10 @@ public class CustomVisitor extends SimpleLangBaseVisitor<Void> {
     public Void visitInterfaceMethodDecl(SimpleLangParser.InterfaceMethodDeclContext ctx) {
         stack.addNameToCurrentScope(ctx.ID().getText());
 
+        // A method's params has its own scope
+        stack.addNewScope();
         visitChildren(ctx);
+        stack.removeLastScope();
         return null;
     }
 
@@ -96,7 +102,7 @@ public class CustomVisitor extends SimpleLangBaseVisitor<Void> {
         
         // A method's name is part of the enclosing scope
         stack.addNameToCurrentScope(ctx.ID().getText());
-        // A method's body has its own scope
+        // A method's params and body has its own scope
         stack.addNewScope();
         visitChildren(ctx);
         stack.removeLastScope();
@@ -113,12 +119,46 @@ public class CustomVisitor extends SimpleLangBaseVisitor<Void> {
         return null;
     }
 
+    // Statements that create their own context
+
+    @Override
+    public Void visitIfStatement(SimpleLangParser.IfStatementContext ctx) {
+        // TODO: if and else should have independent scopes
+        stack.addNewScope();
+        visitChildren(ctx);
+        stack.removeLastScope();
+        return null;
+    }
+
+    @Override
+    public Void visitForStatement(SimpleLangParser.ForStatementContext ctx) {
+        stack.addNewScope();
+        visitChildren(ctx);
+        stack.removeLastScope();
+        return null;
+    }
+
+    // Designator is where variables are being used
+
+    @Override
+    public Void visitDesignator(SimpleLangParser.DesignatorContext ctx) {
+        // Only check the first name used in a designator
+        // val.inner.getPos() -> only val needs to be in scope
+        stack.checkInStack(ctx.ID(0).getText());
+        
+        visitChildren(ctx);
+        return null;
+    }
+
+
+
     private static boolean isMain(SimpleLangParser.MethodDeclContext ctx) {
         boolean isMain = ctx.ID().getText().equals("main");
         boolean returnsVoid = ctx.VOID() != null;
         boolean hasNoArguments = ctx.formParams() == null;
+        boolean parentIsProgram = ctx.getParent() instanceof SimpleLangParser.ProgramContext;
         
-        return (isMain && returnsVoid && hasNoArguments);
+        return (isMain && returnsVoid && hasNoArguments && parentIsProgram);
     }
 
 }
