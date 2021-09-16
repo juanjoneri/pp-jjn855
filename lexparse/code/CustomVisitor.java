@@ -25,6 +25,7 @@ public class CustomVisitor extends SimpleLangBaseVisitor<Void> {
     @Override
     public Void visitProgram(SimpleLangParser.ProgramContext ctx) {
         stack.addNewScope();
+        stack.addNameToCurrentScope(ctx.ID().getText());
 
         visitChildren(ctx);
         return null;
