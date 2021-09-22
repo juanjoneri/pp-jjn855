@@ -7,12 +7,21 @@ import java.util.HashSet;
 @SuppressWarnings({"unchecked"})
 public class CustomVisitor extends SimpleLangBaseVisitor<Void> {
 
-    private boolean hasMain;
-    public NamesStack stack;
+    private HashSet<String> primitiveTypes;
+    
+    private boolean hasMain; // Is set to true when main method is found
+    private NamesStack stack; // Keeps track of variables defined in each scope
+
 
     public CustomVisitor() {
-        this.hasMain = false;
-        this.stack = new NamesStack();
+        primitiveTypes = new HashSet();
+        hasMain = false;
+        stack = new NamesStack();
+
+        primitiveTypes.add("int");
+        primitiveTypes.add("bool");
+        primitiveTypes.add("char");
+        primitiveTypes.add("enum");
     }
 
     /**
@@ -130,6 +139,20 @@ public class CustomVisitor extends SimpleLangBaseVisitor<Void> {
         // val.inner.getPos() -> only val needs to be in scope
         stack.checkInStack(ctx.ID(0).getText());
         
+        visitChildren(ctx);
+        return null;
+    }
+
+    @Override
+    public Void visitType(SimpleLangParser.TypeContext ctx) {
+        // Check that types are defined:
+        // - int, bool, char, enum
+        // - a class or interface that was previously defined
+        String id = ctx.ID().getText();
+        if (!primitiveTypes.contains(id)) {
+            stack.checkInStack(id);
+        }
+
         visitChildren(ctx);
         return null;
     }
