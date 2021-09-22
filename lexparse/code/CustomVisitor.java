@@ -54,9 +54,16 @@ public class CustomVisitor extends SimpleLangBaseVisitor<Void> {
 
     @Override
     public Void visitEnumDecl(SimpleLangParser.EnumDeclContext ctx) {
+        boolean isFirst = true;
         for (TerminalNode id : ctx.ID()) {
             stack.addNameToCurrentScope(id.getText());
+            if (isFirst) {
+                // The enum values should not be accessible to the enclosing scope
+                stack.addNewScope();
+                isFirst = false;
+            }
         }
+        stack.removeLastScope();
 
         visitChildren(ctx);
         return null;
@@ -135,9 +142,21 @@ public class CustomVisitor extends SimpleLangBaseVisitor<Void> {
 
     @Override
     public Void visitDesignator(SimpleLangParser.DesignatorContext ctx) {
-        // Only check the first name used in a designator
-        // val.inner.getPos() -> only val needs to be in scope
-        stack.checkInStack(ctx.ID(0).getText());
+        // Only check if the first name is in scope
+        // Assume all inner names are always in scope if previously defined
+        // val.inner.getPos()
+        boolean isFirst = true;
+        for (TerminalNode id : ctx.ID()) {
+            String name = id.getText();
+            if (isFirst) {
+                stack.checkInStack(name);
+                isFirst = false;
+            } else {
+                stack.checkDeclared(name);
+            }
+        }
+        
+
         
         visitChildren(ctx);
         return null;

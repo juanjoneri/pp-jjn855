@@ -11,6 +11,7 @@ import java.util.Set;
 public class NamesStack {
 
     private Deque<Scope> stack;
+    private HashSet<String> declaredNames;
 
     @Override
     public String toString() {
@@ -38,6 +39,18 @@ public class NamesStack {
         return;
     }
 
+    /**
+     * Checks that the given name declard at some point.
+     * 
+     * <p> Used for inner names.
+     */
+    public void checkDeclared(String name) {
+        if (!declaredNames.contains(name)) {
+            System.out.println("NAME USE ERROR");
+        }
+        return;
+    }
+
     public void removeLastScope() {
         stack.pop();
     }
@@ -47,11 +60,13 @@ public class NamesStack {
     }
 
     public void addNameToCurrentScope(String name) {
+        declaredNames.add(name);
         stack.peek().addName(name);
     }
 
     public NamesStack() {
         stack = new ArrayDeque<Scope>();
+        declaredNames = new HashSet();
     }
 
     class Scope {
