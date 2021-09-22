@@ -47,15 +47,15 @@ type
     ;
 
 statement
-    :  designatorStatement SM                                                        # DesigStatement
-    | IF OP condition CP statement (ELSE statement)?                                 # IfStatement
-    | FOR OP designatorStatement? SM condition? SM designatorStatement? CP statement # ForStatement
-    | BREAK SM                                                                       # BreakStatement
-    | CONTINUE SM                                                                    # ContinueStatement
-    | RETURN (expr)? SM                                                              # RerturnStatement
-    | READ OP designator CP SM                                                       # ReadStatement
-    | PRINT OP expr (COMMA NUM)? CP SM                                               # PrintStatement
-    | OCB statement* CCB                                                             # BlockStatement
+    :  designatorStatement SM
+    | IF OP condition CP statement (ELSE statement)?
+    | FOR OP designatorStatement? SM condition? SM designatorStatement? CP
+    | BREAK SM
+    | CONTINUE SM
+    | RETURN (expr)? SM
+    | READ OP designator CP SM
+    | PRINT OP expr (COMMA NUM)? CP SM
+    | OCB statement* CCB
     ;
 
 designatorStatement

@@ -1,8 +1,9 @@
 program P
     const int size = 10;
+    const int getp = 2;
     enum Num { ZERO, ONE, TEN = 10 }
     interface I {
-        int getp(int i);
+        int getp(int getp);
         int getn(int i);
     }
 

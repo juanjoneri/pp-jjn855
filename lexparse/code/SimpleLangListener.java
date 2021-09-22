@@ -117,113 +117,15 @@ public interface SimpleLangListener extends ParseTreeListener {
 	 */
 	void exitType(SimpleLangParser.TypeContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code DesigStatement}
-	 * labeled alternative in {@link SimpleLangParser#statement}.
+	 * Enter a parse tree produced by {@link SimpleLangParser#statement}.
 	 * @param ctx the parse tree
 	 */
-	void enterDesigStatement(SimpleLangParser.DesigStatementContext ctx);
+	void enterStatement(SimpleLangParser.StatementContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code DesigStatement}
-	 * labeled alternative in {@link SimpleLangParser#statement}.
+	 * Exit a parse tree produced by {@link SimpleLangParser#statement}.
 	 * @param ctx the parse tree
 	 */
-	void exitDesigStatement(SimpleLangParser.DesigStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code IfStatement}
-	 * labeled alternative in {@link SimpleLangParser#statement}.
-	 * @param ctx the parse tree
-	 */
-	void enterIfStatement(SimpleLangParser.IfStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code IfStatement}
-	 * labeled alternative in {@link SimpleLangParser#statement}.
-	 * @param ctx the parse tree
-	 */
-	void exitIfStatement(SimpleLangParser.IfStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code ForStatement}
-	 * labeled alternative in {@link SimpleLangParser#statement}.
-	 * @param ctx the parse tree
-	 */
-	void enterForStatement(SimpleLangParser.ForStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code ForStatement}
-	 * labeled alternative in {@link SimpleLangParser#statement}.
-	 * @param ctx the parse tree
-	 */
-	void exitForStatement(SimpleLangParser.ForStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code BreakStatement}
-	 * labeled alternative in {@link SimpleLangParser#statement}.
-	 * @param ctx the parse tree
-	 */
-	void enterBreakStatement(SimpleLangParser.BreakStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code BreakStatement}
-	 * labeled alternative in {@link SimpleLangParser#statement}.
-	 * @param ctx the parse tree
-	 */
-	void exitBreakStatement(SimpleLangParser.BreakStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code ContinueStatement}
-	 * labeled alternative in {@link SimpleLangParser#statement}.
-	 * @param ctx the parse tree
-	 */
-	void enterContinueStatement(SimpleLangParser.ContinueStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code ContinueStatement}
-	 * labeled alternative in {@link SimpleLangParser#statement}.
-	 * @param ctx the parse tree
-	 */
-	void exitContinueStatement(SimpleLangParser.ContinueStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code RerturnStatement}
-	 * labeled alternative in {@link SimpleLangParser#statement}.
-	 * @param ctx the parse tree
-	 */
-	void enterRerturnStatement(SimpleLangParser.RerturnStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code RerturnStatement}
-	 * labeled alternative in {@link SimpleLangParser#statement}.
-	 * @param ctx the parse tree
-	 */
-	void exitRerturnStatement(SimpleLangParser.RerturnStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code ReadStatement}
-	 * labeled alternative in {@link SimpleLangParser#statement}.
-	 * @param ctx the parse tree
-	 */
-	void enterReadStatement(SimpleLangParser.ReadStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code ReadStatement}
-	 * labeled alternative in {@link SimpleLangParser#statement}.
-	 * @param ctx the parse tree
-	 */
-	void exitReadStatement(SimpleLangParser.ReadStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code PrintStatement}
-	 * labeled alternative in {@link SimpleLangParser#statement}.
-	 * @param ctx the parse tree
-	 */
-	void enterPrintStatement(SimpleLangParser.PrintStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code PrintStatement}
-	 * labeled alternative in {@link SimpleLangParser#statement}.
-	 * @param ctx the parse tree
-	 */
-	void exitPrintStatement(SimpleLangParser.PrintStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code BlockStatement}
-	 * labeled alternative in {@link SimpleLangParser#statement}.
-	 * @param ctx the parse tree
-	 */
-	void enterBlockStatement(SimpleLangParser.BlockStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code BlockStatement}
-	 * labeled alternative in {@link SimpleLangParser#statement}.
-	 * @param ctx the parse tree
-	 */
-	void exitBlockStatement(SimpleLangParser.BlockStatementContext ctx);
+	void exitStatement(SimpleLangParser.StatementContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link SimpleLangParser#designatorStatement}.
 	 * @param ctx the parse tree

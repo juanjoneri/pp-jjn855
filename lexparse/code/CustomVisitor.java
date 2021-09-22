@@ -65,8 +65,9 @@ public class CustomVisitor extends SimpleLangBaseVisitor<Void> {
 
     @Override
     public Void visitClassDecl(SimpleLangParser.ClassDeclContext ctx) {
+        // A class' name is part of the enclosing scope
         stack.addNameToCurrentScope(ctx.ID().getText());
-
+        // A class variables and methods have their own scope
         stack.addNewScope();
         stack.addNameToCurrentScope("this");
         visitChildren(ctx);
@@ -76,8 +77,9 @@ public class CustomVisitor extends SimpleLangBaseVisitor<Void> {
 
     @Override
     public Void visitInterfaceDecl(SimpleLangParser.InterfaceDeclContext ctx) {
+        // An interface's name is part of the enclosing scope
         stack.addNameToCurrentScope(ctx.ID().getText());
-
+        // An interface can define functions with the same names as variables in the scope
         stack.addNewScope();
         visitChildren(ctx);
         stack.removeLastScope();
@@ -86,8 +88,8 @@ public class CustomVisitor extends SimpleLangBaseVisitor<Void> {
 
     @Override
     public Void visitInterfaceMethodDecl(SimpleLangParser.InterfaceMethodDeclContext ctx) {
+        // A method's name is part of the enclosing scope
         stack.addNameToCurrentScope(ctx.ID().getText());
-
         // A method's params has its own scope
         stack.addNewScope();
         visitChildren(ctx);
@@ -117,25 +119,6 @@ public class CustomVisitor extends SimpleLangBaseVisitor<Void> {
         }
 
         visitChildren(ctx);
-        return null;
-    }
-
-    // Statements that create their own context
-
-    @Override
-    public Void visitIfStatement(SimpleLangParser.IfStatementContext ctx) {
-        // TODO: if and else should have independent scopes
-        stack.addNewScope();
-        visitChildren(ctx);
-        stack.removeLastScope();
-        return null;
-    }
-
-    @Override
-    public Void visitForStatement(SimpleLangParser.ForStatementContext ctx) {
-        stack.addNewScope();
-        visitChildren(ctx);
-        stack.removeLastScope();
         return null;
     }
 

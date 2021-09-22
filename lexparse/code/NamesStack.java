@@ -34,7 +34,7 @@ public class NamesStack {
                 return;
             }
         }
-        System.out.println("NAME USE ERROR: " + name);
+        System.out.println("NAME USE ERROR");
         return;
     }
 
@@ -64,7 +64,7 @@ public class NamesStack {
 
         public void addName(String name) {
             if (names.contains(name)) {
-                System.out.println("VAR ERROR: " + name);
+                System.out.println("VAR ERROR");
             }
             names.add(name);
         }
