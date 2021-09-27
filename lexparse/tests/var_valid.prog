@@ -1,0 +1,25 @@
+program VarValid
+    const int a = 1;
+    const char c = 'A';
+    enum A_a { A }
+    enum A_b { A }
+
+    class A {
+        int a;
+        {
+            int setA(int a)
+            {
+                this.a = a;
+            }
+        }
+    }
+
+{
+    void main()
+    int a;
+    {
+        a = A.a; // Class property
+        a = A_a.A; // Enum value
+        a = VarValid.a; // Program property
+    }
+}

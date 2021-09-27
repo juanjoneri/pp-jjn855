@@ -1,0 +1,8 @@
+program MainIsInvalid
+    class SomeClass {
+        {
+            void  main() {}
+        }
+    }
+{
+}

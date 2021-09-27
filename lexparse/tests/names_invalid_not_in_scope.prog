@@ -1,0 +1,14 @@
+program NamesInvalid
+
+    class C {
+        int a;
+        {
+        }
+    }
+
+{
+    void main()
+    {
+        a = 2;
+    }
+}

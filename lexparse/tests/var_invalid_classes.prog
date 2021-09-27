@@ -1,0 +1,8 @@
+program VarInvalid
+    class A {}
+    class A {}
+
+{
+    void main()
+    {}
+}

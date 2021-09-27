@@ -1,0 +1,7 @@
+program NamesInvalid
+    const invalidType a = 1;
+
+{
+    void main()
+    {}
+}

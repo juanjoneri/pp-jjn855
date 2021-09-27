@@ -1,0 +1,23 @@
+program NamesValid
+    const int i = 1;
+    enum En { A, B, C }
+
+    class Cl {
+        int x;
+        {
+            En methodName(int y) 
+                { 
+                    y = x;
+                    this.x = i;
+                }
+        }
+    }
+{
+    void main()
+        char c;
+        En d;
+    {
+        c = En.A;
+        d = Cl.methodName(i);
+    }
+}

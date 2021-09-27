@@ -1,0 +1,6 @@
+program P
+    int a = 1; // missing const
+{
+    void main() 
+    {}
+}

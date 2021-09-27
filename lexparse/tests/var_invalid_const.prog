@@ -1,0 +1,6 @@
+program VarInvalid
+    const int a = 1, a = 2;
+{
+    void main()
+    {}
+}

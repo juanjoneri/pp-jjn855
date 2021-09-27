@@ -1,0 +1,10 @@
+program VarInvalid
+
+{
+    void invalidUseOfX(int x)
+        int x;
+    {}
+
+    void main()
+    {}
+}

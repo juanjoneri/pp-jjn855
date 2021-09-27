@@ -1,0 +1,5 @@
+program MainIsInvalid
+{
+    void main(int i)
+    {}
+}
