@@ -7,6 +7,10 @@ public class Main {
         SimpleLangLexer lexer = new SimpleLangLexer(new ANTLRFileStream(args[0]));
         SimpleLangParser parser = new SimpleLangParser(new CommonTokenStream(lexer));
 
+        // Customize lexer errors
+        lexer.removeErrorListeners();
+        lexer.addErrorListener(new CustomListener("LEX ERROR"));
+
         // Customize parser errors
         parser.removeErrorListeners();
         parser.addErrorListener(new CustomListener("PARSER ERROR"));

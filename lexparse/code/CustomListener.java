@@ -17,6 +17,7 @@ public class CustomListener extends BaseErrorListener {
         int charPositionInLine,
         String msg,
         RecognitionException e) {
-            System.out.println(message);
+            System.out.println(message + ": line " + line);
+            System.exit(0);
         }
  }

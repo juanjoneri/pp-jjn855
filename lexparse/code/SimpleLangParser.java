@@ -21,7 +21,7 @@ public class SimpleLangParser extends Parser {
 		CONTINUE=17, PLUS=18, MINUS=19, TIMES=20, DIVIDE=21, REMINDER=22, EQUALS=23, 
 		NOT_EQUALS=24, GT=25, GTOE=26, LT=27, LTOE=28, AND=29, OR=30, ASSIGN=31, 
 		PP=32, MM=33, SM=34, COMMA=35, DOT=36, OP=37, CP=38, OB=39, CB=40, OCB=41, 
-		CCB=42, BOOL=43, NUM=44, CHAR=45, ID=46, COMMENT=47, WS=48, OTHER=49;
+		CCB=42, BOOL=43, NUM=44, CHAR=45, ID=46, COMMENT=47, WS=48;
 	public static final int
 		RULE_r = 0, RULE_program = 1, RULE_constDecl = 2, RULE_enumDecl = 3, RULE_varDecl = 4, 
 		RULE_classDecl = 5, RULE_interfaceDecl = 6, RULE_interfaceMethodDecl = 7, 
@@ -59,7 +59,7 @@ public class SimpleLangParser extends Parser {
 			"EXTENDS", "CONTINUE", "PLUS", "MINUS", "TIMES", "DIVIDE", "REMINDER", 
 			"EQUALS", "NOT_EQUALS", "GT", "GTOE", "LT", "LTOE", "AND", "OR", "ASSIGN", 
 			"PP", "MM", "SM", "COMMA", "DOT", "OP", "CP", "OB", "CB", "OCB", "CCB", 
-			"BOOL", "NUM", "CHAR", "ID", "COMMENT", "WS", "OTHER"
+			"BOOL", "NUM", "CHAR", "ID", "COMMENT", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -2475,7 +2475,7 @@ public class SimpleLangParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\63\u0197\4\2\t\2"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\62\u0197\4\2\t\2"+
 		"\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13"+
 		"\t\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+

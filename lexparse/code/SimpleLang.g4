@@ -177,4 +177,3 @@ ID : [a-zA-Z][a-zA-Z0-9_]* ;
 COMMENT : '//' ~[\r\n]* -> skip ;
 
 WS : [ \t\r\n]+ -> skip ;
-OTHER: . { System.err.println("LEX ERROR"); };

@@ -46,7 +46,6 @@ CHAR=45
 ID=46
 COMMENT=47
 WS=48
-OTHER=49
 'program'=1
 'break'=2
 'class'=3

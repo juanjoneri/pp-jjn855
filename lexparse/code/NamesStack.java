@@ -5,7 +5,7 @@ import java.util.Deque;
 import java.util.Set;
 
 /**
- * Keeps track of variables in the stack.
+ * Keeps track of variables in the current scope and enclosing scopes using a stack.
  */
 @SuppressWarnings({"unchecked"})
 public class NamesStack {
@@ -35,7 +35,7 @@ public class NamesStack {
                 return;
             }
         }
-        System.out.println("NAME USE ERROR");
+        System.out.println("NAME USE ERROR: " + name);
         return;
     }
 
@@ -46,7 +46,7 @@ public class NamesStack {
      */
     public void checkDeclared(String name) {
         if (!declaredNames.contains(name)) {
-            System.out.println("NAME USE ERROR");
+            System.out.println("NAME USE ERROR: " + name);
         }
         return;
     }
@@ -79,7 +79,7 @@ public class NamesStack {
 
         public void addName(String name) {
             if (names.contains(name)) {
-                System.out.println("VAR ERROR");
+                System.out.println("VAR ERROR: " + name);
             }
             names.add(name);
         }
