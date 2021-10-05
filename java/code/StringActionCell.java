@@ -8,9 +8,15 @@ public class StringActionCell extends Cell<String> {
         this.op = op;
     }
 
+    @Override
     public String evaluate() {
         String base = reference.evaluate();
         return op.equals(Operation.TO_UPPER) ? base.toUpperCase() : base.toLowerCase();
+    }
+
+    @Override
+    public Cell.Type getType() {
+        return Cell.Type.STRING;
     }
 
     enum Operation {

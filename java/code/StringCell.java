@@ -6,7 +6,13 @@ public class StringCell extends Cell<String> {
         this.value = value;
     }
 
+    @Override
     public String evaluate() {
         return value;
+    }
+
+    @Override
+    public Cell.Type getType() {
+        return Cell.Type.STRING;
     }
 }
