@@ -1,13 +1,26 @@
 import java.util.List;
+import java.util.ArrayList;
 
 public class NumericActionCell extends Cell<Float> {
 
     private final List<Cell<Float>> references;
     private Operation op;
 
-    public NumericActionCell(List<Cell<Float>> references, Operation op) {
-        this.references = references;
+    public NumericActionCell(Operation op) {
+        this.references = new ArrayList();
         this.op = op;
+    }
+
+    public void addReference(Cell<Float> reference) {
+        references.add(reference);
+    }
+
+    public void removeReference(Cell<Float> reference) {
+        references.remove(reference);
+    }
+
+    public boolean hasReference(Cell<Float> reference) {
+        return references.contains(reference);
     }
 
     @Override

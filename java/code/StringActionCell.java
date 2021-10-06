@@ -1,11 +1,28 @@
 public class StringActionCell extends Cell<String> {
 
-    private final Cell<String> reference;
+    private Cell<String> reference;
     private Operation op;
 
-    public StringActionCell(Cell<String> reference, Operation op) {
-        this.reference = reference;
+    public StringActionCell(Operation op) {
+        this.reference = null;
         this.op = op;
+    }
+
+    public StringActionCell(String opName) {
+        this.reference = null;
+        if (opName.equals("__to_upper__")) {
+            op = Operation.TO_UPPER;
+        } else {
+            op = Operation.TO_LOWER;
+        }
+    }
+
+    public void setReference(Cell<String> reference) {
+        this.reference = reference;
+    }
+
+    public boolean hasReference(Cell<Float> reference) {
+        return this.reference.equals(reference);
     }
 
     @Override

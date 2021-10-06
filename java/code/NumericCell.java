@@ -36,8 +36,8 @@ public class NumericCell extends Cell<Float> {
     @Override
     public String toString() {
         if (type.equals(Cell.Type.INT)) {
-            return new Integer(value.intValue()).toString();
+            return new Integer(value.intValue()).toString() + type;
         }
-        return value.toString();
+        return value.toString() + type;
     }
 }
