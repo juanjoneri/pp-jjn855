@@ -6,7 +6,7 @@ public abstract class Cell<T> {
 
     @Override
     public String toString() {
-        return evaluate().toString();
+        return  getType() + ":" + evaluate().toString();
     }
 
     enum Type {

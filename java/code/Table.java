@@ -10,8 +10,8 @@ import java.util.Collections;
 
 public class Table {
 
-    private static Pattern INT_PAT = Pattern.compile("^[-+]?\\d+$");
-    private static Pattern FLOAT_PAT = Pattern.compile("^[-+]?[0-9]*\\.?[0-9]+$");
+    private static Pattern INT_PAT = Pattern.compile("^[-+]?[0-9]+$");
+    private static Pattern FLOAT_PAT = Pattern.compile("^[-+]?[0-9]*\\.[0-9]*$");
     // private static Pattern numericActionPat = Pattern.compile("^(__sum__|__avg__)\(\[(\d+),(\d+)\](?:,\[(\d+),(\d+)\])*\)$");
     private static Pattern STRING_ACTION_PAT = Pattern.compile("^(__to_upper__|__to_lower__)\\((\\[\\d+,\\d+\\])\\)$");
 
