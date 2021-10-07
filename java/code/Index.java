@@ -18,8 +18,8 @@ public class Index {
     public Index(String index) {
         Matcher m = INDEX_PAT.matcher(index);
         m.find();
-        this.row = Integer.parseInt(m.group(0));
-        this.col = Integer.parseInt(m.group(1));
+        this.row = Integer.parseInt(m.group(1));
+        this.col = Integer.parseInt(m.group(2));
     }
 
     public static Set<Index> generate(int rows, int cols) {
@@ -30,5 +30,25 @@ public class Index {
             }
         }
         return indices;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Index)) {
+            return false;
         }
+        
+        Index other = (Index) o;
+        return this.row == other.row && this.col == other.col;
+    }
+
+    @Override
+    public int hashCode() {
+        return toString().hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Index{row=%d, col=%d}", row, col);
+    }
 }

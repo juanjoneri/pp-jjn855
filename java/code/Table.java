@@ -73,16 +73,16 @@ public class Table {
         Matcher floatMatch = FLOAT_PAT.matcher(value);
         Matcher stringActionMatch = STRING_ACTION_PAT.matcher(value);
 
-        if (intMatch.find()) {
+        if (intMatch.matches()) {
             cell = new NumericCell(new Integer(value));
 
-        } else if (floatMatch.find()) {
+        } else if (floatMatch.matches()) {
             cell = new NumericCell(new Float(value));
 
-        } else if (stringActionMatch.find()) {
-            Index referenceIndex = new Index(stringActionMatch.group(1));
+        } else if (stringActionMatch.matches()) {
+            Index referenceIndex = new Index(stringActionMatch.group(2));
             Cell reference = populate(data, referenceIndex, remaining);
-            StringActionCell c = new StringActionCell(stringActionMatch.group(0));
+            StringActionCell c = new StringActionCell(stringActionMatch.group(1));
             c.setReference(reference);
             cell = c;
         } else {
