@@ -1,4 +1,5 @@
 import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toSet;
 
 import java.util.Set;
 import java.util.HashSet;
@@ -12,11 +13,11 @@ public class Table {
 
     private static Pattern INT_PAT = Pattern.compile("^[-+]?[0-9]+$");
     private static Pattern FLOAT_PAT = Pattern.compile("^[-+]?[0-9]*\\.[0-9]*$");
-    // private static Pattern numericActionPat = Pattern.compile("^(__sum__|__avg__)\(\[(\d+),(\d+)\](?:,\[(\d+),(\d+)\])*\)$");
+    private static Pattern NUMERIC_ACTION_PAT = Pattern.compile("^(__sum__|__avg__)\\((\\[[0-9]+,[0-9]+\\](?:,\\[[0-9]+,[0-9]+\\])*)\\)$");
     private static Pattern STRING_ACTION_PAT = Pattern.compile("^(__to_upper__|__to_lower__)\\((\\[\\d+,\\d+\\])\\)$");
 
     private List<String> headers;
-    private List<List<Cell>> matrix;
+    private List<List<Cell>> matrix; // use a hashmap instead
     private int rows;
     private int cols;
 
@@ -72,6 +73,7 @@ public class Table {
         Matcher intMatch = INT_PAT.matcher(value);
         Matcher floatMatch = FLOAT_PAT.matcher(value);
         Matcher stringActionMatch = STRING_ACTION_PAT.matcher(value);
+        Matcher numericActionMatch = NUMERIC_ACTION_PAT.matcher(value);
 
         if (intMatch.matches()) {
             cell = new NumericCell(new Integer(value));
@@ -85,6 +87,14 @@ public class Table {
             StringActionCell c = new StringActionCell(stringActionMatch.group(1));
             c.setReference(reference);
             cell = c;
+
+        } else if (numericActionMatch.matches()) {
+            Set<Index> referencesIndices = Index.generate(numericActionMatch.group(2));
+            Set<Cell> references = referencesIndices.stream().map(i -> populate(data, i, remaining)).collect(toSet());
+            NumericActionCell c = new NumericActionCell(numericActionMatch.group(1));
+            references.forEach(c::addReference);
+            cell = c;
+
         } else {
             cell = new StringCell(value);
         }

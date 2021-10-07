@@ -11,6 +11,16 @@ public class NumericActionCell extends Cell<Float> {
         this.op = op;
     }
 
+
+    public NumericActionCell(String opName) {
+        this.references = new ArrayList();
+        if (opName.equals("__sum__")) {
+            op = Operation.SUM;
+        } else {
+            op = Operation.AVG;
+        }
+    }
+
     public void addReference(Cell<Float> reference) {
         references.add(reference);
     }
@@ -44,9 +54,10 @@ public class NumericActionCell extends Cell<Float> {
     @Override
     public String toString() {
         Float value = evaluate();
-        return getType().equals(Cell.Type.INT) 
+        String castedValue = getType().equals(Cell.Type.INT) 
             ? new Integer(value.intValue()).toString() 
             : value.toString();
+        return getType() + ":" + castedValue;
     }
 
     enum Operation {

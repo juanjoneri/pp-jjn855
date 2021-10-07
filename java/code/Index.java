@@ -5,7 +5,7 @@ import java.util.HashSet;
 
 public class Index {
 
-    private static Pattern INDEX_PAT = Pattern.compile("^\\[(\\d+),(\\d+)\\]$");
+    private static Pattern INDEX_PAT = Pattern.compile("\\[([0-9]+),([0-9]+)\\]");
 
     public int row;
     public int col;
@@ -15,8 +15,8 @@ public class Index {
         this.col = col;
     }
 
-    public Index(String index) {
-        Matcher m = INDEX_PAT.matcher(index);
+    public Index(String name) {
+        Matcher m = INDEX_PAT.matcher(name);
         m.find();
         this.row = Integer.parseInt(m.group(1));
         this.col = Integer.parseInt(m.group(2));
@@ -32,12 +32,21 @@ public class Index {
         return indices;
     }
 
+    public static Set<Index> generate(String names) {
+        Set<Index> indices = new HashSet();
+        Matcher match = INDEX_PAT.matcher(names);
+        while(match.find()) {
+            indices.add(new Index(match.group(0)));
+        }
+        return indices;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Index)) {
             return false;
         }
-        
+
         Index other = (Index) o;
         return this.row == other.row && this.col == other.col;
     }
