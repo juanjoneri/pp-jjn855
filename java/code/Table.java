@@ -1,8 +1,8 @@
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
-
-import java.util.Set;
 import java.util.HashSet;
+import java.util.Set;
+import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.ArrayList;
@@ -55,7 +55,7 @@ public class Table {
 
     // Assumes the data has been validated
     public void populate(List<List<String>> data) {
-        Set<Index> remaining = Index.generate(rows, cols);
+        Set<Index> remaining = new HashSet(Index.generate(rows, cols));
         while(!remaining.isEmpty()) {
             populate(data, remaining.iterator().next(), remaining);
         }
@@ -89,7 +89,7 @@ public class Table {
             cell = c;
 
         } else if (numericActionMatch.matches()) {
-            Set<Index> referencesIndices = Index.generate(numericActionMatch.group(2));
+            List<Index> referencesIndices = Index.generate(numericActionMatch.group(2));
             Set<Cell> references = referencesIndices.stream().map(i -> populate(data, i, remaining)).collect(toSet());
             NumericActionCell c = new NumericActionCell(numericActionMatch.group(1));
             references.forEach(c::addReference);

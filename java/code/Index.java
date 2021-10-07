@@ -2,6 +2,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.Set;
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Index {
 
@@ -22,8 +24,8 @@ public class Index {
         this.col = Integer.parseInt(m.group(2));
     }
 
-    public static Set<Index> generate(int rows, int cols) {
-        Set<Index> indices = new HashSet();
+    public static List<Index> generate(int rows, int cols) {
+        List<Index> indices = new LinkedList();
         for (int r = 0; r < rows; r ++) {
             for (int c = 0; c < cols; c ++) {
                 indices.add(new Index(r, c));
@@ -32,8 +34,8 @@ public class Index {
         return indices;
     }
 
-    public static Set<Index> generate(String names) {
-        Set<Index> indices = new HashSet();
+    public static List<Index> generate(String names) {
+        List<Index> indices = new LinkedList();
         Matcher match = INDEX_PAT.matcher(names);
         while(match.find()) {
             indices.add(new Index(match.group(0)));
