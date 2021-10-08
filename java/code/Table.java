@@ -60,14 +60,20 @@ public class Table {
         return this.headers;
     }
 
-    void print() {
-
+    List<List<String>> getRepr() {
+        List<List<String>> repr = new ArrayList();
         if (!headers.isEmpty()) {
-            System.out.println(String.join(" ", headers));
+            repr.add(headers);
         }
-
         for (List<Cell> row : values) {
-            System.out.println(String.join(" ", row.stream().map(c -> c.toString()).collect(toList())));
+            repr.add(row.stream().map(c -> c.toString()).collect(toList()));
+        }
+        return repr;
+    }
+
+    void print() {
+        for (List<String> row : getRepr()) {
+            System.out.println(String.join(" ", row));
         }
 
     }
