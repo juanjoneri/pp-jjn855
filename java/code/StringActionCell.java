@@ -1,8 +1,7 @@
 public class StringActionCell extends ActionCell<String> {
 
     public StringActionCell(String operation) {
-        super(
-            Cell.Type.STRING, 
+        super(Cell.Type.STRING, 
             operation.equals("__to_upper__") 
                 ? ActionCell.Operation.TO_UPPER 
                 : ActionCell.Operation.TO_LOWER);

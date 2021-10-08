@@ -89,10 +89,10 @@ public class Table {
             cell = c;
 
         } else if (numericActionMatch.matches()) {
-            List<Index> referencesIndices = Index.generate(numericActionMatch.group(2));
-            Set<Cell> references = referencesIndices.stream().map(i -> populate(data, i, remaining)).collect(toSet());
+            List<Index> references = Index.generate(numericActionMatch.group(2));
+            Set<Cell> children = references.stream().map(i -> populate(data, i, remaining)).collect(toSet());
             NumericActionCell c = new NumericActionCell(numericActionMatch.group(1));
-            references.forEach(c::addReference);
+            children.forEach(c::addChild);
             cell = c;
 
         } else {
