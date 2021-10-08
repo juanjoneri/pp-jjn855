@@ -13,7 +13,7 @@ public class Main {
         try {
             Table t = new TableBuilder(data, /*hasHeaders*/ true).validate().build();
             // t.removeCols(1);
-            t.fixCell(new Index(2, 0));
+            t.fixCol(2, 1);
             t.print();
         } catch (Exception e) {
             if (e.getMessage() != null) {

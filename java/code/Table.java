@@ -25,6 +25,15 @@ public class Table {
         }
     }
 
+    public void fixCol(Integer... cols) {
+        List<Integer> targets = Arrays.asList(cols);
+
+        for (Integer target : targets) {
+            Index.generateCol(rows, target).forEach(this::fixCell);
+        }
+
+    }
+
     public void fixCell(Index i) {
         Cell target = get(i);
         if (target instanceof ActionCell) {
@@ -40,12 +49,7 @@ public class Table {
     }
 
     public void set(Index i, Cell c) {
-        // TODO Update any dependencies 
         values.get(i.row).set(i.col, c);
-    }
-
-    public void remove(Index i) {
-        values.get(i.row).remove(i.col);
     }
 
     public void setHeaders(List<String> headers) {
