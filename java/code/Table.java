@@ -25,11 +25,9 @@ public class Table {
         }
     }
 
-    public void fixCol(Integer... cols) {
-        List<Integer> targets = Arrays.asList(cols);
-
-        for (Integer target : targets) {
-            Index.generateCol(rows, target).forEach(this::fixCell);
+    public void fixCol(List<Integer> cols) {
+        for (Integer col : cols) {
+            Index.generateCol(rows, col).forEach(this::fixCell);
         }
 
     }
@@ -71,7 +69,7 @@ public class Table {
 
     List<List<String>> getRepr() {
         List<List<String>> repr = new ArrayList();
-        if (!hasHeaders()) {
+        if (hasHeaders()) {
             repr.add(getHeaders());
         }
         for (List<Cell> row : values) {
@@ -80,9 +78,13 @@ public class Table {
         return repr;
     }
 
-    void print() {
+    void print(List<Integer> cols) {
         for (List<String> row : getRepr()) {
-            System.out.println(String.join(" ", row));
+            List<String> filteredRow = new ArrayList();
+            for (Integer col : cols) {
+                filteredRow.add(row.get(col));
+            }
+            System.out.println(String.join(" ", filteredRow));
         }
 
     }

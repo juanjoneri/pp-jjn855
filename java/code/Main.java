@@ -14,7 +14,7 @@ public class Main {
             Table t = new TableBuilder(data, /*hasHeaders*/ true).validate().build();
             System.out.println(t.sum(0));
             // t.fixCol(2, 0, 1);
-            t.print();
+            t.print(Arrays.asList(0, 1));
         } catch (Exception e) {
             if (e.getMessage() != null) {
                 System.out.println(e.getMessage());
