@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public abstract class Cell<T> {
 
     Type type;
@@ -10,6 +12,12 @@ public abstract class Cell<T> {
 
     public Type getType() {
         return type;
+    }
+
+    public void checkType(Type... others) {
+        if (!Arrays.asList(others).contains(getType())) {
+            throw new RuntimeException("TYPE ERROR");
+        }
     }
 
     @Override

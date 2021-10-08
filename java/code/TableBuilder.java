@@ -29,11 +29,11 @@ public class TableBuilder {
         remaining = new HashSet(Index.generate(rows, cols));
     }
 
-    public TableBuilder validate() throws Exception {
+    public TableBuilder validate() {
         int cols = table.hasHeaders() ? table.getHeaders().size() : data.get(0).size();
         for (List<String> row : data) {
             if (row.size() != cols) {
-                throw new Exception("NUM COLS ERROR");
+                throw new RuntimeException("NUM COLS ERROR");
             }
         }
 
@@ -70,6 +70,7 @@ public class TableBuilder {
         } else if (stringActionMatch.matches()) {
             Index reference = new Index(stringActionMatch.group(2));
             Cell child = populate(reference);
+            child.checkType(Cell.Type.STRING);
             StringActionCell c = new StringActionCell(stringActionMatch.group(1));
             c.addChild(child);
             cell = c;
