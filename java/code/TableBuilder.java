@@ -1,4 +1,4 @@
-import static java.util.stream.Collectors.toSet;
+import static java.util.stream.Collectors.toList;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -85,7 +85,7 @@ public class TableBuilder {
 
         } else if (numericActionMatch.matches()) {
             List<Index> references = Index.generate(numericActionMatch.group(2));
-            Set<Cell> children = references.stream().map(reference -> populate(reference)).collect(toSet());
+            List<Cell> children = references.stream().map(reference -> populate(reference)).collect(toList());
             NumericActionCell c = new NumericActionCell(numericActionMatch.group(1), value);
             children.forEach(c::addChild);
             cell = c;

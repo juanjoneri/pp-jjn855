@@ -57,17 +57,17 @@ public class Table {
     }
 
     public boolean hasHeaders() {
-        return !this.headers.isEmpty();
+        return !headers.isEmpty();
     }
 
     public List<String> getHeaders() {
-        return this.headers;
+        return headers;
     }
 
     List<List<String>> getRepr() {
         List<List<String>> repr = new ArrayList();
-        if (!headers.isEmpty()) {
-            repr.add(headers);
+        if (!hasHeaders()) {
+            repr.add(getHeaders());
         }
         for (List<Cell> row : values) {
             repr.add(row.stream().map(c -> c.toString()).collect(toList()));

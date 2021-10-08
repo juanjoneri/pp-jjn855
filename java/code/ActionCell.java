@@ -1,17 +1,17 @@
-import java.util.Set;
-import java.util.HashSet;
+import java.util.List;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public abstract class ActionCell<T> extends Cell<T> {
 
     Operation operation;
-    Set<Cell<T>> children;
+    List<Cell<T>> children;
     String representation;
 
     public ActionCell(Type type, Operation operation, String representation) {
         super(type);
         this.operation = operation;
-        this.children = new HashSet();
+        this.children = new ArrayList();
         this.representation = representation;
     }
 
@@ -19,21 +19,13 @@ public abstract class ActionCell<T> extends Cell<T> {
         representation = super.toString();
     }
 
-    public Set<Cell<T>> getChildren() {
+    public List<Cell<T>> getChildren() {
         return children;
     }
 
     public void addChild(Cell<T> child) {
         validateChild(child);
         children.add(child);
-    }
-
-    public void removeChild(Cell<T> child) {
-        children.remove(child);
-    }
-
-    public boolean hasChild(Cell<T> child) {
-        return children.contains(child);
     }
 
     public Operation getOperation() {
