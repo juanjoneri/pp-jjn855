@@ -24,6 +24,9 @@ public class Table {
     }
 
     public Cell get(Index i) {
+        if (i.row >= rows || i.col >= cols) {
+            throw new RuntimeException("INDEX ERROR");
+        }
         return values.get(i.row).get(i.col);
     }
 
