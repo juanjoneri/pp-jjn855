@@ -1,20 +1,16 @@
 public class StringActionCell extends Cell<String> {
 
-    private Cell<String> reference;
+    private Cell<String> reference; // TODO rename to children
     private Operation op;
 
     public StringActionCell(Operation op) {
+        super(Cell.Type.STRING);
         this.reference = null;
         this.op = op;
     }
 
     public StringActionCell(String opName) {
-        this.reference = null;
-        if (opName.equals("__to_upper__")) {
-            op = Operation.TO_UPPER;
-        } else {
-            op = Operation.TO_LOWER;
-        }
+        this(opName.equals("__to_upper__") ? Operation.TO_UPPER : Operation.TO_LOWER);
     }
 
     public void setReference(Cell<String> reference) {
@@ -29,11 +25,6 @@ public class StringActionCell extends Cell<String> {
     public String evaluate() {
         String base = reference.evaluate();
         return op.equals(Operation.TO_UPPER) ? base.toUpperCase() : base.toLowerCase();
-    }
-
-    @Override
-    public Cell.Type getType() {
-        return Cell.Type.STRING;
     }
 
     enum Operation {
