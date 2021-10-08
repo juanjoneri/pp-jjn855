@@ -1,5 +1,7 @@
 import static java.util.stream.Collectors.toList;
 
+import java.util.Collections;
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +25,21 @@ public class Table {
         }
     }
 
+    public void removeCols(Integer... toRemove) {
+        List<Integer> targets = Arrays.asList(toRemove);
+        Collections.sort(targets);
+        System.out.println(targets);
+
+        for (int i = targets.size() - 1; i >= 0; i--) {
+            cols -= 1;
+            int target = targets.get(i);
+            if (hasHeaders()) {
+                headers.remove(target);
+            }
+            Index.generateCol(rows, target).forEach(this::remove);
+        }
+    }
+
     public Cell get(Index i) {
         if (i.row >= rows || i.col >= cols) {
             throw new RuntimeException("INDEX ERROR");
@@ -35,8 +52,13 @@ public class Table {
         values.get(i.row).set(i.col, c);
     }
 
+    public void remove(Index i) {
+        // TODO Update any dependencies 
+        values.get(i.row).remove(i.col);
+    }
+
     public void setHeaders(List<String> headers) {
-        this.headers = headers;
+        this.headers = new ArrayList(headers);
     }
 
     public boolean hasHeaders() {

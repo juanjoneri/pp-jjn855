@@ -26,9 +26,9 @@ public class Index {
 
     public static List<Index> generate(int rows, int cols) {
         List<Index> indices = new LinkedList();
-        for (int r = 0; r < rows; r ++) {
-            for (int c = 0; c < cols; c ++) {
-                indices.add(new Index(r, c));
+        for (int row = 0; row < rows; row ++) {
+            for (int col = 0; col < cols; col ++) {
+                indices.add(new Index(row, col));
             }
         }
         return indices;
@@ -39,6 +39,14 @@ public class Index {
         Matcher match = INDEX_PAT.matcher(names);
         while(match.find()) {
             indices.add(new Index(match.group(0)));
+        }
+        return indices;
+    }
+
+    public static List<Index> generateCol(int rows, int col) {
+        List<Index> indices = new LinkedList();
+        for (int row = 0; row < rows; row ++) {
+            indices.add(new Index(row, col));
         }
         return indices;
     }
