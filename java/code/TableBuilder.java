@@ -10,8 +10,11 @@ import java.util.HashSet;
 public class TableBuilder {
 
     private List<List<String>> data;
-    private Set<Index> remaining;
     private Table table;
+
+    // Used to build the graph
+    private Set<Index> remaining;
+    private Set<Index> explored;
 
     public TableBuilder(List<List<String>> data, boolean hasHeaders) {
         int rows = data.size();
@@ -27,8 +30,10 @@ public class TableBuilder {
 
         }
         remaining = new HashSet(Index.generate(rows, cols));
+        explored = new HashSet();
     }
 
+    // Performs some preeliminary static validation
     public TableBuilder validate() {
         int cols = table.hasHeaders() ? table.getHeaders().size() : data.get(0).size();
         for (List<String> row : data) {
@@ -51,8 +56,12 @@ public class TableBuilder {
     private Cell populate(Index index) {
         if (!remaining.contains(index)) {
             return table.get(index);
+        } 
+        if (explored.contains(index)) {
+            throw new RuntimeException("DAG ERROR");
         }
 
+        explored.add(index);
         String value = data.get(index.row).get(index.col);
         Cell cell;
 
