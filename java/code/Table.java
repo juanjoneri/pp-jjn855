@@ -64,6 +64,11 @@ public class Table {
         return headers;
     }
 
+    public String sum(int col) {
+        List<Cell> chilren = Index.generateCol(rows, col).stream().map(this::get).collect(toList());
+        return new NumericActionCell(ActionCell.Operation.SUM, chilren).fix().toString();
+    }
+
     List<List<String>> getRepr() {
         List<List<String>> repr = new ArrayList();
         if (!hasHeaders()) {

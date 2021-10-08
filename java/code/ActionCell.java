@@ -15,8 +15,9 @@ public abstract class ActionCell<T> extends Cell<T> {
         this.representation = representation;
     }
 
-    public void fix() {
+    public ActionCell fix() {
         representation = super.toString();
+        return this;
     }
 
     public List<Cell<T>> getChildren() {

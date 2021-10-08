@@ -12,8 +12,8 @@ public class Main {
 
         try {
             Table t = new TableBuilder(data, /*hasHeaders*/ true).validate().build();
-            // t.removeCols(1);
-            t.fixCol(2, 0, 1);
+            System.out.println(t.sum(0));
+            // t.fixCol(2, 0, 1);
             t.print();
         } catch (Exception e) {
             if (e.getMessage() != null) {

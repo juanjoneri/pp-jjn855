@@ -11,6 +11,12 @@ public class NumericActionCell extends ActionCell<Float> {
             name);
     }
 
+    // Used to create a summary cell
+    public NumericActionCell(ActionCell.Operation operation, List<Cell> children) {
+        super(Cell.Type.FLOAT, operation, "");
+        children.forEach(this::addChild);
+    }
+
     @Override
     public Cell.Type getType() {
         if (getOperation().equals(ActionCell.Operation.SUM) 
