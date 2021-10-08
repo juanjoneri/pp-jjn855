@@ -2,6 +2,7 @@ import static java.util.stream.Collectors.toSet;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.HashSet;
@@ -12,13 +13,20 @@ public class TableBuilder {
     private Set<Index> remaining;
     private Table table;
 
-    public TableBuilder(List<List<String>> data) {
-        this.data = data;
-
+    public TableBuilder(List<List<String>> data, boolean hasHeaders) {
         int rows = data.size();
         int cols =  data.get(0).size();
+        this.data = new ArrayList(data);
+
+        if (!hasHeaders) {
+            table = new Table(rows, cols);
+        } else {
+            rows -= 1;
+            table = new Table(rows, cols);
+            table.setHeaders(this.data.remove(0));
+
+        }
         remaining = new HashSet(Index.generate(rows, cols));
-        table = new Table(rows, cols);
     }
 
     public boolean validate() {

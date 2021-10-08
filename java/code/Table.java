@@ -32,6 +32,10 @@ public class Table {
         values.get(i.row).set(i.col, c);
     }
 
+    public void setHeaders(List<String> headers) {
+        this.headers = headers;
+    }
+
     void print() {
 
         if (!headers.isEmpty()) {
