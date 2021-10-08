@@ -82,10 +82,10 @@ public class Table {
             cell = new NumericCell(new Float(value));
 
         } else if (stringActionMatch.matches()) {
-            Index referenceIndex = new Index(stringActionMatch.group(2));
-            Cell reference = populate(data, referenceIndex, remaining);
+            Index reference = new Index(stringActionMatch.group(2));
+            Cell child = populate(data, reference, remaining);
             StringActionCell c = new StringActionCell(stringActionMatch.group(1));
-            c.setReference(reference);
+            c.addChild(child);
             cell = c;
 
         } else if (numericActionMatch.matches()) {

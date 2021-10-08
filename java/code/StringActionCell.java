@@ -1,33 +1,19 @@
-public class StringActionCell extends Cell<String> {
+public class StringActionCell extends ActionCell<String> {
 
-    private Cell<String> reference; // TODO rename to children
-    private Operation op;
-
-    public StringActionCell(Operation op) {
-        super(Cell.Type.STRING);
-        this.reference = null;
-        this.op = op;
-    }
-
-    public StringActionCell(String opName) {
-        this(opName.equals("__to_upper__") ? Operation.TO_UPPER : Operation.TO_LOWER);
-    }
-
-    public void setReference(Cell<String> reference) {
-        this.reference = reference;
-    }
-
-    public boolean hasReference(Cell<Float> reference) {
-        return this.reference.equals(reference);
+    public StringActionCell(String operation) {
+        super(
+            Cell.Type.STRING, 
+            operation.equals("__to_upper__") 
+                ? ActionCell.Operation.TO_UPPER 
+                : ActionCell.Operation.TO_LOWER);
     }
 
     @Override
     public String evaluate() {
-        String base = reference.evaluate();
-        return op.equals(Operation.TO_UPPER) ? base.toUpperCase() : base.toLowerCase();
+        String base = getChildren().iterator().next().evaluate(); // Can only have 1 child
+        return getOperation().equals(ActionCell.Operation.TO_UPPER) 
+            ? base.toUpperCase() 
+            : base.toLowerCase();
     }
 
-    enum Operation {
-        TO_UPPER, TO_LOWER
-    }
 }
