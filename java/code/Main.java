@@ -9,8 +9,7 @@ public class Main {
             Arrays.asList("1", "22.1", "__avg__([1,1],[2,0])"), 
             Arrays.asList("__sum__([0,0],[1,1])", "4", "hola"));
 
-        Table t = new Table(3, 3);
-        t.populate(data);
+        Table t = new TableBuilder(data).build();
         t.print();
     }
 }

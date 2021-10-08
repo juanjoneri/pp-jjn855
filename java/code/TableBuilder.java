@@ -1,0 +1,104 @@
+import static java.util.stream.Collectors.toSet;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.List;
+import java.util.Set;
+import java.util.HashSet;
+
+public class TableBuilder {
+
+    private List<List<String>> data;
+    private Set<Index> remaining;
+    private Table table;
+
+    public TableBuilder(List<List<String>> data) {
+        this.data = data;
+
+        int rows = data.size();
+        int cols =  data.get(0).size();
+        remaining = new HashSet(Index.generate(rows, cols));
+        table = new Table(rows, cols);
+    }
+
+    public boolean validate() {
+        return true;
+    }
+
+    public Table build() {
+        while(!remaining.isEmpty()) {
+            populate(remaining.iterator().next());
+        }
+        return table;
+    }
+
+    /* Populate the given index and any dependencies */
+    private Cell populate(Index index) {
+        if (!remaining.contains(index)) {
+            return table.get(index);
+        }
+
+        String value = data.get(index.row).get(index.col);
+        Cell cell;
+
+        Matcher intMatch = Patterns.matchInt(value);
+        Matcher floatMatch = Patterns.matchFloat(value);
+        Matcher stringActionMatch = Patterns.matchStringAction(value);
+        Matcher numericActionMatch = Patterns.matchNumericAction(value);
+
+        if (intMatch.matches()) {
+            cell = new NumericCell(new Integer(value));
+
+        } else if (floatMatch.matches()) {
+            cell = new NumericCell(new Float(value));
+
+        } else if (stringActionMatch.matches()) {
+            Index reference = new Index(stringActionMatch.group(2));
+            Cell child = populate(reference);
+            StringActionCell c = new StringActionCell(stringActionMatch.group(1));
+            c.addChild(child);
+            cell = c;
+
+        } else if (numericActionMatch.matches()) {
+            List<Index> references = Index.generate(numericActionMatch.group(2));
+            Set<Cell> children = references.stream().map(reference -> populate(reference)).collect(toSet());
+            NumericActionCell c = new NumericActionCell(numericActionMatch.group(1));
+            children.forEach(c::addChild);
+            cell = c;
+
+        } else {
+            cell = new StringCell(value);
+        }
+
+        table.set(index, cell);
+        remaining.remove(index);
+        return table.get(index);
+
+    }
+}
+
+final class Patterns {
+
+    static Pattern INT = Pattern.compile("^[-+]?[0-9]+$");
+    static Pattern FLOAT = Pattern.compile("^[-+]?[0-9]*\\.[0-9]*$");
+    static Pattern NUMERIC_ACTION = Pattern.compile("^(__sum__|__avg__)\\((\\[[0-9]+,[0-9]+\\](?:,\\[[0-9]+,[0-9]+\\])*)\\)$");
+    static Pattern STRING_ACTION = Pattern.compile("^(__to_upper__|__to_lower__)\\((\\[\\d+,\\d+\\])\\)$");
+
+    static Matcher matchInt(String value) {
+        return INT.matcher(value);
+    }
+
+    static Matcher matchFloat(String value) {
+        return FLOAT.matcher(value);
+    }
+
+    static Matcher matchNumericAction(String value) {
+        return NUMERIC_ACTION.matcher(value);
+    }
+
+    static Matcher matchStringAction(String value) {
+        return STRING_ACTION.matcher(value);
+    }
+
+    private Patterns() {};
+}
