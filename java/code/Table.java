@@ -25,7 +25,7 @@ public class Table {
         }
     }
 
-    public void fixCol(List<Integer> cols) {
+    public void fixCols(List<Integer> cols) {
         for (Integer col : cols) {
             Index.generateCol(rows, col).forEach(this::fixCell);
         }

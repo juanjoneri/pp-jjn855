@@ -13,7 +13,7 @@ public class Main {
         try {
             Table t = new TableBuilder(data, /*hasHeaders*/ true).validate().build();
             System.out.println(t.sum(0));
-            // t.fixCol(2, 0, 1);
+            t.fixCols(Arrays.asList(2, 1));
             t.print(Arrays.asList(0, 1));
         } catch (Exception e) {
             if (e.getMessage() != null) {
