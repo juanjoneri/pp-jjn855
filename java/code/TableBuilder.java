@@ -70,7 +70,6 @@ public class TableBuilder {
         } else if (stringActionMatch.matches()) {
             Index reference = new Index(stringActionMatch.group(2));
             Cell child = populate(reference);
-            child.checkType(Cell.Type.STRING);
             StringActionCell c = new StringActionCell(stringActionMatch.group(1));
             c.addChild(child);
             cell = c;

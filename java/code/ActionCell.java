@@ -1,5 +1,6 @@
 import java.util.Set;
 import java.util.HashSet;
+import java.util.Arrays;
 
 public abstract class ActionCell<T> extends Cell<T> {
 
@@ -17,6 +18,7 @@ public abstract class ActionCell<T> extends Cell<T> {
     }
 
     public void addChild(Cell<T> child) {
+        validateChild(child);
         children.add(child);
     }
 
@@ -30,6 +32,14 @@ public abstract class ActionCell<T> extends Cell<T> {
 
     public Operation getOperation() {
         return this.operation;
+    }
+
+    private void validateChild(Cell<T> child) {
+        if (Arrays.asList(Operation.SUM, Operation.AVG).contains(getOperation())) {
+            child.checkType(Cell.Type.FLOAT, Cell.Type.INT);
+        } else {
+            child.checkType(Cell.Type.STRING);
+        }
     }
 
     enum Operation {
