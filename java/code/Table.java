@@ -36,6 +36,14 @@ public class Table {
         this.headers = headers;
     }
 
+    public boolean hasHeaders() {
+        return !this.headers.isEmpty();
+    }
+
+    public List<String> getHeaders() {
+        return this.headers;
+    }
+
     void print() {
 
         if (!headers.isEmpty()) {

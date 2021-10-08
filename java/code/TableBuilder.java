@@ -29,8 +29,15 @@ public class TableBuilder {
         remaining = new HashSet(Index.generate(rows, cols));
     }
 
-    public boolean validate() {
-        return true;
+    public TableBuilder validate() throws Exception {
+        int cols = table.hasHeaders() ? table.getHeaders().size() : data.get(0).size();
+        for (List<String> row : data) {
+            if (row.size() != cols) {
+                throw new Exception("NUM COLS ERROR");
+            }
+        }
+
+        return this;
     }
 
     public Table build() {

@@ -10,7 +10,11 @@ public class Main {
             Arrays.asList("1", "22", "__avg__([1,1],[2,0])"), 
             Arrays.asList("__sum__([0,0],[1,1])", "4.0", "hola"));
 
-        Table t = new TableBuilder(data, /*hasHeaders*/ true).build();
-        t.print();
+        try {
+            Table t = new TableBuilder(data, /*hasHeaders*/ true).validate().build();
+            t.print();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
