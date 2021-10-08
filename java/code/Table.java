@@ -25,18 +25,10 @@ public class Table {
         }
     }
 
-    public void removeCols(Integer... toRemove) {
-        List<Integer> targets = Arrays.asList(toRemove);
-        Collections.sort(targets);
-        System.out.println(targets);
-
-        for (int i = targets.size() - 1; i >= 0; i--) {
-            cols -= 1;
-            int target = targets.get(i);
-            if (hasHeaders()) {
-                headers.remove(target);
-            }
-            Index.generateCol(rows, target).forEach(this::remove);
+    public void fixCell(Index i) {
+        Cell target = get(i);
+        if (target instanceof ActionCell) {
+            ((ActionCell) target).fix();
         }
     }
 
@@ -53,7 +45,6 @@ public class Table {
     }
 
     public void remove(Index i) {
-        // TODO Update any dependencies 
         values.get(i.row).remove(i.col);
     }
 

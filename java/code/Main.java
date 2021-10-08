@@ -12,11 +12,13 @@ public class Main {
 
         try {
             Table t = new TableBuilder(data, /*hasHeaders*/ true).validate().build();
-            t.removeCols(1);
+            // t.removeCols(1);
+            t.fixCell(new Index(2, 0));
             t.print();
-        } catch (RuntimeException e) {
-            System.out.println(e.getMessage());
         } catch (Exception e) {
+            if (e.getMessage() != null) {
+                System.out.println(e.getMessage());
+            }
             System.out.println("OTHER ERROR");
         }
     }

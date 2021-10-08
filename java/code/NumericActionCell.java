@@ -3,11 +3,12 @@ import java.util.ArrayList;
 
 public class NumericActionCell extends ActionCell<Float> {
 
-    public NumericActionCell(String operation) {
+    public NumericActionCell(String operation, String name) {
         super(Cell.Type.FLOAT,
             operation.equals("__sum__") 
                 ? ActionCell.Operation.SUM 
-                : ActionCell.Operation.AVG);
+                : ActionCell.Operation.AVG,
+            name);
     }
 
     @Override

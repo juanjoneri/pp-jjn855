@@ -6,11 +6,17 @@ public abstract class ActionCell<T> extends Cell<T> {
 
     Operation operation;
     Set<Cell<T>> children;
+    String representation;
 
-    public ActionCell(Type type, Operation operation) {
+    public ActionCell(Type type, Operation operation, String representation) {
         super(type);
         this.operation = operation;
         this.children = new HashSet();
+        this.representation = representation;
+    }
+
+    public void fix() {
+        representation = super.toString();
     }
 
     public Set<Cell<T>> getChildren() {
@@ -40,6 +46,13 @@ public abstract class ActionCell<T> extends Cell<T> {
         } else {
             child.checkType(Cell.Type.STRING);
         }
+    }
+
+    @Override
+    public String toString() {
+        // By default will return the representation.
+        // To print evaluated cell first need to fix();
+        return representation;
     }
 
     enum Operation {

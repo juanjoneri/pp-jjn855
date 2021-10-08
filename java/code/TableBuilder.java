@@ -70,14 +70,14 @@ public class TableBuilder {
         } else if (stringActionMatch.matches()) {
             Index reference = new Index(stringActionMatch.group(2));
             Cell child = populate(reference);
-            StringActionCell c = new StringActionCell(stringActionMatch.group(1));
+            StringActionCell c = new StringActionCell(stringActionMatch.group(1), value);
             c.addChild(child);
             cell = c;
 
         } else if (numericActionMatch.matches()) {
             List<Index> references = Index.generate(numericActionMatch.group(2));
             Set<Cell> children = references.stream().map(reference -> populate(reference)).collect(toSet());
-            NumericActionCell c = new NumericActionCell(numericActionMatch.group(1));
+            NumericActionCell c = new NumericActionCell(numericActionMatch.group(1), value);
             children.forEach(c::addChild);
             cell = c;
 
