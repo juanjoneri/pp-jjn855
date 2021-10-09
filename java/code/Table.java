@@ -1,9 +1,11 @@
 import static java.util.stream.Collectors.toList;
 
+import java.util.HashSet;
 import java.util.Collections;
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class Table {
 
@@ -23,6 +25,31 @@ public class Table {
                 values.get(r).add(null);
             }
         }
+    }
+
+    public int getColIndex(String header) {
+        if (!hasHeaders() || !getHeaders().contains(header)) {
+            throw new RuntimeException("OTHER ERROR");
+        }
+        return getHeaders().indexOf(header);
+    }
+
+    public Set<Integer> equals(int col, Condition.Value value) {
+        return new HashSet();
+    }
+
+    public Set<Integer> notEquals(int col, Condition.Value value) {
+        return new HashSet();
+    }
+
+    public Set<Integer> lessThan(int col, Condition.Value value) {
+        value.checkNumeric();
+        return new HashSet();
+    }
+
+    public Set<Integer> greaterThan(int col, Condition.Value value) {
+        value.checkNumeric();
+        return new HashSet();
     }
 
     public void fixCols(List<Integer> cols) {
