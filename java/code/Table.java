@@ -27,12 +27,14 @@ public class Table {
 
     public void fixCols(List<Integer> cols) {
         for (Integer col : cols) {
+            validateCol(col);
             Index.generateCol(rows, col).forEach(this::fix);
         }
 
     }
 
     public void fix(Index i) {
+        validateIndex(i);
         Cell target = get(i);
         if (target instanceof ActionCell) {
             ((ActionCell) target).fix();
@@ -40,23 +42,17 @@ public class Table {
     }
 
     public Cell get(Index i) {
-        if (i.row >= rows || i.col >= cols) {
-            throw new RuntimeException("INDEX ERROR");
-        }
+        validateIndex(i);
         return values.get(i.row).get(i.col);
     }
 
     public void set(Index i, Cell c) {
-        if (i.row >= rows || i.col >= cols) {
-            throw new RuntimeException("INDEX ERROR");
-        }
+        validateIndex(i);
         values.get(i.row).set(i.col, c);
     }
 
     public void update(Index i, String name) {
-        if (i.row >= rows || i.col >= cols) {
-            throw new RuntimeException("INDEX ERROR");
-        }
+        validateIndex(i);
         int adjustedRow = i.row + (hasHeaders() ? 1 : 0);
         List<List<String>> repr = getRepr();
         repr.get(adjustedRow).set(i.col, name);   
@@ -76,6 +72,7 @@ public class Table {
     }
 
     public String sum(int col) {
+        validateCol(col);
         List<Cell> chilren = Index.generateCol(rows, col).stream().map(this::get).collect(toList());
         return new NumericActionCell(ActionCell.Operation.SUM, chilren).fix().toString();
     }
@@ -92,6 +89,7 @@ public class Table {
     }
 
     public void print(List<Integer> cols) {
+        cols.forEach(this::validateCol);
         for (List<String> row : getRepr()) {
             List<String> filteredRow = new ArrayList();
             for (Integer col : cols) {
@@ -100,5 +98,17 @@ public class Table {
             System.out.println(String.join(" ", filteredRow));
         }
 
+    }
+
+    private void validateCol(int col) {
+        if (col < 0 || col >= cols) {
+            throw new RuntimeException("COL INDEX ERROR");
+        }
+    }
+
+    private void validateIndex(Index i) {
+        if (i.row < 0 || i.col < 0 || i.row >= rows || i.col >= cols) {
+            throw new RuntimeException("INDEX ERROR");
+        }
     }
 }
