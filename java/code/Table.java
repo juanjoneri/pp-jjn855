@@ -88,16 +88,17 @@ public class Table {
         return repr;
     }
 
-    public void print(List<Integer> cols) {
+    public String print(List<Integer> cols) {
         cols.forEach(this::validateCol);
+        String out = "";
         for (List<String> row : getRepr()) {
             List<String> filteredRow = new ArrayList();
             for (Integer col : cols) {
                 filteredRow.add(row.get(col));
             }
-            System.out.println(String.join(" ", filteredRow));
+            out += String.join(" ", filteredRow) + "\n";
         }
-
+        return out;
     }
 
     private void validateCol(int col) {
