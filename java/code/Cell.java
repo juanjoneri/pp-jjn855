@@ -33,7 +33,7 @@ public abstract class Cell<T> {
             name = new Integer(new Float(name).intValue()).toString();
         }
 
-        return getType() + ":" + name;
+        return name;
     }
 
     enum Type {

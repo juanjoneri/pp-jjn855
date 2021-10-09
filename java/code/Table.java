@@ -27,12 +27,12 @@ public class Table {
 
     public void fixCols(List<Integer> cols) {
         for (Integer col : cols) {
-            Index.generateCol(rows, col).forEach(this::fixCell);
+            Index.generateCol(rows, col).forEach(this::fix);
         }
 
     }
 
-    public void fixCell(Index i) {
+    public void fix(Index i) {
         Cell target = get(i);
         if (target instanceof ActionCell) {
             ((ActionCell) target).fix();
@@ -47,7 +47,20 @@ public class Table {
     }
 
     public void set(Index i, Cell c) {
+        if (i.row >= rows || i.col >= cols) {
+            throw new RuntimeException("INDEX ERROR");
+        }
         values.get(i.row).set(i.col, c);
+    }
+
+    public void update(Index i, String name) {
+        if (i.row >= rows || i.col >= cols) {
+            throw new RuntimeException("INDEX ERROR");
+        }
+        int adjustedRow = i.row + (hasHeaders() ? 1 : 0);
+        List<List<String>> repr = getRepr();
+        repr.get(adjustedRow).set(i.col, name);   
+        this.values = new TableBuilder(repr, hasHeaders()).validate().build().values;    
     }
 
     public void setHeaders(List<String> headers) {
@@ -67,7 +80,7 @@ public class Table {
         return new NumericActionCell(ActionCell.Operation.SUM, chilren).fix().toString();
     }
 
-    List<List<String>> getRepr() {
+    private List<List<String>> getRepr() {
         List<List<String>> repr = new ArrayList();
         if (hasHeaders()) {
             repr.add(getHeaders());
@@ -78,7 +91,7 @@ public class Table {
         return repr;
     }
 
-    void print(List<Integer> cols) {
+    public void print(List<Integer> cols) {
         for (List<String> row : getRepr()) {
             List<String> filteredRow = new ArrayList();
             for (Integer col : cols) {
