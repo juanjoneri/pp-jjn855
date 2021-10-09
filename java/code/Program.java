@@ -1,48 +1,38 @@
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
-import java.io.File;
-import java.io.FileWriter;
 import java.util.ArrayList;
-import java.io.IOException;
 
 public class Program {
 
     private Table table;
 
-    public Program(String inFile, boolean header) throws IOException {
-        File file = new File(inFile);
-        Scanner scanner = new Scanner(file);
+    public Program(String inFile, boolean header) {
 
         List<List<String>> data = new ArrayList();
-        while(scanner.hasNextLine()) {
-            List<String> row = Arrays.asList(scanner.nextLine().split("\\s+"));
+        for (String line : Io.read(inFile)) {
+            List<String> row = Arrays.asList(line.split("\\s+"));
             data.add(row);
         }
         table = new TableBuilder(data, header).validate().build();
     }
 
-    public void print(List<Integer> cols, String outFile) throws IOException {
-        File file = new File(outFile);
-        file.createNewFile();
-        FileWriter writer = new FileWriter(outFile);
-        writer.write(table.print(cols));
-        writer.close();
+    public void print(List<Integer> cols, String outFile) {
+        Io.write(table.print(cols), outFile);
     }
 
-    public void sum(int col) {
-
+    public void sum(int col, String outFile) {
+        Io.write(table.sum(col), outFile);
     }
 
     public void action(List<Integer> cols) {
-        
+        table.fixCols(cols);        
     }
 
     public void when(String condition) {
-
+        // TODO
     }
 
     public void update(int row, int col, String value) {
-
+        table.update(new Index(row, col), value);
     }
 }
