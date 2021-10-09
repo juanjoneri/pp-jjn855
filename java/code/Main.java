@@ -8,7 +8,7 @@ public class Main {
             Arrays.asList("A",                    "B",                   "C"), 
             Arrays.asList("01.0000",                  "__to_lower__([0,2])", "__to_upper__([2,2])"), 
             Arrays.asList("1",                    "22",                  "__avg__([1,0],[0,0])"), 
-            Arrays.asList("__sum__([0,0],[0,0])", "jamonNNNN",           "alOha"));
+            Arrays.asList("__sum__([0,0],[0,0])", "__to_upper__([1,2],[3,4])",           "alOha"));
 
         try {
             Table t = new TableBuilder(data, /*hasHeaders*/ true).validate().build();

@@ -72,3 +72,15 @@ A
 1.0
 1.0
 ```
+
+5. String cells can look like actions
+
+The following are all examples of valid string cells:
+```
+- `__sum__(love)`                         | <- Numeric Action arguments should be pairs of ints 
+- `__sum__([1,2,3])`                      |    and should be delimited by commas
+- `__sum__([1, 2])`                       |
+- `__to_upper__([1,2],[3,4])`               <- String actions should only have one argument 
+- `__i_love_programming__([1,2],[3,4])`     <- This action is not defined (but it should XD)
+- `__SUM__([1,2],[3,4])`                    <- Actions must be lowercase
+```
