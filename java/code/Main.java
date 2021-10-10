@@ -5,8 +5,8 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            Program p = new Program("../tests/2.txt", true);
-            p.when("ues");
+            Condition.RelCond r = new Condition.RelCond("($1==some_string) || ($header_name<>5)");
+            System.out.println(r);
         } catch (Exception e) {
             if (e.getMessage() != null) {
                 System.out.println(e.getMessage());

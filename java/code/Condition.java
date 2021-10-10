@@ -1,6 +1,121 @@
-public final class Condition {
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Condition {
+
+    // public Condition(String input) {
+
+    // }
+
+    // public RelCond next() {
+
+    // }
+
+    // (left) && (right)
+    public static class RelCond {
+
+        static Pattern PAT = Pattern.compile("(\\(.+?\\))\\s+?(&&|\\|\\|)\\s+?(\\(.+?\\))");
+
+        public Exp left;
+        public Exp right;
+        public RelOp relOp;
+
+        public RelCond(String input) {
+            Matcher matcher = PAT.matcher(input);
+            if (!matcher.matches()) {
+                throw new RuntimeException("COND ERROR");
+            }
+            
+            left = new Exp(matcher.group(1));
+            right = new Exp(matcher.group(3));
+            relOp = getRelOp(matcher.group(2));
+        }
+
+        enum RelOp {
+            AND, OR
+        }
+        
+        private RelOp getRelOp(String name) {
+            if (name.equals("&&")) {
+                return RelOp.AND;
+            }
+            if (name.equals("||")) {
+                return RelOp.OR;
+            }
+            throw new RuntimeException("COND ERROR");
+        }
+        
+        public String toString() {
+            return String.format("%s %s %s", left, relOp, right);
+        }
+    }
+
+    // $col == value
+    public static class Exp {
+
+        static Pattern PAT = Pattern.compile("\\((.+?)(<>|==|<|>)(.+?)\\)");
+
+        public Value col;
+        public Value value;
+        public Op op;
+
+        public Exp(String input) {
+            Matcher matcher = PAT.matcher(input);
+            if (!matcher.matches()) {
+                throw new RuntimeException("COND ERROR");
+            }
+            
+            String left = matcher.group(1);
+            if (left.startsWith("$")) {
+                left = left.substring(1);
+                col = Value.fromConstant(left);
+            } else {
+                value = Value.fromConstant(left);
+            }
+
+            String right = matcher.group(3);
+            if (right.startsWith("$")) {
+                right = right.substring(1);
+                col = Value.fromConstant(right);
+            } else {
+                value = Value.fromConstant(right);
+            }
+
+            op = getOp(matcher.group(2));
+
+            if (col == null || value == null) {
+                throw new RuntimeException("COND ERROR");
+            }
+
+        }
+        
+        Op getOp(String name) {
+            switch (name) {
+            case "<":
+                return Op.LT;
+            case ">":
+                return Op.GT;
+            case "<>":
+                return Op.NE;
+            case "==":
+                return Op.EQ;
+            }
+            throw new RuntimeException("COND ERROR");
+            
+        }
+        
+        public String toString() {
+            return String.format("($%s %s %s)", col, op, value);
+        }
+
+        enum Op {
+            LT, GT, NE, EQ
+        }
+    }
 
     public static class Value {
+        private static Pattern FLOAT = Pattern.compile("^[-+]?[0-9]*\\.[0-9]*$");
+
         private String s;
         private Float f;
         
@@ -10,6 +125,13 @@ public final class Condition {
 
         public Value(Float f) {
             this.f = f;
+        }
+
+        public static Value fromConstant(String constant) {
+            if (FLOAT.matcher(constant).matches()) {
+                return new Value(new Float(constant));
+            }
+            return new Value(constant);
         }
 
         public boolean isString() {
@@ -27,7 +149,13 @@ public final class Condition {
         public Float getFloat() {
             return f;
         }
+
+        public String toString() {
+            return isString() ? getString() : getFloat().toString();
+        }
     }
 
     private Condition() {};
 }
+
+// \(\$?.+?(<>|==|<|>)\$?.+?\)
