@@ -39,14 +39,8 @@ public class Table {
         for (int row = 0; row < rows; row ++) {
             Cell cell = get(new Index(row, col));
             String cellValue = cell.evaluate().toString();
-            boolean isMatchingString = 
-                (value.isString() 
-                && cell.getType().equals(Cell.Type.STRING) 
-                && value.getString().equals(cellValue));
-            boolean isMatchingNumber =
-                (value.isNumeric()
-                && !cell.getType().equals(Cell.Type.STRING) 
-                && value.getFloat().equals(new Float(cellValue)));
+            boolean isMatchingString = value.isString() && cell.eq(new StringCell(value.getString()));
+            boolean isMatchingNumber = value.isNumeric() && cell.eq(new NumericCell(value.getFloat()));
             if (isMatchingString || isMatchingNumber) {
                 matchingRows.add(row);
             }
@@ -83,8 +77,14 @@ public class Table {
     public List<Integer> greaterThan(int col, Condition.Value value) {
         List<Integer> matchingRows = new ArrayList();
         if (value.isString()) {
-            // $1 > "string" cannot be evaluated because of type => then default to "false".
+            // $1 < "string" cannot be evaluated because of type => then default to "false".
             return matchingRows;
+        }
+        for (int row = 0; row < rows; row ++) {
+            Cell cell = get(new Index(row, col));
+            if (cell.gt(new NumericCell(value.getFloat()))) {
+                matchingRows.add(row);
+            }
         }
         return matchingRows;
     }

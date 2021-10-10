@@ -23,20 +23,39 @@ public abstract class Cell<T> {
     }
 
     public boolean lt(Cell other) {
-        if (getType().equals(Type.STRING) || other.getType().equals(Type.STRING)) {
+        if (hasType(Type.STRING) || other.hasType(Type.STRING)) {
             return false;
         }
         return new Float(evaluate().toString()) < new Float(other.evaluate().toString());
+    }
+
+    public boolean gt(Cell other) {
+        if (hasType(Type.STRING) || other.hasType(Type.STRING)) {
+            return false;
+        }
+        return new Float(evaluate().toString()) > new Float(other.evaluate().toString());
+    }
+
+    public boolean eq(Cell other) {
+        if (hasType(Type.STRING) && hasType(Type.STRING)
+            || !hasType(Type.STRING) && !hasType(Type.STRING) ) {
+            return evaluate().toString().equals(other.evaluate().toString());
+        }
+        return false;
+    }
+
+    private boolean hasType(Type t) {
+        return getType().equals(t);
     }
 
     @Override
     public String toString() {
         String name = evaluate().toString();
 
-        if (getType().equals(Type.FLOAT)) {
+        if (hasType(Type.FLOAT)) {
             name = new Float(name).toString();
         }
-        if (getType().equals(Type.INT)) {
+        if (hasType(Type.INT)) {
             name = new Integer(new Float(name).intValue()).toString();
         }
 
