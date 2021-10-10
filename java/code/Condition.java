@@ -1,23 +1,27 @@
-public class Condition {
+public final class Condition {
 
-    public class Value {
+    public static class Value {
         private String s;
-        private Long l;
+        private Float f;
         
         public Value(String s) {
             this.s = s;
         }
 
-        public Value(Long l) {
-            this.l = l;
+        public Value(Float f) {
+            this.f = f;
         }
 
         public boolean isString() {
             return this.s != null;
         }
 
+        public boolean isNumeric() {
+            return this.f != null;
+        }
+
         public void checkNumeric() {
-            if (this.l != null) {
+            if (!isNumeric()) {
                 throw new RuntimeException("OTHER ERROR");
             }
         }
@@ -26,8 +30,8 @@ public class Condition {
             return s;
         }
 
-        public Long getLong() {
-            return l;
+        public Float getFloat() {
+            return f;
         }
     }
 

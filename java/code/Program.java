@@ -29,7 +29,8 @@ public class Program {
     }
 
     public void when(String condition) {
-        System.out.println(table.printRows(Arrays.asList(1)));
+        List<Integer> rows = table.equals(1, new Condition.Value(30f));
+        System.out.println(table.printRows(rows));
     }
 
     public void update(int row, int col, String value) {

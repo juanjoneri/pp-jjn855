@@ -34,8 +34,24 @@ public class Table {
         return getHeaders().indexOf(header);
     }
 
-    public Set<Integer> equals(int col, Condition.Value value) {
-        return new HashSet();
+    public List<Integer> equals(int col, Condition.Value value) {
+        List<Integer> matchingRows = new ArrayList();
+        for (int row = 0; row < rows; row ++) {
+            Cell cell = get(new Index(row, col));
+            String cellValue = cell.evaluate().toString();
+            boolean isMatchingString = 
+                (value.isString() 
+                && cell.getType().equals(Cell.Type.STRING) 
+                && value.getString().equals(cellValue));
+            boolean isMatchingNumber =
+                (value.isNumeric()
+                && !cell.getType().equals(Cell.Type.STRING) 
+                && value.getFloat().equals(new Float(cellValue)));
+            if (isMatchingString || isMatchingNumber) {
+                matchingRows.add(row);
+            }
+        }
+        return matchingRows;
     }
 
     public Set<Integer> notEquals(int col, Condition.Value value) {
