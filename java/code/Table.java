@@ -65,14 +65,28 @@ public class Table {
         return matchingRows;
     }
 
-    public Set<Integer> lessThan(int col, Condition.Value value) {
-        value.checkNumeric();
-        return new HashSet();
+    public List<Integer> lessThan(int col, Condition.Value value) {
+        List<Integer> matchingRows = new ArrayList();
+        if (value.isString()) {
+            // $1 < "string" cannot be evaluated because of type => then default to "false".
+            return matchingRows;
+        }
+        for (int row = 0; row < rows; row ++) {
+            Cell cell = get(new Index(row, col));
+            if (cell.lt(new NumericCell(value.getFloat()))) {
+                matchingRows.add(row);
+            }
+        }
+        return matchingRows;
     }
 
-    public Set<Integer> greaterThan(int col, Condition.Value value) {
-        value.checkNumeric();
-        return new HashSet();
+    public List<Integer> greaterThan(int col, Condition.Value value) {
+        List<Integer> matchingRows = new ArrayList();
+        if (value.isString()) {
+            // $1 > "string" cannot be evaluated because of type => then default to "false".
+            return matchingRows;
+        }
+        return matchingRows;
     }
 
     public void fixCols(List<Integer> cols) {

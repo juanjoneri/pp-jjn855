@@ -29,7 +29,7 @@ public class Program {
     }
 
     public void when(String condition) {
-        List<Integer> rows = table.notEquals(0, new Condition.Value(22f));
+        List<Integer> rows = table.lessThan(0, new Condition.Value(20f));
         System.out.println(table.printRows(rows));
     }
 

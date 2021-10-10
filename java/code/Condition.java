@@ -20,12 +20,6 @@ public final class Condition {
             return this.f != null;
         }
 
-        public void checkNumeric() {
-            if (!isNumeric()) {
-                throw new RuntimeException("OTHER ERROR");
-            }
-        }
-
         public String getString() {
             return s;
         }

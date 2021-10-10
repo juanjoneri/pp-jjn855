@@ -22,6 +22,13 @@ public abstract class Cell<T> {
         }
     }
 
+    public boolean lt(Cell other) {
+        if (getType().equals(Type.STRING) || other.getType().equals(Type.STRING)) {
+            return false;
+        }
+        return new Float(evaluate().toString()) < new Float(other.evaluate().toString());
+    }
+
     @Override
     public String toString() {
         String name = evaluate().toString();
