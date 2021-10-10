@@ -117,3 +117,60 @@ action 1      # missing token `-` before name `action`
 ```
 
 `./simple op.txt in.txt out.out` is not valid
+
+### 7. `when` conditions if checked against an "action" cell be compared against the result of that cell
+
+For example:
+
+in.txt
+```
+A                    B  C
+__sum__([0,1],[0,2]) 10 12
+32                   -1  133
+```
+
+`./simple -header -when ($0==22) in.txt out.txt` will output
+
+out.txt
+```
+A                    B  C
+__sum__([0,1],[0,2]) 10 12
+```
+
+### 8. `when` conditions compare ints and floats as expected
+
+The below examples are all true:
+```
+1 < 1.1
+1.0 < 2
+1 = 1.0
+```
+
+### 9. `when` conditions with a string parameter for grater than or equals will always be false
+
+The below examples are all false:
+```
+"A" < "B"
+"A" < "AA"
+"A" < 1
+```
+
+### 9. `when` conditions always interpret $int as a COL_NUM and not a COL_NAME
+
+For example
+
+in.txt
+```
+1 2 3
+O O X
+O X O
+X O O
+```
+
+`./simple -header -when ($2==X) in.txt out.txt` will output
+
+out.txt
+```
+1 2 3
+O O X
+```
