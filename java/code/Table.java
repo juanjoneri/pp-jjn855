@@ -29,14 +29,16 @@ public class Table {
 
     public int getColIndex(String header) {
         if (!hasHeaders() || !getHeaders().contains(header)) {
-            throw new RuntimeException("OTHER ERROR");
+            throw new RuntimeException("COL INDEX ERROR");
         }
         return getHeaders().indexOf(header);
     }
 
     public int getColIndex(Condition.Value indexOrHeader) {
         if (indexOrHeader.isNumeric()) {
-            return indexOrHeader.getFloat().intValue();
+            int col = indexOrHeader.getFloat().intValue();
+            validateCol(col);
+            return col;
         }
         return getColIndex(indexOrHeader.getString());
     }
