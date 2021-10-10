@@ -115,7 +115,7 @@ public class Table {
         return repr;
     }
 
-    public String print(List<Integer> cols) {
+    public String printCols(List<Integer> cols) {
         cols.forEach(this::validateCol);
         String out = "";
         for (List<String> row : getRepr()) {
@@ -128,9 +128,29 @@ public class Table {
         return out;
     }
 
+    public String printRows(List<Integer> rows) {
+        rows.forEach(this::validateRow);
+        String out = "";
+        List<List<String>> repr = getRepr();
+        if (hasHeaders()) {
+            out += String.join(" ", headers) + "\n";
+        }
+        for (Integer row: rows) {
+            int adjustedRow = row + (hasHeaders() ? 1 : 0);
+            out += String.join(" ", repr.get(adjustedRow)) + "\n";
+        }
+        return out;
+    }
+
     private void validateCol(int col) {
         if (col < 0 || col >= cols) {
             throw new RuntimeException("COL INDEX ERROR");
+        }
+    }
+
+    private void validateRow(int row) {
+        if (row < 0 || row >= rows) {
+            throw new RuntimeException("ROW INDEX ERROR");
         }
     }
 

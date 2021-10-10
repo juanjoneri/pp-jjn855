@@ -17,7 +17,7 @@ public class Program {
     }
 
     public void print(List<Integer> cols, String outFile) {
-        Io.write(table.print(cols), outFile);
+        Io.write(table.printCols(cols), outFile);
     }
 
     public void sum(int col, String outFile) {
@@ -29,7 +29,7 @@ public class Program {
     }
 
     public void when(String condition) {
-        // TODO
+        System.out.println(table.printRows(Arrays.asList(1)));
     }
 
     public void update(int row, int col, String value) {

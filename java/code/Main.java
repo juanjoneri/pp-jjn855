@@ -5,8 +5,8 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            Program p = new Program("../tests/1.txt", false);
-            p.sum(1, "mioout.txt");
+            Program p = new Program("../tests/3.txt", true);
+            p.when("ues");
         } catch (Exception e) {
             if (e.getMessage() != null) {
                 System.out.println(e.getMessage());
