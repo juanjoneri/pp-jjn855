@@ -54,8 +54,15 @@ public class Table {
         return matchingRows;
     }
 
-    public Set<Integer> notEquals(int col, Condition.Value value) {
-        return new HashSet();
+    public List<Integer> notEquals(int col, Condition.Value value) {
+        List<Integer> matchingRows = new ArrayList();
+        List<Integer> equalsRows = equals(col, value);
+        for (int row = 0; row < rows; row ++) {
+            if (!equalsRows.contains(row)) {
+                matchingRows.add(row);
+            }
+        }
+        return matchingRows;
     }
 
     public Set<Integer> lessThan(int col, Condition.Value value) {
