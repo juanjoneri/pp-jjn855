@@ -3,21 +3,35 @@ import java.util.regex.Pattern;
 
 public class Condition {
 
-    // public Condition(String input) {
+    private Matcher matcher;
+    private String input;
+    private boolean done;
 
-    // }
+    // (relCond) && (relCond) || (relCond) || (relCond)
+    public Condition(String input) {
+        this.input = "&& " + input;
+        matcher = RelCond.PAT.matcher(this.input);
+        if (!matcher.find()) {
+            throw new RuntimeException("COND ERROR");
+        }
+        done = false;
+    }
 
-    // public RelCond next() {
+    public RelCond next() {
+        if (done) {
+            return null;
+        }
+        RelCond next = new RelCond(input.substring(matcher.start(), matcher.end()));
+        done = !matcher.find();
+        return next;
+    }
 
-    // }
-
-    // (left) && (right)
+    // && (exp)
     public static class RelCond {
 
-        static Pattern PAT = Pattern.compile("(\\(.+?\\))\\s+?(&&|\\|\\|)\\s+?(\\(.+?\\))");
+        static Pattern PAT = Pattern.compile("(&&|\\|\\|)\\s+?(\\(.+?\\))");
 
-        public Exp left;
-        public Exp right;
+        public Exp exp;
         public RelOp relOp;
 
         public RelCond(String input) {
@@ -26,9 +40,8 @@ public class Condition {
                 throw new RuntimeException("COND ERROR");
             }
             
-            left = new Exp(matcher.group(1));
-            right = new Exp(matcher.group(3));
-            relOp = getRelOp(matcher.group(2));
+            relOp = getRelOp(matcher.group(1));
+            exp = new Exp(matcher.group(2));
         }
 
         enum RelOp {
@@ -42,15 +55,15 @@ public class Condition {
             if (name.equals("||")) {
                 return RelOp.OR;
             }
-            throw new RuntimeException("COND ERROR");
+            throw new RuntimeException("COND ERRORc");
         }
         
         public String toString() {
-            return String.format("%s %s %s", left, relOp, right);
+            return String.format("%s %s", relOp, exp);
         }
     }
 
-    // $col == value
+    // ($col == value)
     public static class Exp {
 
         static Pattern PAT = Pattern.compile("\\((.+?)(<>|==|<|>)(.+?)\\)");

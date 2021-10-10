@@ -5,8 +5,9 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            Condition.RelCond r = new Condition.RelCond("($1==some_string) || ($header_name<>5)");
-            System.out.println(r);
+            Condition r = new Condition("($1==some_string) || ($header_name<>5)");
+            r.next();
+            System.out.println(r.next());
         } catch (Exception e) {
             if (e.getMessage() != null) {
                 System.out.println(e.getMessage());
