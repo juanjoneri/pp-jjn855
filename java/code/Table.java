@@ -34,6 +34,13 @@ public class Table {
         return getHeaders().indexOf(header);
     }
 
+    public int getColIndex(Condition.Value indexOrHeader) {
+        if (indexOrHeader.isNumeric()) {
+            return indexOrHeader.getFloat().intValue();
+        }
+        return getColIndex(indexOrHeader.getString());
+    }
+
     public List<Integer> equals(int col, Condition.Value value) {
         List<Integer> matchingRows = new ArrayList();
         for (int row = 0; row < rows; row ++) {

@@ -128,6 +128,7 @@ public class Condition {
 
     public static class Value {
         private static Pattern FLOAT = Pattern.compile("^[-+]?[0-9]*\\.[0-9]*$");
+        private static Pattern INT = Pattern.compile("^[-+]?[0-9]+$");
 
         private String s;
         private Float f;
@@ -141,7 +142,7 @@ public class Condition {
         }
 
         public static Value fromConstant(String constant) {
-            if (FLOAT.matcher(constant).matches()) {
+            if (FLOAT.matcher(constant).matches() || INT.matcher(constant).matches()) {
                 return new Value(new Float(constant));
             }
             return new Value(constant);

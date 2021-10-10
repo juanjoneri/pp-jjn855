@@ -5,9 +5,8 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            Condition r = new Condition("($1==some_string) || ($header_name<>5)");
-            r.next();
-            System.out.println(r.next());
+            Program p = new Program("../tests/2.txt", true);
+            p.when("($0>2) && ($A<20) || ($2<>5)");
         } catch (Exception e) {
             if (e.getMessage() != null) {
                 System.out.println(e.getMessage());
