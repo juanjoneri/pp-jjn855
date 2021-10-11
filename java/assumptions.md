@@ -156,7 +156,7 @@ The below examples are all false:
 "2" > 1
 ```
 
-### 9. `when` conditions always interpret $int as a COL_NUM and not a COL_NAME
+### 10. `when` conditions always interpret $int as a COL_NUM and not a COL_NAME
 
 For example
 
