@@ -20,16 +20,13 @@ public class Main {
     }
 
     private static void runMain(LinkedList<String> args) {
-        boolean hasHeaders = args.peek().equals("-header");
+        boolean hasHeaders = args.contains("-header");
 
         if (hasHeaders) {
-            args.removeFirst();
+            args.remove("-header");
         }
 
-        Operation operation = Operation.fromFlag(args.peek());
-        if (!operation.equals(Operation.FILE)) {
-            args.removeFirst();
-        }
+        Operation operation = Operation.fromFlag(args);
 
         if (operation.equals(Operation.PRINT)) {
             checkArgs(args, 3);
@@ -92,22 +89,28 @@ public class Main {
     private enum Operation {
         PRINT, SUM, ACTION, WHEN, UPDATE, FILE;
 
-        static Operation fromFlag(String flag) {
-            switch(flag) {
-                case "-print":
-                    return PRINT;
-                case "-sum":
-                    return SUM;
-                case "-action":
-                    return ACTION;
-                case "-when":
-                    return WHEN;
-                case "-update":
-                    return UPDATE;
-                default:
-                    return FILE;
+        static Operation fromFlag(LinkedList<String> flags) {
+            if (flags.contains("-print")) {
+                flags.remove("-print");
+                return PRINT;
             }
-
+            if (flags.contains("-sum")) {
+                flags.remove("-sum");
+                return SUM;
+            }
+            if (flags.contains("-action")) {
+                flags.remove("-action");
+                return ACTION;
+            }
+            if (flags.contains("-when")) {
+                flags.remove("-when");
+                return WHEN;
+            }
+            if (flags.contains("-update")) {
+                flags.remove("-update");
+                return UPDATE;
+            }
+            return FILE;
         }
 
     }
