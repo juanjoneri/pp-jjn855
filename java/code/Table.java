@@ -174,18 +174,16 @@ public class Table {
         return out;
     }
 
-    public String printRows(List<Integer> rows) {
+    public void filterRows(List<Integer> rows) {
         rows.forEach(this::validateRow);
-        String out = "";
+        List<List<String>> data = new ArrayList();
         List<List<String>> repr = getRepr();
-        if (hasHeaders()) {
-            out += String.join(" ", headers) + "\n";
-        }
         for (Integer row: rows) {
             int adjustedRow = row + (hasHeaders() ? 1 : 0);
-            out += String.join(" ", repr.get(adjustedRow)) + "\n";
+            data.add(repr.get(adjustedRow));
         }
-        return out;
+        this.rows = rows.size();
+        this.values = new TableBuilder(data, false).validate().build().values;
     }
 
     private void validateCol(int col) {

@@ -152,7 +152,8 @@ The below examples are all false:
 ```
 "A" < "B"
 "A" < "AA"
-"A" < 1
+"A" > 1
+"2" > 1
 ```
 
 ### 9. `when` conditions always interpret $int as a COL_NUM and not a COL_NAME

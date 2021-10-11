@@ -21,6 +21,7 @@ public class Main {
 
     private static void runMain(LinkedList<String> args) {
         boolean hasHeaders = args.peek().equals("-header");
+
         if (hasHeaders) {
             args.removeFirst();
         }
@@ -63,6 +64,17 @@ public class Main {
             Program p = new Program(tableFile, hasHeaders);
             p.action(cols);
             p.print(cols, outFile);
+        }
+
+        if (operation.equals(Operation.WHEN)) {
+            checkArgs(args, 3);
+            String condition = args.get(0);
+            String tableFile = args.get(1);
+            String outFile = args.get(2);
+
+            Program p = new Program(tableFile, hasHeaders);
+            p.when(condition);
+            p.print(new ArrayList(), outFile);
         }
     }
     

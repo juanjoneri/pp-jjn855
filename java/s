@@ -9,4 +9,4 @@ echo "Compile code"
   javac *.java )
 
 ( cd code
-  ./simple -action ../tests/0.txt ../tests/0.out )
+  ./simple -header -when \(\$C==jamon\)\|\|\(\$B\>3\) ../tests/0.txt ../tests/0.out )

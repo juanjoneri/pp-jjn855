@@ -29,7 +29,7 @@ public class Condition {
     // && (exp)
     public static class RelCond {
 
-        static Pattern PAT = Pattern.compile("(&&|\\|\\|)\\s+?(\\(.+?\\))");
+        static Pattern PAT = Pattern.compile("(&&|\\|\\|)\\s*?(\\(.+?\\))");
 
         public Exp exp;
         public RelOp relOp;
@@ -55,7 +55,7 @@ public class Condition {
             if (name.equals("||")) {
                 return RelOp.OR;
             }
-            throw new RuntimeException("COND ERRORc");
+            throw new RuntimeException("COND ERROR");
         }
         
         public String toString() {
@@ -171,5 +171,3 @@ public class Condition {
 
     private Condition() {};
 }
-
-// \(\$?.+?(<>|==|<|>)\$?.+?\)

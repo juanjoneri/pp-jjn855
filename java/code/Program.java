@@ -73,7 +73,7 @@ public class Program {
         }
         List<Integer> sortedRows = new ArrayList(rows);
         Collections.sort(sortedRows);
-        System.out.println(table.printRows(sortedRows));
+        table.filterRows(sortedRows);
     }
 
     public void update(int row, int col, String value) {
