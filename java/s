@@ -9,4 +9,4 @@ echo "Compile code"
   javac *.java )
 
 ( cd code
-  ./simple -header -action 2 ../tests/0.txt ../tests/0.out )
+  ./simple -header -when \(\$0\<z\) ../tests/0.txt ../tests/0.out )

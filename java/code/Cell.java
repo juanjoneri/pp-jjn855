@@ -23,22 +23,25 @@ public abstract class Cell<T> {
     }
 
     public boolean lt(Cell other) {
-        if (hasType(Type.STRING) || other.hasType(Type.STRING)) {
-            return false;
+        if (isString() && other.isString()) {
+            return evaluate().toString().compareTo(other.evaluate().toString()) < 0;
+        } else if (isNumeric() && other.isNumeric()) {
+            return new Float(evaluate().toString()) < new Float(other.evaluate().toString()); 
         }
-        return new Float(evaluate().toString()) < new Float(other.evaluate().toString());
+        return false; // Cannot compare String with number        
     }
 
     public boolean gt(Cell other) {
-        if (hasType(Type.STRING) || other.hasType(Type.STRING)) {
-            return false;
+        if (isString() && other.isString()) {
+            return evaluate().toString().compareTo(other.evaluate().toString()) > 0;
+        } else if (isNumeric() && other.isNumeric()) {
+            return new Float(evaluate().toString()) > new Float(other.evaluate().toString()); 
         }
-        return new Float(evaluate().toString()) > new Float(other.evaluate().toString());
+        return false; // Cannot compare String with number       
     }
 
     public boolean eq(Cell other) {
-        if (hasType(Type.STRING) && hasType(Type.STRING)
-            || !hasType(Type.STRING) && !hasType(Type.STRING) ) {
+        if ((isString() && other.isString()) || (isNumeric() && other.isNumeric())) {
             return evaluate().toString().equals(other.evaluate().toString());
         }
         return false;
@@ -46,6 +49,15 @@ public abstract class Cell<T> {
 
     private boolean hasType(Type t) {
         return getType().equals(t);
+    }
+
+    private boolean isNumeric() {
+        return !hasType(Type.STRING);
+    }
+
+
+    private boolean isString() {
+        return hasType(Type.STRING);
     }
 
     @Override

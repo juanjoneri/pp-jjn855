@@ -146,14 +146,15 @@ The below examples are all true:
 1 = 1.0
 ```
 
-### 10. `when` conditions with a string parameter for grater than or equals will always be false
+### 10. `when` conditions compare strings lexicographically. String num comparisions are always false.
 
-The below examples are all false:
+For example:
 ```
-"A" < "B"
-"A" < "AA"
-"A" > 1
-"2" > 1
+"A" < "B" is true
+"A" < "AA" is true
+"Z" < "AA" is false
+"A" > 1 cannot be compared
+"2" > 1 cannot be compared
 ```
 
 ### 11. `when` conditions always interpret $int as a COL_NUM and not a COL_NAME

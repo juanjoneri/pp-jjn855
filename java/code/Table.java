@@ -70,13 +70,12 @@ public class Table {
 
     public List<Integer> lessThan(int col, Condition.Value value) {
         List<Integer> matchingRows = new ArrayList();
-        if (value.isString()) {
-            // $1 < "string" cannot be evaluated because of type => then default to "false".
-            return matchingRows;
-        }
         for (int row = 0; row < rows; row ++) {
             Cell cell = get(new Index(row, col));
-            if (cell.lt(new NumericCell(value.getFloat()))) {
+            String cellValue = cell.evaluate().toString();
+            boolean isMatchingString = value.isString() && cell.lt(new StringCell(value.getString()));
+            boolean isMatchingNumber = value.isNumeric() && cell.lt(new NumericCell(value.getFloat()));
+            if (isMatchingString || isMatchingNumber) {
                 matchingRows.add(row);
             }
         }
@@ -85,13 +84,12 @@ public class Table {
 
     public List<Integer> greaterThan(int col, Condition.Value value) {
         List<Integer> matchingRows = new ArrayList();
-        if (value.isString()) {
-            // $1 < "string" cannot be evaluated because of type => then default to "false".
-            return matchingRows;
-        }
         for (int row = 0; row < rows; row ++) {
             Cell cell = get(new Index(row, col));
-            if (cell.gt(new NumericCell(value.getFloat()))) {
+            String cellValue = cell.evaluate().toString();
+            boolean isMatchingString = value.isString() && cell.gt(new StringCell(value.getString()));
+            boolean isMatchingNumber = value.isNumeric() && cell.gt(new NumericCell(value.getFloat()));
+            if (isMatchingString || isMatchingNumber) {
                 matchingRows.add(row);
             }
         }
