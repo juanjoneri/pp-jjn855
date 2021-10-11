@@ -98,7 +98,7 @@ op.txt
 
 `./simple op.txt in.txt out.out` is not valid
 
-### 6. An OP file must have 1 operation per line with the form `-OP_NAME`. Each line may have comments delimited by an `#`
+### 7. An OP file must have 1 operation per line with the form `-OP_NAME`. Each line may have comments delimited by an `#`
 
 For example:
 
@@ -118,7 +118,7 @@ action 1      # missing token `-` before name `action`
 
 `./simple op.txt in.txt out.out` is not valid
 
-### 7. `when` conditions if checked against an "action" cell be compared against the result of that cell
+### 8. `when` conditions if checked against an "action" cell be compared against the result of that cell
 
 For example:
 
@@ -137,7 +137,7 @@ A                    B  C
 __sum__([0,1],[0,2]) 10 12
 ```
 
-### 8. `when` conditions compare ints and floats as expected
+### 9. `when` conditions compare ints and floats as expected
 
 The below examples are all true:
 ```
@@ -146,7 +146,7 @@ The below examples are all true:
 1 = 1.0
 ```
 
-### 9. `when` conditions with a string parameter for grater than or equals will always be false
+### 10. `when` conditions with a string parameter for grater than or equals will always be false
 
 The below examples are all false:
 ```
@@ -156,7 +156,7 @@ The below examples are all false:
 "2" > 1
 ```
 
-### 10. `when` conditions always interpret $int as a COL_NUM and not a COL_NAME
+### 11. `when` conditions always interpret $int as a COL_NUM and not a COL_NAME
 
 For example
 
