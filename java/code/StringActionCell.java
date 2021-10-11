@@ -9,6 +9,14 @@ public class StringActionCell extends ActionCell<String> {
     }
 
     @Override
+    public void addChild(Cell<String> child) {
+        if (child instanceof StringActionCell) {
+            throw new RuntimeException("TYPE ERROR");
+        }
+        super.addChild(child);
+    }
+
+    @Override
     public String evaluate() {
         String base = getChildren().iterator().next().evaluate(); // Can only have 1 child
         return getOperation().equals(ActionCell.Operation.TO_UPPER) 
