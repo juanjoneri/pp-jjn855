@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # you can put any lines here to run your program for the given input.
-java Table
+java Main ${1:nop} ${2:nop} ${3:nop} ${4:nop} ${5:nop} ${6:nop}
