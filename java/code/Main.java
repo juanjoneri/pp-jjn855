@@ -3,6 +3,7 @@ import static java.util.stream.Collectors.toList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.LinkedList;
+import java.util.ArrayList;
 
 public class Main {
 
@@ -36,6 +37,31 @@ public class Main {
             String outFile = args.get(2);
 
             Program p = new Program(tableFile, hasHeaders);
+            p.print(cols, outFile);
+        }
+
+        if (operation.equals(Operation.SUM)) {
+            checkArgs(args, 3);
+            Integer col = new Integer(args.get(0));
+            String tableFile = args.get(1);
+            String outFile = args.get(2);
+
+            Program p = new Program(tableFile, hasHeaders);
+            p.sum(col, outFile);
+        }
+
+        if (operation.equals(Operation.ACTION)) {
+            List<Integer> cols = new ArrayList();
+            if (args.size() == 3) {
+                cols = splitToListInt(args.get(0));
+                args.removeFirst();
+            }
+            checkArgs(args, 2);
+            String tableFile = args.get(0);
+            String outFile = args.get(1);
+
+            Program p = new Program(tableFile, hasHeaders);
+            p.action(cols);
             p.print(cols, outFile);
         }
     }

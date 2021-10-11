@@ -205,4 +205,12 @@ public class Table {
             throw new RuntimeException("INDEX ERROR");
         }
     }
+
+    public List<Integer> allCols() {
+        List<Integer> cols = new ArrayList();
+        for (int i = 0; i < this.cols ; i++) {
+            cols.add(i);
+        }
+        return cols;
+    }
 }

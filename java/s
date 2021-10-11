@@ -9,4 +9,4 @@ echo "Compile code"
   javac *.java )
 
 ( cd code
-  ./simple -print 0,2 ../tests/0.txt ../tests/0.out )
+  ./simple -action ../tests/0.txt ../tests/0.out )

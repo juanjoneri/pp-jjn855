@@ -20,6 +20,9 @@ public class Program {
     }
 
     public void print(List<Integer> cols, String outFile) {
+        if (cols.isEmpty()) {
+            cols = table.allCols();
+        }
         Io.write(table.printCols(cols), outFile);
     }
 
@@ -28,6 +31,9 @@ public class Program {
     }
 
     public void action(List<Integer> cols) {
+        if (cols.isEmpty()) {
+            cols = table.allCols();
+        }
         table.fixCols(cols);        
     }
 
