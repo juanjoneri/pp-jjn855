@@ -1,2 +1,4 @@
--action 0 # execute actions in column 1
--when ($0>5) # only include rows when the first column is greater than 55
+-update 0,1,__to_upper__([3,2])
+-action # act on all cols
+-print 1
+-sum 0

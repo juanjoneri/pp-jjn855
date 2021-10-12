@@ -21,6 +21,7 @@ public class Main {
     }
 
     private static void runMain(LinkedList<String> args) {
+        deleteComments(args);
         boolean hasHeaders = args.contains("-header");
 
         if (hasHeaders) {
@@ -40,8 +41,9 @@ public class Main {
         } else  {
             for (String line : Io.read(arg)) {
                 LinkedList<String> lineArgs = new LinkedList(Arrays.asList(line.split("\\s+")));
+                deleteComments(lineArgs);
                 Operation lineOp = Operation.fromFlag(lineArgs);
-                String lineArg = operation.getArg(lineArgs);
+                String lineArg = lineArgs.isEmpty() ? "" : lineArgs.get(0);
                 lineOp.execute(p, lineArg);
             }
         }
@@ -53,6 +55,17 @@ public class Main {
         }
         return Arrays.asList(s.split(",")).stream().map(x -> new Integer(x)).collect(toList());
 
+    }
+
+    private static void deleteComments(LinkedList<String> args) {
+        for (int i = 0; i < args.size() ; i ++) {
+            if (args.get(i).startsWith("#")) {
+                while (args.size() > i) {
+                    args.remove(i);
+                }
+                return;
+            }
+        }
     }
 
     private enum Operation {

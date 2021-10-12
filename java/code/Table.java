@@ -97,6 +97,9 @@ public class Table {
     }
 
     public void fixCols(List<Integer> cols) {
+        if (cols.isEmpty()) {
+            cols = allCols();
+        }
         for (Integer col : cols) {
             validateCol(col);
             Index.generateCol(rows, col).forEach(this::fix);
