@@ -17,10 +17,13 @@ public class TableBuilder {
     private Set<Index> explored;
 
     public TableBuilder(List<List<String>> data, boolean hasHeaders) {
-        int rows = data.size();
-        int cols =  data.get(0).size();
+        int rows = 0;
+        int cols = 0;
+        if (!data.isEmpty()) {
+            rows = data.size();
+            cols =  data.get(0).size();
+        }
         this.data = new ArrayList(data);
-
         if (!hasHeaders) {
             table = new Table(rows, cols);
         } else {
@@ -35,6 +38,10 @@ public class TableBuilder {
 
     // Performs some preeliminary static validation
     public TableBuilder validate() {
+        if (data.isEmpty()) {
+            return this;
+        }
+
         int cols = table.hasHeaders() ? table.getHeaders().size() : data.get(0).size();
         for (List<String> row : data) {
             if (row.size() != cols) {
