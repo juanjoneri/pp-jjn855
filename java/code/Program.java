@@ -8,8 +8,9 @@ import java.util.Collections;
 public class Program {
 
     private Table table;
+    private String outFile;
 
-    public Program(String inFile, boolean header) {
+    public Program(String inFile, String outFile, boolean header) {
 
         List<List<String>> data = new ArrayList();
         for (String line : Io.read(inFile)) {
@@ -17,16 +18,17 @@ public class Program {
             data.add(row);
         }
         table = new TableBuilder(data, header).validate().build();
+        this.outFile = outFile;
     }
 
-    public void print(List<Integer> cols, String outFile) {
+    public void print(List<Integer> cols) {
         if (cols.isEmpty()) {
             cols = table.allCols();
         }
         Io.write(table.printCols(cols), outFile);
     }
 
-    public void sum(int col, String outFile) {
+    public void sum(int col) {
         Io.write(table.sum(col), outFile);
     }
 

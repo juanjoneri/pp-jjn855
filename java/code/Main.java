@@ -31,37 +31,37 @@ public class Main {
 
         if (operation.equals(Operation.PRINT)) {
             checkArgs(args, 3);
-            List<Integer> cols = splitToListInt(args.get(0));
+            String cols = args.get(0);
             String tableFile = args.get(1);
             String outFile = args.get(2);
 
-            Program p = new Program(tableFile, hasHeaders);
-            p.print(cols, outFile);
+            Program p = new Program(tableFile, outFile, hasHeaders);
+            Operation.PRINT.execute(p, cols);
         }
 
         if (operation.equals(Operation.SUM)) {
             checkArgs(args, 3);
-            Integer col = new Integer(args.get(0));
+            String col = args.get(0);
             String tableFile = args.get(1);
             String outFile = args.get(2);
 
-            Program p = new Program(tableFile, hasHeaders);
-            p.sum(col, outFile);
+            Program p = new Program(tableFile, outFile, hasHeaders);
+            Operation.SUM.execute(p, col);
         }
 
         if (operation.equals(Operation.ACTION)) {
-            List<Integer> cols = new ArrayList();
+            String cols = "";
             if (args.size() == 3) {
-                cols = splitToListInt(args.get(0));
+                cols = args.get(0);
                 args.removeFirst();
             }
             checkArgs(args, 2);
             String tableFile = args.get(0);
             String outFile = args.get(1);
 
-            Program p = new Program(tableFile, hasHeaders);
-            p.action(cols);
-            p.print(cols, outFile);
+            Program p = new Program(tableFile, outFile, hasHeaders);
+            Operation.ACTION.execute(p, cols);
+            Operation.PRINT.execute(p, cols);
         }
 
         if (operation.equals(Operation.WHEN)) {
@@ -70,24 +70,27 @@ public class Main {
             String tableFile = args.get(1);
             String outFile = args.get(2);
 
-            Program p = new Program(tableFile, hasHeaders);
-            p.when(condition);
-            p.print(new ArrayList(), outFile);
+            Program p = new Program(tableFile, outFile, hasHeaders);
+            Operation.WHEN.execute(p, condition);
+            Operation.PRINT.execute(p, "");
         }
 
         if (operation.equals(Operation.UPDATE)) {
             checkArgs(args, 3);
-            List<String> indices = Arrays.asList(args.get(0).split(","));
+            String indices = args.get(0);
             String tableFile = args.get(1);
             String outFile = args.get(2);
 
-            Program p = new Program(tableFile, hasHeaders);
-            p.update(new Integer(indices.get(0)), new Integer(indices.get(1)), String.join(",", indices.subList(2, indices.size())));
-            p.print(new ArrayList(), outFile);
+            Program p = new Program(tableFile, outFile, hasHeaders);
+            Operation.UPDATE.execute(p, indices);
+            Operation.PRINT.execute(p, "");
         }
     }
     
     private static List<Integer> splitToListInt(String s) {
+        if (s.isEmpty()) {
+            return new ArrayList();
+        }
         return Arrays.asList(s.split(",")).stream().map(x -> new Integer(x)).collect(toList());
 
     }
@@ -99,28 +102,48 @@ public class Main {
     }
 
     private enum Operation {
-        PRINT, SUM, ACTION, WHEN, UPDATE, FILE;
+        PRINT("-print"), SUM("-sum"), ACTION("-action"), WHEN("-when"), UPDATE("-update"), FILE("");
+
+        private String flag;
+
+        private Operation(String flag) {
+            this.flag = flag;
+        }
+
+        String getFlag() {
+            return flag;
+        }
+
+        void execute(Program p, String arg) {
+            switch (this) {
+                case PRINT:
+                    p.print(splitToListInt(arg));
+                    break;
+                case SUM:
+                    p.sum(new Integer(arg));
+                    break;
+                case ACTION:
+                    p.action(splitToListInt(arg));
+                    break;
+                case WHEN:
+                    p.when(arg);
+                    break;
+                case UPDATE:
+                    List<String> indices = Arrays.asList(arg.split(","));
+                    Integer row = new Integer(indices.get(0));
+                    Integer col = new Integer(indices.get(1));
+                    String value = String.join(",", indices.subList(2, indices.size()));
+                    p.update(row, col, value);
+
+            }
+        }
 
         static Operation fromFlag(LinkedList<String> flags) {
-            if (flags.contains("-print")) {
-                flags.remove("-print");
-                return PRINT;
-            }
-            if (flags.contains("-sum")) {
-                flags.remove("-sum");
-                return SUM;
-            }
-            if (flags.contains("-action")) {
-                flags.remove("-action");
-                return ACTION;
-            }
-            if (flags.contains("-when")) {
-                flags.remove("-when");
-                return WHEN;
-            }
-            if (flags.contains("-update")) {
-                flags.remove("-update");
-                return UPDATE;
+            for (Operation op : Operation.values()) {
+                if (flags.contains(op.getFlag())) {
+                    flags.remove(op.getFlag());
+                    return op;
+                }
             }
             return FILE;
         }
