@@ -16,6 +16,7 @@ public class Main {
             } else {
                 System.out.println("OTHER ERROR");
             }
+            throw e;
         }
     }
 

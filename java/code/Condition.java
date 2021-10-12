@@ -79,16 +79,14 @@ public class Condition {
             }
             
             String left = matcher.group(1);
-            if (left.startsWith("$")) {
-                left = left.substring(1);
+            if (left.startsWith("$") || left.startsWith("@")) {
                 col = Value.fromConstant(left);
             } else {
                 value = Value.fromConstant(left);
             }
 
             String right = matcher.group(3);
-            if (right.startsWith("$")) {
-                right = right.substring(1);
+            if (right.startsWith("$") || right.startsWith("@")) {
                 col = Value.fromConstant(right);
             } else {
                 value = Value.fromConstant(right);
@@ -142,6 +140,15 @@ public class Condition {
         }
 
         public static Value fromConstant(String constant) {
+            if (constant.startsWith("@")) {
+                String s = constant.substring(1);
+                return new Value(s);
+            }
+            if (constant.startsWith("$")) {
+                String f = constant.substring(1);
+                return new Value(new Float(f));
+            }
+
             if (FLOAT.matcher(constant).matches() || INT.matcher(constant).matches()) {
                 return new Value(new Float(constant));
             }

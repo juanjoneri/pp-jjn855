@@ -9,4 +9,4 @@ echo "Compile code"
   javac *.java )
 
 ( cd code
-  ./simple 0,1 ../tests/0.txt -header ../tests/0.out -print )
+  ./simple -when -header \(@2==10\) ../tests/0.txt ../tests/0.out )
