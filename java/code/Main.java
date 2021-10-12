@@ -82,7 +82,7 @@ public class Main {
             String outFile = args.get(2);
 
             Program p = new Program(tableFile, hasHeaders);
-            p.update(new Integer(indices.get(0)), new Integer(indices.get(1)), indices.get(2));
+            p.update(new Integer(indices.get(0)), new Integer(indices.get(1)), String.join(",", indices.subList(2, indices.size())));
             p.print(new ArrayList(), outFile);
         }
     }
