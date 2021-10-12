@@ -85,20 +85,7 @@ The following are all examples of valid string cells:
 - `__SUM__([1,2],[3,4])`                    <- Actions must be lowercase
 ```
 
-### 6. An OP file can have at most one print or sum operation and it must be the last operation in the file
-
-For example:
-
-op.txt
-```
--action 1
--sum 1    # Sum can only be used as the very last statement
--print 1
-```
-
-`./simple op.txt in.txt out.out` is not valid
-
-### 7. An OP file must have 1 operation per line with the form `-OP_NAME`. Each line may have comments delimited by an `#`
+### 6. An OP file must have 1 operation per line with the form `-OP_NAME`. Each line may have comments delimited by an `#`
 
 For example:
 
@@ -118,7 +105,7 @@ action 1      # missing token `-` before name `action`
 
 `./simple op.txt in.txt out.out` is not valid
 
-### 8. `when` conditions if checked against an "action" cell be compared against the result of that cell
+### 7. `when` conditions if checked against an "action" cell be compared against the result of that cell
 
 For example:
 
@@ -137,7 +124,7 @@ A                    B  C
 __sum__([0,1],[0,2]) 10 12
 ```
 
-### 9. `when` conditions compare ints and floats as expected
+### 8. `when` conditions compare ints and floats as expected
 
 The below examples are all true:
 ```
@@ -146,7 +133,7 @@ The below examples are all true:
 1 = 1.0
 ```
 
-### 10. `when` conditions compare strings lexicographically. String num comparisions are always false.
+### 9. `when` conditions compare strings lexicographically. String num comparisions are always false.
 
 For example:
 ```
@@ -157,7 +144,7 @@ For example:
 "2" > 1 cannot be compared
 ```
 
-### 11. `when` conditions always interpret $int as a COL_NUM and not a COL_NAME
+### 10. `when` conditions always interpret $x as a COL_NUM and @x as COL_NAME
 
 For example
 
