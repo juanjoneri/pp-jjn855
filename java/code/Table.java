@@ -161,10 +161,12 @@ public class Table {
 
     public String printCols(List<Integer> cols) {
         cols.forEach(this::validateCol);
+        List<Integer> sortedCols = new ArrayList(new HashSet(cols));
+        Collections.sort(sortedCols);
         String out = "";
         for (List<String> row : getRepr()) {
             List<String> filteredRow = new ArrayList();
-            for (Integer col : cols) {
+            for (Integer col : sortedCols) {
                 filteredRow.add(row.get(col));
             }
             out += String.join(" ", filteredRow) + "\n";

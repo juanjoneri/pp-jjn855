@@ -29,61 +29,31 @@ public class Main {
 
         Operation operation = Operation.fromFlag(args);
 
-        if (operation.equals(Operation.PRINT)) {
-            checkArgs(args, 3);
-            String cols = args.get(0);
-            String tableFile = args.get(1);
-            String outFile = args.get(2);
+        String arg = operation.getArg(args);
+        String tableFile = operation.getTableFile(args);
+        String outFile = operation.getOutFile(args);
 
-            Program p = new Program(tableFile, outFile, hasHeaders);
-            Operation.PRINT.execute(p, cols);
+        Program p = new Program(tableFile, outFile, hasHeaders);
+
+        if (!operation.equals(Operation.FILE)) {
+            operation.execute(p, arg);
         }
 
-        if (operation.equals(Operation.SUM)) {
-            checkArgs(args, 3);
-            String col = args.get(0);
-            String tableFile = args.get(1);
-            String outFile = args.get(2);
-
-            Program p = new Program(tableFile, outFile, hasHeaders);
-            Operation.SUM.execute(p, col);
+        if (Operation.ACTION.equals(operation)) {
+            Operation.PRINT.execute(p, arg);
         }
 
-        if (operation.equals(Operation.ACTION)) {
-            String cols = "";
-            if (args.size() == 3) {
-                cols = args.get(0);
-                args.removeFirst();
+        if (Arrays.asList(Operation.WHEN, Operation.UPDATE).contains(operation)) {
+            Operation.PRINT.execute(p, "");
+        }
+
+        if (operation.equals(Operation.FILE)) {
+            for (String line : Io.read(arg)) {
+                LinkedList<String> lineArgs = new LinkedList(Arrays.asList(line.split("\\s+")));
+                Operation lineOp = Operation.fromFlag(lineArgs);
+                String lineArg = operation.getArg(lineArgs);
+                lineOp.execute(p, lineArg);
             }
-            checkArgs(args, 2);
-            String tableFile = args.get(0);
-            String outFile = args.get(1);
-
-            Program p = new Program(tableFile, outFile, hasHeaders);
-            Operation.ACTION.execute(p, cols);
-            Operation.PRINT.execute(p, cols);
-        }
-
-        if (operation.equals(Operation.WHEN)) {
-            checkArgs(args, 3);
-            String condition = args.get(0);
-            String tableFile = args.get(1);
-            String outFile = args.get(2);
-
-            Program p = new Program(tableFile, outFile, hasHeaders);
-            Operation.WHEN.execute(p, condition);
-            Operation.PRINT.execute(p, "");
-        }
-
-        if (operation.equals(Operation.UPDATE)) {
-            checkArgs(args, 3);
-            String indices = args.get(0);
-            String tableFile = args.get(1);
-            String outFile = args.get(2);
-
-            Program p = new Program(tableFile, outFile, hasHeaders);
-            Operation.UPDATE.execute(p, indices);
-            Operation.PRINT.execute(p, "");
         }
     }
     
@@ -93,12 +63,6 @@ public class Main {
         }
         return Arrays.asList(s.split(",")).stream().map(x -> new Integer(x)).collect(toList());
 
-    }
-
-    private static void checkArgs(List<String> args, int count) {
-        if (args.size() != count) {
-            throw new RuntimeException("OTHER ERROR");
-        }
     }
 
     private enum Operation {
@@ -112,6 +76,30 @@ public class Main {
 
         String getFlag() {
             return flag;
+        }
+
+        String getArg(LinkedList<String> flags) {
+            if (flags.size() == 2) {
+                checkIsAction();
+                return "";
+            }
+            return flags.get(0);
+        }
+
+        String getTableFile(LinkedList<String> flags) {
+            if (flags.size() == 2) {
+                checkIsAction();
+                return flags.get(0);
+            }
+            return flags.get(1);
+        }
+
+        String getOutFile(LinkedList<String> flags) {
+            if (flags.size() == 2) {
+                checkIsAction();
+                return flags.get(1);
+            }
+            return flags.get(2);
         }
 
         void execute(Program p, String arg) {
@@ -134,7 +122,12 @@ public class Main {
                     Integer col = new Integer(indices.get(1));
                     String value = String.join(",", indices.subList(2, indices.size()));
                     p.update(row, col, value);
+            }
+        }
 
+        void checkIsAction() {
+            if (!this.equals(ACTION)) {
+                throw new RuntimeException("OTHER ERROR");
             }
         }
 

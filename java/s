@@ -9,4 +9,4 @@ echo "Compile code"
   javac *.java )
 
 ( cd code
-  ./simple -update -header "0,0,0.00009" ../tests/0.txt ../tests/0.out )
+  ./simple ../tests/0.op ../tests/0.txt ../tests/0.out )
