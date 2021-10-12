@@ -74,6 +74,17 @@ public class Main {
             p.when(condition);
             p.print(new ArrayList(), outFile);
         }
+
+        if (operation.equals(Operation.UPDATE)) {
+            checkArgs(args, 3);
+            List<String> indices = Arrays.asList(args.get(0).split(","));
+            String tableFile = args.get(1);
+            String outFile = args.get(2);
+
+            Program p = new Program(tableFile, hasHeaders);
+            p.update(new Integer(indices.get(0)), new Integer(indices.get(1)), indices.get(2));
+            p.print(new ArrayList(), outFile);
+        }
     }
     
     private static List<Integer> splitToListInt(String s) {

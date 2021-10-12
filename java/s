@@ -9,4 +9,4 @@ echo "Compile code"
   javac *.java )
 
 ( cd code
-  ./simple -when -header \(1==@3\) ../tests/0.txt ../tests/0.out )
+  ./simple -when -header "(aa<>@1)" ../tests/0.txt ../tests/0.out )
