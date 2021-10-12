@@ -21,7 +21,6 @@ public class Main {
     }
 
     private static void runMain(LinkedList<String> args) {
-        deleteComments(args);
         boolean hasHeaders = args.contains("-header");
 
         if (hasHeaders) {
