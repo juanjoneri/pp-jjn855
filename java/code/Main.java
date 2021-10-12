@@ -37,17 +37,7 @@ public class Main {
 
         if (!operation.equals(Operation.FILE)) {
             operation.execute(p, arg);
-        }
-
-        if (Operation.ACTION.equals(operation)) {
-            Operation.PRINT.execute(p, arg);
-        }
-
-        if (Arrays.asList(Operation.WHEN, Operation.UPDATE).contains(operation)) {
-            Operation.PRINT.execute(p, "");
-        }
-
-        if (operation.equals(Operation.FILE)) {
+        } else  {
             for (String line : Io.read(arg)) {
                 LinkedList<String> lineArgs = new LinkedList(Arrays.asList(line.split("\\s+")));
                 Operation lineOp = Operation.fromFlag(lineArgs);

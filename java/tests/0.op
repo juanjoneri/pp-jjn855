@@ -1,4 +1,2 @@
--action 0
--sum 0
--when ($1==8)||($1==y)
--print 2,2,2,2,0
+-action 0 # execute actions in column 1
+-when ($0>5) # only include rows when the first column is greater than 55

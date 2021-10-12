@@ -36,7 +36,8 @@ public class Program {
         if (cols.isEmpty()) {
             cols = table.allCols();
         }
-        table.fixCols(cols);        
+        table.fixCols(cols);
+        print(cols);     
     }
 
     public void when(String c) {
@@ -76,9 +77,11 @@ public class Program {
         List<Integer> sortedRows = new ArrayList(rows);
         Collections.sort(sortedRows);
         table.filterRows(sortedRows);
+        print(new ArrayList());
     }
 
     public void update(int row, int col, String value) {
         table.update(new Index(row, col), value);
+        print(new ArrayList());
     }
 }
