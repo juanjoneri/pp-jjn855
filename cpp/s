@@ -4,14 +4,9 @@
 
 set -e
 
-if ! g++ --version |& grep 'g++' | grep ' 7' > /dev/null; then
-        echo "ERROR: Please use g++ 7.x.x"
-        exit 1
-fi
-
 echo "Compile code"
 ( cd code
-  g++ *.cpp )
+  g++ -std=c++11 *.cpp )
 
 echo "Running code"
 ( cd code
