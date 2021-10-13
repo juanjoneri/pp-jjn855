@@ -63,7 +63,6 @@ public:
     }
 
     bool eq(Cell* other) {
-        cout << "comparing " << getValue() << " with " << other->getValue() << endl;
         if (isNumeric() && other->isNumeric()) {
             return getNumeric() == other->getNumeric();
         }
@@ -71,5 +70,9 @@ public:
             return getValue().compare(other->getValue()) == 0;
         }
         return false;
+    }
+
+    bool neq(Cell* other) {
+        return !eq(other);
     }
 };
