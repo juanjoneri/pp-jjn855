@@ -62,7 +62,8 @@ public:
             }
             col++;
         }
-        return col;
+        cout << "COND ERROR" << endl;
+        exit(1);
     }
 
     list<list<string>> filterCols(list<int> cols) {

@@ -11,7 +11,7 @@ int main() {
 
     Cell *target_cell = new Cell("-1");
     file_reader->write(matrix->filterRows(matrix->getLtRows(1, target_cell)));
-    cout << endl << matrix->getCol("10") << endl;
+    cout << endl << matrix->getCol("10.0") << endl;
 
     return 0;
 }
