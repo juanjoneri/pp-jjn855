@@ -5,7 +5,7 @@ using namespace std;
 
 int main() {
 
-    FileReader *file_reader = new FileReader("../tests/1.txt", "../tests/1.out"); 
+    FileReader *file_reader = new FileReader("../tests/1.txt", "../tests/new.out"); 
 
     for (string line : file_reader->read()) {
         cout << line << endl;
@@ -16,6 +16,8 @@ int main() {
         {"9", "b", "c"},
         {"3.0", "0.1", "0.002"}
     };
+
+    file_reader->write(values.front());
 
     list<int> cols = {0, 1};
 

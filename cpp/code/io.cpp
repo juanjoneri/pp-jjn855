@@ -26,12 +26,23 @@ public:
         list<string> lines;
         file.open(inFile, ios::in);
         if (file.is_open()){
-                string line;
-                while(getline(file, line)){
+            string line;
+            while(getline(file, line)){
                 lines.push_back(line);
             }
             file.close();
         }
         return lines;
+    }
+
+    void write(list<string> lines) {
+        fstream file;
+        file.open(outFile, ios::out);
+        if (file.is_open()){
+            for (string line : lines) {
+                file << line << endl;
+            }
+        }
+        file.close();
     }
 };
