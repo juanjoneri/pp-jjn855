@@ -6,16 +6,19 @@
 using namespace std;
 
 enum Operation {EQ, NEQ, GT, LT};
+enum IndexType {UNSPECIFIED, COL_NAME, COL_NUM};
 
 class Condition {
     Operation op;
-    string col;
+    IndexType index_type;
+    string col_name;
+    int col_num;
     Cell *constant;
 
 public:
 
     Condition() {
-        // nop
+        index_type = UNSPECIFIED;
     }
 
     ~Condition() {
@@ -30,21 +33,22 @@ public:
         sregex_token_iterator end;
         int part = 0;
         while (iter != end)  {
-            if (part >= 2) {
-                cout << "COND ERROR" << endl;
-                exit(1);
-            }
             string operand = *iter;
-            if ((operand.rfind("@", 0) == 0) || (operand.rfind("$", 0) == 0)) {
+            if (operand.rfind("@", 0) == 0) {
                 operand.erase(0,1);
-                col = operand;
+                col_name = operand;
+                index_type = COL_NAME;
+            } else if (operand.rfind("$", 0) == 0) {
+                operand.erase(0,1);
+                col_num = stoi(operand);
+                index_type = COL_NUM;
             } else {
                 constant = new Cell(operand);
             }
             iter++;
             part++;
         }
-        if ((constant == NULL) || (col.compare("") == 0)) {
+        if ((constant == NULL) || (index_type == UNSPECIFIED)) {
             cout << "COND ERROR" << endl;
             exit(1);
         }
@@ -52,9 +56,10 @@ public:
 
     void print() {
         cout << "Condition:" <<endl;
-        cout << "\t- op:" << op << endl;
-        cout << "\t- col:" << col << endl;
-        cout << "\t- constant:" << constant->getValue() << endl;
+        cout << "  - op:" << op << endl;
+        cout << "  - col_name:" << col_name << endl;
+        cout << "  - col_num:" << col_num << endl;
+        cout << "  - constant:" << constant->getValue() << endl;
     }
 
 private:
