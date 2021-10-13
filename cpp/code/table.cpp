@@ -1,10 +1,15 @@
-#include <iostream>
-#include <string>
-#include"matrix.cpp"
+#include "io.cpp"
+#include "matrix.cpp"
 
 using namespace std;
 
 int main() {
+
+    FileReader *file_reader = new FileReader("../tests/1.txt", "../tests/1.out"); 
+
+    for (string line : file_reader->read()) {
+        cout << line << endl;
+    }
 
     list<list<string>> values = {
         {"1", "2", "3"},

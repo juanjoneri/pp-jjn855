@@ -12,7 +12,7 @@ class Cell {
     Type type;
 
 public:
-    // Default constructor
+
     Cell() {
         // nop
     }
