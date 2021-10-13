@@ -69,7 +69,7 @@ int main(int argc, const char *argv[]) {
             file_reader->write(matrix->filterCols(splitNums(data)));
             break;
         case SUM:
-            file_reader->write(to_string(matrix->sum(stoi(*data))));
+            file_reader->write(matrix->sum(stoi(*data))->repr());
             break;
         case WHEN:
             Condition *cond = new Condition(data);

@@ -10,4 +10,4 @@ echo "Compile code"
 
 echo "Running code"
 ( cd code
-  ./simple -header -when "<>@H2,-2" ../tests/0.txt ../tests/0.out )
+  ./simple -header -sum 1 ../tests/2.txt ../tests/0.out )

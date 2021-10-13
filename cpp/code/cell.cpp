@@ -45,6 +45,13 @@ public:
 
 
     explicit Cell(string value, Type type) : value(value), type(type) {}
+
+    string repr() {
+        if (type == TYPE_INTEGER) {
+            return to_string(stoi(value));
+        }
+        return value;
+    }
     
     string getValue() { 
         return value; 

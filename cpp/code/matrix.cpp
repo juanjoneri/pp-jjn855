@@ -169,7 +169,7 @@ public:
         return lines;
     }
 
-    float sum(int col) {
+    Cell* sum(int col) {
         float sum = 0;
         for (int row = has_header; row < rows + has_header; row++) {
             Cell *cell = get(row, col);
@@ -179,7 +179,7 @@ public:
             }
             sum += cell->getNumeric();
         }
-        return sum;
+        return new Cell(sum);
     }
 
     // For debugging to quickly check the contents of the matrix
