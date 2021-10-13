@@ -50,13 +50,7 @@ public:
         }
     }
 
-    void print() {
-        for (list<Cell*> row : cells) {
-            printRow(row);
-        }
-    }
-
-    void print(list<int> cols) {
+    list<list<string>> filterCols(list<int> cols) {
         cols.sort();
         list<list<string>> lines;
         for (int row = 0; row < rows + hasHeader; row++) {
@@ -66,9 +60,24 @@ public:
             }
             lines.push_back(new_row);
         }
-        Matrix *new_matrix = new Matrix(lines, hasHeader);
-        new_matrix->print();
-        delete new_matrix;
+        return lines;
+    }
+
+    list<list<string>> filterRows(list<int> rows) {
+        if (hasHeader) {
+            rows.push_front(-1); // Index of the header
+        }
+        rows.sort();
+        list<list<string>> lines;
+        for (int row : rows) {
+            row = row + hasHeader;
+            list<string> new_row = {};
+            for (int col = 0 ; col < cols ; col++) {
+                new_row.push_back(get(row, col)->getValue());
+            }
+            lines.push_back(new_row);
+        }
+        return lines;
     }
 
     float sum(int col) {
@@ -82,6 +91,13 @@ public:
             sum += cell->getNumeric();
         }
         return sum;
+    }
+
+    // For debugging to quickly check the contents of the matrix
+    void print() {
+        for (list<Cell*> row : cells) {
+            printRow(row);
+        }
     }
 
 private:
