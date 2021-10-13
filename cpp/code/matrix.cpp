@@ -21,7 +21,9 @@ public:
             for (Cell *cell : row) {
                 delete cell;
             }
+            row.clear();
         }
+        cells.clear();
     }
 
     Matrix(list<list<string>> lines, bool hasHeader) : hasHeader(hasHeader) {
