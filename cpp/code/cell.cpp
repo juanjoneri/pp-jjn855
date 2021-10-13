@@ -85,4 +85,11 @@ public:
         }
         return false;
     }
+
+    bool lt(Cell* other) {
+        if ((isNumeric() && other->isNumeric()) || (!isNumeric() && !other->isNumeric())) {
+            return !gt(other) && !eq(other);
+        }
+        return false;
+    }
 };
