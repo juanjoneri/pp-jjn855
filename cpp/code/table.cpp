@@ -1,12 +1,12 @@
 #include <iostream>
 #include <string>
-#include"cell.cpp"
+#include"matrix.cpp"
 
 using namespace std;
 
 int main() {
-    Cell *cell = new Cell("jamon");
+    Matrix *matrix = new Matrix(10, 10);
 
-    cout << cell->getValue() << endl;
+    matrix->print();
     return 0;
 }
