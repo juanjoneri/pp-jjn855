@@ -8,12 +8,15 @@ int main() {
 
     list<list<string>> values = {
         {"1", "2", "3"},
-        {"a", "b", "c"},
-        {"1.0", "0.1", "0.002"}
+        {"9", "b", "c"},
+        {"3.0", "0.1", "0.002"}
     };
 
-    Matrix *matrix = new Matrix(values, true);
+    list<int> cols = {0, 1};
 
-    matrix->print();
+    Matrix *matrix = new Matrix(values, false);
+
+    matrix->print(cols);
+    cout << matrix->sum(0);
     return 0;
 }

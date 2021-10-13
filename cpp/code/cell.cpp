@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <regex> 
+#include <cmath> 
 
 using namespace std;
 
@@ -29,6 +30,16 @@ public:
         }
     }
 
+    explicit Cell(float f) {
+        if (floor(f) == f) {
+            type = TYPE_INTEGER;
+        } else {
+            type = TYPE_FLOAT;
+        } 
+        value = to_string(f);
+    }
+
+
     explicit Cell(string value, Type type) : value(value), type(type) {}
     
     string getValue() { 
@@ -37,5 +48,13 @@ public:
 
     Type getType() { 
         return type; 
+    }
+
+    bool isNumeric() {
+        return type == TYPE_INTEGER || type == TYPE_FLOAT;
+    }
+
+    float getNumeric() {
+        return stof(value);
     }
 };
