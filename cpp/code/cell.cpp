@@ -61,4 +61,15 @@ public:
     float getNumeric() {
         return stof(value);
     }
+
+    bool eq(Cell* other) {
+        cout << "comparing " << getValue() << " with " << other->getValue() << endl;
+        if (isNumeric() && other->isNumeric()) {
+            return getNumeric() == other->getNumeric();
+        }
+        if (!isNumeric() && !other->isNumeric()) {
+            return getValue().compare(other->getValue()) == 0;
+        }
+        return false;
+    }
 };

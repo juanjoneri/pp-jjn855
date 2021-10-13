@@ -6,7 +6,7 @@ using namespace std;
 
 class Matrix {
     list<list<Cell*>> cells;
-    bool hasHeader;
+    bool has_header;
     int rows;
     int cols;
 
@@ -26,14 +26,14 @@ public:
         cells.clear();
     }
 
-    Matrix(list<list<string>> lines, bool hasHeader) : hasHeader(hasHeader) {
+    Matrix(list<list<string>> lines, bool has_header) : has_header(has_header) {
         rows = lines.size();
         if (rows == 0) {
             cols == 0;
             return;
         }
         cols = lines.front().size();
-        if (hasHeader) {
+        if (has_header) {
             rows -= 1;
         }
         for (list<string> row : lines) {
@@ -53,7 +53,7 @@ public:
     list<list<string>> filterCols(list<int> cols) {
         cols.sort();
         list<list<string>> lines;
-        for (int row = 0; row < rows + hasHeader; row++) {
+        for (int row = 0; row < rows + has_header; row++) {
             list<string> new_row = {};
             for (int col : cols) {
                 new_row.push_back(get(row, col)->getValue());
@@ -63,14 +63,25 @@ public:
         return lines;
     }
 
+    list<int> getEqRows(int col, Cell* target) {
+        list<int> matching_rows;
+        for (int row = has_header; row < rows + has_header; row++) {
+            Cell *cell = get(row, col);
+            if (cell->eq(target)) {
+                matching_rows.push_back(row - has_header);
+            }
+        }
+        return matching_rows;
+    }
+
     list<list<string>> filterRows(list<int> rows) {
-        if (hasHeader) {
+        if (has_header) {
             rows.push_front(-1); // Index of the header
         }
         rows.sort();
         list<list<string>> lines;
         for (int row : rows) {
-            row = row + hasHeader;
+            row = row + has_header;
             list<string> new_row = {};
             for (int col = 0 ; col < cols ; col++) {
                 new_row.push_back(get(row, col)->getValue());
@@ -82,7 +93,7 @@ public:
 
     float sum(int col) {
         float sum = 0;
-        for (int row = hasHeader; row < rows + hasHeader; row++) {
+        for (int row = has_header; row < rows + has_header; row++) {
             Cell *cell = get(row, col);
             if (!cell->isNumeric()) {
                 cout << "TYPE ERROR" << endl;
@@ -116,7 +127,7 @@ private:
             cout << "COL INDEX ERROR" << endl;
             exit(1);
         }
-        if (row >= rows + hasHeader) {
+        if (row >= rows + has_header) {
             cout << "ROW INDEX ERROR" << endl;
             exit(1);
         }
