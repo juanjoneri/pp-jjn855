@@ -17,6 +17,10 @@ public:
         // nop
     }
 
+    ~Cell() {
+        // nop
+    }
+
     explicit Cell(string value) : value(value) {
         regex int_regex("^[-+]?[0-9]+$");
         regex float_regex("^[-+]?[0-9]*\\.[0-9]*$");
