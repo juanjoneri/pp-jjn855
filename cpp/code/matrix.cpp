@@ -50,6 +50,21 @@ public:
         }
     }
 
+    int getCol(string name) {
+        if (!has_header) {
+            cout << "COND ERROR" << endl;
+            exit(1);
+        }
+        int col = 0;
+        for (Cell *header : cells.front()) {
+            if (header->getValue().compare(name) == 0) {
+                return col;
+            }
+            col++;
+        }
+        return col;
+    }
+
     list<list<string>> filterCols(list<int> cols) {
         cols.sort();
         list<list<string>> lines;
