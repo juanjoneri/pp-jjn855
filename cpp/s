@@ -10,4 +10,4 @@ echo "Compile code"
 
 echo "Running code"
 ( cd code
-  ./simple -print 0 ../tests/1.txt ../tests/1.out )
+  ./simple -header -when "<>@H2,-2" ../tests/0.txt ../tests/0.out )

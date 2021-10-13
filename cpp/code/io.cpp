@@ -52,6 +52,15 @@ public:
         file.close();
     }
 
+    void write(string line) {
+        fstream file;
+        file.open(outFile, ios::out);
+        if (file.is_open()){
+            file << line << endl;
+        }
+        file.close();
+    }
+
 private:
     list<string> splitString(string s) {
         regex space_regex("\\s+");
