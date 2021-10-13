@@ -17,6 +17,26 @@ class Condition {
 
 public:
 
+    Operation getOp() {
+        return op;
+    }
+
+    IndexType getIndexType() {
+        return index_type;
+    }
+
+    string getColName() {
+        return col_name;
+    }
+
+    int getColNum() {
+        return col_num;
+    }
+
+    Cell* getConstant() {
+        return constant;
+    }
+
     Condition() {
         index_type = UNSPECIFIED;
     }

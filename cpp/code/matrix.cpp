@@ -1,6 +1,6 @@
 #include <iostream>
 #include <list>
-#include "cell.cpp"
+#include "condition.cpp"
 
 using namespace std;
 
@@ -121,6 +121,35 @@ public:
             }
         }
         return matching_rows;
+    }
+
+    list<list<string>> filterRows(Condition* c) {
+        int col;
+        if (c->getIndexType() == COL_NUM) {
+            col = c->getColNum();
+        } else {
+            col = getCol(c->getColName());
+        }
+        Cell *target = c->getConstant();
+
+        list<int> matching_rows;
+        switch (c->getOp()) {
+            case EQ:
+                matching_rows = getEqRows(col, target);
+                break;
+            case NEQ:
+                matching_rows = getNeqRows(col, target);
+                break;
+            case GT:
+                matching_rows = getGtRows(col, target);
+                break;
+            case LT:
+                matching_rows = getLtRows(col, target);
+                break;        
+            default:
+                break;
+        }
+        return filterRows(matching_rows);
     }
 
     list<list<string>> filterRows(list<int> rows) {
