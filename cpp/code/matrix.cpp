@@ -85,6 +85,17 @@ public:
         return matching_rows;
     }
 
+    list<int> getGtRows(int col, Cell* target) {
+        list<int> matching_rows;
+        for (int row = has_header; row < rows + has_header; row++) {
+            Cell *cell = get(row, col);
+            if (cell->gt(target)) {
+                matching_rows.push_back(row - has_header);
+            }
+        }
+        return matching_rows;
+    }
+
     list<list<string>> filterRows(list<int> rows) {
         if (has_header) {
             rows.push_front(-1); // Index of the header

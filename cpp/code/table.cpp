@@ -9,8 +9,8 @@ int main() {
 
     Matrix *matrix = new Matrix(file_reader->read(), false);
 
-    Cell *target_cell = new Cell("0.0");
-    file_reader->write(matrix->filterRows(matrix->getEqRows(0, target_cell)));
+    Cell *target_cell = new Cell("a");
+    file_reader->write(matrix->filterRows(matrix->getGtRows(1, target_cell)));
 
     return 0;
 }

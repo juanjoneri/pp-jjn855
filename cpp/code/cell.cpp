@@ -55,7 +55,7 @@ public:
     }
 
     bool isNumeric() {
-        return type == TYPE_INTEGER || type == TYPE_FLOAT;
+        return (type == TYPE_INTEGER) || (type == TYPE_FLOAT);
     }
 
     float getNumeric() {
@@ -74,5 +74,15 @@ public:
 
     bool neq(Cell* other) {
         return !eq(other);
+    }
+
+    bool gt(Cell* other) {
+        if (isNumeric() && other->isNumeric()) {
+            return getNumeric() > other->getNumeric();
+        }
+        if (!isNumeric() && !other->isNumeric()) {
+            return getValue().compare(other->getValue()) > 0;
+        }
+        return false;
     }
 };
