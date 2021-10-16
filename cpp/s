@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# NOTE: do NOT modify this file.  This script runs tests.
+
+set -e
+
+echo "Compile code"
+( cd code
+  g++ -std=c++11 *.cpp )
+
+echo "Running code"
+( cd code
+  ./simple -header -sum 1 ../tests/2.txt ../tests/0.out )
