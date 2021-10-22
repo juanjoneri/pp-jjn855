@@ -42,8 +42,8 @@ Program >> readTable [
 	| working stream table |
 	table := String new.
 	working := FileSystem disk workingDirectory.
-	stream := (working / tableFile ) readStream.
-	[stream atEnd] whileFalse: [table := table, stream nextLine].
+	stream := (working / tableFile) readStream.
+	[stream atEnd] whileFalse: [table := table, stream nextLine, String cr].
 	stream close.
 	^ table.
 ]
