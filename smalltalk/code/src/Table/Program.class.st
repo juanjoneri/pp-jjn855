@@ -32,7 +32,7 @@ Program >> print [
 	name := name, 'tableFile: ' , tableFile, String cr.
 	name := name, 'outFile: ' , outFile, String cr.
 			
-	Transcript show: name.
+	^ name.
 ]
 
 { #category : #actions }

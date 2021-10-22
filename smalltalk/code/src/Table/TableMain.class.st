@@ -12,7 +12,6 @@ TableMain >> main: message [
 	program := Program new.
 	program parseArgs: message.
 	table := program readTable.
-	tableName := String new.
-   table do: [:each | tableName := tableName , each, '---'].
+	tableName := program print.
 	program writeTable: tableName.
 ]
