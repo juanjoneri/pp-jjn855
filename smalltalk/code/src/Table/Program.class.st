@@ -43,7 +43,7 @@ Program >> readTable [
 	table := String new.
 	working := FileSystem disk workingDirectory.
 	stream := (working / tableFile ) readStream.
-	stream do: [ :each | table := table, each ].
+	[stream atEnd] whileFalse: [table := table, stream nextLine].
 	stream close.
 	^ table.
 ]
