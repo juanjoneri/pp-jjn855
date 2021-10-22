@@ -1,0 +1,2 @@
+-print 0 ../tests/1.txt ../tests/1.out
+over
