@@ -39,10 +39,11 @@ Program >> print [
 Program >> readTable [
 	"comment stating purpose of instance-side method"
 	"scope: class-variables  &  instance-variables"
-	| working table |
-	table := LinkedList new.
+	| working stream table |
+	"table := LinkedList new."
 	working := FileSystem disk workingDirectory.
-	(working / tableFile) readStreamDo: [ :in | (table add: in) ].
+	stream := (working / tableFile ) readStream.
+	table := stream nextLine.
 	^ table.
 ]
 

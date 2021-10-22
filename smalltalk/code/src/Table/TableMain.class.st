@@ -13,5 +13,5 @@ TableMain >> main: message [
 	program parseArgs: message.
 	table := program readTable.
 	tableName := program print.
-	program writeTable: tableName.
+	program writeTable: table.
 ]
