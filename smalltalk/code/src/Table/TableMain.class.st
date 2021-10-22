@@ -8,12 +8,10 @@ Class {
 TableMain >> main: message [
 	"comment stating purpose of instance-side method"
 	"scope: class-variables  &  instance-variables"
-	| working stream args |
+	| working stream |
 	working := FileSystem disk workingDirectory.
 	stream := (working / 'stdout.txt') writeStream.
-	args := stream splitOn: ' '. 
-	args do: [ :each | stream nextPutAll: each ; lf ].
-	"stream nextPutAll: message; lf."
-	"stream nextPutAll: 'over'; lf."
+	stream nextPutAll: message; lf.
+	stream nextPutAll: 'over'; lf.
 	stream close.
 ]
