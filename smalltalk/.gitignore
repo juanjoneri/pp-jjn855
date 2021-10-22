@@ -1,0 +1,11 @@
+
+*~
+
+# Pharo VM (automatically downloaded)
+/Pharo/
+
+# Images should not be directly included in the repo; see submission instructions
+*.image
+*.changes
+*.sources
+pharo-local/

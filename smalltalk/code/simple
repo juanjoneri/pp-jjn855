@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# This is the command to call your program (after exporting your code).
+# You probably won't need to change this, but you are allowed to.
+../Pharo/pharo -headless ../Pharo/Pharo.image eval "|a|. a:=TableMain new. a main: '$*'"
