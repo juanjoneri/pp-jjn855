@@ -34,3 +34,27 @@ Program >> print [
 			
 	Transcript show: name.
 ]
+
+{ #category : #actions }
+Program >> readTable [
+	"comment stating purpose of instance-side method"
+	"scope: class-variables  &  instance-variables"
+	| working stream table |
+	table := LinkedList new.
+	working := FileSystem disk workingDirectory.
+	stream := (working / tableFile) readStream.
+	stream do: [ :in | (table add: in) ].
+	stream close.
+	^ table.
+]
+
+{ #category : #actions }
+Program >> writeTable: value [
+	"comment stating purpose of instance-side method"
+	"scope: class-variables  &  instance-variables"	
+	| working stream |
+		working := FileSystem disk workingDirectory.
+		stream := (working / outFile) writeStream.
+		stream nextPutAll: value; lf.
+		stream close.
+]
