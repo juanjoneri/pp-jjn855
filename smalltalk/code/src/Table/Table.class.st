@@ -55,3 +55,13 @@ Table >> setHeaders: newHeaders [
 	numCols := headers size.
 	hasHeaders := true.
 ]
+
+{ #category : #enumerating }
+Table >> sum: col [
+	"comment stating purpose of instance-side method"
+	"scope: class-variables  &  instance-variables"	
+	| sum |
+	sum := 0.
+	data do: [ :row | sum := sum + ((row at: col) getValue) ].
+	^ sum.
+]
