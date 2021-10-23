@@ -15,7 +15,9 @@ Class {
 Table >> addRow: newRow [
 	"comment stating purpose of instance-side method"
 	"scope: class-variables  &  instance-variables"
-	data add: (newRow splitOn: '\s+' asRegex).
+	| cellFactory |
+	cellFactory := CellFactory new.
+	data add: ((newRow splitOn: '\s+' asRegex) collect: [ :v | cellFactory create: v ]).
 	numRows := numRows + 1.
 ]
 
@@ -39,7 +41,7 @@ Table >> print [
 			
 	| headersName bodyName name |
 	headersName := ' ' join: headers.
-	bodyName := (String cr) join: ( data collect: [ :row | ' ' join: row  ] ).
+	bodyName := (String cr) join: ( data collect: [ :row | ' ' join: (row collect: [ :cell | cell getValue ]) ] ).
 	
 	name := headersName, String cr, bodyName, String cr.
 	^ name.
