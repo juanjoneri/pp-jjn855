@@ -11,7 +11,7 @@ CellFactory >> create: value [
 			
 	| cell |
 	
-	(('\d+' asRegex) matches: value) 
+	(('-?\d+(\.\d+)?' asRegex) matches: value) 
 		ifTrue: [ cell := NumericCell new ] ;
 		ifFalse: [ cell := StringCell new ].
 	cell setValue: value.
