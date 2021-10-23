@@ -38,10 +38,10 @@ Table >> print [
 	"scope: class-variables  &  instance-variables"	
 			
 	| headersName bodyName name |
-	headersName := ' ' join: headers, String cr.
+	headersName := ' ' join: headers.
 	bodyName := (String cr) join: ( data collect: [ :row | ' ' join: row  ] ).
 	
-	name := headersName, bodyName, String cr.
+	name := headersName, String cr, bodyName, String cr.
 	^ name.
 ]
 
