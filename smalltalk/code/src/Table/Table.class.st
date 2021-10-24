@@ -13,8 +13,7 @@ Class {
 
 { #category : #adding }
 Table >> addRow: newRow [
-	"comment stating purpose of instance-side method"
-	"scope: class-variables  &  instance-variables"
+	"adds a string row '123 -0.2 salmon 9h8fs0' to the end of the table"
 	| cellFactory |
 	cellFactory := CellFactory new.
 	data add: ((newRow splitOn: '\s+' asRegex) collect: [ :v | cellFactory create: v ]).
@@ -23,8 +22,7 @@ Table >> addRow: newRow [
 
 { #category : #initialization }
 Table >> initialize [
-	"comment stating purpose of instance-side method"
-	"scope: class-variables  &  instance-variables"
+	"Initialize table with default values."
 	hasHeaders := false.
 	headers := OrderedCollection new.
 	numRows := 0.
@@ -36,8 +34,7 @@ Table >> initialize [
 
 { #category : #printing }
 Table >> print [
-	"comment stating purpose of instance-side method"
-	"scope: class-variables  &  instance-variables"	
+	"Returns the name of this table for debugging."	
 			
 	| headersName bodyName name |
 	headersName := ' ' join: headers.
@@ -47,10 +44,27 @@ Table >> print [
 	^ name.
 ]
 
+{ #category : #printing }
+Table >> print: cols [
+	"Returns a new Table with only the given comma delimited cols '0,2,5'."	
+			
+	| indexes newTable |
+	indexes := (cols splitOn: ',') collect: [ :i | (i asNumber) + 1 ].
+	newTable := self class new.
+	hasHeaders ifTrue: [ newTable setHeaders: (' ' join: ( headers withIndexSelect: [:v :i | indexes includes: i ] ) ) ].
+	data withIndexDo: [ :r :i | newTable addRow: (' ' join: ( (self printRow: i) withIndexSelect: [ :v :c | indexes includes: c ] ) ) ].
+	^ newTable.
+]
+
+{ #category : #printing }
+Table >> printRow: row [
+	"Returns a string representation of the cells in the given row."	
+	^ (data at: row) collect: [ :cell | cell getValue ].
+]
+
 { #category : #initialization }
 Table >> setHeaders: newHeaders [
-	"comment stating purpose of instance-side method"
-	"scope: class-variables  &  instance-variables"
+	"Upserts the headers of this table from string form like '1 header-B 3'"
 	headers := newHeaders splitOn: '\s+' asRegex.
 	numCols := headers size.
 	hasHeaders := true.
@@ -58,10 +72,11 @@ Table >> setHeaders: newHeaders [
 
 { #category : #enumerating }
 Table >> sum: col [
-	"comment stating purpose of instance-side method"
-	"scope: class-variables  &  instance-variables"	
-	| sum |
+	"Adds the values in the given row into a cell and returns the value."	
+	| sum cell |
 	sum := 0.
 	data do: [ :row | sum := sum + ((row at: col) getValue) ].
-	^ sum.
+	cell := NumericCell new.
+	cell setValue: sum.
+	^ cell getValue.
 ]

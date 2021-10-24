@@ -18,8 +18,8 @@ Cell >> getValue [
 
 { #category : #initialization }
 Cell >> setValue: newValue [
-	"comment stating purpose of instance-side method"
-	"scope: class-variables  &  instance-variables"	
-			
-	value := newValue.
+	"Sets the value of this cell. Type must be string."	
+	value := newValue isString 
+		ifTrue: [ newValue ]
+		ifFalse: [ newValue asString ].
 ]

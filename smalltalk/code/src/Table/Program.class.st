@@ -12,7 +12,7 @@ Class {
 
 { #category : #parsing }
 Program >> parseArgs: args [
-	"Command line arguments to initialize this program -print 0 1.txt 1.out"
+	"Parses command line arguments to initialize this program -print 0 1.txt 1.out"
 	| temp |
 	temp  := args splitOn: ' '.
 	operation := temp at: 1.
@@ -23,8 +23,7 @@ Program >> parseArgs: args [
 
 { #category : #printing }
 Program >> print [
-	"comment stating purpose of instance-side method"
-	"scope: class-variables  &  instance-variables"
+	"Returns the name of this program for debugging."
 	| name |
 	name := 'Program:', String cr.
 	name := name, 'operation: ' , operation, String cr.
@@ -37,8 +36,7 @@ Program >> print [
 
 { #category : #actions }
 Program >> readTable [
-	"comment stating purpose of instance-side method"
-	"scope: class-variables  &  instance-variables"
+	"Reads the lines from tableFile into a string."
 	| working stream table |
 	table := String new.
 	working := FileSystem disk workingDirectory.
@@ -50,8 +48,7 @@ Program >> readTable [
 
 { #category : #actions }
 Program >> writeTable: value [
-	"comment stating purpose of instance-side method"
-	"scope: class-variables  &  instance-variables"	
+	"Writes the value to outFile as is."
 	| working stream |
 		working := FileSystem disk workingDirectory.
 		stream := (working / outFile) writeStream.
