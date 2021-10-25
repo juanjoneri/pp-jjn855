@@ -78,7 +78,7 @@ Condition >> parseOperand: operand [
 
 { #category : #printing }
 Condition >> print [
-	"Returns the name of this Condition."	
+	"Returns the name of this Condition for debugging."	
 	| name col |
 	col := (colName ifNil: ['$', colNum asString] ifNotNil: ['@', colName]).
 	name := 'Program:', String cr.
