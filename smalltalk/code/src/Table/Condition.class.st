@@ -26,12 +26,27 @@ Class {
 	#category : #Table
 }
 
+{ #category : #accessing }
+Condition >> getOp [
+	"comment stating purpose of instance-side method"
+	"scope: class-variables  &  instance-variables"	
+	^ op.
+]
+
 { #category : #parsing }
 Condition >> parse: input [
 	"Populates the condition given an input such as '==$1,some_string' or '<>@header_name,5'"
-	| cell |
-	(('==.+' asRegex) matches: input) ifTrue: [ op := #EQ ].
-	(('<>.+' asRegex) matches: input) ifTrue: [ op := #EQ ].
-	(('>.+' asRegex) matches: input) ifTrue: [ op := #EQ ].
-	(('<.+' asRegex) matches: input) ifTrue: [ op := #EQ ].
+	| matcher groups opName |
+	
+	matcher := '(==|<>|<|>)([$@]?\w+),([$@]?\w+)' asRegex.
+	groups := (matcher matches: input) ifTrue:
+		[Array
+			with: (matcher subexpression: 2)
+			with: (matcher subexpression: 3)
+			with: (matcher subexpression: 4)].
+
+	opName := groups at: 1.	
+	op := opName = '==' ifTrue: [ #EQ ] ifFalse: [ 
+			opName = '<>' ifTrue: [ #NEQ ] ifFalse: [ 
+			opName = '<' ifTrue: [ #LT ] ifFalse: [ #GT ]]].
 ]
