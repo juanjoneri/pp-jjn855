@@ -1,3 +1,6 @@
+"
+A Table like an excel spreadsheet.
+"
 Class {
 	#name : #Table,
 	#superclass : #Object,
@@ -79,4 +82,11 @@ Table >> sum: col [
 	cell := NumericCell new.
 	cell setValue: sum.
 	^ cell getValue.
+]
+
+{ #category : #scripting }
+Table >> when: condition [
+	"comment stating purpose of instance-side method"
+	"scope: class-variables  &  instance-variables"	
+	^ condition.
 ]

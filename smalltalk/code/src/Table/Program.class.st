@@ -1,3 +1,6 @@
+"
+Program handles program specific logic like reading and writing files.
+"
 Class {
 	#name : #Program,
 	#superclass : #Object,

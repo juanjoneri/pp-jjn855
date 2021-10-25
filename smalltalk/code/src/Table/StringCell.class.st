@@ -1,3 +1,6 @@
+"
+A StringCell has a value of type String.
+"
 Class {
 	#name : #StringCell,
 	#superclass : #Cell,

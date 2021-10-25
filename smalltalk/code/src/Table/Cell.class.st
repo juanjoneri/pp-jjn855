@@ -1,3 +1,6 @@
+"
+A cell represents an entry in the Table.
+"
 Class {
 	#name : #Cell,
 	#superclass : #Object,
