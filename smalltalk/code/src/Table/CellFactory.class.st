@@ -1,3 +1,6 @@
+"
+CellFactory has a single public method create: to initialize a Cell given a string value.
+"
 Class {
 	#name : #CellFactory,
 	#superclass : #Object,

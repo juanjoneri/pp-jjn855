@@ -1,3 +1,6 @@
+"
+A numeric cell has a value of type double and can be used to do math.
+"
 Class {
 	#name : #NumericCell,
 	#superclass : #Cell,

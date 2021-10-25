@@ -1,3 +1,6 @@
+"
+Entry point for the program.
+"
 Class {
 	#name : #TableMain,
 	#superclass : #Object,
