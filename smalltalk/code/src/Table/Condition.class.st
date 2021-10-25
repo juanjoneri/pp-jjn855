@@ -27,7 +27,25 @@ Class {
 }
 
 { #category : #accessing }
-Condition >> getOp [
+Condition >> colName [
+
+	^ colName
+]
+
+{ #category : #accessing }
+Condition >> colNum [
+
+	^ colNum
+]
+
+{ #category : #accessing }
+Condition >> constant [
+
+	^ constant
+]
+
+{ #category : #accessing }
+Condition >> op [
 	"comment stating purpose of instance-side method"
 	"scope: class-variables  &  instance-variables"	
 	^ op.
@@ -56,9 +74,15 @@ Condition >> parse: input [
 
 { #category : #parsing }
 Condition >> parseOp: opName [
-	op := opName = '==' ifTrue: [ #EQ ] ifFalse: [ 
-			opName = '<>' ifTrue: [ #NEQ ] ifFalse: [ 
-			opName = '<' ifTrue: [ #LT ] ifFalse: [ #GT ]]].
+	|eq neq gt lt |
+	eq := [ :a :b | a eq: b ].
+   neq := [ :a :b | a neq: b ].
+	gt := [ :a :b | a gt: b ].
+	lt := [ :a :b | a lt: b ].
+
+	op := opName = '==' ifTrue: [ eq ] ifFalse: [ 
+			opName = '<>' ifTrue: [ neq ] ifFalse: [ 
+			opName = '<' ifTrue: [ lt ] ifFalse: [ gt ]]].
 ]
 
 { #category : #parsing }

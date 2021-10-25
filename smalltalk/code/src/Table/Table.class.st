@@ -23,6 +23,12 @@ Table >> addRow: newRow [
 	numRows := numRows + 1.
 ]
 
+{ #category : #accessing }
+Table >> getCol: name [
+	"returns the index of the column with the given header."	
+	^ headers indexOf: name.
+]
+
 { #category : #initialization }
 Table >> initialize [
 	"Initialize table with default values."
@@ -85,8 +91,17 @@ Table >> sum: col [
 ]
 
 { #category : #scripting }
-Table >> when: condition [
-	"comment stating purpose of instance-side method"
-	"scope: class-variables  &  instance-variables"	
-	^ condition.
+Table >> when: exp [
+	"Returns a new table with rows matching the given condition."
+	| condition newTable col constant op |
+	condition := Condition new.
+	condition parse: exp.	
+	col := condition colNum ifNotNil: [ condition colNum ] ifNil: [ self getCol: (condition colName) ].
+	constant := condition constant.
+	op := condition op.
+	
+	newTable := self class new.
+	hasHeaders ifTrue: [newTable setHeaders: (' ' join: headers) ].
+	data withIndexDo: [ :row :index | (op value: (row at: col) value: constant) ifTrue: [ newTable addRow: (' ' join: (self printRow: index)) ] ].
+	^ newTable.
 ]
