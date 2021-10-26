@@ -5,10 +5,12 @@ Class {
 	#name : #Program,
 	#superclass : #Object,
 	#instVars : [
+		'hasHeaders',
 		'operation',
 		'argument',
 		'tableFile',
-		'outFile'
+		'outFile',
+		'errorFile'
 	],
 	#category : #Table
 }
@@ -16,12 +18,20 @@ Class {
 { #category : #parsing }
 Program >> parseArgs: args [
 	"Parses command line arguments to initialize this program -print 0 1.txt 1.out"
-	| temp |
+	| temp re |
 	temp  := args splitOn: ' '.
+	
+	hasHeaders := temp includes: '-header'.
+	hasHeaders ifTrue: [temp remove: '-header'].
+	
 	operation := temp at: 1.
 	argument := temp at: 2.
 	tableFile := temp at: 3.
 	outFile := temp at: 4.
+	
+	re := '(.*)(\w+\.\w+)$' asRegex.
+	re matches: tableFile.
+	errorFile := (re subexpression: 2), 'stdout.txt'.
 ]
 
 { #category : #printing }
@@ -29,10 +39,12 @@ Program >> print [
 	"Returns the name of this program for debugging."
 	| name |
 	name := 'Program:', String cr.
+	name := name, 'hasHeaders: ' , (hasHeaders ifTrue: ['YES'] ifFalse: ['NO']), String cr.
 	name := name, 'operation: ' , operation, String cr.
 	name := name, 'argument: ' , argument, String cr.
 	name := name, 'tableFile: ' , tableFile, String cr.
 	name := name, 'outFile: ' , outFile, String cr.
+	name := name, 'errorFile: ' , errorFile, String cr.
 			
 	^ name.
 ]
