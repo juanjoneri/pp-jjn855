@@ -9,7 +9,8 @@ Class {
 		'headers',
 		'numRows',
 		'numCols',
-		'data'
+		'data',
+		'logger'
 	],
 	#category : #Table
 }
@@ -43,7 +44,7 @@ Table >> initialize [
 
 { #category : #printing }
 Table >> print [
-	"Returns the name of this table for debugging."	
+	"Returns a string representation of everything in the table."	
 			
 	| headersName bodyName name |
 	headersName := ' ' join: headers.
@@ -60,6 +61,7 @@ Table >> print: cols [
 	| indexes newTable |
 	indexes := (cols splitOn: ',') collect: [ :i | (i asNumber) + 1 ].
 	newTable := self class new.
+	newTable setLogger: logger.
 	hasHeaders ifTrue: [ newTable setHeaders: (' ' join: ( headers withIndexSelect: [:v :i | indexes includes: i ] ) ) ].
 	data withIndexDo: [ :r :i | newTable addRow: (' ' join: ( (self printRow: i) withIndexSelect: [ :v :c | indexes includes: c ] ) ) ].
 	^ newTable.
@@ -79,15 +81,21 @@ Table >> setHeaders: newHeaders [
 	hasHeaders := true.
 ]
 
+{ #category : #initialization }
+Table >> setLogger: errorLogger [
+	logger := errorLogger.
+]
+
 { #category : #enumerating }
 Table >> sum: col [
 	"Adds the values in the given row into a cell and returns the value."	
-	| sum cell |
+	| sum cell colNumber |
+	colNumber := (col asNumber) + 1.
 	sum := 0.
-	data do: [ :row | sum := sum + ((row at: col) getValue) ].
+	data do: [ :row | sum := sum + ((row at: colNumber) getValue) ].
 	cell := NumericCell new.
 	cell setValue: sum.
-	^ cell getValue.
+	^ (cell getValue) asString.
 ]
 
 { #category : #scripting }
@@ -101,6 +109,7 @@ Table >> when: exp [
 	op := condition op.
 	
 	newTable := self class new.
+	newTable setLogger: logger.
 	hasHeaders ifTrue: [newTable setHeaders: (' ' join: headers) ].
 	data withIndexDo: [ :row :index | (op value: (row at: col) value: constant) ifTrue: [ newTable addRow: (' ' join: (self printRow: index)) ] ].
 	^ newTable.

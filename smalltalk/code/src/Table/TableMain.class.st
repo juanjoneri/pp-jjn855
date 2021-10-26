@@ -11,9 +11,8 @@ Class {
 TableMain >> main: message [
 	"comment stating purpose of instance-side method"
 	"scope: class-variables  &  instance-variables"
-	| program table |
+	| program |
 	program := Program new.
 	program parseArgs: message.
-	table := program readTable.
-	program writeTable: table.
+	program execute.
 ]

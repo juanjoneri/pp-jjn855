@@ -15,6 +15,21 @@ Class {
 	#category : #Table
 }
 
+{ #category : #execution }
+Program >> execute [
+	| in out errorLogger |
+	in := Table new. "Initialize table using readTable"
+	errorLogger := ErrorLogger new.
+	errorLogger setFile: errorFile.
+	in setLogger: errorLogger.
+	
+	out := (operation = '-print') ifTrue: [ (in print: argument) print ] ifFalse: [
+			 (operation = '-sum') ifTrue: [ in sum: argument ] ifFalse: [
+			 (operation = '-when') ifTrue: [ (in when: argument) print ] ifFalse: [ '' ]]].
+	
+	self writeTable: out.
+]
+
 { #category : #parsing }
 Program >> parseArgs: args [
 	"Parses command line arguments to initialize this program -print 0 1.txt 1.out"
@@ -31,7 +46,7 @@ Program >> parseArgs: args [
 	
 	re := '(.*)(\w+\.\w+)$' asRegex.
 	re matches: tableFile.
-	errorFile := (re subexpression: 2), 'stdout.txt'.
+	errorFile := (re subexpression: 2), 'stdout.txt'
 ]
 
 { #category : #printing }
