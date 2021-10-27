@@ -18,7 +18,7 @@ TableMain >> main: message [
 	logger log: message.
 	
 	
-	program := Program new.
+	"program := Program new.
 	program parseArgs: message.
-	program execute.
+	program execute."
 ]
