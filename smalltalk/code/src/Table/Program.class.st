@@ -34,11 +34,7 @@ Program >> execute [
 { #category : #parsing }
 Program >> parseArgs: args [
 	"Parses command line arguments to initialize this program -print 0 1.txt 1.out"
-	| temp re logger |
-	logger := ErrorLogger new.
-	logger setFile: 'stdout.txt'.
-	logger log: args.
-	
+	| temp re |
 	temp  := args splitOn: ' '.
 	
 	hasHeaders := temp includes: '-header'.
