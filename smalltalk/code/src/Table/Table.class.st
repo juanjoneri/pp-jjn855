@@ -54,11 +54,12 @@ Table >> parseTable: table withHeaders: parseHeaders [
 Table >> print [
 	"Returns a string representation of everything in the table."	
 			
-	| headersName bodyName name |
-	headersName := ' ' join: headers.
+	| bodyName name |	
+	name := String new.
+	hasHeaders ifTrue: [ name := name, (' ' join: headers), String cr ].
 	bodyName := (String cr) join: ( data collect: [ :row | ' ' join: (row collect: [ :cell | cell getValue ]) ] ).
 	
-	name := headersName, String cr, bodyName, String cr.
+	name := name, bodyName, String cr.
 	^ name.
 ]
 
