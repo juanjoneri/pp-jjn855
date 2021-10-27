@@ -42,6 +42,14 @@ Table >> initialize [
 	
 ]
 
+{ #category : #parsing }
+Table >> parseTable: table withHeaders: parseHeaders [
+	hasHeaders := parseHeaders.
+	hasHeaders ifTrue: [ self setHeaders: (table at: 1) ].
+	hasHeaders ifTrue: [ table removeAt: 1 ].
+	table do: [ :each | self addRow: each ].
+]
+
 { #category : #printing }
 Table >> print [
 	"Returns a string representation of everything in the table."	
@@ -104,7 +112,7 @@ Table >> when: exp [
 	| condition newTable col constant op |
 	condition := Condition new.
 	condition parse: exp.	
-	col := condition colNum ifNotNil: [ condition colNum ] ifNil: [ self getCol: (condition colName) ].
+	col := condition colNum ifNotNil: [ (condition colNum) + 1] ifNil: [ self getCol: (condition colName) ].
 	constant := condition constant.
 	op := condition op.
 	

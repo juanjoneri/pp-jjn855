@@ -22,6 +22,7 @@ Program >> execute [
 	errorLogger := ErrorLogger new.
 	errorLogger setFile: errorFile.
 	in setLogger: errorLogger.
+	in parseTable: (self readTable) withHeaders: hasHeaders.
 	
 	out := (operation = '-print') ifTrue: [ (in print: argument) print ] ifFalse: [
 			 (operation = '-sum') ifTrue: [ in sum: argument ] ifFalse: [
@@ -68,10 +69,10 @@ Program >> print [
 Program >> readTable [
 	"Reads the lines from tableFile into a string."
 	| working stream table |
-	table := String new.
+	table := OrderedCollection new.
 	working := FileSystem disk workingDirectory.
 	stream := (working / tableFile) readStream.
-	[stream atEnd] whileFalse: [table := table, stream nextLine, String cr].
+	[stream atEnd] whileFalse: [table add: (stream nextLine)].
 	stream close.
 	^ table.
 ]
