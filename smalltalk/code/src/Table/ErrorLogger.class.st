@@ -18,6 +18,7 @@ ErrorLogger >> log: value [
 		stream := (working / file) writeStream.
 		stream nextPutAll: value; lf.
 		stream close.
+		Error signal: value.
 ]
 
 { #category : #logging }
