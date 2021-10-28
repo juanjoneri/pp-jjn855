@@ -21,7 +21,8 @@ Class {
 		'op',
 		'colNum',
 		'colName',
-		'constant'
+		'constant',
+		'logger'
 	],
 	#category : #Table
 }
@@ -57,11 +58,11 @@ Condition >> parse: input [
 	| matcher groups opName left right |
 	
 	matcher := '(==|<>|<|>)([$@]?\w+),([$@]?\w+)' asRegex.
-	groups := (matcher matches: input) ifTrue:
-		[Array
-			with: (matcher subexpression: 2)
-			with: (matcher subexpression: 3)
-			with: (matcher subexpression: 4)].
+	(matcher matches: input) ifFalse: [ logger logCondError ].
+	groups := (matcher matches: input) ifTrue: [Array 
+					with: (matcher subexpression: 2) 
+					with: (matcher subexpression: 3)
+					with: (matcher subexpression: 4)].
 
 	opName := groups at: 1.
 	left := groups at: 2.
@@ -111,4 +112,9 @@ Condition >> print [
 	name := name, 'constant: ' , ((constant getValue) asString), String cr.
 			
 	^ name.
+]
+
+{ #category : #initialization }
+Condition >> setLogger: errorLogger [
+	logger := errorLogger.
 ]

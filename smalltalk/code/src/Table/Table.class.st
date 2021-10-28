@@ -28,10 +28,15 @@ Table >> addRow: newRow [
 	numRows := numRows + 1.
 ]
 
+{ #category : #checking }
+Table >> checkColIndex: each [
+	((each < 1) or: (each > numCols)) ifTrue: [logger logColIndexError ].
+]
+
 { #category : #accessing }
 Table >> getCol: name [
 	"returns the index of the column with the given header."	
-	^ headers indexOf: name.
+	(headers includes: name) ifTrue: [ ^ headers indexOf: name ] ifFalse: [ logger logColIndexError ].
 ]
 
 { #category : #initialization }
@@ -74,7 +79,7 @@ Table >> print: cols [
 	| indexes newTable |
 	indexes := (cols splitOn: ',') collect: [ :i | (i asNumber) + 1 ].
 	
-	indexes do: [ :each | ((each < 1) or: (each > numCols)) ifTrue: [logger logColIndexError ] ].
+	indexes do: [ :each | self checkColIndex: each].
 	
 	newTable := self class new.
 	newTable setLogger: logger.
@@ -107,6 +112,9 @@ Table >> sum: col [
 	"Adds the values in the given row into a cell and returns the value."	
 	| sum cell colNumber |
 	colNumber := (col asNumber) + 1.
+	self checkColIndex: colNumber.
+	data do: [ :row | ((row at: colNumber) class) = NumericCell ifFalse: [ logger logTypeError ] ].
+	
 	sum := 0.
 	data do: [ :row | sum := sum + ((row at: colNumber) getValue) ].
 	cell := NumericCell new.
@@ -119,8 +127,10 @@ Table >> when: exp [
 	"Returns a new table with rows matching the given condition."
 	| condition newTable col constant op |
 	condition := Condition new.
+	condition setLogger: logger.
 	condition parse: exp.	
 	col := condition colNum ifNotNil: [ (condition colNum) + 1] ifNil: [ self getCol: (condition colName) ].
+	self checkColIndex: col.
 	constant := condition constant.
 	op := condition op.
 	
