@@ -1239,3 +1239,5825 @@ SubscriptOutOfBounds(Exception)>>raiseUnhandledError
 SubscriptOutOfBounds(Exception)>>defaultAction
 ------------------------------
 
+THERE_BE_DRAGONS_HERE
+Error: NUM COLS ERROR
+27 October 2021 11:25:09.157607 pm
+
+VM: unix - x86_64 - linux-gnu - CoInterpreter * VMMaker-tonel.1 uuid: 6e75c100-768a-0d00-a503-de5f040b381d Oct 11 2021
+StackToRegisterMappingCogit * VMMaker-tonel.1 uuid: 6e75c100-768a-0d00-a503-de5f040b381d Oct 11 2021
+v9.0.9 - Commit: 220ee65 - Date: 2021-10-11 15:53:10 +0200
+
+Image: Pharo9.0.0 [Build information: Pharo-9.0.0+build.1564.sha.f5f541cb35c8609abfec418e35d5506715c7987d (64 Bit)]
+
+ErrorLogger>>log:
+	Receiver: an ErrorLogger
+	Arguments and temporary variables: 
+		value: 	'NUM COLS ERROR'
+		working: 	File @ /home/juanjoneri/UT/AdvancedAlgorithms/pp-jjn855/smalltalk/code...etc...
+		stream: 	a ZnCharacterWriteStream
+	Receiver's instance variables: 
+		file: 	'../tests/stdout.txt'
+
+
+ErrorLogger>>logNumColsError
+	Receiver: an ErrorLogger
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		file: 	'../tests/stdout.txt'
+
+
+Table>>addRow:
+	Receiver: a Table
+	Arguments and temporary variables: 
+		newRow: 	'2 4 7 8'
+		cellFactory: 	a CellFactory
+		splitRow: 	an OrderedCollection('2' '4' '7' '8')
+	Receiver's instance variables: 
+		hasHeaders: 	true
+		headers: 	an OrderedCollection('1' '3' '5')
+		numRows: 	0
+		numCols: 	3
+		data: 	an OrderedCollection()
+		logger: 	an ErrorLogger
+
+
+[ :each | self addRow: each ] in Table>>parseTable:withHeaders:
+	Receiver: a Table
+	Arguments and temporary variables: 
+		table: 	an OrderedCollection('2 4 7 8' '22 30 50')
+		parseHeaders: 	true
+		each: 	'2 4 7 8'
+	Receiver's instance variables: 
+		hasHeaders: 	true
+		headers: 	an OrderedCollection('1' '3' '5')
+		numRows: 	0
+		numCols: 	3
+		data: 	an OrderedCollection()
+		logger: 	an ErrorLogger
+
+
+OrderedCollection>>do:
+	Receiver: an OrderedCollection('2 4 7 8' '22 30 50')
+	Arguments and temporary variables: 
+		aBlock: 	[ :each | self addRow: each ]
+		index: 	1
+	Receiver's instance variables: 
+		array: 	#('2 4 7 8' '22 30 50' nil nil nil nil nil nil nil nil)
+		firstIndex: 	1
+		lastIndex: 	2
+
+
+Table>>parseTable:withHeaders:
+	Receiver: a Table
+	Arguments and temporary variables: 
+		table: 	an OrderedCollection('2 4 7 8' '22 30 50')
+		parseHeaders: 	true
+	Receiver's instance variables: 
+		hasHeaders: 	true
+		headers: 	an OrderedCollection('1' '3' '5')
+		numRows: 	0
+		numCols: 	3
+		data: 	an OrderedCollection()
+		logger: 	an ErrorLogger
+
+
+Program>>execute
+	Receiver: a Program
+	Arguments and temporary variables: 
+		in: 	a Table
+		out: 	nil
+		errorLogger: 	an ErrorLogger
+	Receiver's instance variables: 
+		hasHeaders: 	true
+		operation: 	'-when'
+		argument: 	'==badformat'
+		tableFile: 	'../tests/1.txt'
+		outFile: 	'../tests/0.out'
+		errorFile: 	'../tests/stdout.txt'
+
+
+TableMain>>main:
+	Receiver: a TableMain
+	Arguments and temporary variables: 
+		message: 	'-header -when ==badformat ../tests/1.txt ../tests/0.out'
+		program: 	a Program
+	Receiver's instance variables: 
+a TableMain
+
+UndefinedObject>>DoIt
+	Receiver: nil
+	Arguments and temporary variables: 
+		a: 	a TableMain
+	Receiver's instance variables: 
+nil
+
+[ receiver withArgs: (context ifNil: [ #() ] ifNotNil: [ {context} ]) executeMethod: self compileDoit] in OpalCompiler>>evaluate
+	Receiver: an OpalCompiler
+	Arguments and temporary variables: 
+		value: 	nil
+	Receiver's instance variables: 
+		ast: 	DoIt
+
+	| a |
+	a := TableMain new.
+	^ a main: '-header -when ==badformat .....etc...
+		source: 	a ReadStream
+		context: 	nil
+		receiver: 	nil
+		compilationContext: 	a CompilationContext
+		compilationContextClass: 	nil
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ receiver withArgs: (context ifNil: [ #() ] ifNotNil: [ {context} ]) executeMethod: self ...etc...
+	Arguments and temporary variables: 
+		exception: 	SyntaxErrorNotification
+		handlerAction: 	[ :exception | 
+			self compilationContext requestor
+           ...etc...
+	Receiver's instance variables: 
+		outerContext: 	OpalCompiler>>evaluate
+		startpc: 	a CompiledBlock: [ receiver withArgs: (context ifNil: [ #() ] ifNotNil...etc...
+		numArgs: 	0
+		receiver: 	an OpalCompiler
+
+
+OpalCompiler>>evaluate
+	Receiver: an OpalCompiler
+	Arguments and temporary variables: 
+		value: 	nil
+	Receiver's instance variables: 
+		ast: 	DoIt
+
+	| a |
+	a := TableMain new.
+	^ a main: '-header -when ==badformat .....etc...
+		source: 	a ReadStream
+		context: 	nil
+		receiver: 	nil
+		compilationContext: 	a CompilationContext
+		compilationContextClass: 	nil
+
+
+OpalCompiler>>evaluate:
+	Receiver: an OpalCompiler
+	Arguments and temporary variables: 
+		textOrString: 	'|a|. a:=TableMain new. a main: ''-header -when ==badformat ../te...etc...
+	Receiver's instance variables: 
+		ast: 	DoIt
+
+	| a |
+	a := TableMain new.
+	^ a main: '-header -when ==badformat .....etc...
+		source: 	a ReadStream
+		context: 	nil
+		receiver: 	nil
+		compilationContext: 	a CompilationContext
+		compilationContextClass: 	nil
+
+
+[ 
+	result := Smalltalk compiler evaluate: aStream.
+	self hasSessionChanged
+		ifFalse: [ 
+			self stdout
+				print: result;
+				lf ] ] in EvaluateCommandLineHandler>>evaluate:
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		aStream: 	'|a|. a:=TableMain new. a main: ''-header -when ==badformat ../tests/1...etc...
+		result: 	nil
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ 
+	result := Smalltalk compiler evaluate: aStream.
+	self hasSessionChanged
+		ifFalse: [ 
+...etc...
+	Arguments and temporary variables: 
+		exception: 	Error
+		handlerAction: 	[ :error | self handleError: error ]
+	Receiver's instance variables: 
+		outerContext: 	EvaluateCommandLineHandler>>evaluate:
+		startpc: 	a CompiledBlock: [ 
+	result := Smalltalk compiler evaluate: aStream.
+	...etc...
+		numArgs: 	0
+		receiver: 	an EvaluateCommandLineHandler
+
+
+EvaluateCommandLineHandler>>evaluate:
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		result: 	nil
+		aStream: 	'|a|. a:=TableMain new. a main: ''-header -when ==badformat ../tests/1...etc...
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+EvaluateCommandLineHandler>>evaluateArguments
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		argumentString: 	'|a|. a:=TableMain new. a main: ''-header -when ==badformat ../...etc...
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+EvaluateCommandLineHandler>>activate
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+EvaluateCommandLineHandler class(CommandLineHandler class)>>activateWith:
+	Receiver: EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		aCommandLine: 	a CommandLineArguments
+	Receiver's instance variables: 
+		superclass: 	STCommandLineHandler
+		methodDict: 	a MethodDictionary(#activate->EvaluateCommandLineHandler>>#activate...etc...
+		format: 	65541
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#EvaluateCommandLineHandler
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'CodeImportCommandLineHandlers-Base'
+
+
+[ aCommandLinehandler activateWith: commandLine ] in PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		aCommandLinehandler: 	EvaluateCommandLineHandler
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ aCommandLinehandler activateWith: commandLine ]
+	Arguments and temporary variables: 
+		exception: 	Exit
+		handlerAction: 	[ :exit |
+		^ self handleExit: exit for: aCommandLinehandler ]
+	Receiver's instance variables: 
+		outerContext: 	PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubComm...etc...
+		startpc: 	a CompiledBlock: [ aCommandLinehandler activateWith: commandLine ]
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		aCommandLinehandler: 	EvaluateCommandLineHandler
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleSubcommand
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		handlers: 	an OrderedCollection(EvaluateCommandLineHandler)
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleArgument:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		aString: 	'eval'
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+[ self handleArgument: self firstArgument ] in [ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ self handleArgument: self firstArgument ]
+	Arguments and temporary variables: 
+		exception: 	Exit
+		handlerAction: 	[ :exit | 
+			"If the command line is protected by password, we ...etc...
+	Receiver's instance variables: 
+		outerContext: 	[ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ ...etc...
+		startpc: 	a CompiledBlock: [ self handleArgument: self firstArgument ]
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+[ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+	Receiver: [ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the comma...etc...
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		outerContext: 	PharoCommandLineHandler(BasicCommandLineHandler)>>activate
+		startpc: 	a CompiledBlock: [ [ self handleArgument: self firstArgument ]
+		on: E...etc...
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+
+--- The full stack ---
+ErrorLogger>>log:
+ErrorLogger>>logNumColsError
+Table>>addRow:
+[ :each | self addRow: each ] in Table>>parseTable:withHeaders:
+OrderedCollection>>do:
+Table>>parseTable:withHeaders:
+Program>>execute
+TableMain>>main:
+UndefinedObject>>DoIt
+[ receiver withArgs: (context ifNil: [ #() ] ifNotNil: [ {context} ]) executeMethod: self compileDoit] in OpalCompiler>>evaluate
+FullBlockClosure(BlockClosure)>>on:do:
+OpalCompiler>>evaluate
+OpalCompiler>>evaluate:
+[ 
+	result := Smalltalk compiler evaluate: aStream.
+	self hasSessionChanged
+		ifFalse: [ 
+			self stdout
+				print: result;
+				lf ] ] in EvaluateCommandLineHandler>>evaluate:
+FullBlockClosure(BlockClosure)>>on:do:
+EvaluateCommandLineHandler>>evaluate:
+EvaluateCommandLineHandler>>evaluateArguments
+EvaluateCommandLineHandler>>activate
+EvaluateCommandLineHandler class(CommandLineHandler class)>>activateWith:
+[ aCommandLinehandler activateWith: commandLine ] in PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+FullBlockClosure(BlockClosure)>>on:do:
+PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleSubcommand
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleArgument:
+[ self handleArgument: self firstArgument ] in [ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+FullBlockClosure(BlockClosure)>>on:do:
+[ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+-------------------------------------------------------------------------------
+
+Processes and their stacks: 
+Process: a Process in InputEventFetcher>>waitForInput
+  stack:
+
+InputEventFetcher>>waitForInput
+InputEventFetcher>>eventLoop
+Processor in InputEventFetcher>>installEventLoop
+[ 
+			  self value.
+			  Processor terminateActive ] asContext in BlockClosure>>newProcess
+------------------------------
+
+Process: a Process in AtomicSharedQueue>>waitForNewItems
+  stack:
+
+AtomicSharedQueue>>waitForNewItems
+AtomicSharedQueue>>next
+TKTWorkerProcess>>privateNextTask
+workerLoop
+
+	[ self executeTask: self privateNextTask ] repeat in TKTWorkerProcess>>workerLoop
+BlockClosure>>repeat
+TKTWorkerProcess>>workerLoop
+MessageSend>>value
+arg1 in TKTPharoProcessProvider>>createProcessDoing:named:
+[ 
+			  self value.
+			  Processor terminateActive ] asContext in BlockClosure>>newProcess
+------------------------------
+
+Process: a Process in MorphicRenderLoop>>doOneCycleWhile:
+  stack:
+
+MorphicRenderLoop>>doOneCycleWhile:
+[
+		MorphicRenderLoop new doOneCycleWhile: [ true ]
+	] in MorphicUIManager>>spawnNewProcess
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in DelayMicrosecondTicker>>waitForUserSignalled:orExpired:
+  stack:
+
+DelayMicrosecondTicker>>waitForUserSignalled:orExpired:
+[  [runTimerEventLoop] whileTrue: 
+		[	|nowTick|
+			"Warning! Stepping <Over> the following line may lock the Image. Use <Into> or <Proceed>."
+		 	ticker waitForUserSignalled: timingSemaphore orExpired: activeDelay. 
+
+			"Invoke the api back-ends, which set the transfer-variable to nil" 		
+			suspendSemaphore ifNotNil: [ self suspendAtTimingPriority    ].
+			delayToStart     ifNotNil: [ self scheduleAtTimingPriority   ].
+			delayToStop      ifNotNil: [ self unscheduleAtTimingPriority ].
+
+			"Signal any expired delays"
+			nowTick := ticker nowTick.
+			[ 	activeDelay notNil and: [nowTick >= activeDelay resumptionTick] ] 
+					whileTrue: [
+						activeDelay timingPrioritySignalExpired.
+						activeDelay := suspendedDelays removeFirstOrNil ].
+		]
+	] in DelaySemaphoreScheduler(DelayBasicScheduler)>>runBackendLoopAtTimingPriority
+FullBlockClosure(BlockClosure)>>ensure:
+DelaySemaphoreScheduler(DelayBasicScheduler)>>runBackendLoopAtTimingPriority
+[ self runBackendLoopAtTimingPriority ] in DelaySemaphoreScheduler(DelayBasicScheduler)>>startTimerEventLoopPriority:
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in SmalltalkImage>>lowSpaceWatcher
+  stack:
+
+SmalltalkImage>>lowSpaceWatcher
+[ self lowSpaceWatcher ] in SmalltalkImage>>installLowSpaceWatcher
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in nil
+  stack:
+
+Array(SequenceableCollection)>>do:
+[:logger | 
+		logger nextPutAll: 'Processes and their stacks: ';cr.
+		
+		Process allInstances do: [:each | | ctx |
+			logger nextPutAll: 'Process: '; print: each; cr; nextPutAll: '  stack:'; cr; cr.
+		
+			ctx := each isActiveProcess ifTrue: [ thisContext sender ] ifFalse: [ each suspendedContext ].
+			ctx ifNotNil: [
+				(ctx stackOfSize: 20) do: [:s | logger print: s; cr ]].
+			logger nextPutAll: '------------------------------'; cr; cr.	
+		]] in CommandLineUIManager>>quitFrom:withMessage:
+[
+		logStream := self openLog.
+		aMonadicBlock value: logStream.
+	] in SmalltalkImage>>logDuring:
+FullBlockClosure(BlockClosure)>>ensure:
+SmalltalkImage>>logDuring:
+[ Smalltalk 
+		logError: aString
+		inContext: aContext.
+		
+	" Print stacks of all current processes "
+
+	Smalltalk logDuring: [:logger | 
+		logger nextPutAll: 'Processes and their stacks: ';cr.
+		
+		Process allInstances do: [:each | | ctx |
+			logger nextPutAll: 'Process: '; print: each; cr; nextPutAll: '  stack:'; cr; cr.
+		
+			ctx := each isActiveProcess ifTrue: [ thisContext sender ] ifFalse: [ each suspendedContext ].
+			ctx ifNotNil: [
+				(ctx stackOfSize: 20) do: [:s | logger print: s; cr ]].
+			logger nextPutAll: '------------------------------'; cr; cr.	
+		]].
+	] in NonInteractiveUIManager(CommandLineUIManager)>>quitFrom:withMessage:
+FullBlockClosure(BlockClosure)>>ensure:
+NonInteractiveUIManager(CommandLineUIManager)>>quitFrom:withMessage:
+NonInteractiveUIManager(CommandLineUIManager)>>unhandledErrorDefaultAction:
+Error(Exception)>>unhandledErrorAction
+UnhandledError>>defaultAction
+UndefinedObject>>handleSignal:
+Context>>handleSignal:
+Context>>handleSignal:
+Context>>handleSignal:
+Context>>handleSignal:
+UnhandledError(Exception)>>signal
+UnhandledError class>>signalForException:
+Error(Exception)>>raiseUnhandledError
+Error(Exception)>>defaultAction
+------------------------------
+
+Process: a Process in WeakArray class>>finalizationProcess
+  stack:
+
+WeakArray class>>finalizationProcess
+[self finalizationProcess] in WeakArray class>>restartFinalizationProcess
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in [
+		[ true ] whileTrue: [
+			semaphore wait.
+			[self executeCallback: self nextPendingCallback]
+				on: Exception fork:  [:ex | ex pass ] ] ] in TFCallbackQueue>>forkCallbackProcess
+  stack:
+
+[
+		[ true ] whileTrue: [
+			semaphore wait.
+			[self executeCallback: self nextPendingCallback]
+				on: Exception fork:  [:ex | ex pass ] ] ] in TFCallbackQueue>>forkCallbackProcess
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+THERE_BE_DRAGONS_HERE
+Error: COND ERROR
+27 October 2021 11:26:16.511584 pm
+
+VM: unix - x86_64 - linux-gnu - CoInterpreter * VMMaker-tonel.1 uuid: 6e75c100-768a-0d00-a503-de5f040b381d Oct 11 2021
+StackToRegisterMappingCogit * VMMaker-tonel.1 uuid: 6e75c100-768a-0d00-a503-de5f040b381d Oct 11 2021
+v9.0.9 - Commit: 220ee65 - Date: 2021-10-11 15:53:10 +0200
+
+Image: Pharo9.0.0 [Build information: Pharo-9.0.0+build.1564.sha.f5f541cb35c8609abfec418e35d5506715c7987d (64 Bit)]
+
+ErrorLogger>>log:
+	Receiver: an ErrorLogger
+	Arguments and temporary variables: 
+		value: 	'COND ERROR'
+		working: 	File @ /home/juanjoneri/UT/AdvancedAlgorithms/pp-jjn855/smalltalk/code...etc...
+		stream: 	a ZnCharacterWriteStream
+	Receiver's instance variables: 
+		file: 	'../tests/stdout.txt'
+
+
+ErrorLogger>>logCondError
+	Receiver: an ErrorLogger
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		file: 	'../tests/stdout.txt'
+
+
+Condition>>parse:
+	Receiver: a Condition
+	Arguments and temporary variables: 
+		input: 	'==badformat'
+		matcher: 	a RxMatcher
+		groups: 	nil
+		opName: 	nil
+		left: 	nil
+		right: 	nil
+	Receiver's instance variables: 
+		op: 	nil
+		colNum: 	nil
+		colName: 	nil
+		constant: 	nil
+		logger: 	an ErrorLogger
+
+
+Table>>when:
+	Receiver: a Table
+	Arguments and temporary variables: 
+		exp: 	'==badformat'
+		condition: 	a Condition
+		newTable: 	nil
+		col: 	nil
+		constant: 	nil
+		op: 	nil
+	Receiver's instance variables: 
+		hasHeaders: 	true
+		headers: 	an OrderedCollection('1' '3' '5')
+		numRows: 	2
+		numCols: 	3
+		data: 	an OrderedCollection(an OrderedCollection(a NumericCell a NumericCell a N...etc...
+		logger: 	an ErrorLogger
+
+
+Program>>execute
+	Receiver: a Program
+	Arguments and temporary variables: 
+		in: 	a Table
+		out: 	nil
+		errorLogger: 	an ErrorLogger
+	Receiver's instance variables: 
+		hasHeaders: 	true
+		operation: 	'-when'
+		argument: 	'==badformat'
+		tableFile: 	'../tests/1.txt'
+		outFile: 	'../tests/0.out'
+		errorFile: 	'../tests/stdout.txt'
+
+
+TableMain>>main:
+	Receiver: a TableMain
+	Arguments and temporary variables: 
+		message: 	'-header -when ==badformat ../tests/1.txt ../tests/0.out'
+		program: 	a Program
+	Receiver's instance variables: 
+a TableMain
+
+UndefinedObject>>DoIt
+	Receiver: nil
+	Arguments and temporary variables: 
+		a: 	a TableMain
+	Receiver's instance variables: 
+nil
+
+[ receiver withArgs: (context ifNil: [ #() ] ifNotNil: [ {context} ]) executeMethod: self compileDoit] in OpalCompiler>>evaluate
+	Receiver: an OpalCompiler
+	Arguments and temporary variables: 
+		value: 	nil
+	Receiver's instance variables: 
+		ast: 	DoIt
+
+	| a |
+	a := TableMain new.
+	^ a main: '-header -when ==badformat .....etc...
+		source: 	a ReadStream
+		context: 	nil
+		receiver: 	nil
+		compilationContext: 	a CompilationContext
+		compilationContextClass: 	nil
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ receiver withArgs: (context ifNil: [ #() ] ifNotNil: [ {context} ]) executeMethod: self ...etc...
+	Arguments and temporary variables: 
+		exception: 	SyntaxErrorNotification
+		handlerAction: 	[ :exception | 
+			self compilationContext requestor
+           ...etc...
+	Receiver's instance variables: 
+		outerContext: 	OpalCompiler>>evaluate
+		startpc: 	a CompiledBlock: [ receiver withArgs: (context ifNil: [ #() ] ifNotNil...etc...
+		numArgs: 	0
+		receiver: 	an OpalCompiler
+
+
+OpalCompiler>>evaluate
+	Receiver: an OpalCompiler
+	Arguments and temporary variables: 
+		value: 	nil
+	Receiver's instance variables: 
+		ast: 	DoIt
+
+	| a |
+	a := TableMain new.
+	^ a main: '-header -when ==badformat .....etc...
+		source: 	a ReadStream
+		context: 	nil
+		receiver: 	nil
+		compilationContext: 	a CompilationContext
+		compilationContextClass: 	nil
+
+
+OpalCompiler>>evaluate:
+	Receiver: an OpalCompiler
+	Arguments and temporary variables: 
+		textOrString: 	'|a|. a:=TableMain new. a main: ''-header -when ==badformat ../te...etc...
+	Receiver's instance variables: 
+		ast: 	DoIt
+
+	| a |
+	a := TableMain new.
+	^ a main: '-header -when ==badformat .....etc...
+		source: 	a ReadStream
+		context: 	nil
+		receiver: 	nil
+		compilationContext: 	a CompilationContext
+		compilationContextClass: 	nil
+
+
+[ 
+	result := Smalltalk compiler evaluate: aStream.
+	self hasSessionChanged
+		ifFalse: [ 
+			self stdout
+				print: result;
+				lf ] ] in EvaluateCommandLineHandler>>evaluate:
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		aStream: 	'|a|. a:=TableMain new. a main: ''-header -when ==badformat ../tests/1...etc...
+		result: 	nil
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ 
+	result := Smalltalk compiler evaluate: aStream.
+	self hasSessionChanged
+		ifFalse: [ 
+...etc...
+	Arguments and temporary variables: 
+		exception: 	Error
+		handlerAction: 	[ :error | self handleError: error ]
+	Receiver's instance variables: 
+		outerContext: 	EvaluateCommandLineHandler>>evaluate:
+		startpc: 	a CompiledBlock: [ 
+	result := Smalltalk compiler evaluate: aStream.
+	...etc...
+		numArgs: 	0
+		receiver: 	an EvaluateCommandLineHandler
+
+
+EvaluateCommandLineHandler>>evaluate:
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		result: 	nil
+		aStream: 	'|a|. a:=TableMain new. a main: ''-header -when ==badformat ../tests/1...etc...
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+EvaluateCommandLineHandler>>evaluateArguments
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		argumentString: 	'|a|. a:=TableMain new. a main: ''-header -when ==badformat ../...etc...
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+EvaluateCommandLineHandler>>activate
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+EvaluateCommandLineHandler class(CommandLineHandler class)>>activateWith:
+	Receiver: EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		aCommandLine: 	a CommandLineArguments
+	Receiver's instance variables: 
+		superclass: 	STCommandLineHandler
+		methodDict: 	a MethodDictionary(#activate->EvaluateCommandLineHandler>>#activate...etc...
+		format: 	65541
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#EvaluateCommandLineHandler
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'CodeImportCommandLineHandlers-Base'
+
+
+[ aCommandLinehandler activateWith: commandLine ] in PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		aCommandLinehandler: 	EvaluateCommandLineHandler
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ aCommandLinehandler activateWith: commandLine ]
+	Arguments and temporary variables: 
+		exception: 	Exit
+		handlerAction: 	[ :exit |
+		^ self handleExit: exit for: aCommandLinehandler ]
+	Receiver's instance variables: 
+		outerContext: 	PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubComm...etc...
+		startpc: 	a CompiledBlock: [ aCommandLinehandler activateWith: commandLine ]
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		aCommandLinehandler: 	EvaluateCommandLineHandler
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleSubcommand
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		handlers: 	an OrderedCollection(EvaluateCommandLineHandler)
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleArgument:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		aString: 	'eval'
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+[ self handleArgument: self firstArgument ] in [ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ self handleArgument: self firstArgument ]
+	Arguments and temporary variables: 
+		exception: 	Exit
+		handlerAction: 	[ :exit | 
+			"If the command line is protected by password, we ...etc...
+	Receiver's instance variables: 
+		outerContext: 	[ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ ...etc...
+		startpc: 	a CompiledBlock: [ self handleArgument: self firstArgument ]
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+[ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+	Receiver: [ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the comma...etc...
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		outerContext: 	PharoCommandLineHandler(BasicCommandLineHandler)>>activate
+		startpc: 	a CompiledBlock: [ [ self handleArgument: self firstArgument ]
+		on: E...etc...
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+
+--- The full stack ---
+ErrorLogger>>log:
+ErrorLogger>>logCondError
+Condition>>parse:
+Table>>when:
+Program>>execute
+TableMain>>main:
+UndefinedObject>>DoIt
+[ receiver withArgs: (context ifNil: [ #() ] ifNotNil: [ {context} ]) executeMethod: self compileDoit] in OpalCompiler>>evaluate
+FullBlockClosure(BlockClosure)>>on:do:
+OpalCompiler>>evaluate
+OpalCompiler>>evaluate:
+[ 
+	result := Smalltalk compiler evaluate: aStream.
+	self hasSessionChanged
+		ifFalse: [ 
+			self stdout
+				print: result;
+				lf ] ] in EvaluateCommandLineHandler>>evaluate:
+FullBlockClosure(BlockClosure)>>on:do:
+EvaluateCommandLineHandler>>evaluate:
+EvaluateCommandLineHandler>>evaluateArguments
+EvaluateCommandLineHandler>>activate
+EvaluateCommandLineHandler class(CommandLineHandler class)>>activateWith:
+[ aCommandLinehandler activateWith: commandLine ] in PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+FullBlockClosure(BlockClosure)>>on:do:
+PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleSubcommand
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleArgument:
+[ self handleArgument: self firstArgument ] in [ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+FullBlockClosure(BlockClosure)>>on:do:
+[ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+-------------------------------------------------------------------------------
+
+Processes and their stacks: 
+Process: a Process in InputEventFetcher>>waitForInput
+  stack:
+
+InputEventFetcher>>waitForInput
+InputEventFetcher>>eventLoop
+Processor in InputEventFetcher>>installEventLoop
+[ 
+			  self value.
+			  Processor terminateActive ] asContext in BlockClosure>>newProcess
+------------------------------
+
+Process: a Process in AtomicSharedQueue>>waitForNewItems
+  stack:
+
+AtomicSharedQueue>>waitForNewItems
+AtomicSharedQueue>>next
+TKTWorkerProcess>>privateNextTask
+workerLoop
+
+	[ self executeTask: self privateNextTask ] repeat in TKTWorkerProcess>>workerLoop
+BlockClosure>>repeat
+TKTWorkerProcess>>workerLoop
+MessageSend>>value
+arg1 in TKTPharoProcessProvider>>createProcessDoing:named:
+[ 
+			  self value.
+			  Processor terminateActive ] asContext in BlockClosure>>newProcess
+------------------------------
+
+Process: a Process in MorphicRenderLoop>>doOneCycleWhile:
+  stack:
+
+MorphicRenderLoop>>doOneCycleWhile:
+[
+		MorphicRenderLoop new doOneCycleWhile: [ true ]
+	] in MorphicUIManager>>spawnNewProcess
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in DelayMicrosecondTicker>>waitForUserSignalled:orExpired:
+  stack:
+
+DelayMicrosecondTicker>>waitForUserSignalled:orExpired:
+[  [runTimerEventLoop] whileTrue: 
+		[	|nowTick|
+			"Warning! Stepping <Over> the following line may lock the Image. Use <Into> or <Proceed>."
+		 	ticker waitForUserSignalled: timingSemaphore orExpired: activeDelay. 
+
+			"Invoke the api back-ends, which set the transfer-variable to nil" 		
+			suspendSemaphore ifNotNil: [ self suspendAtTimingPriority    ].
+			delayToStart     ifNotNil: [ self scheduleAtTimingPriority   ].
+			delayToStop      ifNotNil: [ self unscheduleAtTimingPriority ].
+
+			"Signal any expired delays"
+			nowTick := ticker nowTick.
+			[ 	activeDelay notNil and: [nowTick >= activeDelay resumptionTick] ] 
+					whileTrue: [
+						activeDelay timingPrioritySignalExpired.
+						activeDelay := suspendedDelays removeFirstOrNil ].
+		]
+	] in DelaySemaphoreScheduler(DelayBasicScheduler)>>runBackendLoopAtTimingPriority
+FullBlockClosure(BlockClosure)>>ensure:
+DelaySemaphoreScheduler(DelayBasicScheduler)>>runBackendLoopAtTimingPriority
+[ self runBackendLoopAtTimingPriority ] in DelaySemaphoreScheduler(DelayBasicScheduler)>>startTimerEventLoopPriority:
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in SmalltalkImage>>lowSpaceWatcher
+  stack:
+
+SmalltalkImage>>lowSpaceWatcher
+[ self lowSpaceWatcher ] in SmalltalkImage>>installLowSpaceWatcher
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in nil
+  stack:
+
+Array(SequenceableCollection)>>do:
+[:logger | 
+		logger nextPutAll: 'Processes and their stacks: ';cr.
+		
+		Process allInstances do: [:each | | ctx |
+			logger nextPutAll: 'Process: '; print: each; cr; nextPutAll: '  stack:'; cr; cr.
+		
+			ctx := each isActiveProcess ifTrue: [ thisContext sender ] ifFalse: [ each suspendedContext ].
+			ctx ifNotNil: [
+				(ctx stackOfSize: 20) do: [:s | logger print: s; cr ]].
+			logger nextPutAll: '------------------------------'; cr; cr.	
+		]] in CommandLineUIManager>>quitFrom:withMessage:
+[
+		logStream := self openLog.
+		aMonadicBlock value: logStream.
+	] in SmalltalkImage>>logDuring:
+FullBlockClosure(BlockClosure)>>ensure:
+SmalltalkImage>>logDuring:
+[ Smalltalk 
+		logError: aString
+		inContext: aContext.
+		
+	" Print stacks of all current processes "
+
+	Smalltalk logDuring: [:logger | 
+		logger nextPutAll: 'Processes and their stacks: ';cr.
+		
+		Process allInstances do: [:each | | ctx |
+			logger nextPutAll: 'Process: '; print: each; cr; nextPutAll: '  stack:'; cr; cr.
+		
+			ctx := each isActiveProcess ifTrue: [ thisContext sender ] ifFalse: [ each suspendedContext ].
+			ctx ifNotNil: [
+				(ctx stackOfSize: 20) do: [:s | logger print: s; cr ]].
+			logger nextPutAll: '------------------------------'; cr; cr.	
+		]].
+	] in NonInteractiveUIManager(CommandLineUIManager)>>quitFrom:withMessage:
+FullBlockClosure(BlockClosure)>>ensure:
+NonInteractiveUIManager(CommandLineUIManager)>>quitFrom:withMessage:
+NonInteractiveUIManager(CommandLineUIManager)>>unhandledErrorDefaultAction:
+Error(Exception)>>unhandledErrorAction
+UnhandledError>>defaultAction
+UndefinedObject>>handleSignal:
+Context>>handleSignal:
+Context>>handleSignal:
+Context>>handleSignal:
+Context>>handleSignal:
+UnhandledError(Exception)>>signal
+UnhandledError class>>signalForException:
+Error(Exception)>>raiseUnhandledError
+Error(Exception)>>defaultAction
+------------------------------
+
+Process: a Process in WeakArray class>>finalizationProcess
+  stack:
+
+WeakArray class>>finalizationProcess
+[self finalizationProcess] in WeakArray class>>restartFinalizationProcess
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in [
+		[ true ] whileTrue: [
+			semaphore wait.
+			[self executeCallback: self nextPendingCallback]
+				on: Exception fork:  [:ex | ex pass ] ] ] in TFCallbackQueue>>forkCallbackProcess
+  stack:
+
+[
+		[ true ] whileTrue: [
+			semaphore wait.
+			[self executeCallback: self nextPendingCallback]
+				on: Exception fork:  [:ex | ex pass ] ] ] in TFCallbackQueue>>forkCallbackProcess
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+THERE_BE_DRAGONS_HERE
+Error: COND ERROR
+27 October 2021 11:26:42.303393 pm
+
+VM: unix - x86_64 - linux-gnu - CoInterpreter * VMMaker-tonel.1 uuid: 6e75c100-768a-0d00-a503-de5f040b381d Oct 11 2021
+StackToRegisterMappingCogit * VMMaker-tonel.1 uuid: 6e75c100-768a-0d00-a503-de5f040b381d Oct 11 2021
+v9.0.9 - Commit: 220ee65 - Date: 2021-10-11 15:53:10 +0200
+
+Image: Pharo9.0.0 [Build information: Pharo-9.0.0+build.1564.sha.f5f541cb35c8609abfec418e35d5506715c7987d (64 Bit)]
+
+ErrorLogger>>log:
+	Receiver: an ErrorLogger
+	Arguments and temporary variables: 
+		value: 	'COND ERROR'
+		working: 	File @ /home/juanjoneri/UT/AdvancedAlgorithms/pp-jjn855/smalltalk/code...etc...
+		stream: 	a ZnCharacterWriteStream
+	Receiver's instance variables: 
+		file: 	'../tests/stdout.txt'
+
+
+ErrorLogger>>logCondError
+	Receiver: an ErrorLogger
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		file: 	'../tests/stdout.txt'
+
+
+Condition>>parse:
+	Receiver: a Condition
+	Arguments and temporary variables: 
+		input: 	'==,0'
+		matcher: 	a RxMatcher
+		groups: 	nil
+		opName: 	nil
+		left: 	nil
+		right: 	nil
+	Receiver's instance variables: 
+		op: 	nil
+		colNum: 	nil
+		colName: 	nil
+		constant: 	nil
+		logger: 	an ErrorLogger
+
+
+Table>>when:
+	Receiver: a Table
+	Arguments and temporary variables: 
+		exp: 	'==,0'
+		condition: 	a Condition
+		newTable: 	nil
+		col: 	nil
+		constant: 	nil
+		op: 	nil
+	Receiver's instance variables: 
+		hasHeaders: 	true
+		headers: 	an OrderedCollection('1' '3' '5')
+		numRows: 	2
+		numCols: 	3
+		data: 	an OrderedCollection(an OrderedCollection(a NumericCell a NumericCell a N...etc...
+		logger: 	an ErrorLogger
+
+
+Program>>execute
+	Receiver: a Program
+	Arguments and temporary variables: 
+		in: 	a Table
+		out: 	nil
+		errorLogger: 	an ErrorLogger
+	Receiver's instance variables: 
+		hasHeaders: 	true
+		operation: 	'-when'
+		argument: 	'==,0'
+		tableFile: 	'../tests/1.txt'
+		outFile: 	'../tests/0.out'
+		errorFile: 	'../tests/stdout.txt'
+
+
+TableMain>>main:
+	Receiver: a TableMain
+	Arguments and temporary variables: 
+		message: 	'-header -when ==,0 ../tests/1.txt ../tests/0.out'
+		program: 	a Program
+	Receiver's instance variables: 
+a TableMain
+
+UndefinedObject>>DoIt
+	Receiver: nil
+	Arguments and temporary variables: 
+		a: 	a TableMain
+	Receiver's instance variables: 
+nil
+
+[ receiver withArgs: (context ifNil: [ #() ] ifNotNil: [ {context} ]) executeMethod: self compileDoit] in OpalCompiler>>evaluate
+	Receiver: an OpalCompiler
+	Arguments and temporary variables: 
+		value: 	nil
+	Receiver's instance variables: 
+		ast: 	DoIt
+
+	| a |
+	a := TableMain new.
+	^ a main: '-header -when ==,0 ../tests/...etc...
+		source: 	a ReadStream
+		context: 	nil
+		receiver: 	nil
+		compilationContext: 	a CompilationContext
+		compilationContextClass: 	nil
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ receiver withArgs: (context ifNil: [ #() ] ifNotNil: [ {context} ]) executeMethod: self ...etc...
+	Arguments and temporary variables: 
+		exception: 	SyntaxErrorNotification
+		handlerAction: 	[ :exception | 
+			self compilationContext requestor
+           ...etc...
+	Receiver's instance variables: 
+		outerContext: 	OpalCompiler>>evaluate
+		startpc: 	a CompiledBlock: [ receiver withArgs: (context ifNil: [ #() ] ifNotNil...etc...
+		numArgs: 	0
+		receiver: 	an OpalCompiler
+
+
+OpalCompiler>>evaluate
+	Receiver: an OpalCompiler
+	Arguments and temporary variables: 
+		value: 	nil
+	Receiver's instance variables: 
+		ast: 	DoIt
+
+	| a |
+	a := TableMain new.
+	^ a main: '-header -when ==,0 ../tests/...etc...
+		source: 	a ReadStream
+		context: 	nil
+		receiver: 	nil
+		compilationContext: 	a CompilationContext
+		compilationContextClass: 	nil
+
+
+OpalCompiler>>evaluate:
+	Receiver: an OpalCompiler
+	Arguments and temporary variables: 
+		textOrString: 	'|a|. a:=TableMain new. a main: ''-header -when ==,0 ../tests/1.t...etc...
+	Receiver's instance variables: 
+		ast: 	DoIt
+
+	| a |
+	a := TableMain new.
+	^ a main: '-header -when ==,0 ../tests/...etc...
+		source: 	a ReadStream
+		context: 	nil
+		receiver: 	nil
+		compilationContext: 	a CompilationContext
+		compilationContextClass: 	nil
+
+
+[ 
+	result := Smalltalk compiler evaluate: aStream.
+	self hasSessionChanged
+		ifFalse: [ 
+			self stdout
+				print: result;
+				lf ] ] in EvaluateCommandLineHandler>>evaluate:
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		aStream: 	'|a|. a:=TableMain new. a main: ''-header -when ==,0 ../tests/1.txt .....etc...
+		result: 	nil
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ 
+	result := Smalltalk compiler evaluate: aStream.
+	self hasSessionChanged
+		ifFalse: [ 
+...etc...
+	Arguments and temporary variables: 
+		exception: 	Error
+		handlerAction: 	[ :error | self handleError: error ]
+	Receiver's instance variables: 
+		outerContext: 	EvaluateCommandLineHandler>>evaluate:
+		startpc: 	a CompiledBlock: [ 
+	result := Smalltalk compiler evaluate: aStream.
+	...etc...
+		numArgs: 	0
+		receiver: 	an EvaluateCommandLineHandler
+
+
+EvaluateCommandLineHandler>>evaluate:
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		result: 	nil
+		aStream: 	'|a|. a:=TableMain new. a main: ''-header -when ==,0 ../tests/1.txt .....etc...
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+EvaluateCommandLineHandler>>evaluateArguments
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		argumentString: 	'|a|. a:=TableMain new. a main: ''-header -when ==,0 ../tests/1...etc...
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+EvaluateCommandLineHandler>>activate
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+EvaluateCommandLineHandler class(CommandLineHandler class)>>activateWith:
+	Receiver: EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		aCommandLine: 	a CommandLineArguments
+	Receiver's instance variables: 
+		superclass: 	STCommandLineHandler
+		methodDict: 	a MethodDictionary(#activate->EvaluateCommandLineHandler>>#activate...etc...
+		format: 	65541
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#EvaluateCommandLineHandler
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'CodeImportCommandLineHandlers-Base'
+
+
+[ aCommandLinehandler activateWith: commandLine ] in PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		aCommandLinehandler: 	EvaluateCommandLineHandler
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ aCommandLinehandler activateWith: commandLine ]
+	Arguments and temporary variables: 
+		exception: 	Exit
+		handlerAction: 	[ :exit |
+		^ self handleExit: exit for: aCommandLinehandler ]
+	Receiver's instance variables: 
+		outerContext: 	PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubComm...etc...
+		startpc: 	a CompiledBlock: [ aCommandLinehandler activateWith: commandLine ]
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		aCommandLinehandler: 	EvaluateCommandLineHandler
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleSubcommand
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		handlers: 	an OrderedCollection(EvaluateCommandLineHandler)
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleArgument:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		aString: 	'eval'
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+[ self handleArgument: self firstArgument ] in [ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ self handleArgument: self firstArgument ]
+	Arguments and temporary variables: 
+		exception: 	Exit
+		handlerAction: 	[ :exit | 
+			"If the command line is protected by password, we ...etc...
+	Receiver's instance variables: 
+		outerContext: 	[ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ ...etc...
+		startpc: 	a CompiledBlock: [ self handleArgument: self firstArgument ]
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+[ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+	Receiver: [ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the comma...etc...
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		outerContext: 	PharoCommandLineHandler(BasicCommandLineHandler)>>activate
+		startpc: 	a CompiledBlock: [ [ self handleArgument: self firstArgument ]
+		on: E...etc...
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+
+--- The full stack ---
+ErrorLogger>>log:
+ErrorLogger>>logCondError
+Condition>>parse:
+Table>>when:
+Program>>execute
+TableMain>>main:
+UndefinedObject>>DoIt
+[ receiver withArgs: (context ifNil: [ #() ] ifNotNil: [ {context} ]) executeMethod: self compileDoit] in OpalCompiler>>evaluate
+FullBlockClosure(BlockClosure)>>on:do:
+OpalCompiler>>evaluate
+OpalCompiler>>evaluate:
+[ 
+	result := Smalltalk compiler evaluate: aStream.
+	self hasSessionChanged
+		ifFalse: [ 
+			self stdout
+				print: result;
+				lf ] ] in EvaluateCommandLineHandler>>evaluate:
+FullBlockClosure(BlockClosure)>>on:do:
+EvaluateCommandLineHandler>>evaluate:
+EvaluateCommandLineHandler>>evaluateArguments
+EvaluateCommandLineHandler>>activate
+EvaluateCommandLineHandler class(CommandLineHandler class)>>activateWith:
+[ aCommandLinehandler activateWith: commandLine ] in PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+FullBlockClosure(BlockClosure)>>on:do:
+PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleSubcommand
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleArgument:
+[ self handleArgument: self firstArgument ] in [ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+FullBlockClosure(BlockClosure)>>on:do:
+[ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+-------------------------------------------------------------------------------
+
+Processes and their stacks: 
+Process: a Process in InputEventFetcher>>waitForInput
+  stack:
+
+InputEventFetcher>>waitForInput
+InputEventFetcher>>eventLoop
+Processor in InputEventFetcher>>installEventLoop
+[ 
+			  self value.
+			  Processor terminateActive ] asContext in BlockClosure>>newProcess
+------------------------------
+
+Process: a Process in AtomicSharedQueue>>waitForNewItems
+  stack:
+
+AtomicSharedQueue>>waitForNewItems
+AtomicSharedQueue>>next
+TKTWorkerProcess>>privateNextTask
+workerLoop
+
+	[ self executeTask: self privateNextTask ] repeat in TKTWorkerProcess>>workerLoop
+BlockClosure>>repeat
+TKTWorkerProcess>>workerLoop
+MessageSend>>value
+arg1 in TKTPharoProcessProvider>>createProcessDoing:named:
+[ 
+			  self value.
+			  Processor terminateActive ] asContext in BlockClosure>>newProcess
+------------------------------
+
+Process: a Process in MorphicRenderLoop>>doOneCycleWhile:
+  stack:
+
+MorphicRenderLoop>>doOneCycleWhile:
+[
+		MorphicRenderLoop new doOneCycleWhile: [ true ]
+	] in MorphicUIManager>>spawnNewProcess
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in DelayMicrosecondTicker>>waitForUserSignalled:orExpired:
+  stack:
+
+DelayMicrosecondTicker>>waitForUserSignalled:orExpired:
+[  [runTimerEventLoop] whileTrue: 
+		[	|nowTick|
+			"Warning! Stepping <Over> the following line may lock the Image. Use <Into> or <Proceed>."
+		 	ticker waitForUserSignalled: timingSemaphore orExpired: activeDelay. 
+
+			"Invoke the api back-ends, which set the transfer-variable to nil" 		
+			suspendSemaphore ifNotNil: [ self suspendAtTimingPriority    ].
+			delayToStart     ifNotNil: [ self scheduleAtTimingPriority   ].
+			delayToStop      ifNotNil: [ self unscheduleAtTimingPriority ].
+
+			"Signal any expired delays"
+			nowTick := ticker nowTick.
+			[ 	activeDelay notNil and: [nowTick >= activeDelay resumptionTick] ] 
+					whileTrue: [
+						activeDelay timingPrioritySignalExpired.
+						activeDelay := suspendedDelays removeFirstOrNil ].
+		]
+	] in DelaySemaphoreScheduler(DelayBasicScheduler)>>runBackendLoopAtTimingPriority
+FullBlockClosure(BlockClosure)>>ensure:
+DelaySemaphoreScheduler(DelayBasicScheduler)>>runBackendLoopAtTimingPriority
+[ self runBackendLoopAtTimingPriority ] in DelaySemaphoreScheduler(DelayBasicScheduler)>>startTimerEventLoopPriority:
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in SmalltalkImage>>lowSpaceWatcher
+  stack:
+
+SmalltalkImage>>lowSpaceWatcher
+[ self lowSpaceWatcher ] in SmalltalkImage>>installLowSpaceWatcher
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in nil
+  stack:
+
+Array(SequenceableCollection)>>do:
+[:logger | 
+		logger nextPutAll: 'Processes and their stacks: ';cr.
+		
+		Process allInstances do: [:each | | ctx |
+			logger nextPutAll: 'Process: '; print: each; cr; nextPutAll: '  stack:'; cr; cr.
+		
+			ctx := each isActiveProcess ifTrue: [ thisContext sender ] ifFalse: [ each suspendedContext ].
+			ctx ifNotNil: [
+				(ctx stackOfSize: 20) do: [:s | logger print: s; cr ]].
+			logger nextPutAll: '------------------------------'; cr; cr.	
+		]] in CommandLineUIManager>>quitFrom:withMessage:
+[
+		logStream := self openLog.
+		aMonadicBlock value: logStream.
+	] in SmalltalkImage>>logDuring:
+FullBlockClosure(BlockClosure)>>ensure:
+SmalltalkImage>>logDuring:
+[ Smalltalk 
+		logError: aString
+		inContext: aContext.
+		
+	" Print stacks of all current processes "
+
+	Smalltalk logDuring: [:logger | 
+		logger nextPutAll: 'Processes and their stacks: ';cr.
+		
+		Process allInstances do: [:each | | ctx |
+			logger nextPutAll: 'Process: '; print: each; cr; nextPutAll: '  stack:'; cr; cr.
+		
+			ctx := each isActiveProcess ifTrue: [ thisContext sender ] ifFalse: [ each suspendedContext ].
+			ctx ifNotNil: [
+				(ctx stackOfSize: 20) do: [:s | logger print: s; cr ]].
+			logger nextPutAll: '------------------------------'; cr; cr.	
+		]].
+	] in NonInteractiveUIManager(CommandLineUIManager)>>quitFrom:withMessage:
+FullBlockClosure(BlockClosure)>>ensure:
+NonInteractiveUIManager(CommandLineUIManager)>>quitFrom:withMessage:
+NonInteractiveUIManager(CommandLineUIManager)>>unhandledErrorDefaultAction:
+Error(Exception)>>unhandledErrorAction
+UnhandledError>>defaultAction
+UndefinedObject>>handleSignal:
+Context>>handleSignal:
+Context>>handleSignal:
+Context>>handleSignal:
+Context>>handleSignal:
+UnhandledError(Exception)>>signal
+UnhandledError class>>signalForException:
+Error(Exception)>>raiseUnhandledError
+Error(Exception)>>defaultAction
+------------------------------
+
+Process: a Process in WeakArray class>>finalizationProcess
+  stack:
+
+WeakArray class>>finalizationProcess
+[self finalizationProcess] in WeakArray class>>restartFinalizationProcess
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in [
+		[ true ] whileTrue: [
+			semaphore wait.
+			[self executeCallback: self nextPendingCallback]
+				on: Exception fork:  [:ex | ex pass ] ] ] in TFCallbackQueue>>forkCallbackProcess
+  stack:
+
+[
+		[ true ] whileTrue: [
+			semaphore wait.
+			[self executeCallback: self nextPendingCallback]
+				on: Exception fork:  [:ex | ex pass ] ] ] in TFCallbackQueue>>forkCallbackProcess
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+THERE_BE_DRAGONS_HERE
+SubscriptOutOfBounds: 2
+27 October 2021 11:26:53.565337 pm
+
+VM: unix - x86_64 - linux-gnu - CoInterpreter * VMMaker-tonel.1 uuid: 6e75c100-768a-0d00-a503-de5f040b381d Oct 11 2021
+StackToRegisterMappingCogit * VMMaker-tonel.1 uuid: 6e75c100-768a-0d00-a503-de5f040b381d Oct 11 2021
+v9.0.9 - Commit: 220ee65 - Date: 2021-10-11 15:53:10 +0200
+
+Image: Pharo9.0.0 [Build information: Pharo-9.0.0+build.1564.sha.f5f541cb35c8609abfec418e35d5506715c7987d (64 Bit)]
+
+FullBlockClosure(Object)>>errorSubscriptBounds:
+	Receiver: [Array 
+					with: (matcher subexpression: 2) 
+					with: (matcher subexpression: 3)
+					...etc...
+	Arguments and temporary variables: 
+		index: 	2
+	Receiver's instance variables: 
+		outerContext: 	Condition>>parse:
+		startpc: 	a CompiledBlock: [Array 
+					with: (matcher subexpression: 2) 
+					w...etc...
+		numArgs: 	0
+		receiver: 	a Condition
+
+
+FullBlockClosure(Object)>>at:
+	Receiver: [Array 
+					with: (matcher subexpression: 2) 
+					with: (matcher subexpression: 3)
+					...etc...
+	Arguments and temporary variables: 
+		index: 	2
+	Receiver's instance variables: 
+		outerContext: 	Condition>>parse:
+		startpc: 	a CompiledBlock: [Array 
+					with: (matcher subexpression: 2) 
+					w...etc...
+		numArgs: 	0
+		receiver: 	a Condition
+
+
+Condition>>parse:
+	Receiver: a Condition
+	Arguments and temporary variables: 
+		input: 	'==$3,0'
+		matcher: 	a RxMatcher
+		groups: 	[Array 
+					with: (matcher subexpression: 2) 
+					with: (matcher sube...etc...
+		opName: 	a RxMatcher
+		left: 	nil
+		right: 	nil
+	Receiver's instance variables: 
+		op: 	nil
+		colNum: 	nil
+		colName: 	nil
+		constant: 	nil
+		logger: 	an ErrorLogger
+
+
+Table>>when:
+	Receiver: a Table
+	Arguments and temporary variables: 
+		exp: 	'==$3,0'
+		condition: 	a Condition
+		newTable: 	nil
+		col: 	nil
+		constant: 	nil
+		op: 	nil
+	Receiver's instance variables: 
+		hasHeaders: 	true
+		headers: 	an OrderedCollection('1' '3' '5')
+		numRows: 	2
+		numCols: 	3
+		data: 	an OrderedCollection(an OrderedCollection(a NumericCell a NumericCell a N...etc...
+		logger: 	an ErrorLogger
+
+
+Program>>execute
+	Receiver: a Program
+	Arguments and temporary variables: 
+		in: 	a Table
+		out: 	nil
+		errorLogger: 	an ErrorLogger
+	Receiver's instance variables: 
+		hasHeaders: 	true
+		operation: 	'-when'
+		argument: 	'==$3,0'
+		tableFile: 	'../tests/1.txt'
+		outFile: 	'../tests/0.out'
+		errorFile: 	'../tests/stdout.txt'
+
+
+TableMain>>main:
+	Receiver: a TableMain
+	Arguments and temporary variables: 
+		message: 	'-header -when ==$3,0 ../tests/1.txt ../tests/0.out'
+		program: 	a Program
+	Receiver's instance variables: 
+a TableMain
+
+UndefinedObject>>DoIt
+	Receiver: nil
+	Arguments and temporary variables: 
+		a: 	a TableMain
+	Receiver's instance variables: 
+nil
+
+[ receiver withArgs: (context ifNil: [ #() ] ifNotNil: [ {context} ]) executeMethod: self compileDoit] in OpalCompiler>>evaluate
+	Receiver: an OpalCompiler
+	Arguments and temporary variables: 
+		value: 	nil
+	Receiver's instance variables: 
+		ast: 	DoIt
+
+	| a |
+	a := TableMain new.
+	^ a main: '-header -when ==$3,0 ../test...etc...
+		source: 	a ReadStream
+		context: 	nil
+		receiver: 	nil
+		compilationContext: 	a CompilationContext
+		compilationContextClass: 	nil
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ receiver withArgs: (context ifNil: [ #() ] ifNotNil: [ {context} ]) executeMethod: self ...etc...
+	Arguments and temporary variables: 
+		exception: 	SyntaxErrorNotification
+		handlerAction: 	[ :exception | 
+			self compilationContext requestor
+           ...etc...
+	Receiver's instance variables: 
+		outerContext: 	OpalCompiler>>evaluate
+		startpc: 	a CompiledBlock: [ receiver withArgs: (context ifNil: [ #() ] ifNotNil...etc...
+		numArgs: 	0
+		receiver: 	an OpalCompiler
+
+
+OpalCompiler>>evaluate
+	Receiver: an OpalCompiler
+	Arguments and temporary variables: 
+		value: 	nil
+	Receiver's instance variables: 
+		ast: 	DoIt
+
+	| a |
+	a := TableMain new.
+	^ a main: '-header -when ==$3,0 ../test...etc...
+		source: 	a ReadStream
+		context: 	nil
+		receiver: 	nil
+		compilationContext: 	a CompilationContext
+		compilationContextClass: 	nil
+
+
+OpalCompiler>>evaluate:
+	Receiver: an OpalCompiler
+	Arguments and temporary variables: 
+		textOrString: 	'|a|. a:=TableMain new. a main: ''-header -when ==$3,0 ../tests/1...etc...
+	Receiver's instance variables: 
+		ast: 	DoIt
+
+	| a |
+	a := TableMain new.
+	^ a main: '-header -when ==$3,0 ../test...etc...
+		source: 	a ReadStream
+		context: 	nil
+		receiver: 	nil
+		compilationContext: 	a CompilationContext
+		compilationContextClass: 	nil
+
+
+[ 
+	result := Smalltalk compiler evaluate: aStream.
+	self hasSessionChanged
+		ifFalse: [ 
+			self stdout
+				print: result;
+				lf ] ] in EvaluateCommandLineHandler>>evaluate:
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		aStream: 	'|a|. a:=TableMain new. a main: ''-header -when ==$3,0 ../tests/1.txt ...etc...
+		result: 	nil
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ 
+	result := Smalltalk compiler evaluate: aStream.
+	self hasSessionChanged
+		ifFalse: [ 
+...etc...
+	Arguments and temporary variables: 
+		exception: 	Error
+		handlerAction: 	[ :error | self handleError: error ]
+	Receiver's instance variables: 
+		outerContext: 	EvaluateCommandLineHandler>>evaluate:
+		startpc: 	a CompiledBlock: [ 
+	result := Smalltalk compiler evaluate: aStream.
+	...etc...
+		numArgs: 	0
+		receiver: 	an EvaluateCommandLineHandler
+
+
+EvaluateCommandLineHandler>>evaluate:
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		result: 	nil
+		aStream: 	'|a|. a:=TableMain new. a main: ''-header -when ==$3,0 ../tests/1.txt ...etc...
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+EvaluateCommandLineHandler>>evaluateArguments
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		argumentString: 	'|a|. a:=TableMain new. a main: ''-header -when ==$3,0 ../tests...etc...
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+EvaluateCommandLineHandler>>activate
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+EvaluateCommandLineHandler class(CommandLineHandler class)>>activateWith:
+	Receiver: EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		aCommandLine: 	a CommandLineArguments
+	Receiver's instance variables: 
+		superclass: 	STCommandLineHandler
+		methodDict: 	a MethodDictionary(#activate->EvaluateCommandLineHandler>>#activate...etc...
+		format: 	65541
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#EvaluateCommandLineHandler
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'CodeImportCommandLineHandlers-Base'
+
+
+[ aCommandLinehandler activateWith: commandLine ] in PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		aCommandLinehandler: 	EvaluateCommandLineHandler
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ aCommandLinehandler activateWith: commandLine ]
+	Arguments and temporary variables: 
+		exception: 	Exit
+		handlerAction: 	[ :exit |
+		^ self handleExit: exit for: aCommandLinehandler ]
+	Receiver's instance variables: 
+		outerContext: 	PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubComm...etc...
+		startpc: 	a CompiledBlock: [ aCommandLinehandler activateWith: commandLine ]
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		aCommandLinehandler: 	EvaluateCommandLineHandler
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleSubcommand
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		handlers: 	an OrderedCollection(EvaluateCommandLineHandler)
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleArgument:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		aString: 	'eval'
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+[ self handleArgument: self firstArgument ] in [ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ self handleArgument: self firstArgument ]
+	Arguments and temporary variables: 
+		exception: 	Exit
+		handlerAction: 	[ :exit | 
+			"If the command line is protected by password, we ...etc...
+	Receiver's instance variables: 
+		outerContext: 	[ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ ...etc...
+		startpc: 	a CompiledBlock: [ self handleArgument: self firstArgument ]
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+[ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+	Receiver: [ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the comma...etc...
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		outerContext: 	PharoCommandLineHandler(BasicCommandLineHandler)>>activate
+		startpc: 	a CompiledBlock: [ [ self handleArgument: self firstArgument ]
+		on: E...etc...
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+
+--- The full stack ---
+FullBlockClosure(Object)>>errorSubscriptBounds:
+FullBlockClosure(Object)>>at:
+Condition>>parse:
+Table>>when:
+Program>>execute
+TableMain>>main:
+UndefinedObject>>DoIt
+[ receiver withArgs: (context ifNil: [ #() ] ifNotNil: [ {context} ]) executeMethod: self compileDoit] in OpalCompiler>>evaluate
+FullBlockClosure(BlockClosure)>>on:do:
+OpalCompiler>>evaluate
+OpalCompiler>>evaluate:
+[ 
+	result := Smalltalk compiler evaluate: aStream.
+	self hasSessionChanged
+		ifFalse: [ 
+			self stdout
+				print: result;
+				lf ] ] in EvaluateCommandLineHandler>>evaluate:
+FullBlockClosure(BlockClosure)>>on:do:
+EvaluateCommandLineHandler>>evaluate:
+EvaluateCommandLineHandler>>evaluateArguments
+EvaluateCommandLineHandler>>activate
+EvaluateCommandLineHandler class(CommandLineHandler class)>>activateWith:
+[ aCommandLinehandler activateWith: commandLine ] in PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+FullBlockClosure(BlockClosure)>>on:do:
+PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleSubcommand
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleArgument:
+[ self handleArgument: self firstArgument ] in [ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+FullBlockClosure(BlockClosure)>>on:do:
+[ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+-------------------------------------------------------------------------------
+
+Processes and their stacks: 
+Process: a Process in InputEventFetcher>>waitForInput
+  stack:
+
+InputEventFetcher>>waitForInput
+InputEventFetcher>>eventLoop
+Processor in InputEventFetcher>>installEventLoop
+[ 
+			  self value.
+			  Processor terminateActive ] asContext in BlockClosure>>newProcess
+------------------------------
+
+Process: a Process in AtomicSharedQueue>>waitForNewItems
+  stack:
+
+AtomicSharedQueue>>waitForNewItems
+AtomicSharedQueue>>next
+TKTWorkerProcess>>privateNextTask
+workerLoop
+
+	[ self executeTask: self privateNextTask ] repeat in TKTWorkerProcess>>workerLoop
+BlockClosure>>repeat
+TKTWorkerProcess>>workerLoop
+MessageSend>>value
+arg1 in TKTPharoProcessProvider>>createProcessDoing:named:
+[ 
+			  self value.
+			  Processor terminateActive ] asContext in BlockClosure>>newProcess
+------------------------------
+
+Process: a Process in MorphicRenderLoop>>doOneCycleWhile:
+  stack:
+
+MorphicRenderLoop>>doOneCycleWhile:
+[
+		MorphicRenderLoop new doOneCycleWhile: [ true ]
+	] in MorphicUIManager>>spawnNewProcess
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in DelayMicrosecondTicker>>waitForUserSignalled:orExpired:
+  stack:
+
+DelayMicrosecondTicker>>waitForUserSignalled:orExpired:
+[  [runTimerEventLoop] whileTrue: 
+		[	|nowTick|
+			"Warning! Stepping <Over> the following line may lock the Image. Use <Into> or <Proceed>."
+		 	ticker waitForUserSignalled: timingSemaphore orExpired: activeDelay. 
+
+			"Invoke the api back-ends, which set the transfer-variable to nil" 		
+			suspendSemaphore ifNotNil: [ self suspendAtTimingPriority    ].
+			delayToStart     ifNotNil: [ self scheduleAtTimingPriority   ].
+			delayToStop      ifNotNil: [ self unscheduleAtTimingPriority ].
+
+			"Signal any expired delays"
+			nowTick := ticker nowTick.
+			[ 	activeDelay notNil and: [nowTick >= activeDelay resumptionTick] ] 
+					whileTrue: [
+						activeDelay timingPrioritySignalExpired.
+						activeDelay := suspendedDelays removeFirstOrNil ].
+		]
+	] in DelaySemaphoreScheduler(DelayBasicScheduler)>>runBackendLoopAtTimingPriority
+FullBlockClosure(BlockClosure)>>ensure:
+DelaySemaphoreScheduler(DelayBasicScheduler)>>runBackendLoopAtTimingPriority
+[ self runBackendLoopAtTimingPriority ] in DelaySemaphoreScheduler(DelayBasicScheduler)>>startTimerEventLoopPriority:
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in SmalltalkImage>>lowSpaceWatcher
+  stack:
+
+SmalltalkImage>>lowSpaceWatcher
+[ self lowSpaceWatcher ] in SmalltalkImage>>installLowSpaceWatcher
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in nil
+  stack:
+
+Array(SequenceableCollection)>>do:
+[:logger | 
+		logger nextPutAll: 'Processes and their stacks: ';cr.
+		
+		Process allInstances do: [:each | | ctx |
+			logger nextPutAll: 'Process: '; print: each; cr; nextPutAll: '  stack:'; cr; cr.
+		
+			ctx := each isActiveProcess ifTrue: [ thisContext sender ] ifFalse: [ each suspendedContext ].
+			ctx ifNotNil: [
+				(ctx stackOfSize: 20) do: [:s | logger print: s; cr ]].
+			logger nextPutAll: '------------------------------'; cr; cr.	
+		]] in CommandLineUIManager>>quitFrom:withMessage:
+[
+		logStream := self openLog.
+		aMonadicBlock value: logStream.
+	] in SmalltalkImage>>logDuring:
+FullBlockClosure(BlockClosure)>>ensure:
+SmalltalkImage>>logDuring:
+[ Smalltalk 
+		logError: aString
+		inContext: aContext.
+		
+	" Print stacks of all current processes "
+
+	Smalltalk logDuring: [:logger | 
+		logger nextPutAll: 'Processes and their stacks: ';cr.
+		
+		Process allInstances do: [:each | | ctx |
+			logger nextPutAll: 'Process: '; print: each; cr; nextPutAll: '  stack:'; cr; cr.
+		
+			ctx := each isActiveProcess ifTrue: [ thisContext sender ] ifFalse: [ each suspendedContext ].
+			ctx ifNotNil: [
+				(ctx stackOfSize: 20) do: [:s | logger print: s; cr ]].
+			logger nextPutAll: '------------------------------'; cr; cr.	
+		]].
+	] in NonInteractiveUIManager(CommandLineUIManager)>>quitFrom:withMessage:
+FullBlockClosure(BlockClosure)>>ensure:
+NonInteractiveUIManager(CommandLineUIManager)>>quitFrom:withMessage:
+NonInteractiveUIManager(CommandLineUIManager)>>unhandledErrorDefaultAction:
+SubscriptOutOfBounds(Exception)>>unhandledErrorAction
+UnhandledError>>defaultAction
+UndefinedObject>>handleSignal:
+Context>>handleSignal:
+Context>>handleSignal:
+Context>>handleSignal:
+Context>>handleSignal:
+UnhandledError(Exception)>>signal
+UnhandledError class>>signalForException:
+SubscriptOutOfBounds(Exception)>>raiseUnhandledError
+SubscriptOutOfBounds(Exception)>>defaultAction
+------------------------------
+
+Process: a Process in WeakArray class>>finalizationProcess
+  stack:
+
+WeakArray class>>finalizationProcess
+[self finalizationProcess] in WeakArray class>>restartFinalizationProcess
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in [
+		[ true ] whileTrue: [
+			semaphore wait.
+			[self executeCallback: self nextPendingCallback]
+				on: Exception fork:  [:ex | ex pass ] ] ] in TFCallbackQueue>>forkCallbackProcess
+  stack:
+
+[
+		[ true ] whileTrue: [
+			semaphore wait.
+			[self executeCallback: self nextPendingCallback]
+				on: Exception fork:  [:ex | ex pass ] ] ] in TFCallbackQueue>>forkCallbackProcess
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+THERE_BE_DRAGONS_HERE
+SubscriptOutOfBounds: 2
+27 October 2021 11:27:29.493234 pm
+
+VM: unix - x86_64 - linux-gnu - CoInterpreter * VMMaker-tonel.1 uuid: 6e75c100-768a-0d00-a503-de5f040b381d Oct 11 2021
+StackToRegisterMappingCogit * VMMaker-tonel.1 uuid: 6e75c100-768a-0d00-a503-de5f040b381d Oct 11 2021
+v9.0.9 - Commit: 220ee65 - Date: 2021-10-11 15:53:10 +0200
+
+Image: Pharo9.0.0 [Build information: Pharo-9.0.0+build.1564.sha.f5f541cb35c8609abfec418e35d5506715c7987d (64 Bit)]
+
+FullBlockClosure(Object)>>errorSubscriptBounds:
+	Receiver: [Array 
+					with: (matcher subexpression: 2) 
+					with: (matcher subexpression: 3)
+					...etc...
+	Arguments and temporary variables: 
+		index: 	2
+	Receiver's instance variables: 
+		outerContext: 	Condition>>parse:
+		startpc: 	a CompiledBlock: [Array 
+					with: (matcher subexpression: 2) 
+					w...etc...
+		numArgs: 	0
+		receiver: 	a Condition
+
+
+FullBlockClosure(Object)>>at:
+	Receiver: [Array 
+					with: (matcher subexpression: 2) 
+					with: (matcher subexpression: 3)
+					...etc...
+	Arguments and temporary variables: 
+		index: 	2
+	Receiver's instance variables: 
+		outerContext: 	Condition>>parse:
+		startpc: 	a CompiledBlock: [Array 
+					with: (matcher subexpression: 2) 
+					w...etc...
+		numArgs: 	0
+		receiver: 	a Condition
+
+
+Condition>>parse:
+	Receiver: a Condition
+	Arguments and temporary variables: 
+		input: 	'==$3,0'
+		matcher: 	a RxMatcher
+		groups: 	[Array 
+					with: (matcher subexpression: 2) 
+					with: (matcher sube...etc...
+		opName: 	a RxMatcher
+		left: 	nil
+		right: 	nil
+	Receiver's instance variables: 
+		op: 	nil
+		colNum: 	nil
+		colName: 	nil
+		constant: 	nil
+		logger: 	an ErrorLogger
+
+
+Table>>when:
+	Receiver: a Table
+	Arguments and temporary variables: 
+		exp: 	'==$3,0'
+		condition: 	a Condition
+		newTable: 	nil
+		col: 	nil
+		constant: 	nil
+		op: 	nil
+	Receiver's instance variables: 
+		hasHeaders: 	true
+		headers: 	an OrderedCollection('1' '3' '5')
+		numRows: 	2
+		numCols: 	3
+		data: 	an OrderedCollection(an OrderedCollection(a NumericCell a NumericCell a N...etc...
+		logger: 	an ErrorLogger
+
+
+Program>>execute
+	Receiver: a Program
+	Arguments and temporary variables: 
+		in: 	a Table
+		out: 	nil
+		errorLogger: 	an ErrorLogger
+	Receiver's instance variables: 
+		hasHeaders: 	true
+		operation: 	'-when'
+		argument: 	'==$3,0'
+		tableFile: 	'../tests/1.txt'
+		outFile: 	'../tests/0.out'
+		errorFile: 	'../tests/stdout.txt'
+
+
+TableMain>>main:
+	Receiver: a TableMain
+	Arguments and temporary variables: 
+		message: 	'-header -when ==$3,0 ../tests/1.txt ../tests/0.out'
+		program: 	a Program
+	Receiver's instance variables: 
+a TableMain
+
+UndefinedObject>>DoIt
+	Receiver: nil
+	Arguments and temporary variables: 
+		a: 	a TableMain
+	Receiver's instance variables: 
+nil
+
+[ receiver withArgs: (context ifNil: [ #() ] ifNotNil: [ {context} ]) executeMethod: self compileDoit] in OpalCompiler>>evaluate
+	Receiver: an OpalCompiler
+	Arguments and temporary variables: 
+		value: 	nil
+	Receiver's instance variables: 
+		ast: 	DoIt
+
+	| a |
+	a := TableMain new.
+	^ a main: '-header -when ==$3,0 ../test...etc...
+		source: 	a ReadStream
+		context: 	nil
+		receiver: 	nil
+		compilationContext: 	a CompilationContext
+		compilationContextClass: 	nil
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ receiver withArgs: (context ifNil: [ #() ] ifNotNil: [ {context} ]) executeMethod: self ...etc...
+	Arguments and temporary variables: 
+		exception: 	SyntaxErrorNotification
+		handlerAction: 	[ :exception | 
+			self compilationContext requestor
+           ...etc...
+	Receiver's instance variables: 
+		outerContext: 	OpalCompiler>>evaluate
+		startpc: 	a CompiledBlock: [ receiver withArgs: (context ifNil: [ #() ] ifNotNil...etc...
+		numArgs: 	0
+		receiver: 	an OpalCompiler
+
+
+OpalCompiler>>evaluate
+	Receiver: an OpalCompiler
+	Arguments and temporary variables: 
+		value: 	nil
+	Receiver's instance variables: 
+		ast: 	DoIt
+
+	| a |
+	a := TableMain new.
+	^ a main: '-header -when ==$3,0 ../test...etc...
+		source: 	a ReadStream
+		context: 	nil
+		receiver: 	nil
+		compilationContext: 	a CompilationContext
+		compilationContextClass: 	nil
+
+
+OpalCompiler>>evaluate:
+	Receiver: an OpalCompiler
+	Arguments and temporary variables: 
+		textOrString: 	'|a|. a:=TableMain new. a main: ''-header -when ==$3,0 ../tests/1...etc...
+	Receiver's instance variables: 
+		ast: 	DoIt
+
+	| a |
+	a := TableMain new.
+	^ a main: '-header -when ==$3,0 ../test...etc...
+		source: 	a ReadStream
+		context: 	nil
+		receiver: 	nil
+		compilationContext: 	a CompilationContext
+		compilationContextClass: 	nil
+
+
+[ 
+	result := Smalltalk compiler evaluate: aStream.
+	self hasSessionChanged
+		ifFalse: [ 
+			self stdout
+				print: result;
+				lf ] ] in EvaluateCommandLineHandler>>evaluate:
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		aStream: 	'|a|. a:=TableMain new. a main: ''-header -when ==$3,0 ../tests/1.txt ...etc...
+		result: 	nil
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ 
+	result := Smalltalk compiler evaluate: aStream.
+	self hasSessionChanged
+		ifFalse: [ 
+...etc...
+	Arguments and temporary variables: 
+		exception: 	Error
+		handlerAction: 	[ :error | self handleError: error ]
+	Receiver's instance variables: 
+		outerContext: 	EvaluateCommandLineHandler>>evaluate:
+		startpc: 	a CompiledBlock: [ 
+	result := Smalltalk compiler evaluate: aStream.
+	...etc...
+		numArgs: 	0
+		receiver: 	an EvaluateCommandLineHandler
+
+
+EvaluateCommandLineHandler>>evaluate:
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		result: 	nil
+		aStream: 	'|a|. a:=TableMain new. a main: ''-header -when ==$3,0 ../tests/1.txt ...etc...
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+EvaluateCommandLineHandler>>evaluateArguments
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		argumentString: 	'|a|. a:=TableMain new. a main: ''-header -when ==$3,0 ../tests...etc...
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+EvaluateCommandLineHandler>>activate
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+EvaluateCommandLineHandler class(CommandLineHandler class)>>activateWith:
+	Receiver: EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		aCommandLine: 	a CommandLineArguments
+	Receiver's instance variables: 
+		superclass: 	STCommandLineHandler
+		methodDict: 	a MethodDictionary(#activate->EvaluateCommandLineHandler>>#activate...etc...
+		format: 	65541
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#EvaluateCommandLineHandler
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'CodeImportCommandLineHandlers-Base'
+
+
+[ aCommandLinehandler activateWith: commandLine ] in PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		aCommandLinehandler: 	EvaluateCommandLineHandler
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ aCommandLinehandler activateWith: commandLine ]
+	Arguments and temporary variables: 
+		exception: 	Exit
+		handlerAction: 	[ :exit |
+		^ self handleExit: exit for: aCommandLinehandler ]
+	Receiver's instance variables: 
+		outerContext: 	PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubComm...etc...
+		startpc: 	a CompiledBlock: [ aCommandLinehandler activateWith: commandLine ]
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		aCommandLinehandler: 	EvaluateCommandLineHandler
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleSubcommand
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		handlers: 	an OrderedCollection(EvaluateCommandLineHandler)
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleArgument:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		aString: 	'eval'
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+[ self handleArgument: self firstArgument ] in [ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ self handleArgument: self firstArgument ]
+	Arguments and temporary variables: 
+		exception: 	Exit
+		handlerAction: 	[ :exit | 
+			"If the command line is protected by password, we ...etc...
+	Receiver's instance variables: 
+		outerContext: 	[ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ ...etc...
+		startpc: 	a CompiledBlock: [ self handleArgument: self firstArgument ]
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+[ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+	Receiver: [ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the comma...etc...
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		outerContext: 	PharoCommandLineHandler(BasicCommandLineHandler)>>activate
+		startpc: 	a CompiledBlock: [ [ self handleArgument: self firstArgument ]
+		on: E...etc...
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+
+--- The full stack ---
+FullBlockClosure(Object)>>errorSubscriptBounds:
+FullBlockClosure(Object)>>at:
+Condition>>parse:
+Table>>when:
+Program>>execute
+TableMain>>main:
+UndefinedObject>>DoIt
+[ receiver withArgs: (context ifNil: [ #() ] ifNotNil: [ {context} ]) executeMethod: self compileDoit] in OpalCompiler>>evaluate
+FullBlockClosure(BlockClosure)>>on:do:
+OpalCompiler>>evaluate
+OpalCompiler>>evaluate:
+[ 
+	result := Smalltalk compiler evaluate: aStream.
+	self hasSessionChanged
+		ifFalse: [ 
+			self stdout
+				print: result;
+				lf ] ] in EvaluateCommandLineHandler>>evaluate:
+FullBlockClosure(BlockClosure)>>on:do:
+EvaluateCommandLineHandler>>evaluate:
+EvaluateCommandLineHandler>>evaluateArguments
+EvaluateCommandLineHandler>>activate
+EvaluateCommandLineHandler class(CommandLineHandler class)>>activateWith:
+[ aCommandLinehandler activateWith: commandLine ] in PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+FullBlockClosure(BlockClosure)>>on:do:
+PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleSubcommand
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleArgument:
+[ self handleArgument: self firstArgument ] in [ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+FullBlockClosure(BlockClosure)>>on:do:
+[ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+-------------------------------------------------------------------------------
+
+Processes and their stacks: 
+Process: a Process in InputEventFetcher>>waitForInput
+  stack:
+
+InputEventFetcher>>waitForInput
+InputEventFetcher>>eventLoop
+Processor in InputEventFetcher>>installEventLoop
+[ 
+			  self value.
+			  Processor terminateActive ] asContext in BlockClosure>>newProcess
+------------------------------
+
+Process: a Process in AtomicSharedQueue>>waitForNewItems
+  stack:
+
+AtomicSharedQueue>>waitForNewItems
+AtomicSharedQueue>>next
+TKTWorkerProcess>>privateNextTask
+workerLoop
+
+	[ self executeTask: self privateNextTask ] repeat in TKTWorkerProcess>>workerLoop
+BlockClosure>>repeat
+TKTWorkerProcess>>workerLoop
+MessageSend>>value
+arg1 in TKTPharoProcessProvider>>createProcessDoing:named:
+[ 
+			  self value.
+			  Processor terminateActive ] asContext in BlockClosure>>newProcess
+------------------------------
+
+Process: a Process in MorphicRenderLoop>>doOneCycleWhile:
+  stack:
+
+MorphicRenderLoop>>doOneCycleWhile:
+[
+		MorphicRenderLoop new doOneCycleWhile: [ true ]
+	] in MorphicUIManager>>spawnNewProcess
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in DelayMicrosecondTicker>>waitForUserSignalled:orExpired:
+  stack:
+
+DelayMicrosecondTicker>>waitForUserSignalled:orExpired:
+[  [runTimerEventLoop] whileTrue: 
+		[	|nowTick|
+			"Warning! Stepping <Over> the following line may lock the Image. Use <Into> or <Proceed>."
+		 	ticker waitForUserSignalled: timingSemaphore orExpired: activeDelay. 
+
+			"Invoke the api back-ends, which set the transfer-variable to nil" 		
+			suspendSemaphore ifNotNil: [ self suspendAtTimingPriority    ].
+			delayToStart     ifNotNil: [ self scheduleAtTimingPriority   ].
+			delayToStop      ifNotNil: [ self unscheduleAtTimingPriority ].
+
+			"Signal any expired delays"
+			nowTick := ticker nowTick.
+			[ 	activeDelay notNil and: [nowTick >= activeDelay resumptionTick] ] 
+					whileTrue: [
+						activeDelay timingPrioritySignalExpired.
+						activeDelay := suspendedDelays removeFirstOrNil ].
+		]
+	] in DelaySemaphoreScheduler(DelayBasicScheduler)>>runBackendLoopAtTimingPriority
+FullBlockClosure(BlockClosure)>>ensure:
+DelaySemaphoreScheduler(DelayBasicScheduler)>>runBackendLoopAtTimingPriority
+[ self runBackendLoopAtTimingPriority ] in DelaySemaphoreScheduler(DelayBasicScheduler)>>startTimerEventLoopPriority:
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in SmalltalkImage>>lowSpaceWatcher
+  stack:
+
+SmalltalkImage>>lowSpaceWatcher
+[ self lowSpaceWatcher ] in SmalltalkImage>>installLowSpaceWatcher
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in nil
+  stack:
+
+Array(SequenceableCollection)>>do:
+[:logger | 
+		logger nextPutAll: 'Processes and their stacks: ';cr.
+		
+		Process allInstances do: [:each | | ctx |
+			logger nextPutAll: 'Process: '; print: each; cr; nextPutAll: '  stack:'; cr; cr.
+		
+			ctx := each isActiveProcess ifTrue: [ thisContext sender ] ifFalse: [ each suspendedContext ].
+			ctx ifNotNil: [
+				(ctx stackOfSize: 20) do: [:s | logger print: s; cr ]].
+			logger nextPutAll: '------------------------------'; cr; cr.	
+		]] in CommandLineUIManager>>quitFrom:withMessage:
+[
+		logStream := self openLog.
+		aMonadicBlock value: logStream.
+	] in SmalltalkImage>>logDuring:
+FullBlockClosure(BlockClosure)>>ensure:
+SmalltalkImage>>logDuring:
+[ Smalltalk 
+		logError: aString
+		inContext: aContext.
+		
+	" Print stacks of all current processes "
+
+	Smalltalk logDuring: [:logger | 
+		logger nextPutAll: 'Processes and their stacks: ';cr.
+		
+		Process allInstances do: [:each | | ctx |
+			logger nextPutAll: 'Process: '; print: each; cr; nextPutAll: '  stack:'; cr; cr.
+		
+			ctx := each isActiveProcess ifTrue: [ thisContext sender ] ifFalse: [ each suspendedContext ].
+			ctx ifNotNil: [
+				(ctx stackOfSize: 20) do: [:s | logger print: s; cr ]].
+			logger nextPutAll: '------------------------------'; cr; cr.	
+		]].
+	] in NonInteractiveUIManager(CommandLineUIManager)>>quitFrom:withMessage:
+FullBlockClosure(BlockClosure)>>ensure:
+NonInteractiveUIManager(CommandLineUIManager)>>quitFrom:withMessage:
+NonInteractiveUIManager(CommandLineUIManager)>>unhandledErrorDefaultAction:
+SubscriptOutOfBounds(Exception)>>unhandledErrorAction
+UnhandledError>>defaultAction
+UndefinedObject>>handleSignal:
+Context>>handleSignal:
+Context>>handleSignal:
+Context>>handleSignal:
+Context>>handleSignal:
+UnhandledError(Exception)>>signal
+UnhandledError class>>signalForException:
+SubscriptOutOfBounds(Exception)>>raiseUnhandledError
+SubscriptOutOfBounds(Exception)>>defaultAction
+------------------------------
+
+Process: a Process in WeakArray class>>finalizationProcess
+  stack:
+
+WeakArray class>>finalizationProcess
+[self finalizationProcess] in WeakArray class>>restartFinalizationProcess
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in [
+		[ true ] whileTrue: [
+			semaphore wait.
+			[self executeCallback: self nextPendingCallback]
+				on: Exception fork:  [:ex | ex pass ] ] ] in TFCallbackQueue>>forkCallbackProcess
+  stack:
+
+[
+		[ true ] whileTrue: [
+			semaphore wait.
+			[self executeCallback: self nextPendingCallback]
+				on: Exception fork:  [:ex | ex pass ] ] ] in TFCallbackQueue>>forkCallbackProcess
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+THERE_BE_DRAGONS_HERE
+SubscriptOutOfBounds: 2
+27 October 2021 11:30:19.129246 pm
+
+VM: unix - x86_64 - linux-gnu - CoInterpreter * VMMaker-tonel.1 uuid: 6e75c100-768a-0d00-a503-de5f040b381d Oct 11 2021
+StackToRegisterMappingCogit * VMMaker-tonel.1 uuid: 6e75c100-768a-0d00-a503-de5f040b381d Oct 11 2021
+v9.0.9 - Commit: 220ee65 - Date: 2021-10-11 15:53:10 +0200
+
+Image: Pharo9.0.0 [Build information: Pharo-9.0.0+build.1564.sha.f5f541cb35c8609abfec418e35d5506715c7987d (64 Bit)]
+
+FullBlockClosure(Object)>>errorSubscriptBounds:
+	Receiver: [Array 
+					with: (matcher subexpression: 2) 
+					with: (matcher subexpression: 3)
+					...etc...
+	Arguments and temporary variables: 
+		index: 	2
+	Receiver's instance variables: 
+		outerContext: 	Condition>>parse:
+		startpc: 	a CompiledBlock: [Array 
+					with: (matcher subexpression: 2) 
+					w...etc...
+		numArgs: 	0
+		receiver: 	a Condition
+
+
+FullBlockClosure(Object)>>at:
+	Receiver: [Array 
+					with: (matcher subexpression: 2) 
+					with: (matcher subexpression: 3)
+					...etc...
+	Arguments and temporary variables: 
+		index: 	2
+	Receiver's instance variables: 
+		outerContext: 	Condition>>parse:
+		startpc: 	a CompiledBlock: [Array 
+					with: (matcher subexpression: 2) 
+					w...etc...
+		numArgs: 	0
+		receiver: 	a Condition
+
+
+Condition>>parse:
+	Receiver: a Condition
+	Arguments and temporary variables: 
+		input: 	'==$3,0'
+		matcher: 	a RxMatcher
+		groups: 	[Array 
+					with: (matcher subexpression: 2) 
+					with: (matcher sube...etc...
+		opName: 	a RxMatcher
+		left: 	nil
+		right: 	nil
+	Receiver's instance variables: 
+		op: 	nil
+		colNum: 	nil
+		colName: 	nil
+		constant: 	nil
+		logger: 	an ErrorLogger
+
+
+Table>>when:
+	Receiver: a Table
+	Arguments and temporary variables: 
+		exp: 	'==$3,0'
+		condition: 	a Condition
+		newTable: 	nil
+		col: 	nil
+		constant: 	nil
+		op: 	nil
+	Receiver's instance variables: 
+		hasHeaders: 	true
+		headers: 	an OrderedCollection('1' '3' '5')
+		numRows: 	2
+		numCols: 	3
+		data: 	an OrderedCollection(an OrderedCollection(a NumericCell a NumericCell a N...etc...
+		logger: 	an ErrorLogger
+
+
+Program>>execute
+	Receiver: a Program
+	Arguments and temporary variables: 
+		in: 	a Table
+		out: 	nil
+		errorLogger: 	an ErrorLogger
+	Receiver's instance variables: 
+		hasHeaders: 	true
+		operation: 	'-when'
+		argument: 	'==$3,0'
+		tableFile: 	'../tests/1.txt'
+		outFile: 	'../tests/0.out'
+		errorFile: 	'../tests/stdout.txt'
+
+
+TableMain>>main:
+	Receiver: a TableMain
+	Arguments and temporary variables: 
+		message: 	'-header -when ==$3,0 ../tests/1.txt ../tests/0.out'
+		program: 	a Program
+	Receiver's instance variables: 
+a TableMain
+
+UndefinedObject>>DoIt
+	Receiver: nil
+	Arguments and temporary variables: 
+		a: 	a TableMain
+	Receiver's instance variables: 
+nil
+
+[ receiver withArgs: (context ifNil: [ #() ] ifNotNil: [ {context} ]) executeMethod: self compileDoit] in OpalCompiler>>evaluate
+	Receiver: an OpalCompiler
+	Arguments and temporary variables: 
+		value: 	nil
+	Receiver's instance variables: 
+		ast: 	DoIt
+
+	| a |
+	a := TableMain new.
+	^ a main: '-header -when ==$3,0 ../test...etc...
+		source: 	a ReadStream
+		context: 	nil
+		receiver: 	nil
+		compilationContext: 	a CompilationContext
+		compilationContextClass: 	nil
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ receiver withArgs: (context ifNil: [ #() ] ifNotNil: [ {context} ]) executeMethod: self ...etc...
+	Arguments and temporary variables: 
+		exception: 	SyntaxErrorNotification
+		handlerAction: 	[ :exception | 
+			self compilationContext requestor
+           ...etc...
+	Receiver's instance variables: 
+		outerContext: 	OpalCompiler>>evaluate
+		startpc: 	a CompiledBlock: [ receiver withArgs: (context ifNil: [ #() ] ifNotNil...etc...
+		numArgs: 	0
+		receiver: 	an OpalCompiler
+
+
+OpalCompiler>>evaluate
+	Receiver: an OpalCompiler
+	Arguments and temporary variables: 
+		value: 	nil
+	Receiver's instance variables: 
+		ast: 	DoIt
+
+	| a |
+	a := TableMain new.
+	^ a main: '-header -when ==$3,0 ../test...etc...
+		source: 	a ReadStream
+		context: 	nil
+		receiver: 	nil
+		compilationContext: 	a CompilationContext
+		compilationContextClass: 	nil
+
+
+OpalCompiler>>evaluate:
+	Receiver: an OpalCompiler
+	Arguments and temporary variables: 
+		textOrString: 	'|a|. a:=TableMain new. a main: ''-header -when ==$3,0 ../tests/1...etc...
+	Receiver's instance variables: 
+		ast: 	DoIt
+
+	| a |
+	a := TableMain new.
+	^ a main: '-header -when ==$3,0 ../test...etc...
+		source: 	a ReadStream
+		context: 	nil
+		receiver: 	nil
+		compilationContext: 	a CompilationContext
+		compilationContextClass: 	nil
+
+
+[ 
+	result := Smalltalk compiler evaluate: aStream.
+	self hasSessionChanged
+		ifFalse: [ 
+			self stdout
+				print: result;
+				lf ] ] in EvaluateCommandLineHandler>>evaluate:
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		aStream: 	'|a|. a:=TableMain new. a main: ''-header -when ==$3,0 ../tests/1.txt ...etc...
+		result: 	nil
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ 
+	result := Smalltalk compiler evaluate: aStream.
+	self hasSessionChanged
+		ifFalse: [ 
+...etc...
+	Arguments and temporary variables: 
+		exception: 	Error
+		handlerAction: 	[ :error | self handleError: error ]
+	Receiver's instance variables: 
+		outerContext: 	EvaluateCommandLineHandler>>evaluate:
+		startpc: 	a CompiledBlock: [ 
+	result := Smalltalk compiler evaluate: aStream.
+	...etc...
+		numArgs: 	0
+		receiver: 	an EvaluateCommandLineHandler
+
+
+EvaluateCommandLineHandler>>evaluate:
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		result: 	nil
+		aStream: 	'|a|. a:=TableMain new. a main: ''-header -when ==$3,0 ../tests/1.txt ...etc...
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+EvaluateCommandLineHandler>>evaluateArguments
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		argumentString: 	'|a|. a:=TableMain new. a main: ''-header -when ==$3,0 ../tests...etc...
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+EvaluateCommandLineHandler>>activate
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+EvaluateCommandLineHandler class(CommandLineHandler class)>>activateWith:
+	Receiver: EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		aCommandLine: 	a CommandLineArguments
+	Receiver's instance variables: 
+		superclass: 	STCommandLineHandler
+		methodDict: 	a MethodDictionary(#activate->EvaluateCommandLineHandler>>#activate...etc...
+		format: 	65541
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#EvaluateCommandLineHandler
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'CodeImportCommandLineHandlers-Base'
+
+
+[ aCommandLinehandler activateWith: commandLine ] in PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		aCommandLinehandler: 	EvaluateCommandLineHandler
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ aCommandLinehandler activateWith: commandLine ]
+	Arguments and temporary variables: 
+		exception: 	Exit
+		handlerAction: 	[ :exit |
+		^ self handleExit: exit for: aCommandLinehandler ]
+	Receiver's instance variables: 
+		outerContext: 	PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubComm...etc...
+		startpc: 	a CompiledBlock: [ aCommandLinehandler activateWith: commandLine ]
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		aCommandLinehandler: 	EvaluateCommandLineHandler
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleSubcommand
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		handlers: 	an OrderedCollection(EvaluateCommandLineHandler)
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleArgument:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		aString: 	'eval'
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+[ self handleArgument: self firstArgument ] in [ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ self handleArgument: self firstArgument ]
+	Arguments and temporary variables: 
+		exception: 	Exit
+		handlerAction: 	[ :exit | 
+			"If the command line is protected by password, we ...etc...
+	Receiver's instance variables: 
+		outerContext: 	[ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ ...etc...
+		startpc: 	a CompiledBlock: [ self handleArgument: self firstArgument ]
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+[ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+	Receiver: [ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the comma...etc...
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		outerContext: 	PharoCommandLineHandler(BasicCommandLineHandler)>>activate
+		startpc: 	a CompiledBlock: [ [ self handleArgument: self firstArgument ]
+		on: E...etc...
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+
+--- The full stack ---
+FullBlockClosure(Object)>>errorSubscriptBounds:
+FullBlockClosure(Object)>>at:
+Condition>>parse:
+Table>>when:
+Program>>execute
+TableMain>>main:
+UndefinedObject>>DoIt
+[ receiver withArgs: (context ifNil: [ #() ] ifNotNil: [ {context} ]) executeMethod: self compileDoit] in OpalCompiler>>evaluate
+FullBlockClosure(BlockClosure)>>on:do:
+OpalCompiler>>evaluate
+OpalCompiler>>evaluate:
+[ 
+	result := Smalltalk compiler evaluate: aStream.
+	self hasSessionChanged
+		ifFalse: [ 
+			self stdout
+				print: result;
+				lf ] ] in EvaluateCommandLineHandler>>evaluate:
+FullBlockClosure(BlockClosure)>>on:do:
+EvaluateCommandLineHandler>>evaluate:
+EvaluateCommandLineHandler>>evaluateArguments
+EvaluateCommandLineHandler>>activate
+EvaluateCommandLineHandler class(CommandLineHandler class)>>activateWith:
+[ aCommandLinehandler activateWith: commandLine ] in PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+FullBlockClosure(BlockClosure)>>on:do:
+PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleSubcommand
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleArgument:
+[ self handleArgument: self firstArgument ] in [ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+FullBlockClosure(BlockClosure)>>on:do:
+[ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+-------------------------------------------------------------------------------
+
+Processes and their stacks: 
+Process: a Process in InputEventFetcher>>waitForInput
+  stack:
+
+InputEventFetcher>>waitForInput
+InputEventFetcher>>eventLoop
+Processor in InputEventFetcher>>installEventLoop
+[ 
+			  self value.
+			  Processor terminateActive ] asContext in BlockClosure>>newProcess
+------------------------------
+
+Process: a Process in AtomicSharedQueue>>waitForNewItems
+  stack:
+
+AtomicSharedQueue>>waitForNewItems
+AtomicSharedQueue>>next
+TKTWorkerProcess>>privateNextTask
+workerLoop
+
+	[ self executeTask: self privateNextTask ] repeat in TKTWorkerProcess>>workerLoop
+BlockClosure>>repeat
+TKTWorkerProcess>>workerLoop
+MessageSend>>value
+arg1 in TKTPharoProcessProvider>>createProcessDoing:named:
+[ 
+			  self value.
+			  Processor terminateActive ] asContext in BlockClosure>>newProcess
+------------------------------
+
+Process: a Process in MorphicRenderLoop>>doOneCycleWhile:
+  stack:
+
+MorphicRenderLoop>>doOneCycleWhile:
+[
+		MorphicRenderLoop new doOneCycleWhile: [ true ]
+	] in MorphicUIManager>>spawnNewProcess
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in DelayMicrosecondTicker>>waitForUserSignalled:orExpired:
+  stack:
+
+DelayMicrosecondTicker>>waitForUserSignalled:orExpired:
+[  [runTimerEventLoop] whileTrue: 
+		[	|nowTick|
+			"Warning! Stepping <Over> the following line may lock the Image. Use <Into> or <Proceed>."
+		 	ticker waitForUserSignalled: timingSemaphore orExpired: activeDelay. 
+
+			"Invoke the api back-ends, which set the transfer-variable to nil" 		
+			suspendSemaphore ifNotNil: [ self suspendAtTimingPriority    ].
+			delayToStart     ifNotNil: [ self scheduleAtTimingPriority   ].
+			delayToStop      ifNotNil: [ self unscheduleAtTimingPriority ].
+
+			"Signal any expired delays"
+			nowTick := ticker nowTick.
+			[ 	activeDelay notNil and: [nowTick >= activeDelay resumptionTick] ] 
+					whileTrue: [
+						activeDelay timingPrioritySignalExpired.
+						activeDelay := suspendedDelays removeFirstOrNil ].
+		]
+	] in DelaySemaphoreScheduler(DelayBasicScheduler)>>runBackendLoopAtTimingPriority
+FullBlockClosure(BlockClosure)>>ensure:
+DelaySemaphoreScheduler(DelayBasicScheduler)>>runBackendLoopAtTimingPriority
+[ self runBackendLoopAtTimingPriority ] in DelaySemaphoreScheduler(DelayBasicScheduler)>>startTimerEventLoopPriority:
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in SmalltalkImage>>lowSpaceWatcher
+  stack:
+
+SmalltalkImage>>lowSpaceWatcher
+[ self lowSpaceWatcher ] in SmalltalkImage>>installLowSpaceWatcher
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in nil
+  stack:
+
+Array(SequenceableCollection)>>do:
+[:logger | 
+		logger nextPutAll: 'Processes and their stacks: ';cr.
+		
+		Process allInstances do: [:each | | ctx |
+			logger nextPutAll: 'Process: '; print: each; cr; nextPutAll: '  stack:'; cr; cr.
+		
+			ctx := each isActiveProcess ifTrue: [ thisContext sender ] ifFalse: [ each suspendedContext ].
+			ctx ifNotNil: [
+				(ctx stackOfSize: 20) do: [:s | logger print: s; cr ]].
+			logger nextPutAll: '------------------------------'; cr; cr.	
+		]] in CommandLineUIManager>>quitFrom:withMessage:
+[
+		logStream := self openLog.
+		aMonadicBlock value: logStream.
+	] in SmalltalkImage>>logDuring:
+FullBlockClosure(BlockClosure)>>ensure:
+SmalltalkImage>>logDuring:
+[ Smalltalk 
+		logError: aString
+		inContext: aContext.
+		
+	" Print stacks of all current processes "
+
+	Smalltalk logDuring: [:logger | 
+		logger nextPutAll: 'Processes and their stacks: ';cr.
+		
+		Process allInstances do: [:each | | ctx |
+			logger nextPutAll: 'Process: '; print: each; cr; nextPutAll: '  stack:'; cr; cr.
+		
+			ctx := each isActiveProcess ifTrue: [ thisContext sender ] ifFalse: [ each suspendedContext ].
+			ctx ifNotNil: [
+				(ctx stackOfSize: 20) do: [:s | logger print: s; cr ]].
+			logger nextPutAll: '------------------------------'; cr; cr.	
+		]].
+	] in NonInteractiveUIManager(CommandLineUIManager)>>quitFrom:withMessage:
+FullBlockClosure(BlockClosure)>>ensure:
+NonInteractiveUIManager(CommandLineUIManager)>>quitFrom:withMessage:
+NonInteractiveUIManager(CommandLineUIManager)>>unhandledErrorDefaultAction:
+SubscriptOutOfBounds(Exception)>>unhandledErrorAction
+UnhandledError>>defaultAction
+UndefinedObject>>handleSignal:
+Context>>handleSignal:
+Context>>handleSignal:
+Context>>handleSignal:
+Context>>handleSignal:
+UnhandledError(Exception)>>signal
+UnhandledError class>>signalForException:
+SubscriptOutOfBounds(Exception)>>raiseUnhandledError
+SubscriptOutOfBounds(Exception)>>defaultAction
+------------------------------
+
+Process: a Process in WeakArray class>>finalizationProcess
+  stack:
+
+WeakArray class>>finalizationProcess
+[self finalizationProcess] in WeakArray class>>restartFinalizationProcess
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in [
+		[ true ] whileTrue: [
+			semaphore wait.
+			[self executeCallback: self nextPendingCallback]
+				on: Exception fork:  [:ex | ex pass ] ] ] in TFCallbackQueue>>forkCallbackProcess
+  stack:
+
+[
+		[ true ] whileTrue: [
+			semaphore wait.
+			[self executeCallback: self nextPendingCallback]
+				on: Exception fork:  [:ex | ex pass ] ] ] in TFCallbackQueue>>forkCallbackProcess
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+THERE_BE_DRAGONS_HERE
+Error: COL INDEX ERROR
+27 October 2021 11:31:31.18419 pm
+
+VM: unix - x86_64 - linux-gnu - CoInterpreter * VMMaker-tonel.1 uuid: 6e75c100-768a-0d00-a503-de5f040b381d Oct 11 2021
+StackToRegisterMappingCogit * VMMaker-tonel.1 uuid: 6e75c100-768a-0d00-a503-de5f040b381d Oct 11 2021
+v9.0.9 - Commit: 220ee65 - Date: 2021-10-11 15:53:10 +0200
+
+Image: Pharo9.0.0 [Build information: Pharo-9.0.0+build.1564.sha.f5f541cb35c8609abfec418e35d5506715c7987d (64 Bit)]
+
+ErrorLogger>>log:
+	Receiver: an ErrorLogger
+	Arguments and temporary variables: 
+		value: 	'COL INDEX ERROR'
+		working: 	File @ /home/juanjoneri/UT/AdvancedAlgorithms/pp-jjn855/smalltalk/code...etc...
+		stream: 	a ZnCharacterWriteStream
+	Receiver's instance variables: 
+		file: 	'../tests/stdout.txt'
+
+
+ErrorLogger>>logColIndexError
+	Receiver: an ErrorLogger
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		file: 	'../tests/stdout.txt'
+
+
+Table>>checkColIndex:
+	Receiver: a Table
+	Arguments and temporary variables: 
+		each: 	4
+	Receiver's instance variables: 
+		hasHeaders: 	true
+		headers: 	an OrderedCollection('1' '3' '5')
+		numRows: 	2
+		numCols: 	3
+		data: 	an OrderedCollection(an OrderedCollection(a NumericCell a NumericCell a N...etc...
+		logger: 	an ErrorLogger
+
+
+Table>>when:
+	Receiver: a Table
+	Arguments and temporary variables: 
+		exp: 	'==$3,0'
+		condition: 	a Condition
+		newTable: 	nil
+		col: 	4
+		constant: 	nil
+		op: 	nil
+	Receiver's instance variables: 
+		hasHeaders: 	true
+		headers: 	an OrderedCollection('1' '3' '5')
+		numRows: 	2
+		numCols: 	3
+		data: 	an OrderedCollection(an OrderedCollection(a NumericCell a NumericCell a N...etc...
+		logger: 	an ErrorLogger
+
+
+Program>>execute
+	Receiver: a Program
+	Arguments and temporary variables: 
+		in: 	a Table
+		out: 	nil
+		errorLogger: 	an ErrorLogger
+	Receiver's instance variables: 
+		hasHeaders: 	true
+		operation: 	'-when'
+		argument: 	'==$3,0'
+		tableFile: 	'../tests/1.txt'
+		outFile: 	'../tests/0.out'
+		errorFile: 	'../tests/stdout.txt'
+
+
+TableMain>>main:
+	Receiver: a TableMain
+	Arguments and temporary variables: 
+		message: 	'-header -when ==$3,0 ../tests/1.txt ../tests/0.out'
+		program: 	a Program
+	Receiver's instance variables: 
+a TableMain
+
+UndefinedObject>>DoIt
+	Receiver: nil
+	Arguments and temporary variables: 
+		a: 	a TableMain
+	Receiver's instance variables: 
+nil
+
+[ receiver withArgs: (context ifNil: [ #() ] ifNotNil: [ {context} ]) executeMethod: self compileDoit] in OpalCompiler>>evaluate
+	Receiver: an OpalCompiler
+	Arguments and temporary variables: 
+		value: 	nil
+	Receiver's instance variables: 
+		ast: 	DoIt
+
+	| a |
+	a := TableMain new.
+	^ a main: '-header -when ==$3,0 ../test...etc...
+		source: 	a ReadStream
+		context: 	nil
+		receiver: 	nil
+		compilationContext: 	a CompilationContext
+		compilationContextClass: 	nil
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ receiver withArgs: (context ifNil: [ #() ] ifNotNil: [ {context} ]) executeMethod: self ...etc...
+	Arguments and temporary variables: 
+		exception: 	SyntaxErrorNotification
+		handlerAction: 	[ :exception | 
+			self compilationContext requestor
+           ...etc...
+	Receiver's instance variables: 
+		outerContext: 	OpalCompiler>>evaluate
+		startpc: 	a CompiledBlock: [ receiver withArgs: (context ifNil: [ #() ] ifNotNil...etc...
+		numArgs: 	0
+		receiver: 	an OpalCompiler
+
+
+OpalCompiler>>evaluate
+	Receiver: an OpalCompiler
+	Arguments and temporary variables: 
+		value: 	nil
+	Receiver's instance variables: 
+		ast: 	DoIt
+
+	| a |
+	a := TableMain new.
+	^ a main: '-header -when ==$3,0 ../test...etc...
+		source: 	a ReadStream
+		context: 	nil
+		receiver: 	nil
+		compilationContext: 	a CompilationContext
+		compilationContextClass: 	nil
+
+
+OpalCompiler>>evaluate:
+	Receiver: an OpalCompiler
+	Arguments and temporary variables: 
+		textOrString: 	'|a|. a:=TableMain new. a main: ''-header -when ==$3,0 ../tests/1...etc...
+	Receiver's instance variables: 
+		ast: 	DoIt
+
+	| a |
+	a := TableMain new.
+	^ a main: '-header -when ==$3,0 ../test...etc...
+		source: 	a ReadStream
+		context: 	nil
+		receiver: 	nil
+		compilationContext: 	a CompilationContext
+		compilationContextClass: 	nil
+
+
+[ 
+	result := Smalltalk compiler evaluate: aStream.
+	self hasSessionChanged
+		ifFalse: [ 
+			self stdout
+				print: result;
+				lf ] ] in EvaluateCommandLineHandler>>evaluate:
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		aStream: 	'|a|. a:=TableMain new. a main: ''-header -when ==$3,0 ../tests/1.txt ...etc...
+		result: 	nil
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ 
+	result := Smalltalk compiler evaluate: aStream.
+	self hasSessionChanged
+		ifFalse: [ 
+...etc...
+	Arguments and temporary variables: 
+		exception: 	Error
+		handlerAction: 	[ :error | self handleError: error ]
+	Receiver's instance variables: 
+		outerContext: 	EvaluateCommandLineHandler>>evaluate:
+		startpc: 	a CompiledBlock: [ 
+	result := Smalltalk compiler evaluate: aStream.
+	...etc...
+		numArgs: 	0
+		receiver: 	an EvaluateCommandLineHandler
+
+
+EvaluateCommandLineHandler>>evaluate:
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		result: 	nil
+		aStream: 	'|a|. a:=TableMain new. a main: ''-header -when ==$3,0 ../tests/1.txt ...etc...
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+EvaluateCommandLineHandler>>evaluateArguments
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		argumentString: 	'|a|. a:=TableMain new. a main: ''-header -when ==$3,0 ../tests...etc...
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+EvaluateCommandLineHandler>>activate
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+EvaluateCommandLineHandler class(CommandLineHandler class)>>activateWith:
+	Receiver: EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		aCommandLine: 	a CommandLineArguments
+	Receiver's instance variables: 
+		superclass: 	STCommandLineHandler
+		methodDict: 	a MethodDictionary(#activate->EvaluateCommandLineHandler>>#activate...etc...
+		format: 	65541
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#EvaluateCommandLineHandler
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'CodeImportCommandLineHandlers-Base'
+
+
+[ aCommandLinehandler activateWith: commandLine ] in PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		aCommandLinehandler: 	EvaluateCommandLineHandler
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ aCommandLinehandler activateWith: commandLine ]
+	Arguments and temporary variables: 
+		exception: 	Exit
+		handlerAction: 	[ :exit |
+		^ self handleExit: exit for: aCommandLinehandler ]
+	Receiver's instance variables: 
+		outerContext: 	PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubComm...etc...
+		startpc: 	a CompiledBlock: [ aCommandLinehandler activateWith: commandLine ]
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		aCommandLinehandler: 	EvaluateCommandLineHandler
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleSubcommand
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		handlers: 	an OrderedCollection(EvaluateCommandLineHandler)
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleArgument:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		aString: 	'eval'
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+[ self handleArgument: self firstArgument ] in [ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ self handleArgument: self firstArgument ]
+	Arguments and temporary variables: 
+		exception: 	Exit
+		handlerAction: 	[ :exit | 
+			"If the command line is protected by password, we ...etc...
+	Receiver's instance variables: 
+		outerContext: 	[ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ ...etc...
+		startpc: 	a CompiledBlock: [ self handleArgument: self firstArgument ]
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+[ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+	Receiver: [ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the comma...etc...
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		outerContext: 	PharoCommandLineHandler(BasicCommandLineHandler)>>activate
+		startpc: 	a CompiledBlock: [ [ self handleArgument: self firstArgument ]
+		on: E...etc...
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+
+--- The full stack ---
+ErrorLogger>>log:
+ErrorLogger>>logColIndexError
+Table>>checkColIndex:
+Table>>when:
+Program>>execute
+TableMain>>main:
+UndefinedObject>>DoIt
+[ receiver withArgs: (context ifNil: [ #() ] ifNotNil: [ {context} ]) executeMethod: self compileDoit] in OpalCompiler>>evaluate
+FullBlockClosure(BlockClosure)>>on:do:
+OpalCompiler>>evaluate
+OpalCompiler>>evaluate:
+[ 
+	result := Smalltalk compiler evaluate: aStream.
+	self hasSessionChanged
+		ifFalse: [ 
+			self stdout
+				print: result;
+				lf ] ] in EvaluateCommandLineHandler>>evaluate:
+FullBlockClosure(BlockClosure)>>on:do:
+EvaluateCommandLineHandler>>evaluate:
+EvaluateCommandLineHandler>>evaluateArguments
+EvaluateCommandLineHandler>>activate
+EvaluateCommandLineHandler class(CommandLineHandler class)>>activateWith:
+[ aCommandLinehandler activateWith: commandLine ] in PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+FullBlockClosure(BlockClosure)>>on:do:
+PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleSubcommand
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleArgument:
+[ self handleArgument: self firstArgument ] in [ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+FullBlockClosure(BlockClosure)>>on:do:
+[ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+-------------------------------------------------------------------------------
+
+Processes and their stacks: 
+Process: a Process in InputEventFetcher>>waitForInput
+  stack:
+
+InputEventFetcher>>waitForInput
+InputEventFetcher>>eventLoop
+Processor in InputEventFetcher>>installEventLoop
+[ 
+			  self value.
+			  Processor terminateActive ] asContext in BlockClosure>>newProcess
+------------------------------
+
+Process: a Process in AtomicSharedQueue>>waitForNewItems
+  stack:
+
+AtomicSharedQueue>>waitForNewItems
+AtomicSharedQueue>>next
+TKTWorkerProcess>>privateNextTask
+workerLoop
+
+	[ self executeTask: self privateNextTask ] repeat in TKTWorkerProcess>>workerLoop
+BlockClosure>>repeat
+TKTWorkerProcess>>workerLoop
+MessageSend>>value
+arg1 in TKTPharoProcessProvider>>createProcessDoing:named:
+[ 
+			  self value.
+			  Processor terminateActive ] asContext in BlockClosure>>newProcess
+------------------------------
+
+Process: a Process in MorphicRenderLoop>>doOneCycleWhile:
+  stack:
+
+MorphicRenderLoop>>doOneCycleWhile:
+[
+		MorphicRenderLoop new doOneCycleWhile: [ true ]
+	] in MorphicUIManager>>spawnNewProcess
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in DelayMicrosecondTicker>>waitForUserSignalled:orExpired:
+  stack:
+
+DelayMicrosecondTicker>>waitForUserSignalled:orExpired:
+[  [runTimerEventLoop] whileTrue: 
+		[	|nowTick|
+			"Warning! Stepping <Over> the following line may lock the Image. Use <Into> or <Proceed>."
+		 	ticker waitForUserSignalled: timingSemaphore orExpired: activeDelay. 
+
+			"Invoke the api back-ends, which set the transfer-variable to nil" 		
+			suspendSemaphore ifNotNil: [ self suspendAtTimingPriority    ].
+			delayToStart     ifNotNil: [ self scheduleAtTimingPriority   ].
+			delayToStop      ifNotNil: [ self unscheduleAtTimingPriority ].
+
+			"Signal any expired delays"
+			nowTick := ticker nowTick.
+			[ 	activeDelay notNil and: [nowTick >= activeDelay resumptionTick] ] 
+					whileTrue: [
+						activeDelay timingPrioritySignalExpired.
+						activeDelay := suspendedDelays removeFirstOrNil ].
+		]
+	] in DelaySemaphoreScheduler(DelayBasicScheduler)>>runBackendLoopAtTimingPriority
+FullBlockClosure(BlockClosure)>>ensure:
+DelaySemaphoreScheduler(DelayBasicScheduler)>>runBackendLoopAtTimingPriority
+[ self runBackendLoopAtTimingPriority ] in DelaySemaphoreScheduler(DelayBasicScheduler)>>startTimerEventLoopPriority:
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in SmalltalkImage>>lowSpaceWatcher
+  stack:
+
+SmalltalkImage>>lowSpaceWatcher
+[ self lowSpaceWatcher ] in SmalltalkImage>>installLowSpaceWatcher
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in nil
+  stack:
+
+Array(SequenceableCollection)>>do:
+[:logger | 
+		logger nextPutAll: 'Processes and their stacks: ';cr.
+		
+		Process allInstances do: [:each | | ctx |
+			logger nextPutAll: 'Process: '; print: each; cr; nextPutAll: '  stack:'; cr; cr.
+		
+			ctx := each isActiveProcess ifTrue: [ thisContext sender ] ifFalse: [ each suspendedContext ].
+			ctx ifNotNil: [
+				(ctx stackOfSize: 20) do: [:s | logger print: s; cr ]].
+			logger nextPutAll: '------------------------------'; cr; cr.	
+		]] in CommandLineUIManager>>quitFrom:withMessage:
+[
+		logStream := self openLog.
+		aMonadicBlock value: logStream.
+	] in SmalltalkImage>>logDuring:
+FullBlockClosure(BlockClosure)>>ensure:
+SmalltalkImage>>logDuring:
+[ Smalltalk 
+		logError: aString
+		inContext: aContext.
+		
+	" Print stacks of all current processes "
+
+	Smalltalk logDuring: [:logger | 
+		logger nextPutAll: 'Processes and their stacks: ';cr.
+		
+		Process allInstances do: [:each | | ctx |
+			logger nextPutAll: 'Process: '; print: each; cr; nextPutAll: '  stack:'; cr; cr.
+		
+			ctx := each isActiveProcess ifTrue: [ thisContext sender ] ifFalse: [ each suspendedContext ].
+			ctx ifNotNil: [
+				(ctx stackOfSize: 20) do: [:s | logger print: s; cr ]].
+			logger nextPutAll: '------------------------------'; cr; cr.	
+		]].
+	] in NonInteractiveUIManager(CommandLineUIManager)>>quitFrom:withMessage:
+FullBlockClosure(BlockClosure)>>ensure:
+NonInteractiveUIManager(CommandLineUIManager)>>quitFrom:withMessage:
+NonInteractiveUIManager(CommandLineUIManager)>>unhandledErrorDefaultAction:
+Error(Exception)>>unhandledErrorAction
+UnhandledError>>defaultAction
+UndefinedObject>>handleSignal:
+Context>>handleSignal:
+Context>>handleSignal:
+Context>>handleSignal:
+Context>>handleSignal:
+UnhandledError(Exception)>>signal
+UnhandledError class>>signalForException:
+Error(Exception)>>raiseUnhandledError
+Error(Exception)>>defaultAction
+------------------------------
+
+Process: a Process in WeakArray class>>finalizationProcess
+  stack:
+
+WeakArray class>>finalizationProcess
+[self finalizationProcess] in WeakArray class>>restartFinalizationProcess
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in [
+		[ true ] whileTrue: [
+			semaphore wait.
+			[self executeCallback: self nextPendingCallback]
+				on: Exception fork:  [:ex | ex pass ] ] ] in TFCallbackQueue>>forkCallbackProcess
+  stack:
+
+[
+		[ true ] whileTrue: [
+			semaphore wait.
+			[self executeCallback: self nextPendingCallback]
+				on: Exception fork:  [:ex | ex pass ] ] ] in TFCallbackQueue>>forkCallbackProcess
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+THERE_BE_DRAGONS_HERE
+Error: TYPE ERROR
+27 October 2021 11:32:53.437577 pm
+
+VM: unix - x86_64 - linux-gnu - CoInterpreter * VMMaker-tonel.1 uuid: 6e75c100-768a-0d00-a503-de5f040b381d Oct 11 2021
+StackToRegisterMappingCogit * VMMaker-tonel.1 uuid: 6e75c100-768a-0d00-a503-de5f040b381d Oct 11 2021
+v9.0.9 - Commit: 220ee65 - Date: 2021-10-11 15:53:10 +0200
+
+Image: Pharo9.0.0 [Build information: Pharo-9.0.0+build.1564.sha.f5f541cb35c8609abfec418e35d5506715c7987d (64 Bit)]
+
+ErrorLogger>>log:
+	Receiver: an ErrorLogger
+	Arguments and temporary variables: 
+		value: 	'TYPE ERROR'
+		working: 	File @ /home/juanjoneri/UT/AdvancedAlgorithms/pp-jjn855/smalltalk/code...etc...
+		stream: 	a ZnCharacterWriteStream
+	Receiver's instance variables: 
+		file: 	'../tests/stdout.txt'
+
+
+ErrorLogger>>logTypeError
+	Receiver: an ErrorLogger
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		file: 	'../tests/stdout.txt'
+
+
+[ :row | ((row at: colNumber) class) = NumericCell ifFalse: [ logger logTypeError ] ] in Table>>sum:
+	Receiver: a Table
+	Arguments and temporary variables: 
+		sum: 	nil
+		col: 	'0'
+		cell: 	nil
+		colNumber: 	1
+		row: 	an OrderedCollection(a StringCell a NumericCell a NumericCell)
+	Receiver's instance variables: 
+		hasHeaders: 	true
+		headers: 	an OrderedCollection('1' '3' '5')
+		numRows: 	2
+		numCols: 	3
+		data: 	an OrderedCollection(an OrderedCollection(a NumericCell a NumericCell a N...etc...
+		logger: 	an ErrorLogger
+
+
+OrderedCollection>>do:
+	Receiver: an OrderedCollection(an OrderedCollection(a NumericCell a NumericCell a NumericCell) an Or...etc...
+	Arguments and temporary variables: 
+		aBlock: 	[ :row | ((row at: colNumber) class) = NumericCell ifFalse: [ logger lo...etc...
+		index: 	2
+	Receiver's instance variables: 
+		array: 	an Array(an OrderedCollection(a NumericCell a NumericCell a NumericCell)...etc...
+		firstIndex: 	1
+		lastIndex: 	2
+
+
+Table>>sum:
+	Receiver: a Table
+	Arguments and temporary variables: 
+		sum: 	nil
+		col: 	'0'
+		cell: 	nil
+		colNumber: 	1
+	Receiver's instance variables: 
+		hasHeaders: 	true
+		headers: 	an OrderedCollection('1' '3' '5')
+		numRows: 	2
+		numCols: 	3
+		data: 	an OrderedCollection(an OrderedCollection(a NumericCell a NumericCell a N...etc...
+		logger: 	an ErrorLogger
+
+
+Program>>execute
+	Receiver: a Program
+	Arguments and temporary variables: 
+		in: 	a Table
+		out: 	nil
+		errorLogger: 	an ErrorLogger
+	Receiver's instance variables: 
+		hasHeaders: 	true
+		operation: 	'-sum'
+		argument: 	'0'
+		tableFile: 	'../tests/1.txt'
+		outFile: 	'../tests/0.out'
+		errorFile: 	'../tests/stdout.txt'
+
+
+TableMain>>main:
+	Receiver: a TableMain
+	Arguments and temporary variables: 
+		message: 	'-header -sum 0 ../tests/1.txt ../tests/0.out'
+		program: 	a Program
+	Receiver's instance variables: 
+a TableMain
+
+UndefinedObject>>DoIt
+	Receiver: nil
+	Arguments and temporary variables: 
+		a: 	a TableMain
+	Receiver's instance variables: 
+nil
+
+[ receiver withArgs: (context ifNil: [ #() ] ifNotNil: [ {context} ]) executeMethod: self compileDoit] in OpalCompiler>>evaluate
+	Receiver: an OpalCompiler
+	Arguments and temporary variables: 
+		value: 	nil
+	Receiver's instance variables: 
+		ast: 	DoIt
+
+	| a |
+	a := TableMain new.
+	^ a main: '-header -sum 0 ../tests/1.tx...etc...
+		source: 	a ReadStream
+		context: 	nil
+		receiver: 	nil
+		compilationContext: 	a CompilationContext
+		compilationContextClass: 	nil
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ receiver withArgs: (context ifNil: [ #() ] ifNotNil: [ {context} ]) executeMethod: self ...etc...
+	Arguments and temporary variables: 
+		exception: 	SyntaxErrorNotification
+		handlerAction: 	[ :exception | 
+			self compilationContext requestor
+           ...etc...
+	Receiver's instance variables: 
+		outerContext: 	OpalCompiler>>evaluate
+		startpc: 	a CompiledBlock: [ receiver withArgs: (context ifNil: [ #() ] ifNotNil...etc...
+		numArgs: 	0
+		receiver: 	an OpalCompiler
+
+
+OpalCompiler>>evaluate
+	Receiver: an OpalCompiler
+	Arguments and temporary variables: 
+		value: 	nil
+	Receiver's instance variables: 
+		ast: 	DoIt
+
+	| a |
+	a := TableMain new.
+	^ a main: '-header -sum 0 ../tests/1.tx...etc...
+		source: 	a ReadStream
+		context: 	nil
+		receiver: 	nil
+		compilationContext: 	a CompilationContext
+		compilationContextClass: 	nil
+
+
+OpalCompiler>>evaluate:
+	Receiver: an OpalCompiler
+	Arguments and temporary variables: 
+		textOrString: 	'|a|. a:=TableMain new. a main: ''-header -sum 0 ../tests/1.txt ....etc...
+	Receiver's instance variables: 
+		ast: 	DoIt
+
+	| a |
+	a := TableMain new.
+	^ a main: '-header -sum 0 ../tests/1.tx...etc...
+		source: 	a ReadStream
+		context: 	nil
+		receiver: 	nil
+		compilationContext: 	a CompilationContext
+		compilationContextClass: 	nil
+
+
+[ 
+	result := Smalltalk compiler evaluate: aStream.
+	self hasSessionChanged
+		ifFalse: [ 
+			self stdout
+				print: result;
+				lf ] ] in EvaluateCommandLineHandler>>evaluate:
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		aStream: 	'|a|. a:=TableMain new. a main: ''-header -sum 0 ../tests/1.txt ../tes...etc...
+		result: 	nil
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ 
+	result := Smalltalk compiler evaluate: aStream.
+	self hasSessionChanged
+		ifFalse: [ 
+...etc...
+	Arguments and temporary variables: 
+		exception: 	Error
+		handlerAction: 	[ :error | self handleError: error ]
+	Receiver's instance variables: 
+		outerContext: 	EvaluateCommandLineHandler>>evaluate:
+		startpc: 	a CompiledBlock: [ 
+	result := Smalltalk compiler evaluate: aStream.
+	...etc...
+		numArgs: 	0
+		receiver: 	an EvaluateCommandLineHandler
+
+
+EvaluateCommandLineHandler>>evaluate:
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		result: 	nil
+		aStream: 	'|a|. a:=TableMain new. a main: ''-header -sum 0 ../tests/1.txt ../tes...etc...
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+EvaluateCommandLineHandler>>evaluateArguments
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		argumentString: 	'|a|. a:=TableMain new. a main: ''-header -sum 0 ../tests/1.txt...etc...
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+EvaluateCommandLineHandler>>activate
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+EvaluateCommandLineHandler class(CommandLineHandler class)>>activateWith:
+	Receiver: EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		aCommandLine: 	a CommandLineArguments
+	Receiver's instance variables: 
+		superclass: 	STCommandLineHandler
+		methodDict: 	a MethodDictionary(#activate->EvaluateCommandLineHandler>>#activate...etc...
+		format: 	65541
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#EvaluateCommandLineHandler
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'CodeImportCommandLineHandlers-Base'
+
+
+[ aCommandLinehandler activateWith: commandLine ] in PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		aCommandLinehandler: 	EvaluateCommandLineHandler
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ aCommandLinehandler activateWith: commandLine ]
+	Arguments and temporary variables: 
+		exception: 	Exit
+		handlerAction: 	[ :exit |
+		^ self handleExit: exit for: aCommandLinehandler ]
+	Receiver's instance variables: 
+		outerContext: 	PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubComm...etc...
+		startpc: 	a CompiledBlock: [ aCommandLinehandler activateWith: commandLine ]
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		aCommandLinehandler: 	EvaluateCommandLineHandler
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleSubcommand
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		handlers: 	an OrderedCollection(EvaluateCommandLineHandler)
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleArgument:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		aString: 	'eval'
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+[ self handleArgument: self firstArgument ] in [ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ self handleArgument: self firstArgument ]
+	Arguments and temporary variables: 
+		exception: 	Exit
+		handlerAction: 	[ :exit | 
+			"If the command line is protected by password, we ...etc...
+	Receiver's instance variables: 
+		outerContext: 	[ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ ...etc...
+		startpc: 	a CompiledBlock: [ self handleArgument: self firstArgument ]
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+[ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+	Receiver: [ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the comma...etc...
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		outerContext: 	PharoCommandLineHandler(BasicCommandLineHandler)>>activate
+		startpc: 	a CompiledBlock: [ [ self handleArgument: self firstArgument ]
+		on: E...etc...
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+
+--- The full stack ---
+ErrorLogger>>log:
+ErrorLogger>>logTypeError
+[ :row | ((row at: colNumber) class) = NumericCell ifFalse: [ logger logTypeError ] ] in Table>>sum:
+OrderedCollection>>do:
+Table>>sum:
+Program>>execute
+TableMain>>main:
+UndefinedObject>>DoIt
+[ receiver withArgs: (context ifNil: [ #() ] ifNotNil: [ {context} ]) executeMethod: self compileDoit] in OpalCompiler>>evaluate
+FullBlockClosure(BlockClosure)>>on:do:
+OpalCompiler>>evaluate
+OpalCompiler>>evaluate:
+[ 
+	result := Smalltalk compiler evaluate: aStream.
+	self hasSessionChanged
+		ifFalse: [ 
+			self stdout
+				print: result;
+				lf ] ] in EvaluateCommandLineHandler>>evaluate:
+FullBlockClosure(BlockClosure)>>on:do:
+EvaluateCommandLineHandler>>evaluate:
+EvaluateCommandLineHandler>>evaluateArguments
+EvaluateCommandLineHandler>>activate
+EvaluateCommandLineHandler class(CommandLineHandler class)>>activateWith:
+[ aCommandLinehandler activateWith: commandLine ] in PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+FullBlockClosure(BlockClosure)>>on:do:
+PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleSubcommand
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleArgument:
+[ self handleArgument: self firstArgument ] in [ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+FullBlockClosure(BlockClosure)>>on:do:
+[ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+-------------------------------------------------------------------------------
+
+Processes and their stacks: 
+Process: a Process in InputEventFetcher>>waitForInput
+  stack:
+
+InputEventFetcher>>waitForInput
+InputEventFetcher>>eventLoop
+Processor in InputEventFetcher>>installEventLoop
+[ 
+			  self value.
+			  Processor terminateActive ] asContext in BlockClosure>>newProcess
+------------------------------
+
+Process: a Process in AtomicSharedQueue>>waitForNewItems
+  stack:
+
+AtomicSharedQueue>>waitForNewItems
+AtomicSharedQueue>>next
+TKTWorkerProcess>>privateNextTask
+workerLoop
+
+	[ self executeTask: self privateNextTask ] repeat in TKTWorkerProcess>>workerLoop
+BlockClosure>>repeat
+TKTWorkerProcess>>workerLoop
+MessageSend>>value
+arg1 in TKTPharoProcessProvider>>createProcessDoing:named:
+[ 
+			  self value.
+			  Processor terminateActive ] asContext in BlockClosure>>newProcess
+------------------------------
+
+Process: a Process in MorphicRenderLoop>>doOneCycleWhile:
+  stack:
+
+MorphicRenderLoop>>doOneCycleWhile:
+[
+		MorphicRenderLoop new doOneCycleWhile: [ true ]
+	] in MorphicUIManager>>spawnNewProcess
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in DelayMicrosecondTicker>>waitForUserSignalled:orExpired:
+  stack:
+
+DelayMicrosecondTicker>>waitForUserSignalled:orExpired:
+[  [runTimerEventLoop] whileTrue: 
+		[	|nowTick|
+			"Warning! Stepping <Over> the following line may lock the Image. Use <Into> or <Proceed>."
+		 	ticker waitForUserSignalled: timingSemaphore orExpired: activeDelay. 
+
+			"Invoke the api back-ends, which set the transfer-variable to nil" 		
+			suspendSemaphore ifNotNil: [ self suspendAtTimingPriority    ].
+			delayToStart     ifNotNil: [ self scheduleAtTimingPriority   ].
+			delayToStop      ifNotNil: [ self unscheduleAtTimingPriority ].
+
+			"Signal any expired delays"
+			nowTick := ticker nowTick.
+			[ 	activeDelay notNil and: [nowTick >= activeDelay resumptionTick] ] 
+					whileTrue: [
+						activeDelay timingPrioritySignalExpired.
+						activeDelay := suspendedDelays removeFirstOrNil ].
+		]
+	] in DelaySemaphoreScheduler(DelayBasicScheduler)>>runBackendLoopAtTimingPriority
+FullBlockClosure(BlockClosure)>>ensure:
+DelaySemaphoreScheduler(DelayBasicScheduler)>>runBackendLoopAtTimingPriority
+[ self runBackendLoopAtTimingPriority ] in DelaySemaphoreScheduler(DelayBasicScheduler)>>startTimerEventLoopPriority:
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in SmalltalkImage>>lowSpaceWatcher
+  stack:
+
+SmalltalkImage>>lowSpaceWatcher
+[ self lowSpaceWatcher ] in SmalltalkImage>>installLowSpaceWatcher
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in nil
+  stack:
+
+Array(SequenceableCollection)>>do:
+[:logger | 
+		logger nextPutAll: 'Processes and their stacks: ';cr.
+		
+		Process allInstances do: [:each | | ctx |
+			logger nextPutAll: 'Process: '; print: each; cr; nextPutAll: '  stack:'; cr; cr.
+		
+			ctx := each isActiveProcess ifTrue: [ thisContext sender ] ifFalse: [ each suspendedContext ].
+			ctx ifNotNil: [
+				(ctx stackOfSize: 20) do: [:s | logger print: s; cr ]].
+			logger nextPutAll: '------------------------------'; cr; cr.	
+		]] in CommandLineUIManager>>quitFrom:withMessage:
+[
+		logStream := self openLog.
+		aMonadicBlock value: logStream.
+	] in SmalltalkImage>>logDuring:
+FullBlockClosure(BlockClosure)>>ensure:
+SmalltalkImage>>logDuring:
+[ Smalltalk 
+		logError: aString
+		inContext: aContext.
+		
+	" Print stacks of all current processes "
+
+	Smalltalk logDuring: [:logger | 
+		logger nextPutAll: 'Processes and their stacks: ';cr.
+		
+		Process allInstances do: [:each | | ctx |
+			logger nextPutAll: 'Process: '; print: each; cr; nextPutAll: '  stack:'; cr; cr.
+		
+			ctx := each isActiveProcess ifTrue: [ thisContext sender ] ifFalse: [ each suspendedContext ].
+			ctx ifNotNil: [
+				(ctx stackOfSize: 20) do: [:s | logger print: s; cr ]].
+			logger nextPutAll: '------------------------------'; cr; cr.	
+		]].
+	] in NonInteractiveUIManager(CommandLineUIManager)>>quitFrom:withMessage:
+FullBlockClosure(BlockClosure)>>ensure:
+NonInteractiveUIManager(CommandLineUIManager)>>quitFrom:withMessage:
+NonInteractiveUIManager(CommandLineUIManager)>>unhandledErrorDefaultAction:
+Error(Exception)>>unhandledErrorAction
+UnhandledError>>defaultAction
+UndefinedObject>>handleSignal:
+Context>>handleSignal:
+Context>>handleSignal:
+Context>>handleSignal:
+Context>>handleSignal:
+UnhandledError(Exception)>>signal
+UnhandledError class>>signalForException:
+Error(Exception)>>raiseUnhandledError
+Error(Exception)>>defaultAction
+------------------------------
+
+Process: a Process in WeakArray class>>finalizationProcess
+  stack:
+
+WeakArray class>>finalizationProcess
+[self finalizationProcess] in WeakArray class>>restartFinalizationProcess
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in [
+		[ true ] whileTrue: [
+			semaphore wait.
+			[self executeCallback: self nextPendingCallback]
+				on: Exception fork:  [:ex | ex pass ] ] ] in TFCallbackQueue>>forkCallbackProcess
+  stack:
+
+[
+		[ true ] whileTrue: [
+			semaphore wait.
+			[self executeCallback: self nextPendingCallback]
+				on: Exception fork:  [:ex | ex pass ] ] ] in TFCallbackQueue>>forkCallbackProcess
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+THERE_BE_DRAGONS_HERE
+Error: NUM COLS ERROR
+27 October 2021 11:34:40.765703 pm
+
+VM: unix - x86_64 - linux-gnu - CoInterpreter * VMMaker-tonel.1 uuid: 6e75c100-768a-0d00-a503-de5f040b381d Oct 11 2021
+StackToRegisterMappingCogit * VMMaker-tonel.1 uuid: 6e75c100-768a-0d00-a503-de5f040b381d Oct 11 2021
+v9.0.9 - Commit: 220ee65 - Date: 2021-10-11 15:53:10 +0200
+
+Image: Pharo9.0.0 [Build information: Pharo-9.0.0+build.1564.sha.f5f541cb35c8609abfec418e35d5506715c7987d (64 Bit)]
+
+ErrorLogger>>log:
+	Receiver: an ErrorLogger
+	Arguments and temporary variables: 
+		value: 	'NUM COLS ERROR'
+		working: 	File @ /home/juanjoneri/UT/AdvancedAlgorithms/pp-jjn855/smalltalk/code...etc...
+		stream: 	a ZnCharacterWriteStream
+	Receiver's instance variables: 
+		file: 	'../tests/stdout.txt'
+
+
+ErrorLogger>>logNumColsError
+	Receiver: an ErrorLogger
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		file: 	'../tests/stdout.txt'
+
+
+Table>>addRow:
+	Receiver: a Table
+	Arguments and temporary variables: 
+		newRow: 	'2 4 7 8'
+		cellFactory: 	a CellFactory
+		splitRow: 	an OrderedCollection('2' '4' '7' '8')
+	Receiver's instance variables: 
+		hasHeaders: 	false
+		headers: 	an OrderedCollection()
+		numRows: 	1
+		numCols: 	3
+		data: 	an OrderedCollection(an OrderedCollection(a NumericCell a NumericCell a N...etc...
+		logger: 	an ErrorLogger
+
+
+[ :each | self addRow: each ] in Table>>parseTable:withHeaders:
+	Receiver: a Table
+	Arguments and temporary variables: 
+		table: 	an OrderedCollection('1 3 5' '2 4 7 8' '22 30 50')
+		parseHeaders: 	false
+		each: 	'2 4 7 8'
+	Receiver's instance variables: 
+		hasHeaders: 	false
+		headers: 	an OrderedCollection()
+		numRows: 	1
+		numCols: 	3
+		data: 	an OrderedCollection(an OrderedCollection(a NumericCell a NumericCell a N...etc...
+		logger: 	an ErrorLogger
+
+
+OrderedCollection>>do:
+	Receiver: an OrderedCollection('1 3 5' '2 4 7 8' '22 30 50')
+	Arguments and temporary variables: 
+		aBlock: 	[ :each | self addRow: each ]
+		index: 	2
+	Receiver's instance variables: 
+		array: 	#('1 3 5' '2 4 7 8' '22 30 50' nil nil nil nil nil nil nil)
+		firstIndex: 	1
+		lastIndex: 	3
+
+
+Table>>parseTable:withHeaders:
+	Receiver: a Table
+	Arguments and temporary variables: 
+		table: 	an OrderedCollection('1 3 5' '2 4 7 8' '22 30 50')
+		parseHeaders: 	false
+	Receiver's instance variables: 
+		hasHeaders: 	false
+		headers: 	an OrderedCollection()
+		numRows: 	1
+		numCols: 	3
+		data: 	an OrderedCollection(an OrderedCollection(a NumericCell a NumericCell a N...etc...
+		logger: 	an ErrorLogger
+
+
+Program>>execute
+	Receiver: a Program
+	Arguments and temporary variables: 
+		in: 	a Table
+		out: 	nil
+		errorLogger: 	an ErrorLogger
+	Receiver's instance variables: 
+		hasHeaders: 	false
+		operation: 	'-print'
+		argument: 	'0'
+		tableFile: 	'../tests/1.txt'
+		outFile: 	'../tests/0.out'
+		errorFile: 	'../tests/stdout.txt'
+
+
+TableMain>>main:
+	Receiver: a TableMain
+	Arguments and temporary variables: 
+		message: 	'-print 0 ../tests/1.txt ../tests/0.out'
+		program: 	a Program
+	Receiver's instance variables: 
+a TableMain
+
+UndefinedObject>>DoIt
+	Receiver: nil
+	Arguments and temporary variables: 
+		a: 	a TableMain
+	Receiver's instance variables: 
+nil
+
+[ receiver withArgs: (context ifNil: [ #() ] ifNotNil: [ {context} ]) executeMethod: self compileDoit] in OpalCompiler>>evaluate
+	Receiver: an OpalCompiler
+	Arguments and temporary variables: 
+		value: 	nil
+	Receiver's instance variables: 
+		ast: 	DoIt
+
+	| a |
+	a := TableMain new.
+	^ a main: '-print 0 ../tests/1.txt ../t...etc...
+		source: 	a ReadStream
+		context: 	nil
+		receiver: 	nil
+		compilationContext: 	a CompilationContext
+		compilationContextClass: 	nil
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ receiver withArgs: (context ifNil: [ #() ] ifNotNil: [ {context} ]) executeMethod: self ...etc...
+	Arguments and temporary variables: 
+		exception: 	SyntaxErrorNotification
+		handlerAction: 	[ :exception | 
+			self compilationContext requestor
+           ...etc...
+	Receiver's instance variables: 
+		outerContext: 	OpalCompiler>>evaluate
+		startpc: 	a CompiledBlock: [ receiver withArgs: (context ifNil: [ #() ] ifNotNil...etc...
+		numArgs: 	0
+		receiver: 	an OpalCompiler
+
+
+OpalCompiler>>evaluate
+	Receiver: an OpalCompiler
+	Arguments and temporary variables: 
+		value: 	nil
+	Receiver's instance variables: 
+		ast: 	DoIt
+
+	| a |
+	a := TableMain new.
+	^ a main: '-print 0 ../tests/1.txt ../t...etc...
+		source: 	a ReadStream
+		context: 	nil
+		receiver: 	nil
+		compilationContext: 	a CompilationContext
+		compilationContextClass: 	nil
+
+
+OpalCompiler>>evaluate:
+	Receiver: an OpalCompiler
+	Arguments and temporary variables: 
+		textOrString: 	'|a|. a:=TableMain new. a main: ''-print 0 ../tests/1.txt ../test...etc...
+	Receiver's instance variables: 
+		ast: 	DoIt
+
+	| a |
+	a := TableMain new.
+	^ a main: '-print 0 ../tests/1.txt ../t...etc...
+		source: 	a ReadStream
+		context: 	nil
+		receiver: 	nil
+		compilationContext: 	a CompilationContext
+		compilationContextClass: 	nil
+
+
+[ 
+	result := Smalltalk compiler evaluate: aStream.
+	self hasSessionChanged
+		ifFalse: [ 
+			self stdout
+				print: result;
+				lf ] ] in EvaluateCommandLineHandler>>evaluate:
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		aStream: 	'|a|. a:=TableMain new. a main: ''-print 0 ../tests/1.txt ../tests/0.o...etc...
+		result: 	nil
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ 
+	result := Smalltalk compiler evaluate: aStream.
+	self hasSessionChanged
+		ifFalse: [ 
+...etc...
+	Arguments and temporary variables: 
+		exception: 	Error
+		handlerAction: 	[ :error | self handleError: error ]
+	Receiver's instance variables: 
+		outerContext: 	EvaluateCommandLineHandler>>evaluate:
+		startpc: 	a CompiledBlock: [ 
+	result := Smalltalk compiler evaluate: aStream.
+	...etc...
+		numArgs: 	0
+		receiver: 	an EvaluateCommandLineHandler
+
+
+EvaluateCommandLineHandler>>evaluate:
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		result: 	nil
+		aStream: 	'|a|. a:=TableMain new. a main: ''-print 0 ../tests/1.txt ../tests/0.o...etc...
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+EvaluateCommandLineHandler>>evaluateArguments
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		argumentString: 	'|a|. a:=TableMain new. a main: ''-print 0 ../tests/1.txt ../te...etc...
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+EvaluateCommandLineHandler>>activate
+	Receiver: an EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+		sourceFiles: 	nil
+
+
+EvaluateCommandLineHandler class(CommandLineHandler class)>>activateWith:
+	Receiver: EvaluateCommandLineHandler
+	Arguments and temporary variables: 
+		aCommandLine: 	a CommandLineArguments
+	Receiver's instance variables: 
+		superclass: 	STCommandLineHandler
+		methodDict: 	a MethodDictionary(#activate->EvaluateCommandLineHandler>>#activate...etc...
+		format: 	65541
+		layout: 	a FixedLayout
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#EvaluateCommandLineHandler
+		classPool: 	a Dictionary()
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'CodeImportCommandLineHandlers-Base'
+
+
+[ aCommandLinehandler activateWith: commandLine ] in PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		aCommandLinehandler: 	EvaluateCommandLineHandler
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ aCommandLinehandler activateWith: commandLine ]
+	Arguments and temporary variables: 
+		exception: 	Exit
+		handlerAction: 	[ :exit |
+		^ self handleExit: exit for: aCommandLinehandler ]
+	Receiver's instance variables: 
+		outerContext: 	PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubComm...etc...
+		startpc: 	a CompiledBlock: [ aCommandLinehandler activateWith: commandLine ]
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		aCommandLinehandler: 	EvaluateCommandLineHandler
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleSubcommand
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		handlers: 	an OrderedCollection(EvaluateCommandLineHandler)
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleArgument:
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+		aString: 	'eval'
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+[ self handleArgument: self firstArgument ] in [ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+FullBlockClosure(BlockClosure)>>on:do:
+	Receiver: [ self handleArgument: self firstArgument ]
+	Arguments and temporary variables: 
+		exception: 	Exit
+		handlerAction: 	[ :exit | 
+			"If the command line is protected by password, we ...etc...
+	Receiver's instance variables: 
+		outerContext: 	[ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ ...etc...
+		startpc: 	a CompiledBlock: [ self handleArgument: self firstArgument ]
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+[ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+	Receiver: a PharoCommandLineHandler
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		commandLine: 	a CommandLineArguments
+		session: 	a WorkingSession
+		stdout: 	a VTermOutputDriver
+		stderr: 	a VTermOutputDriver
+
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+	Receiver: [ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the comma...etc...
+	Arguments and temporary variables: 
+x
+	Receiver's instance variables: 
+		outerContext: 	PharoCommandLineHandler(BasicCommandLineHandler)>>activate
+		startpc: 	a CompiledBlock: [ [ self handleArgument: self firstArgument ]
+		on: E...etc...
+		numArgs: 	0
+		receiver: 	a PharoCommandLineHandler
+
+
+
+--- The full stack ---
+ErrorLogger>>log:
+ErrorLogger>>logNumColsError
+Table>>addRow:
+[ :each | self addRow: each ] in Table>>parseTable:withHeaders:
+OrderedCollection>>do:
+Table>>parseTable:withHeaders:
+Program>>execute
+TableMain>>main:
+UndefinedObject>>DoIt
+[ receiver withArgs: (context ifNil: [ #() ] ifNotNil: [ {context} ]) executeMethod: self compileDoit] in OpalCompiler>>evaluate
+FullBlockClosure(BlockClosure)>>on:do:
+OpalCompiler>>evaluate
+OpalCompiler>>evaluate:
+[ 
+	result := Smalltalk compiler evaluate: aStream.
+	self hasSessionChanged
+		ifFalse: [ 
+			self stdout
+				print: result;
+				lf ] ] in EvaluateCommandLineHandler>>evaluate:
+FullBlockClosure(BlockClosure)>>on:do:
+EvaluateCommandLineHandler>>evaluate:
+EvaluateCommandLineHandler>>evaluateArguments
+EvaluateCommandLineHandler>>activate
+EvaluateCommandLineHandler class(CommandLineHandler class)>>activateWith:
+[ aCommandLinehandler activateWith: commandLine ] in PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+FullBlockClosure(BlockClosure)>>on:do:
+PharoCommandLineHandler(BasicCommandLineHandler)>>activateSubCommand:
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleSubcommand
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleArgument:
+[ self handleArgument: self firstArgument ] in [ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+FullBlockClosure(BlockClosure)>>on:do:
+[ [ self handleArgument: self firstArgument ]
+		on: Exit
+		do: [ :exit | 
+			"If the command line is protected by password, we just exit the image because in non-headless mode the handleExit will let the image open. If the password protection is enabled, it is to avoid to let the access to the image."
+			self class commandLinePasswordManager hasPasswordSet
+				ifTrue: [ Smalltalk snapshot: false andQuit: true ].
+			self handleExit: exit ] ] in BasicCommandLineHandler>>activate
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+-------------------------------------------------------------------------------
+
+Processes and their stacks: 
+Process: a Process in InputEventFetcher>>waitForInput
+  stack:
+
+InputEventFetcher>>waitForInput
+InputEventFetcher>>eventLoop
+Processor in InputEventFetcher>>installEventLoop
+[ 
+			  self value.
+			  Processor terminateActive ] asContext in BlockClosure>>newProcess
+------------------------------
+
+Process: a Process in AtomicSharedQueue>>waitForNewItems
+  stack:
+
+AtomicSharedQueue>>waitForNewItems
+AtomicSharedQueue>>next
+TKTWorkerProcess>>privateNextTask
+workerLoop
+
+	[ self executeTask: self privateNextTask ] repeat in TKTWorkerProcess>>workerLoop
+BlockClosure>>repeat
+TKTWorkerProcess>>workerLoop
+MessageSend>>value
+arg1 in TKTPharoProcessProvider>>createProcessDoing:named:
+[ 
+			  self value.
+			  Processor terminateActive ] asContext in BlockClosure>>newProcess
+------------------------------
+
+Process: a Process in MorphicRenderLoop>>doOneCycleWhile:
+  stack:
+
+MorphicRenderLoop>>doOneCycleWhile:
+[
+		MorphicRenderLoop new doOneCycleWhile: [ true ]
+	] in MorphicUIManager>>spawnNewProcess
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in DelayMicrosecondTicker>>waitForUserSignalled:orExpired:
+  stack:
+
+DelayMicrosecondTicker>>waitForUserSignalled:orExpired:
+[  [runTimerEventLoop] whileTrue: 
+		[	|nowTick|
+			"Warning! Stepping <Over> the following line may lock the Image. Use <Into> or <Proceed>."
+		 	ticker waitForUserSignalled: timingSemaphore orExpired: activeDelay. 
+
+			"Invoke the api back-ends, which set the transfer-variable to nil" 		
+			suspendSemaphore ifNotNil: [ self suspendAtTimingPriority    ].
+			delayToStart     ifNotNil: [ self scheduleAtTimingPriority   ].
+			delayToStop      ifNotNil: [ self unscheduleAtTimingPriority ].
+
+			"Signal any expired delays"
+			nowTick := ticker nowTick.
+			[ 	activeDelay notNil and: [nowTick >= activeDelay resumptionTick] ] 
+					whileTrue: [
+						activeDelay timingPrioritySignalExpired.
+						activeDelay := suspendedDelays removeFirstOrNil ].
+		]
+	] in DelaySemaphoreScheduler(DelayBasicScheduler)>>runBackendLoopAtTimingPriority
+FullBlockClosure(BlockClosure)>>ensure:
+DelaySemaphoreScheduler(DelayBasicScheduler)>>runBackendLoopAtTimingPriority
+[ self runBackendLoopAtTimingPriority ] in DelaySemaphoreScheduler(DelayBasicScheduler)>>startTimerEventLoopPriority:
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in SmalltalkImage>>lowSpaceWatcher
+  stack:
+
+SmalltalkImage>>lowSpaceWatcher
+[ self lowSpaceWatcher ] in SmalltalkImage>>installLowSpaceWatcher
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in [self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+  stack:
+
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in nil
+  stack:
+
+Array(SequenceableCollection)>>do:
+[:logger | 
+		logger nextPutAll: 'Processes and their stacks: ';cr.
+		
+		Process allInstances do: [:each | | ctx |
+			logger nextPutAll: 'Process: '; print: each; cr; nextPutAll: '  stack:'; cr; cr.
+		
+			ctx := each isActiveProcess ifTrue: [ thisContext sender ] ifFalse: [ each suspendedContext ].
+			ctx ifNotNil: [
+				(ctx stackOfSize: 20) do: [:s | logger print: s; cr ]].
+			logger nextPutAll: '------------------------------'; cr; cr.	
+		]] in CommandLineUIManager>>quitFrom:withMessage:
+[
+		logStream := self openLog.
+		aMonadicBlock value: logStream.
+	] in SmalltalkImage>>logDuring:
+FullBlockClosure(BlockClosure)>>ensure:
+SmalltalkImage>>logDuring:
+[ Smalltalk 
+		logError: aString
+		inContext: aContext.
+		
+	" Print stacks of all current processes "
+
+	Smalltalk logDuring: [:logger | 
+		logger nextPutAll: 'Processes and their stacks: ';cr.
+		
+		Process allInstances do: [:each | | ctx |
+			logger nextPutAll: 'Process: '; print: each; cr; nextPutAll: '  stack:'; cr; cr.
+		
+			ctx := each isActiveProcess ifTrue: [ thisContext sender ] ifFalse: [ each suspendedContext ].
+			ctx ifNotNil: [
+				(ctx stackOfSize: 20) do: [:s | logger print: s; cr ]].
+			logger nextPutAll: '------------------------------'; cr; cr.	
+		]].
+	] in NonInteractiveUIManager(CommandLineUIManager)>>quitFrom:withMessage:
+FullBlockClosure(BlockClosure)>>ensure:
+NonInteractiveUIManager(CommandLineUIManager)>>quitFrom:withMessage:
+NonInteractiveUIManager(CommandLineUIManager)>>unhandledErrorDefaultAction:
+Error(Exception)>>unhandledErrorAction
+UnhandledError>>defaultAction
+UndefinedObject>>handleSignal:
+Context>>handleSignal:
+Context>>handleSignal:
+Context>>handleSignal:
+Context>>handleSignal:
+UnhandledError(Exception)>>signal
+UnhandledError class>>signalForException:
+Error(Exception)>>raiseUnhandledError
+Error(Exception)>>defaultAction
+------------------------------
+
+Process: a Process in WeakArray class>>finalizationProcess
+  stack:
+
+WeakArray class>>finalizationProcess
+[self finalizationProcess] in WeakArray class>>restartFinalizationProcess
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
+Process: a Process in Process>>doTerminationFromYourself
+  stack:
+
+Process>>doTerminationFromYourself
+------------------------------
+
+Process: a Process in [
+		[ true ] whileTrue: [
+			semaphore wait.
+			[self executeCallback: self nextPendingCallback]
+				on: Exception fork:  [:ex | ex pass ] ] ] in TFCallbackQueue>>forkCallbackProcess
+  stack:
+
+[
+		[ true ] whileTrue: [
+			semaphore wait.
+			[self executeCallback: self nextPendingCallback]
+				on: Exception fork:  [:ex | ex pass ] ] ] in TFCallbackQueue>>forkCallbackProcess
+[self value.
+			Processor terminateActive] in FullBlockClosure(BlockClosure)>>newProcess
+------------------------------
+
