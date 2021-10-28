@@ -74,7 +74,7 @@ Table >> print: cols [
 	| indexes newTable |
 	indexes := (cols splitOn: ',') collect: [ :i | (i asNumber) + 1 ].
 	
-	indexes do: [ :each | ((each < 1) or: (each > numCols)) ifTrue: (logger logColIndexError ) ].
+	indexes do: [ :each | ((each < 1) or: (each > numCols)) ifTrue: (logger log: each ) ].
 	
 	newTable := self class new.
 	newTable setLogger: logger.
