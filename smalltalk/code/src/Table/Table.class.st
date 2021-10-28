@@ -18,9 +18,13 @@ Class {
 { #category : #adding }
 Table >> addRow: newRow [
 	"adds a string row '123 -0.2 salmon 9h8fs0' to the end of the table"
-	| cellFactory |
+	| cellFactory splitRow |
 	cellFactory := CellFactory new.
-	data add: ((newRow splitOn: '\s+' asRegex) collect: [ :v | cellFactory create: v ]).
+	splitRow := newRow splitOn: ('\s+' asRegex).
+	(numCols = 0) ifTrue: [ numCols := (splitRow size) ]  
+					  ifFalse: [ numCols = (splitRow size) ifFalse: [ logger logNumColsError ] ].
+	
+	data add: (splitRow collect: [ :v | cellFactory create: v ]).
 	numRows := numRows + 1.
 ]
 
