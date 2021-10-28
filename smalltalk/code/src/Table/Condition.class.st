@@ -59,7 +59,7 @@ Condition >> parse: input [
 	
 	matcher := '(==|<>|<|>)([$@]?\w+),([$@]?\w+)' asRegex.
 	(matcher matches: input) ifFalse: [ logger logCondError ].
-	groups := [Array 
+	groups := (matcher matches: input) ifTrue: [Array 
 					with: (matcher subexpression: 2) 
 					with: (matcher subexpression: 3)
 					with: (matcher subexpression: 4)].
