@@ -9,3 +9,4 @@
 *.changes
 *.sources
 pharo-local/
+*/PharoDebug.log
