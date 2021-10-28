@@ -34,5 +34,5 @@ echo "Running code"
 # ^^^^^ do NOT modify this part ^^^^^
 
   # You can modify these arguments to run other test cases
-  ./simple -header -when ==50,@5 ../tests/1.txt ../tests/0.out
+  ./simple -header -print 2,0,3 ../tests/1.txt ../tests/0.out
 )
