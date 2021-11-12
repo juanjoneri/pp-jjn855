@@ -93,15 +93,15 @@ let rec all_even list =
         | head :: tail -> ((head mod 2) = 0) && (all_even tail)
 ;;
 
-let solution =all_even [4; 2; 12; 5; 6];;
+let solution = all_even [4; 2; 12; 5; 6];;
 (Printf.printf "%B\n") solution ;;
 (* - : bool = false *)
 
-let solution =all_even [4; 2; 12; 0; 6];;
+let solution = all_even [4; 2; 12; 0; 6];;
 (Printf.printf "%B\n") solution ;;
 (* - : bool = true *)
 
-let solution =all_even [];;
+let solution = all_even [];;
 (Printf.printf "%B\n") solution ;;
 (* - : bool = true *)
 
@@ -113,9 +113,25 @@ sum_square m n calculates the sum of the squares of the elements
 strictly greater than m and strictly less than n if there are any, and
 0 otherwise. You may not use any library functions. *)
 
-let rec sum_square m n = failwith "not implemented" ;;
+let rec sum_square m n = 
+    if (m + 1) >= n then 0
+    else ((m + 1) * (m + 1)) + sum_square (m + 1) n
+;;
 
-(* sum_square 3 9;; *)
+let solution = sum_square 3 9;;
+(Printf.printf "%d\n") solution ;;
+(* - : int = 190 *)
+
+let solution = sum_square 8 9;;
+(Printf.printf "%d\n") solution ;;
+(* - : int = 0 *)
+
+let solution = sum_square 0 2;;
+(Printf.printf "%d\n") solution ;;
+(* - : int = 1 *)
+
+let solution = sum_square (-9) (-3);;
+(Printf.printf "%d\n") solution ;;
 (* - : int = 190 *)
 
 
