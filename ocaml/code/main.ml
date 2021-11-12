@@ -68,7 +68,17 @@ Printf.printf "(%d, %d)\n" a  b ;;
 let solution = separate (fun x -> x > 0) [-3; 5; 2; 0 ; -90 ; 0];;
 let a, b = solution ;;
 Printf.printf "(%d, %d)\n" a  b ;;
-(* - : int * int = (2, 2) *)
+(* - : int * int = (2, 4) *)
+
+let solution = separate (fun x -> false) [-3; 5; 2; 0 ; -90 ; 0];;
+let a, b = solution ;;
+Printf.printf "(%d, %d)\n" a  b ;;
+(* - : int * int = (0, 6) *)
+
+let solution = separate (fun x -> true) [-3; 5; 2; 0 ; -90 ; 0];;
+let a, b = solution ;;
+Printf.printf "(%d, %d)\n" a  b ;;
+(* - : int * int = (6, 0) *)
 
 
 Printf.printf "\n\n%s\n" "Problem 4" ;; 
@@ -77,10 +87,23 @@ Printf.printf "\n\n%s\n" "Problem 4" ;;
 every element in the input list is even. You may use mod for testing
 whether an integer is even. You may not use any other library functions. *)
 
-let rec all_even list = failwith "not implemented" ;;
+let rec all_even list = 
+    match list with
+        | [] -> true
+        | head :: tail -> ((head mod 2) = 0) && (all_even tail)
+;;
 
-(* all_even [4; 2; 12; 5; 6];; *)
+let solution =all_even [4; 2; 12; 5; 6];;
+(Printf.printf "%B\n") solution ;;
 (* - : bool = false *)
+
+let solution =all_even [4; 2; 12; 0; 6];;
+(Printf.printf "%B\n") solution ;;
+(* - : bool = true *)
+
+let solution =all_even [];;
+(Printf.printf "%B\n") solution ;;
+(* - : bool = true *)
 
 
 Printf.printf "\n\n%s\n" "Problem 5" ;; 
