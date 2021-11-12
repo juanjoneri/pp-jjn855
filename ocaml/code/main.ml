@@ -225,10 +225,15 @@ the same results as all_even of Problem 4. You may use mod for testing
 whether an integer is even. There should be no use of recursion or
 other library functions in defining all_even_rec. *)
 
-let all_even_base = failwith "not implemented" ;;
-let all_even_rec r x = failwith "not implemented" ;;
+let all_even_base = true ;;
+let all_even_rec r x = ((x mod 2) = 0) && r 
 
-(* List.fold_left all_even_rec all_even_base [4; 2; 12; 5; 6];; *)
+let solution = List.fold_left all_even_rec all_even_base [4; 2; 12; 5; 6];;
+Printf.printf "%B\n" solution;;
+(* - : bool = false *)
+
+let solution = List.fold_left all_even_rec all_even_base [4; 2; 12; 0; 6];;
+Printf.printf "%B\n" solution;;
 (* - : bool = false *)
 
 
