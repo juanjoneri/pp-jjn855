@@ -5,9 +5,17 @@ remove_all list m returns a list in the same order as the input list,
 but with all the numbers equal to m removed. You may not use any
 library functions. *)
 
-let rec remove_all list m = failwith "not implemented"
+let rec remove_all list m =
+    match list with
+        | [] -> []
+        | head :: tail -> 
+        (match head with
+            | x when x = m -> (remove_all tail m)
+            | _ -> head :: (remove_all tail m))
+;;
 
-(* remove_all [2; 4; 3; 7; 2; 8; 2] 2;; *)
+let solution = remove_all [2; 4; 3; 7; 2; 8; 2] 2;;
+List.iter (Printf.printf "%d ") solution ;;
 (* - : int list = [4; 3; 7; 8] *)
 
 (* Problem 2 *)
