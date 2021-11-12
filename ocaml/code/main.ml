@@ -1,4 +1,5 @@
 
+Printf.printf "Problem 1\n"
 (* Problem 1 *)
 (* Write a function remove_all : int list -> int -> int list such that
 remove_all list m returns a list in the same order as the input list,
@@ -18,18 +19,27 @@ let solution = remove_all [2; 4; 3; 7; 2; 8; 2] 2;;
 List.iter (Printf.printf "%d ") solution ;;
 (* - : int list = [4; 3; 7; 8] *)
 
+Printf.printf "\n\nProblem 2\n"
 (* Problem 2 *)
 (* Write a function all_from_to : int -> int -> (int -> bool) -> int
 such that all_from_to m n p tells the number of integers greater than
 or equal to m and also less than or equal to n which satisfy a given
 predicate p : int -> bool.  You may not use any library functions. *)
 
-let rec all_from_to m n p = failwith "not implemented"
+let rec all_from_to m n p = 
+    if m > n then 0
+    else
+        (if p m then 1 + (all_from_to (m + 1) n p)
+        else (all_from_to (m + 1) n p))
 
-(* all_from_to (-5) 7 ((<) 0);; *)
+;;
+
+let solution = all_from_to (-5) 7 ((<) 0);;
+(Printf.printf "%d\n") solution ;;
 (* - : int = 7 *)
 
-(* all_from_to 3 7 (fun x -> x mod 2 = 0);; *)
+let solution = all_from_to 3 7 (fun x -> x mod 2 = 0);;
+(Printf.printf "%d\n") solution ;;
 (* - : int = 2 *)
 
 (* Problem 3 *)
