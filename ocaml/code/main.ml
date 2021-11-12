@@ -143,10 +143,29 @@ concatenated together, with a single space inserted between
 consecutive elements. Also all strings equal to s should be
 excluded. You may not use any library functions. *)
 
-let rec concat s list = failwith "not implemented" ;;
+let rec concat s list =
+    match list with
+        | [] -> ""
+        | head :: tail -> 
+            if head = s then (concat s tail)
+            else head ^ " " ^ (concat s tail)
+;;
 
-(* concat "hi" ["How"; "are"; "hi"; "you?"];; *)
+let solution = concat "hi" ["How"; "are"; "hi"; "you?"];;
+(Printf.printf "%s\n") solution ;;
 (* - : string = "How are you?" *)
+
+let solution = concat "a" ["a"; "a"; "a"];;
+(Printf.printf "%s\n") solution ;;
+(* - : string = "" *)
+
+let solution = concat "a" ["aa"; "bb"];;
+(Printf.printf "%s\n") solution ;;
+(* - : string = "aa bb" *)
+
+let solution = concat "" ["Hola"; "como"; "estas"; "?"];;
+(Printf.printf "%s\n") solution ;;
+(* - : string = "aa bb" *)
 
 (* For problems 7 through 9, you will be supplying arguments to the
 higher-order functions List.fold_right and List.fold_left. You should
