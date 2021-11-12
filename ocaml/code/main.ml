@@ -180,10 +180,13 @@ int -> int list -> int list such that (fun list -> List.fold_right
 remove_all of Problem 1. There should be no use of recursion or
 library functions in defining remove_all_rec. *)
 
-let remove_all_base = failwith "not implemented" ;;
-let remove_all_rec m n r = failwith "not implemented" ;;
-
-(* (fun list -> List.fold_right (remove_all_rec 2) list remove_all_base) [2; 4; 3; 7; 2; 8; 2];; *)
+let remove_all_base = [] ;;
+let remove_all_rec m n r = 
+    if m = n then r
+    else n :: r
+;;
+let solution = (fun list -> List.fold_right (remove_all_rec 2) list remove_all_base) [2; 4; 3; 7; 2; 8; 2];;
+List.iter (Printf.printf "%d ") solution ;;
 (* - : int list = [4; 3; 7; 8] *)
 
 
