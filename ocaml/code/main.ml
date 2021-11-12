@@ -198,11 +198,23 @@ List.fold_right (separate_rec p) list separate_base) computes the same
 results as separate of Problem 3. There should be no use of recursion
 or library functions in defining separate_rec. *)
 
-let separate_base = failwith "not implemented" ;;
-let separate_rec p x (tl, fl) = failwith "not implemented" ;;
+let add_tuples (a, b) (c, d) = (a + c, b + d) ;;
 
-(* (fun p -> fun list -> List.fold_right (separate_rec p) list separate_base) (fun x -> x mod 2 = 0) [-3; 5; 2; -6];; *)
+let separate_base = (0, 0) ;;
+let separate_rec p x (tl, fl) =
+    if p x then (add_tuples (1, 0) (tl, fl))
+    else (add_tuples (0, 1) (tl, fl))
+;;
+
+let solution = (fun p -> fun list -> List.fold_right (separate_rec p) list separate_base) (fun x -> x mod 2 = 0) [-3; 5; 2; -6];;
+let a, b = solution ;;
+Printf.printf "(%d, %d)\n" a  b ;;
 (* - : int * int = (2, 2) *)
+
+let solution = (fun p -> fun list -> List.fold_right (separate_rec p) list separate_base) (fun x -> false) [-3; 5; 2; -6];;
+let a, b = solution ;;
+Printf.printf "(%d, %d)\n" a  b ;;
+(* - : int * int = (0, 4) *)
 
 
 Printf.printf "\n\n%s\n" "Problem 9" ;; 
