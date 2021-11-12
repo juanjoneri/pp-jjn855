@@ -244,7 +244,25 @@ computes the same results as concat of Problem 6. The definition of
 concat2 may use List.fold_left : ('a -> 'b -> 'a) -> 'a -> 'b list ->
 'a but no direct use of recursion, and no other library functions. *)
 
-let concat2 s list = failwith "not implemented" ;;
+let concat_rec s left right =
+    if left = s then right
+    else left ^ " " ^ right
+;;
 
-(* concat2 "hi" ["How"; "are"; "hi"; "you?"];; *)
+let concat2 s list = List.fold_right (concat_rec s) list ""
+
+let solution = concat2 "hi" ["How"; "are"; "hi"; "you?"];;
+(Printf.printf "%s\n") solution ;;
 (* - : string = "How are you?" *)
+
+let solution = concat2 "a" ["a"; "a"; "a"];;
+(Printf.printf "%s\n") solution ;;
+(* - : string = "" *)
+
+let solution = concat2 "a" ["aa"; "bb"];;
+(Printf.printf "%s\n") solution ;;
+(* - : string = "aa bb" *)
+
+let solution = concat2 "" ["Hola"; "como"; "estas"; "?"];;
+(Printf.printf "%s\n") solution ;;
+(* - : string = "aa bb" *)
