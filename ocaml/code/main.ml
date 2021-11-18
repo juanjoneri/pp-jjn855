@@ -76,6 +76,9 @@ excluded. You may not use any library functions. *)
 let rec concat s list =
     match list with
         | [] -> ""
+        | head :: [] -> 
+            if head = s then ""
+            else head
         | head :: tail -> 
             if head = s then (concat s tail)
             else head ^ " " ^ (concat s tail)
@@ -121,7 +124,7 @@ whether an integer is even. There should be no use of recursion or
 other library functions in defining all_even_rec. *)
 
 let all_even_base = true ;;
-let all_even_rec r x = ((x mod 2) = 0) && r 
+let all_even_rec r x = ((x mod 2) = 0) && r ;;
 
 (* Problem 10 *)
 (* Write a function concat2 : string -> string list -> string that
@@ -129,9 +132,11 @@ computes the same results as concat of Problem 6. The definition of
 concat2 may use List.fold_left : ('a -> 'b -> 'a) -> 'a -> 'b list ->
 'a but no direct use of recursion, and no other library functions. *)
 
+let concat_base = "" ;;
 let concat_rec s left right =
-    if left = s then right
+    if right = s then left
+    else if left = "" then right
     else left ^ " " ^ right
 ;;
 
-let concat2 s list = List.fold_right (concat_rec s) list ""
+let concat2 s list = List.fold_left (concat_rec s) concat_base list ;;
